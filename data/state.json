@@ -1,5 +1,9 @@
 {
   "B0GSVFV3R4": {
-    "consecutive_failures": 5
+    "auto_tier": "hot",
+    "consecutive_failures": 0,
+    "last_checked_ts": "2026-07-31T21:07:49+00:00",
+    "last_price": 3359.0,
+    "last_score": 53.3
   }
 }
