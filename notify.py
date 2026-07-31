@@ -9,12 +9,12 @@ from email.message import EmailMessage
 import requests
 
 NTFY_TOPIC = os.environ.get("NTFY_TOPIC", "").strip()
-NTFY_SERVER = os.environ.get("NTFY_SERVER", "https://ntfy.sh").rstrip("/")
-SMTP_HOST = os.environ.get("SMTP_HOST", "smtp.gmail.com")
-SMTP_PORT = int(os.environ.get("SMTP_PORT", "587"))
+NTFY_SERVER = (os.environ.get("NTFY_SERVER") or "https://ntfy.sh").rstrip("/")
+SMTP_HOST = os.environ.get("SMTP_HOST") or "smtp.gmail.com"
+SMTP_PORT = int(os.environ.get("SMTP_PORT") or 587)
 SMTP_USER = os.environ.get("SMTP_USER", "").strip()
 SMTP_PASS = os.environ.get("SMTP_PASS", "").strip()
-MAIL_TO = os.environ.get("MAIL_TO", SMTP_USER).strip()
+MAIL_TO = (os.environ.get("MAIL_TO") or SMTP_USER).strip()
 
 
 def _rupees(x):
