@@ -5,6 +5,7 @@ parse several selector families because Amazon A/B-tests its price markup.
 Returns None on a hard block so the caller can just skip this cycle -- with
 48 cycles a day, missing a few is harmless.
 """
+import html as _html
 import random
 import re
 import time
@@ -130,17 +131,35 @@ def fetch(asin, session=None, attempts=3):
 # instead of waiting for us to accumulate our own history.
 # ---------------------------------------------------------------------------
 
+CUR = r"\s*(?:\u20b9|Rs\.?|INR)?\s*"
+NUM = r"([\d,]+(?:\.\d+)?)"
+
+# Two independent parse routes. The meta description is the cleanest, but the
+# visible body carries the same figures under different labels, so if the page
+# markup shifts we still get a reading instead of a silent miss.
 PH_FIELDS = {
-    "low": r"Lowest Price:\s*\u20b9\s*([\d,]+(?:\.\d+)?)",
-    "avg": r"Average Price:\s*\u20b9\s*([\d,]+(?:\.\d+)?)",
-    "high": r"Highest Price:\s*\u20b9\s*([\d,]+(?:\.\d+)?)",
-    "mrp": r"MRP:\s*\u20b9\s*([\d,]+(?:\.\d+)?)",
-    "price": r"Price in India on [^:]*:\s*\u20b9\s*([\d,]+(?:\.\d+)?)",
+    "low": [rf"Lowest Price:{CUR}{NUM}", rf"Lowest:\s*{CUR}{NUM}"],
+    "avg": [rf"Average Price:{CUR}{NUM}", rf"Average:\s*{CUR}{NUM}"],
+    "high": [rf"Highest Price:{CUR}{NUM}", rf"Highest:\s*{CUR}{NUM}"],
+    "mrp": [rf"MRP:{CUR}{NUM}"],
+    "price": [rf"Price in India on [^:]*:{CUR}{NUM}"],
 }
 
 
 def _num(m):
     return float(m.group(1).replace(",", "")) if m else None
+
+
+def _first_match(patterns, *texts):
+    """First pattern that hits, across each candidate text in priority order."""
+    for text in texts:
+        if not text:
+            continue
+        for pat in patterns:
+            v = _num(re.search(pat, text))
+            if v:
+                return v
+    return None
 
 
 def fetch_pricehistory(ph_url, asin=None, session=None, attempts=3):
@@ -166,10 +185,22 @@ def fetch_pricehistory(ph_url, asin=None, session=None, attempts=3):
         )
         desc = meta.get("content", "") if meta else ""
 
-        vals = {k: _num(re.search(p, desc)) for k, p in PH_FIELDS.items()}
+        # Entities first: the rupee sign is often served as &#8377;.
+        page = _html.unescape(r.text)
+        desc = _html.unescape(desc)
+        body = soup.get_text(" ", strip=True)
+
+        vals = {k: _first_match(p, desc, body, page) for k, p in PH_FIELDS.items()}
+        if not vals["price"]:
+            # Body carries the live price without a label; take the first
+            # currency figure that is not the struck-through MRP.
+            cands = [float(x.replace(",", "")) for x in
+                     re.findall(rf"\u20b9\s*{NUM}", page)]
+            vals["price"] = cands[0] if cands else None
+
         if not vals["price"]:
             print(f"    [ph] attempt {i+1}: HTTP 200 but price not parsed. "
-                  f"len={len(r.text)} desc={desc[:200]!r}")
+                  f"len={len(r.text)} desc={desc[:120]!r} body={body[:200]!r}")
             time.sleep(3 + i * 4)
             continue
 
