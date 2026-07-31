@@ -88,8 +88,28 @@ def evaluate(asin, obs, product, min_samples=8):
         v["reasons"].append(f"At or below your target of Rs {target:,.0f}")
 
     if n < min_samples:
-        v["reasons"].append(f"Building history ({n} samples) - statistical rules idle")
-        v["score"] = 100 if v["alert"] else 0
+        # Cold start: fall back on the lifetime low/avg/high the source site
+        # publishes, so buy-zone logic is useful from the very first run.
+        lo, avg, hi = obs.get("site_low"), obs.get("site_avg"), obs.get("site_high")
+        if lo and hi and hi > lo:
+            v.update({"min90": lo, "median": avg or (lo + hi) / 2, "max90": hi,
+                      "basis": "lifetime stats from source site"})
+            v["score"] = round(min(100, 100 * (hi - price) / (hi - lo)), 1)
+            if price <= lo * 1.005:
+                v["alert"] = True
+                v["reasons"].append(f"At the lowest price ever recorded (Rs {lo:,.0f})")
+            elif price <= lo * 1.03:
+                v["alert"] = True
+                v["reasons"].append(
+                    f"Within 3% of the all-time low (Rs {lo:,.0f})")
+            elif avg and price <= avg * 0.93:
+                v["alert"] = True
+                v["reasons"].append(
+                    f"{(1 - price / avg) * 100:.1f}% below the lifetime average")
+            v["reasons"].append(f"Own history still building ({n} samples)")
+        else:
+            v["reasons"].append(f"Building history ({n} samples) - statistical rules idle")
+            v["score"] = 100 if v["alert"] else 0
         return v
 
     p10 = percentile(prices, 10)

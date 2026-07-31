@@ -118,3 +118,74 @@ def fetch(asin, session=None, attempts=3):
         }
 
     return None
+
+
+# ---------------------------------------------------------------------------
+# Price-history-site source (primary).
+#
+# Amazon blocks datacenter IPs, which is fatal for a GitHub Actions runner.
+# pricehistory.app server-renders everything we need into one meta tag and does
+# not block datacenter traffic, so we parse that instead. Bonus: it hands us the
+# lifetime low/avg/high immediately, so buy-zone logic works from the first run
+# instead of waiting for us to accumulate our own history.
+# ---------------------------------------------------------------------------
+
+PH_FIELDS = {
+    "low": r"Lowest Price:\s*\u20b9\s*([\d,]+(?:\.\d+)?)",
+    "avg": r"Average Price:\s*\u20b9\s*([\d,]+(?:\.\d+)?)",
+    "high": r"Highest Price:\s*\u20b9\s*([\d,]+(?:\.\d+)?)",
+    "mrp": r"MRP:\s*\u20b9\s*([\d,]+(?:\.\d+)?)",
+    "price": r"Price in India on [^:]*:\s*\u20b9\s*([\d,]+(?:\.\d+)?)",
+}
+
+
+def _num(m):
+    return float(m.group(1).replace(",", "")) if m else None
+
+
+def fetch_pricehistory(ph_url, asin=None, session=None, attempts=3):
+    """Parse a pricehistory.app product page. Returns obs dict or None."""
+    sess = session or requests.Session()
+
+    for i in range(attempts):
+        try:
+            r = sess.get(ph_url, headers=_headers(), timeout=25)
+        except requests.RequestException:
+            time.sleep(3 + i * 4)
+            continue
+        if r.status_code != 200:
+            time.sleep(3 + i * 4)
+            continue
+
+        soup = BeautifulSoup(r.text, "lxml")
+        meta = soup.find("meta", attrs={"name": "description"}) or soup.find(
+            "meta", attrs={"property": "og:description"}
+        )
+        desc = meta.get("content", "") if meta else ""
+
+        vals = {k: _num(re.search(p, desc)) for k, p in PH_FIELDS.items()}
+        if not vals["price"]:
+            time.sleep(3 + i * 4)
+            continue
+
+        title_el = soup.find("meta", attrs={"property": "og:title"})
+        title = title_el.get("content", "").replace(" - Price History", "") if title_el else None
+
+        # Site reports the last price it saw; absent an explicit stock signal we
+        # assume in stock and let Amazon's own page correct it if ever consulted.
+        return {
+            "asin": asin,
+            "price": vals["price"],
+            "mrp": vals["mrp"],
+            "title": title,
+            "in_stock": True,
+            "availability": "",
+            "seller": None,
+            "shipper": None,
+            "site_low": vals["low"],
+            "site_avg": vals["avg"],
+            "site_high": vals["high"],
+            "source": "pricehistory",
+        }
+
+    return None

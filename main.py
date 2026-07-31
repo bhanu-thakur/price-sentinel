@@ -67,7 +67,10 @@ def main():
         if i:
             time.sleep(random.uniform(4, 11))  # be a polite, boring client
 
-        obs = fetcher.fetch(asin, session=session)
+        ph_url = product.get("ph_url")
+        obs = fetcher.fetch_pricehistory(ph_url, asin, session=session) if ph_url else None
+        if not obs:
+            obs = fetcher.fetch(asin, session=session)
         rec = state.setdefault(asin, {})
 
         if not obs:
@@ -87,7 +90,7 @@ def main():
         rec["auto_tier"] = "hot" if v["score"] >= 60 else product.get("tier", "warm")
 
         flag = "ALERT" if v["alert"] else "     "
-        print(f"  {flag} {asin}: Rs {obs['price']:,.0f} score {v['score']} ({v.get('percentile', 0):.0f}pct)")
+        print(f"  {flag} {asin}: Rs {obs['price']:,.0f} score {v['score']} via {obs.get('source', 'amazon')}")
 
         if analyze.should_notify(v, state):
             alerts.append(v)
