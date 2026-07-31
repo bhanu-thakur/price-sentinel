@@ -159,12 +159,48 @@ rotating headers. Running cost: **₹0**.
 
 ---
 
+## How many products can this track?
+
+GitHub is not the limit. On a **public** repo Actions minutes are unlimited, so the
+binding constraint is how long one cycle takes when every product happens to be due
+at once (~9s each: fetch plus a randomised 4–11s gap).
+
+| Products | Worst-case cycle | Verdict |
+|---|---|---|
+| 25 | ~4 min | comfortable |
+| 50 | ~8 min | comfortable |
+| 75 | ~11 min | fine |
+| 100 | ~15 min | near the 20-min job timeout |
+| 130+ | >20 min | would be cut off |
+
+**Practical ceiling: ~75 products.** To go higher, either drop the inter-product sleep
+in `main.py`, raise `timeout-minutes` in the workflow, or split the watchlist across
+parallel matrix jobs.
+
+Two caveats that matter more than the raw number:
+
+- **Keep the repo public.** On a private repo the 2,000 free minutes/month cap binds
+  first, and at 48 runs/day you exhaust them regardless of how few products you track.
+- **Be a good citizen.** At 50 products the tracker makes roughly 400 requests/day to
+  pricehistory.app (~17/hour) — considerate for a free community site. At several
+  hundred products you would be a noticeable load; raise the tier intervals if you
+  scale up that far.
+
+Repo growth is a non-issue: price history appends ~60 bytes per product per check,
+so 50 products is roughly 50 MB/year before git compression, against GitHub's ~1 GB
+guidance.
+
+---
+
 ## Notes for future debugging
 
 Two bugs during build, both of which failed *silently* — worth knowing the shape of them:
 
 - **Unset secrets arrive as empty strings**, not missing keys. `os.environ.get("X", default)`
   returns `""`, not the default. Use `os.environ.get("X") or default`.
+- **The dashboard downsamples to one point per day** (`daily_low`). Charting every
+  30-minute sample meant ~156 KB of committed HTML per product, rewritten 48×/day.
+  Daily lows are what matter for a price tracker and are 41× smaller.
 - **Don't advertise `Accept-Encoding: br`** unless `brotli` is installed. `requests`
   cannot decode Brotli on its own and hands back binary garbage with HTTP 200, which
   looks exactly like an IP block. This cost a long detour — the fetcher now requests

@@ -5,6 +5,22 @@ from datetime import datetime, timezone
 
 import analyze
 
+
+def daily_low(hist):
+    """Collapse intra-day samples to one point per day (the day's lowest).
+
+    At 48 samples/day a 180-day chart carries 8,640 points per product, which
+    bloats the committed HTML to ~156 KB each and is invisible on a 120px
+    sparkline anyway. The daily minimum is also the number that matters for a
+    price tracker - it is the price you could actually have bought at.
+    """
+    by_day = {}
+    for ts, price in hist:
+        key = ts.date()
+        if key not in by_day or price < by_day[key][1]:
+            by_day[key] = (ts, price)
+    return [by_day[k] for k in sorted(by_day)]
+
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "docs", "index.html")
 
@@ -35,7 +51,7 @@ def build(products, state):
     cards, scripts = [], []
     for i, p in enumerate(products):
         asin = p["asin"]
-        hist = analyze.load_history(asin, days=180)
+        hist = daily_low(analyze.load_history(asin, days=180))
         if not hist:
             continue
         rec = state.get(asin, {})
