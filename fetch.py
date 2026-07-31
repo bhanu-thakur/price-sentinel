@@ -150,10 +150,13 @@ def fetch_pricehistory(ph_url, asin=None, session=None, attempts=3):
     for i in range(attempts):
         try:
             r = sess.get(ph_url, headers=_headers(), timeout=25)
-        except requests.RequestException:
+        except requests.RequestException as e:
+            print(f"    [ph] attempt {i+1}: network error {e.__class__.__name__}: {e}")
             time.sleep(3 + i * 4)
             continue
         if r.status_code != 200:
+            print(f"    [ph] attempt {i+1}: HTTP {r.status_code}, body starts: "
+                  f"{r.text[:160]!r}")
             time.sleep(3 + i * 4)
             continue
 
@@ -165,6 +168,8 @@ def fetch_pricehistory(ph_url, asin=None, session=None, attempts=3):
 
         vals = {k: _num(re.search(p, desc)) for k, p in PH_FIELDS.items()}
         if not vals["price"]:
+            print(f"    [ph] attempt {i+1}: HTTP 200 but price not parsed. "
+                  f"len={len(r.text)} desc={desc[:200]!r}")
             time.sleep(3 + i * 4)
             continue
 
