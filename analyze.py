@@ -60,10 +60,26 @@ def percentile(sorted_vals, p):
     return sorted_vals[lo] + (sorted_vals[hi] - sorted_vals[lo]) * (k - lo)
 
 
+# Two windows on purpose.
+#
+# RECENT (180d) answers "is this cheap versus how it has been trading lately?"
+# It adapts to price drift - a product that launched at 4,500 and now sits at
+# 3,300 should not look like a permanent bargain.
+#
+# LIFETIME (from the source site, effectively max-available) answers "is this a
+# festival-grade low?" Big Billion Days / Great Indian Festival happen once a
+# year, so any window shorter than a year is structurally blind to them.
+#
+# An alert fires on EITHER. Using only the long window would hide ordinary good
+# deals behind an unbeatable annual floor; using only the short one would miss
+# the biggest drop of the year entirely.
+LOOKBACK_DAYS = 180
+
+
 def evaluate(asin, obs, product, min_samples=8):
     """Return a verdict dict. 'alert' True means it is worth waking you up."""
     price = obs["price"]
-    hist = load_history(asin, days=90)
+    hist = load_history(asin, days=LOOKBACK_DAYS)
     prices = sorted(p for _, p in hist)
     n = len(prices)
 
@@ -131,15 +147,39 @@ def evaluate(asin, obs, product, min_samples=8):
 
     if price <= lo:
         v["alert"] = True
-        v["reasons"].append("Lowest price in 90 days")
+        v["reasons"].append(f"Lowest price in {LOOKBACK_DAYS} days")
     elif rank <= 10 and price <= median * 0.95:
         v["alert"] = True
         v["reasons"].append(
-            f"Bottom {rank:.0f}% of 90-day range, {abs(v['vs_median_pct']):.1f}% under median"
+            f"Bottom {rank:.0f}% of {LOOKBACK_DAYS}-day range, "
+            f"{abs(v['vs_median_pct']):.1f}% under median"
         )
     elif rank <= 25 and price <= median * 0.93:
         v["alert"] = True
-        v["reasons"].append(f"Steep drop: {abs(v['vs_median_pct']):.1f}% under 90-day median")
+        v["reasons"].append(
+            f"Steep drop: {abs(v['vs_median_pct']):.1f}% under {LOOKBACK_DAYS}-day median")
+
+    # Lifetime overlay - this is what catches the annual sale events.
+    life_lo, life_avg = obs.get("site_low"), obs.get("site_avg")
+    life_hi = obs.get("site_high")
+    if life_lo:
+        v["life_low"], v["life_avg"], v["life_high"] = life_lo, life_avg, life_hi
+        if price <= life_lo * 1.005:
+            v["alert"] = True
+            v["reasons"].append(f"Lowest price EVER recorded (Rs {life_lo:,.0f})")
+        elif price <= life_lo * 1.03:
+            v["alert"] = True
+            v["reasons"].append(f"Within 3% of the all-time low (Rs {life_lo:,.0f})")
+        elif life_avg and price <= life_avg * 0.93:
+            v["alert"] = True
+            v["reasons"].append(
+                f"{(1 - price / life_avg) * 100:.1f}% below the lifetime average")
+        # Score against the LIFETIME range, not the recent one. The 180-day span
+        # is narrow enough that any new low saturates it, which would rate a
+        # modest dip the same as a festival-grade one. The lifetime range is the
+        # meaningful absolute scale.
+        if life_hi and life_hi > life_lo:
+            v["score"] = round(min(100, 100 * (life_hi - price) / (life_hi - life_lo)), 1)
 
     # Trap detection - stops you celebrating a fake discount.
     if obs.get("mrp") and obs["mrp"] > 0:

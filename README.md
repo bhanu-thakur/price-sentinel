@@ -106,18 +106,28 @@ is auto-promoted to `hot`.
 Every check appends to `data/<ASIN>.csv`, committed to the repo — your price history
 is yours permanently, not locked inside someone's app.
 
-**Once it has 8+ of its own samples**, an alert fires when any of these hold:
+It judges every price against **two windows at once**, and alerts if *either* fires.
+
+**Recent (180 days)** — "is this cheap versus how it has been trading lately?"
+Adapts to price drift, so a product that launched at ₹4,500 and now sits at ₹3,300
+doesn't look like a permanent bargain.
 
 - Price at or below your `target`
-- **Lowest in 90 days**
-- Bottom 10% of the 90-day range *and* ≥5% under the median
+- **Lowest in 180 days**
+- Bottom 10% of the 180-day range *and* ≥5% under the median
 - Bottom 25% *and* ≥7% under the median (a sharp sudden drop)
 
-**Before that**, it uses the source site's lifetime figures:
+**Lifetime (max available)** — "is this a festival-grade low?"
+Big Billion Days and the Great Indian Festival run once a year, so any window
+shorter than a year is structurally blind to the biggest drop of the year. These
+figures come from the source site, so they work from the very first run.
 
 - At the lowest price ever recorded
 - Within 3% of the all-time low
 - ≥7% below the lifetime average
+
+Both are needed. Lifetime-only would hide ordinary good deals behind an unbeatable
+annual floor; recent-only would miss the annual sale entirely.
 
 Then these **suppress** the alert:
 
@@ -129,9 +139,10 @@ And these are **surfaced inside** the alert rather than hidden:
 - Third-party seller rather than Amazon-fulfilled
 - MRP inflated relative to real trading history (fake-discount detection)
 
-`score` (0–100) blends how cheap the price is within its range with how volatile the
-product is, so a 5% dip on a rock-steady product outranks 5% on one that swings 20%
-monthly.
+`score` (0–100) is measured against the **lifetime** range, not the recent one. The
+180-day span is narrow enough that any new low saturates it, which would rate a modest
+dip identically to a festival-grade one. On the Gillette trimmer (lifetime ₹2,799–₹3,999)
+that gives ₹3,359 → 53, ₹3,250 → 62, ₹2,899 → 92, ₹2,799 → 100.
 
 ---
 
