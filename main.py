@@ -83,6 +83,11 @@ def main():
         rec["consecutive_failures"] = 0
         rec["last_checked_ts"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
         rec["last_price"] = obs["price"]
+        # Persist the source site's lifetime figures so the dashboard can show a
+        # meaningful floor before we have 180 days of our own history.
+        for k in ("site_low", "site_avg", "site_high"):
+            if obs.get(k):
+                rec[k] = obs[k]
 
         analyze.append_observation(asin, obs)
         v = analyze.evaluate(asin, obs, product)

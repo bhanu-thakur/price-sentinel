@@ -42,10 +42,18 @@ def build(products, state):
         price = hist[-1][1]
         prices = sorted(x[1] for x in hist)
         lo, med = prices[0], analyze.percentile(prices, 50)
+        life_lo, life_hi = rec.get("site_low"), rec.get("site_high")
         score = rec.get("last_score", 0)
         hit = score >= 60
         labels = json.dumps([t.strftime("%d %b") for t, _ in hist])
         series = json.dumps([round(v, 2) for _, v in hist])
+        if life_lo:
+            meta_line = (f"all-time low &#8377;{life_lo:,.0f}"
+                         + (f" &middot; high &#8377;{life_hi:,.0f}" if life_hi else "")
+                         + f" &middot; own {len(hist)} samples &middot; score {score}/100")
+        else:
+            meta_line = (f"low &#8377;{lo:,.0f} &middot; median &#8377;{med:,.0f} "
+                         f"&middot; score {score}/100")
         name = (p.get("name") or asin)[:70]
         url = p.get("url") or f"https://www.amazon.in/dp/{asin}"
 
@@ -54,8 +62,7 @@ def build(products, state):
             f'<div class="name"><a href="{url}" target="_blank">{name}</a>'
             f'{"<span class=badge>BUY ZONE</span>" if hit else ""}</div>'
             f'<div class="price{" hit" if hit else ""}">&#8377;{price:,.0f}</div>'
-            f'<div class="meta">180d low &#8377;{lo:,.0f} &middot; median &#8377;{med:,.0f} '
-            f'&middot; score {score}/100</div>'
+            f'<div class="meta">{meta_line}</div>'
             f'<canvas id="c{i}"></canvas></div>'
         )
         scripts.append(
