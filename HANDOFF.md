@@ -211,17 +211,23 @@ drop should not feel like a game, and ornament competes with the numbers.
 
 - **The score meter is the weakest element.** It is a number pretending to be a gauge.
   A sparkline in the same space may inform more. Worth testing both.
-- Charts are lazy-rendered and use separate daily-low JSON files. The page sorts
-  buy, watch, and idle products without non-functional filter chips.
-- Dashboard data is generated from committed product/listing state; no illustrative
-  product data is included.
+- Charts are lazy-rendered from separate daily-low JSON files, verified by execution.
+  The page sorts buy, watch and idle without non-functional filter chips.
+- Chart range windows (1M/3M/6M/1Y/All) are measured back from the newest data point,
+  not from today, so a stale product shows an old window under a current-sounding label.
+  Unresolved.
 
 ### Implementation note
 
-`dashboard.py` now emits the verdict-first expandable rows, status rails, range
-controls, and lazy Chart.js loading. Chart data is stored separately under
-`docs/chart-data/` and generated from `daily_low()`; keep the generator dependency-free
-apart from the existing Chart.js CDN and do not revert to raw samples.
+`dashboard.py` emits the verdict-first expandable rows, status rails, range controls,
+and lazy chart loading. Chart data is written to `docs/chart-data/*.json` from
+`daily_low()` and fetched only when a row expands — do not revert to raw samples, and
+do not inline the series into the page.
+
+Chart.js was dropped in favour of a hand-rolled canvas renderer (~40 lines in `SCRIPT`).
+This is a deliberate deviation from the original spec and should not be reverted: it
+removes the CDN dependency, stops leaking the owner's watchlist to a third party on
+every page view, and works offline. The generator remains dependency-free.
 
 ---
 
