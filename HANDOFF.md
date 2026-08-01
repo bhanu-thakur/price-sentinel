@@ -1,5 +1,10 @@
 # Price Sentinel — handoff
 
+> **Update, 1 Aug 2026:** `DECISIONS.md` and `LUNA_IMPLEMENTATION_PLAN.md` record the
+> approved provider-neutral direction now implemented in this worktree. Alerts remain
+> postponed, and `pricehistoryapp.com` remains disabled pending a verifiable public
+> resolver.
+
 Context for whoever picks this up next. Written 1 Aug 2026 at the end of the build
 session. Read this before changing anything in `analyze.py` or `fetch.py` — several
 decisions here look arbitrary and are not.
@@ -39,22 +44,28 @@ run when your laptop is shut.
   to end. Needs `NTFY_TOPIC`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`,
   `MAIL_TO` in repo Settings → Secrets and variables → Actions.
 - Only one product in `watchlist.json`.
-- A dashboard redesign was prototyped and reviewed but not implemented (see below).
+- Provider-neutral intake and scheduled tracking are implemented for the verified
+  pricehistory.app and BuyHatke adapters. pricehistoryapp.com remains disabled
+  until its public URL resolver can be verified without reproducing its signed
+  client API.
 
 ---
 
 ## Files
 
 ```
-watchlist.json              what to track; ph_url is the primary source URL
-fetch.py                    two fetchers: pricehistory.app (primary), Amazon (fallback)
+watchlist.json              schema-v2 products, listings, and provider source URLs
+catalog.py                  URL normalization, identity, schema, and migration helpers
+add_product.py              confirmed one-link intake through verified providers
+providers/                  provider adapters and the Observation contract
+fetch.py                    sequential provider fetch orchestration and breakers
 analyze.py                  history storage + dual-window buy-zone engine
 notify.py                   ntfy push + SMTP email; no-ops when secrets absent
 dashboard.py                static dashboard generator
 main.py                     orchestrator, adaptive tier scheduling
 .github/workflows/track.yml 30-minute cron
-data/*.csv                  price history, auto-committed
-data/state.json             per-product tier, last check, lifetime stats
+data/*.csv                  listing price history, auto-committed
+data/state.json             schema-v2 provider, product, and listing state
 docs/index.html             generated dashboard
 ```
 
@@ -62,12 +73,12 @@ docs/index.html             generated dashboard
 
 ## Decisions that must not be silently reverted
 
-**1. Primary source is pricehistory.app, not Amazon.**
+**1. Providers are external comparison/history services, not direct retailer pages.**
 Not because Amazon blocks us — see the Brotli bug below; that diagnosis was wrong.
 The real reasons: it server-renders price, MRP and **lifetime low/avg/high** into one
 meta tag, which is a far more stable parse target than Amazon's A/B-tested price
 markup, and the lifetime figures make buy-zone logic work from the first run instead
-of needing 180 days of accumulation. Amazon direct remains the automatic fallback.
+of needing 180 days of accumulation. Buyhatke is the verified fallback.
 
 **2. Two windows, not one.**
 `LOOKBACK_DAYS = 180` for recent trading, plus a lifetime overlay from the source
@@ -144,23 +155,21 @@ be considerate, it's a free community site.
 1. **Set the alert secrets and verify a real alert lands.** Highest priority — the
    notification path has never been exercised end to end. Suggest temporarily setting
    a `target` above the current price to force one alert, then reverting.
-2. **Dashboard redesign — spec below.** Reviewed and approved in principle, not
-   implemented.
-3. **Add more products.** Resolve each `ph_url` by pasting the Amazon link into
-   pricehistory.app and copying the resulting `/p/...` URL.
-4. Consider a second source (buyhatke etc.) only after observing real failure data —
+2. **Add more products.** Run `python add_product.py "<retailer-url>"`, review the
+   discovered listings, and confirm before the schema-v2 watchlist is written.
+3. Consider additional providers only after a real public response can be verified;
    speculative redundancy was already a wrong turn once.
 
 ---
 
-## Dashboard redesign spec
+## Dashboard redesign implementation
 
-**Working prototype:** `docs/prototype.html`
-**Live:** https://bhanu-thakur.github.io/price-sentinel/prototype.html
+The approved verdict-first design is generated into docs/index.html by
+dashboard.py. Chart data is written separately under docs/chart-data/ and loaded
+only when a product row expands.
 
-It runs on sample data and nothing generates it. It is a design reference to be
-ported into `dashboard.py`. Open it before reading this section — it is faster to
-understand by clicking than by description.
+The page is generated from the schema-v2 watchlist and committed state; it contains
+no sample products or embedded chart price arrays.
 
 ### The problem it solves
 
@@ -202,22 +211,17 @@ drop should not feel like a game, and ornament competes with the numbers.
 
 - **The score meter is the weakest element.** It is a number pretending to be a gauge.
   A sparkline in the same space may inform more. Worth testing both.
-- **Lazy-render the charts.** The prototype ships every product's chart data on page
-  load. At 75 products that is ~285 KB, which undoes the 97.6% saving from the
-  `daily_low` downsampling. Render each chart only when its card expands.
-- **Filter chips are non-functional** in the prototype (Buy zone first / All / Near
-  target / Recently dropped). Decide whether they are worth building; "Buy zone first"
-  as a default sort may be enough on its own.
-- **Sample data is invented.** Sony, AirPods and Logitech entries are illustrative
-  only. Only the Gillette figures (₹3,359 current, ₹2,799 all-time low, ₹3,999 MRP)
-  are real.
+- Charts are lazy-rendered and use separate daily-low JSON files. The page sorts
+  buy, watch, and idle products without non-functional filter chips.
+- Dashboard data is generated from committed product/listing state; no illustrative
+  product data is included.
 
 ### Implementation note
 
-`dashboard.py` currently emits one flat card per product with an inline Chart.js
-canvas. The redesign needs per-product expandable markup plus a small amount of
-vanilla JS. Keep the generator dependency-free apart from the existing Chart.js CDN,
-and keep charts fed by `daily_low()` — do not revert to raw samples.
+`dashboard.py` now emits the verdict-first expandable rows, status rails, range
+controls, and lazy Chart.js loading. Chart data is stored separately under
+`docs/chart-data/` and generated from `daily_low()`; keep the generator dependency-free
+apart from the existing Chart.js CDN and do not revert to raw samples.
 
 ---
 

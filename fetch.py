@@ -1,227 +1,159 @@
-"""Fetch current price/availability for an Amazon.in product page.
+"""Sequential provider orchestration with bounded fallback and circuit breakers."""
 
-Strategy: rotate realistic desktop+mobile headers, retry with backoff, and
-parse several selector families because Amazon A/B-tests its price markup.
-Returns None on a hard block so the caller can just skip this cycle -- with
-48 cycles a day, missing a few is harmless.
-"""
-import html as _html
+import math
 import random
 import re
 import time
+from datetime import datetime, timedelta, timezone
 
 import requests
-from bs4 import BeautifulSoup
 
-UAS = [
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Safari/605.1.15",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:127.0) Gecko/20100101 Firefox/127.0",
-    "Mozilla/5.0 (Linux; Android 13; SM-G991B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Mobile Safari/537.36",
-    "Mozilla/5.0 (iPhone; CPU iPhone OS 17_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4 Mobile/15E148 Safari/604.1",
-]
-
-PRICE_SELECTORS = [
-    "#corePriceDisplay_desktop_feature_div .a-price .a-offscreen",
-    "#corePrice_feature_div .a-price .a-offscreen",
-    "#corePrice_desktop .a-price .a-offscreen",
-    "#priceblock_ourprice",
-    "#priceblock_dealprice",
-    ".a-price .a-offscreen",
-]
-
-MRP_SELECTORS = [
-    ".basisPrice .a-price .a-offscreen",
-    "#corePriceDisplay_desktop_feature_div .a-text-price .a-offscreen",
-    ".priceBlockStrikePriceString",
-]
+from providers import buyhatke, pricehistory_app
+from providers.base import Observation, SourceError
 
 
-def _headers():
-    return {
-        "User-Agent": random.choice(UAS),
-        "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
-        "Accept-Language": "en-IN,en-GB;q=0.9,en;q=0.8",
-        "Accept-Encoding": "gzip, deflate",
-        "Cache-Control": "no-cache",
-        "Pragma": "no-cache",
-        "Upgrade-Insecure-Requests": "1",
-        "Sec-Fetch-Dest": "document",
-        "Sec-Fetch-Mode": "navigate",
-        "Sec-Fetch-Site": "none",
-        "Sec-Fetch-User": "?1",
-        "DNT": "1",
-    }
+PROVIDER_PRIORITY = ("pricehistory.app", "buyhatke.com", "pricehistoryapp.com")
+PROVIDER_ADAPTERS = {
+    pricehistory_app.PROVIDER: pricehistory_app,
+    buyhatke.PROVIDER: buyhatke,
+}
+_last_request_at = None
 
 
-def _money(text):
-    if not text:
-        return None
-    m = re.search(r"([\d,]+(?:\.\d{1,2})?)", text.replace("₹", "").strip())
-    if not m:
+def _parse_ts(value):
+    if not value:
         return None
     try:
-        return float(m.group(1).replace(",", ""))
-    except ValueError:
+        parsed = datetime.fromisoformat(value)
+    except (TypeError, ValueError):
         return None
+    return parsed if parsed.tzinfo else parsed.replace(tzinfo=timezone.utc)
 
 
-def _first(soup, selectors):
-    for sel in selectors:
-        el = soup.select_one(sel)
-        if el:
-            val = _money(el.get_text())
-            if val:
-                return val
+def _iso(value):
+    return value.astimezone(timezone.utc).isoformat(timespec="seconds")
+
+
+def _wait_for_request():
+    """Enforce the 4–11 second inter-request gap without delaying the first call."""
+    global _last_request_at
+    now = time.monotonic()
+    if _last_request_at is not None:
+        wait = random.uniform(4, 11) - (now - _last_request_at)
+        if wait > 0:
+            time.sleep(wait)
+    _last_request_at = time.monotonic()
+
+
+def _status_from_error(error):
+    match = re.search(r"\bHTTP\s+(\d{3})\b", error.message, re.I)
+    return int(match.group(1)) if match else None
+
+
+def _provider_record(provider_state, provider):
+    return provider_state.setdefault(
+        provider,
+        {"consecutive_failures": 0, "disabled_until": None, "last_error": None},
+    )
+
+
+def _validate_observation(observation, listing, provider, source_url, now):
+    if not isinstance(observation, Observation):
+        raise SourceError(provider, "parse", "adapter returned an invalid observation")
+    if observation.listing_id != listing.get("id"):
+        raise SourceError(provider, "identity", "observation listing ID does not match")
+    if observation.source != provider or observation.source_url != source_url:
+        raise SourceError(provider, "identity", "observation source does not match requested source")
+    if not math.isfinite(observation.price) or observation.price <= 0:
+        raise SourceError(provider, "parse", "price must be finite and greater than zero")
+    if observation.currency != "INR":
+        raise SourceError(provider, "parse", "only INR observations are supported")
+    expected_retailer = (listing.get("retailer") or "").lower().removeprefix("www.")
+    if observation.retailer != expected_retailer:
+        raise SourceError(provider, "identity", "observation retailer does not match listing")
+    if observation.observed_ts and now - observation.observed_ts > timedelta(hours=48):
+        raise SourceError(provider, "stale", "observation is more than 48 hours old")
+    return observation
+
+
+def _record_failure(provider_state, provider, error, now):
+    record = _provider_record(provider_state, provider)
+    status = _status_from_error(error)
+    record["last_error"] = f"{error.kind}: {error.message}"
+    if status in (403, 429) or error.kind == "blocked":
+        record["disabled_until"] = _iso(now + timedelta(hours=6))
+    elif status == 404:
+        return "invalid_source"
+    elif error.kind in {"network", "http", "parse", "identity", "stale"}:
+        record["consecutive_failures"] = record.get("consecutive_failures", 0) + 1
+        if record["consecutive_failures"] >= 3:
+            record["disabled_until"] = _iso(now + timedelta(hours=3))
     return None
 
 
-def fetch(asin, session=None, attempts=3):
-    """Return a dict of observed fields, or None if blocked/unparseable."""
-    sess = session or requests.Session()
-    url = f"https://www.amazon.in/dp/{asin}?psc=1"
+def fetch_listing(listing, provider_state, session=None, now=None):
+    """Return ``(Observation | None, updated_provider_state, attempts_log)``."""
+    session = session or requests.Session()
+    now = now or datetime.now(timezone.utc)
+    provider_state = provider_state if provider_state is not None else {}
+    source_urls = listing.get("source_urls") or {}
+    attempts = []
 
-    for i in range(attempts):
+    for provider in PROVIDER_PRIORITY:
+        source_url = source_urls.get(provider)
+        if not source_url:
+            continue
+        adapter = PROVIDER_ADAPTERS.get(provider)
+        if adapter is None:
+            attempts.append({"provider": provider, "status": "skipped", "reason": "unsupported"})
+            continue
+
+        record = _provider_record(provider_state, provider)
+        disabled_until = _parse_ts(record.get("disabled_until"))
+        if disabled_until and disabled_until > now:
+            attempts.append({
+                "provider": provider,
+                "status": "skipped",
+                "reason": "disabled",
+                "disabled_until": record["disabled_until"],
+            })
+            continue
+        if disabled_until and disabled_until <= now:
+            record["disabled_until"] = None
+
+        _wait_for_request()
         try:
-            r = sess.get(url, headers=_headers(), timeout=25)
-        except requests.RequestException:
-            time.sleep(3 + i * 4)
+            observation = adapter.fetch(source_url, listing, session, now=now)
+            observation = _validate_observation(observation, listing, provider, source_url, now)
+        except SourceError as error:
+            invalid = _record_failure(provider_state, provider, error, now)
+            attempt = {
+                "provider": provider,
+                "status": "failed",
+                "kind": error.kind,
+                "message": error.message,
+            }
+            if invalid == "invalid_source":
+                listing.setdefault("source_urls", {}).pop(provider, None)
+                attempt["source_invalid"] = True
+            attempts.append(attempt)
+            continue
+        except requests.RequestException as error:
+            source_error = SourceError(provider, "network", str(error))
+            _record_failure(provider_state, provider, source_error, now)
+            attempts.append({
+                "provider": provider,
+                "status": "failed",
+                "kind": "network",
+                "message": str(error),
+            })
             continue
 
-        if r.status_code != 200 or "captcha" in r.text[:4000].lower():
-            time.sleep(4 + i * 6 + random.random() * 3)
-            continue
+        record["consecutive_failures"] = 0
+        record["last_error"] = None
+        if record.get("disabled_until") and _parse_ts(record["disabled_until"]) <= now:
+            record["disabled_until"] = None
+        attempts.append({"provider": provider, "status": "success"})
+        return observation, provider_state, attempts
 
-        soup = BeautifulSoup(r.text, "lxml")
-        price = _first(soup, PRICE_SELECTORS)
-        if price is None:
-            time.sleep(3 + i * 4)
-            continue
-
-        title_el = soup.select_one("#productTitle")
-        avail_el = soup.select_one("#availability")
-        seller_el = soup.select_one("#sellerProfileTriggerId") or soup.select_one(
-            "#merchant-info"
-        )
-        ship_el = soup.select_one("#fulfillerInfoFeature_feature_div .offer-display-feature-text-message")
-
-        avail = (avail_el.get_text(strip=True) if avail_el else "").lower()
-
-        return {
-            "asin": asin,
-            "price": price,
-            "mrp": _first(soup, MRP_SELECTORS),
-            "title": title_el.get_text(strip=True) if title_el else None,
-            "in_stock": ("in stock" in avail) or (avail == ""),
-            "availability": avail[:120],
-            "seller": (seller_el.get_text(strip=True)[:80] if seller_el else None),
-            "shipper": (ship_el.get_text(strip=True)[:60] if ship_el else None),
-        }
-
-    return None
-
-
-# ---------------------------------------------------------------------------
-# Price-history-site source (primary).
-#
-# Amazon blocks datacenter IPs, which is fatal for a GitHub Actions runner.
-# pricehistory.app server-renders everything we need into one meta tag and does
-# not block datacenter traffic, so we parse that instead. Bonus: it hands us the
-# lifetime low/avg/high immediately, so buy-zone logic works from the first run
-# instead of waiting for us to accumulate our own history.
-# ---------------------------------------------------------------------------
-
-CUR = r"\s*(?:\u20b9|Rs\.?|INR)?\s*"
-NUM = r"([\d,]+(?:\.\d+)?)"
-
-# Two independent parse routes. The meta description is the cleanest, but the
-# visible body carries the same figures under different labels, so if the page
-# markup shifts we still get a reading instead of a silent miss.
-PH_FIELDS = {
-    "low": [rf"Lowest Price:{CUR}{NUM}", rf"Lowest:\s*{CUR}{NUM}"],
-    "avg": [rf"Average Price:{CUR}{NUM}", rf"Average:\s*{CUR}{NUM}"],
-    "high": [rf"Highest Price:{CUR}{NUM}", rf"Highest:\s*{CUR}{NUM}"],
-    "mrp": [rf"MRP:{CUR}{NUM}"],
-    "price": [rf"Price in India on [^:]*:{CUR}{NUM}"],
-}
-
-
-def _num(m):
-    return float(m.group(1).replace(",", "")) if m else None
-
-
-def _first_match(patterns, *texts):
-    """First pattern that hits, across each candidate text in priority order."""
-    for text in texts:
-        if not text:
-            continue
-        for pat in patterns:
-            v = _num(re.search(pat, text))
-            if v:
-                return v
-    return None
-
-
-def fetch_pricehistory(ph_url, asin=None, session=None, attempts=3):
-    """Parse a pricehistory.app product page. Returns obs dict or None."""
-    sess = session or requests.Session()
-
-    for i in range(attempts):
-        try:
-            r = sess.get(ph_url, headers=_headers(), timeout=25)
-        except requests.RequestException as e:
-            print(f"    [ph] attempt {i+1}: network error {e.__class__.__name__}: {e}")
-            time.sleep(3 + i * 4)
-            continue
-        if r.status_code != 200:
-            print(f"    [ph] attempt {i+1}: HTTP {r.status_code}, body starts: "
-                  f"{r.text[:160]!r}")
-            time.sleep(3 + i * 4)
-            continue
-
-        soup = BeautifulSoup(r.text, "lxml")
-        meta = soup.find("meta", attrs={"name": "description"}) or soup.find(
-            "meta", attrs={"property": "og:description"}
-        )
-        desc = meta.get("content", "") if meta else ""
-
-        # Entities first: the rupee sign is often served as &#8377;.
-        page = _html.unescape(r.text)
-        desc = _html.unescape(desc)
-        body = soup.get_text(" ", strip=True)
-
-        vals = {k: _first_match(p, desc, body, page) for k, p in PH_FIELDS.items()}
-        if not vals["price"]:
-            # Body carries the live price without a label; take the first
-            # currency figure that is not the struck-through MRP.
-            cands = [float(x.replace(",", "")) for x in
-                     re.findall(rf"\u20b9\s*{NUM}", page)]
-            vals["price"] = cands[0] if cands else None
-
-        if not vals["price"]:
-            print(f"    [ph] attempt {i+1}: HTTP 200 but price not parsed. "
-                  f"len={len(r.text)} desc={desc[:120]!r} body={body[:200]!r}")
-            time.sleep(3 + i * 4)
-            continue
-
-        title_el = soup.find("meta", attrs={"property": "og:title"})
-        title = title_el.get("content", "").replace(" - Price History", "") if title_el else None
-
-        # Site reports the last price it saw; absent an explicit stock signal we
-        # assume in stock and let Amazon's own page correct it if ever consulted.
-        return {
-            "asin": asin,
-            "price": vals["price"],
-            "mrp": vals["mrp"],
-            "title": title,
-            "in_stock": True,
-            "availability": "",
-            "seller": None,
-            "shipper": None,
-            "site_low": vals["low"],
-            "site_avg": vals["avg"],
-            "site_high": vals["high"],
-            "source": "pricehistory",
-        }
-
-    return None
+    return None, provider_state, attempts

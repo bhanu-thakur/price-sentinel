@@ -1,14 +1,240 @@
 {
-  "B0GSVFV3R4": {
-    "auto_tier": "hot",
-    "consecutive_failures": 0,
-    "last_alert_price": 3119.0,
-    "last_alert_ts": "2026-08-01T09:32:33+00:00",
-    "last_checked_ts": "2026-08-01T11:16:12+00:00",
-    "last_price": 3119.0,
-    "last_score": 73.3,
-    "site_avg": 3301.0,
-    "site_high": 3999.0,
-    "site_low": 2799.0
-  }
+  "listings": {
+    "amazon-in-b0gsvfv3r4": {
+      "consecutive_failures": 0,
+      "last_attempts": [
+        {
+          "provider": "pricehistory.app",
+          "status": "success"
+        }
+      ],
+      "last_checked_ts": "2026-08-01T11:33:28+00:00",
+      "last_in_stock": true,
+      "last_price": 3119.0,
+      "last_retailer": "amazon.in",
+      "last_score": 73.3,
+      "last_source": "pricehistory.app",
+      "last_source_url": "https://pricehistory.app/p/gillette-series-5-all-one-beard-body-5vQqMKIm",
+      "last_success_ts": "2026-08-01T11:33:28+00:00",
+      "last_verdict": {
+        "alert": true,
+        "in_stock": true,
+        "life_avg": 3301.0,
+        "life_high": 3999.0,
+        "life_low": 2799.0,
+        "listing_id": "amazon-in-b0gsvfv3r4",
+        "max90": 3359.0,
+        "median": 3359.0,
+        "min90": 3119.0,
+        "mrp": 3999.0,
+        "mrp_discount_pct": 22.005501375343837,
+        "name": "Gillette Series 5 All-in-One Trimmer (Braun)",
+        "p10": 3119.0,
+        "p25": 3119.0,
+        "percentile": 0.0,
+        "price": 3119.0,
+        "product_id": "gillette-series-5-trimmer",
+        "reasons": [
+          "Lowest price in 180 days"
+        ],
+        "retailer": "amazon.in",
+        "samples": 9,
+        "score": 73.3,
+        "seller": null,
+        "source": "pricehistory.app",
+        "url": "https://www.amazon.in/dp/B0GSVFV3R4",
+        "vs_median_pct": -7.14498362607919
+      },
+      "provider_history": [
+        {
+          "date": "2026-04-12",
+          "price": 3999.0
+        },
+        {
+          "date": "2026-04-16",
+          "price": 3599.0
+        },
+        {
+          "date": "2026-04-27",
+          "price": 3599.0
+        },
+        {
+          "date": "2026-05-05",
+          "price": 3599.0
+        },
+        {
+          "date": "2026-05-09",
+          "price": 3599.0
+        },
+        {
+          "date": "2026-05-12",
+          "price": 3099.0
+        },
+        {
+          "date": "2026-05-14",
+          "price": 3099.0
+        },
+        {
+          "date": "2026-05-16",
+          "price": 3099.0
+        },
+        {
+          "date": "2026-05-18",
+          "price": 3099.0
+        },
+        {
+          "date": "2026-05-25",
+          "price": 3599.0
+        },
+        {
+          "date": "2026-06-11",
+          "price": 3099.0
+        },
+        {
+          "date": "2026-06-18",
+          "price": 3599.1
+        },
+        {
+          "date": "2026-06-22",
+          "price": 3399.0
+        },
+        {
+          "date": "2026-06-26",
+          "price": 3399.0
+        },
+        {
+          "date": "2026-06-28",
+          "price": 3399.0
+        },
+        {
+          "date": "2026-07-01",
+          "price": 3399.0
+        },
+        {
+          "date": "2026-07-03",
+          "price": 2799.0
+        },
+        {
+          "date": "2026-07-04",
+          "price": 2799.0
+        },
+        {
+          "date": "2026-07-06",
+          "price": 2799.0
+        },
+        {
+          "date": "2026-07-07",
+          "price": 2799.0
+        },
+        {
+          "date": "2026-07-09",
+          "price": 2799.0
+        },
+        {
+          "date": "2026-07-12",
+          "price": 3359.0
+        },
+        {
+          "date": "2026-07-17",
+          "price": 3359.0
+        },
+        {
+          "date": "2026-07-20",
+          "price": 3359.0
+        },
+        {
+          "date": "2026-07-23",
+          "price": 3359.0
+        },
+        {
+          "date": "2026-07-25",
+          "price": 3599.0
+        },
+        {
+          "date": "2026-07-26",
+          "price": 3359.0
+        },
+        {
+          "date": "2026-07-27",
+          "price": 3359.0
+        },
+        {
+          "date": "2026-07-28",
+          "price": 3359.0
+        },
+        {
+          "date": "2026-07-29",
+          "price": 3359.0
+        },
+        {
+          "date": "2026-07-31",
+          "price": 3359.0
+        },
+        {
+          "date": "2026-08-01",
+          "price": 3119.0
+        }
+      ],
+      "provider_history_source": "pricehistory.app",
+      "site_avg": 3301.0,
+      "site_high": 3999.0,
+      "site_low": 2799.0
+    }
+  },
+  "products": {
+    "gillette-series-5-trimmer": {
+      "auto_tier": "hot",
+      "last_alert_price": 3119.0,
+      "last_alert_ts": "2026-08-01T11:33:28+00:00",
+      "last_checked_ts": "2026-08-01T11:33:28+00:00",
+      "last_verdict": {
+        "alert": true,
+        "fresh": true,
+        "in_stock": true,
+        "last_success_ts": "2026-08-01T11:33:28+00:00",
+        "life_avg": 3301.0,
+        "life_high": 3999.0,
+        "life_low": 2799.0,
+        "listing_id": "amazon-in-b0gsvfv3r4",
+        "listing_url": "https://www.amazon.in/dp/B0GSVFV3R4",
+        "max90": 3359.0,
+        "median": 3359.0,
+        "min90": 3119.0,
+        "mrp": 3999.0,
+        "mrp_discount_pct": 22.005501375343837,
+        "name": "Gillette Series 5 All-in-One Trimmer (Braun)",
+        "p10": 3119.0,
+        "p25": 3119.0,
+        "percentile": 0.0,
+        "price": 3119.0,
+        "product_id": "gillette-series-5-trimmer",
+        "reasons": [
+          "Lowest price in 180 days"
+        ],
+        "retailer": "amazon.in",
+        "samples": 9,
+        "score": 73.3,
+        "seller": null,
+        "source": "pricehistory.app",
+        "url": "https://www.amazon.in/dp/B0GSVFV3R4",
+        "vs_median_pct": -7.14498362607919
+      },
+      "recommended_listing_id": "amazon-in-b0gsvfv3r4",
+      "stale_offers": [],
+      "status": "buy"
+    }
+  },
+  "providers": {
+    "buyhatke.com": {
+      "consecutive_failures": 0,
+      "disabled_until": null,
+      "last_error": null
+    },
+    "pricehistory.app": {
+      "consecutive_failures": 0,
+      "disabled_until": null,
+      "last_error": null
+    }
+  },
+  "schema_version": 2
 }

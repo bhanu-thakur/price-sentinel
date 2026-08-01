@@ -1,14 +1,30 @@
 {
-  "_comment": "ph_url is the pricehistory.app page for the product - primary source, since Amazon blocks datacenter IPs. To add a product: search its Amazon link on pricehistory.app, then copy the resulting /p/... URL here. 'target' is optional; the engine uses statistical buy-zones by default. tier: hot|warm|cold sets check frequency.",
+  "schema_version": 2,
   "products": [
     {
-      "asin": "B0GSVFV3R4",
+      "id": "gillette-series-5-trimmer",
       "name": "Gillette Series 5 All-in-One Trimmer (Braun)",
-      "url": "https://www.amazon.in/dp/B0GSVFV3R4",
-      "ph_url": "https://pricehistory.app/p/gillette-series-5-all-one-beard-body-5vQqMKIm",
       "target": 2850,
       "tier": "hot",
-      "notes": "Seen at 2799 in July 2026. MRP 3999."
+      "notes": "Seen at 2799 in July 2026. MRP 3999.",
+      "rejected_candidate_urls": [],
+      "listings": [
+        {
+          "id": "amazon-in-b0gsvfv3r4",
+          "retailer": "amazon.in",
+          "url": "https://www.amazon.in/dp/B0GSVFV3R4",
+          "confirmed_by": "seed",
+          "attributes": {
+            "brand": "Gillette",
+            "model": "Series 5",
+            "variant": "All-in-One Trimmer"
+          },
+          "source_urls": {
+            "pricehistory.app": "https://pricehistory.app/p/gillette-series-5-all-one-beard-body-5vQqMKIm",
+            "buyhatke.com": "https://buyhatke.com/amazon-gillette-series-5-all-in-one-beard-body-trimmer-for-man-by-braun-40-length-settings-for-face-body-head-private-parts-sensitive-body-comb-f-price-in-india-63-110659581"
+          }
+        }
+      ]
     }
   ]
 }

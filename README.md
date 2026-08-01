@@ -1,7 +1,8 @@
 # Price Sentinel
 
-Always-on Amazon.in price tracker. Runs on GitHub Actions every 30 minutes — free,
-forever, whether or not your laptop is on. Alerts by phone push (ntfy) and email.
+Always-on multi-retailer price tracker. Runs on GitHub Actions every 30 minutes —
+free, forever, whether or not your laptop is on. Alert delivery remains postponed
+until provider and dashboard work stabilizes.
 
 The point isn't "tell me the price." It's **judging whether a price is actually good**,
 by scoring it against that product's own history rather than a threshold you guessed.
@@ -12,18 +13,21 @@ by scoring it against that product's own history rather than a threshold you gue
 
 ## How it gets prices
 
-Primary source is **pricehistory.app**, not Amazon directly. Two reasons:
+The tracker never requests retailer pages during scheduled runs. It uses verified
+provider product pages in this order:
 
-1. It server-renders the current price, MRP, and the product's **lifetime low / average /
-   high** into a single meta tag — a far more stable parse target than Amazon's
-   A/B-tested price markup.
-2. Those lifetime figures mean buy-zone logic works on the **first run**, instead of
-   waiting to accumulate its own history.
+1. **pricehistory.app** — primary source for current price and lifetime statistics.
+2. **buyhatke.com** — fallback when the primary source fails or is circuit-broken.
+3. **pricehistoryapp.com** — reserved in the source order but currently disabled,
+   because its public resolver could not be verified without a signed request.
 
-Amazon.in direct is kept as an automatic fallback if the primary source fails.
+The pricehistoryapp.com adapter is not enabled until its public URL resolver can
+be verified without using its signed client API. Fallbacks are failure-driven,
+sequential, and circuit-broken; providers are not queried for comparison every
+cycle.
 
-Each product needs a `ph_url`, resolved once when you add it (see below). At runtime
-there's no search step — just a direct fetch of a stable URL.
+Each product stores stable provider URLs resolved once during intake. At runtime
+there is no retailer search step.
 
 ---
 
@@ -80,18 +84,49 @@ Settings → Pages → Source: **Deploy from branch** → `main` / `/docs`.
 
 ## Adding products
 
-1. Paste the Amazon link into the search box at https://pricehistory.app/
-2. Copy the resulting `/p/...` URL.
-3. Add an entry to `watchlist.json` and commit:
+Run the interactive intake with one real product URL:
+
+```powershell
+python add_product.py "https://www.amazon.in/dp/B0GSVFV3R4" --target 2850 --tier hot
+```
+
+The intake resolves the URL through the verified public providers, shows the
+discovered listings and lifetime statistics, and asks for confirmation before
+writing watchlist.json. The resulting schema-v2 entry has a stable product ID,
+listing IDs, provider source URLs, and optional target/tier values. The current
+working adapters are pricehistory.app and buyhatke.com; pricehistoryapp.com remains
+disabled until its public resolver can be verified without a signed client API.
+
+For non-interactive setup, write the same schema-v2 shape directly:
 
 ```json
 {
-  "asin": "B0GSVFV3R4",
-  "name": "Gillette Series 5 Trimmer",
-  "url": "https://www.amazon.in/dp/B0GSVFV3R4",
-  "ph_url": "https://pricehistory.app/p/gillette-series-5-all-one-beard-body-5vQqMKIm",
-  "target": 2850,
-  "tier": "hot"
+  "schema_version": 2,
+  "products": [
+    {
+      "id": "gillette-series-5-trimmer",
+      "name": "Gillette Series 5 Trimmer",
+      "target": 2850,
+      "tier": "hot",
+      "notes": "",
+      "rejected_candidate_urls": [],
+      "listings": [
+        {
+          "id": "amazon-in-b0gsvfv3r4",
+          "retailer": "amazon.in",
+          "url": "https://www.amazon.in/dp/B0GSVFV3R4",
+          "confirmed_by": "seed",
+          "attributes": {
+            "brand": "Gillette",
+            "model": "Series 5"
+          },
+          "source_urls": {
+            "pricehistory.app": "https://pricehistory.app/p/gillette-series-5-all-one-beard-body-5vQqMKIm"
+          }
+        }
+      ]
+    }
+  ]
 }
 ```
 
@@ -103,7 +138,7 @@ is auto-promoted to `hot`.
 
 ## How the decision engine works
 
-Every check appends to `data/<ASIN>.csv`, committed to the repo — your price history
+Every check appends to `data/<listing-id>.csv`, committed to the repo — your price history
 is yours permanently, not locked inside someone's app.
 
 It judges every price against **two windows at once**, and alerts if *either* fires.
@@ -154,8 +189,8 @@ that gives ₹3,359 → 53, ₹3,250 → 62, ₹2,899 → 92, ₹2,799 → 100.
 | warm | 3 hours |
 | cold | 12 hours |
 
-For 50 products that's roughly 350 requests/day, with randomised 4–11s gaps and
-rotating headers. Running cost: **₹0**.
+For 50 products that's roughly 350 primary requests/day, with randomised 4–11s gaps.
+Fallbacks add requests only when an earlier provider fails. Running cost: **₹0**.
 
 ---
 
@@ -206,8 +241,8 @@ Two bugs during build, both of which failed *silently* — worth knowing the sha
   looks exactly like an IP block. This cost a long detour — the fetcher now requests
   only `gzip, deflate`, and `brotli` is pinned in requirements as a safety net.
 
-The fetcher logs the HTTP status and a body snippet on every failed parse, so the next
-failure is diagnosable from the Actions log alone.
+The fetcher records provider, failure kind, HTTP status when available, breaker state,
+and the latest attempts in `data/state.json` for diagnosis from Actions logs and state.
 
 ---
 
@@ -215,14 +250,19 @@ failure is diagnosable from the Actions log alone.
 
 ```
 watchlist.json              what to track
-fetch.py                    price-history + Amazon fetchers, price extraction
-analyze.py                  history storage + buy-zone engine
+catalog.py                  URL normalization, identity, schema, and migration helpers
+add_product.py              confirmed one-link intake through verified providers
+providers/                  provider adapters and the Observation contract
+fetch.py                    sequential provider fetch orchestration and breakers
+analyze.py                  history storage + dual-window buy-zone engine
 notify.py                   ntfy push + SMTP email
 dashboard.py                static dashboard generator
 main.py                     orchestrator, adaptive scheduling
 .github/workflows/track.yml the 30-minute heartbeat
-data/                       price history (auto-committed)
+data/                       listing price history (auto-committed)
+data/state.json             schema-v2 provider, product, and listing state
 docs/index.html             dashboard (auto-generated)
+docs/chart-data/            lazy chart JSON (auto-generated)
 ```
 
 Personal-use tool: low request volume, no account access, no resale of data.
