@@ -144,18 +144,80 @@ be considerate, it's a free community site.
 1. **Set the alert secrets and verify a real alert lands.** Highest priority — the
    notification path has never been exercised end to end. Suggest temporarily setting
    a `target` above the current price to force one alert, then reverting.
-2. **Dashboard redesign.** A prototype was built and reviewed, drawing on Apple
-   Wallet (collapsed cards expanding to detail), Groww (range selector, dotted
-   reference lines for all-time low and your target) and CRED (dark premium surface,
-   score as hero) — but deliberately without CRED's gamified ornament. Key proposed
-   change: a verdict line at the top ("1 product in the buy zone") so the page answers
-   "should I act right now?" in under two seconds. Open concerns: the score meter may
-   be weaker than a sparkline in the same space, and charts should render lazily on
-   expand rather than shipping all products' data on page load. Not yet implemented.
+2. **Dashboard redesign — spec below.** Reviewed and approved in principle, not
+   implemented.
 3. **Add more products.** Resolve each `ph_url` by pasting the Amazon link into
    pricehistory.app and copying the resulting `/p/...` URL.
 4. Consider a second source (buyhatke etc.) only after observing real failure data —
    speculative redundancy was already a wrong turn once.
+
+---
+
+## Dashboard redesign spec
+
+**Working prototype:** `docs/prototype.html`
+**Live:** https://bhanu-thakur.github.io/price-sentinel/prototype.html
+
+It runs on sample data and nothing generates it. It is a design reference to be
+ported into `dashboard.py`. Open it before reading this section — it is faster to
+understand by clicking than by description.
+
+### The problem it solves
+
+The current dashboard is a wall of equal-weight cards. To find out whether anything
+is worth acting on you must read every one. The dashboard's actual job is answering
+**"is there anything I should buy right now?"** in under two seconds.
+
+### What to port
+
+**1. Verdict line at the top — the highest-value change.**
+"1 product in the buy zone · 4 tracked · checked 6 min ago". State the answer before
+the data. If nothing qualifies, say so plainly so the page can be dismissed at a glance.
+
+**2. Collapsed rows that expand on tap** (Apple Wallet / Revolut pattern).
+Collapsed shows only: status rail, name, seller, score, price, and distance from peak.
+Expanded reveals chart, range selector, stats grid, buy-zone reasoning, and actions.
+A watchlist is a scanning surface first and a detail surface second.
+
+**3. Reference lines on the chart** (Groww pattern).
+Dotted horizontal lines for the all-time low and the user's target, each labelled
+inline. This is what converts the chart from decoration into a decision aid — you see
+the gap you are waiting on. Range selector: 1M / 3M / 6M / 1Y / All.
+
+**4. Status as a coloured left rail, not a badge.**
+Three states: buy zone (green), watch (amber), idle (grey). Quieter than a badge and
+scans better down a column.
+
+**5. Tabular figures — non-negotiable.**
+`font-variant-numeric: tabular-nums`. Without it ₹3,359 and ₹24,990 shift horizontally
+between refreshes, which reads as instability on a page whose entire purpose is numbers.
+
+### What was deliberately NOT taken
+
+CRED's influence is limited to the dark premium surface and score-as-hero. Its retro
+serif headings, 3D icons and gamification were rejected: a page you check for a price
+drop should not feel like a game, and ornament competes with the numbers.
+
+### Known concerns — resolve before or during implementation
+
+- **The score meter is the weakest element.** It is a number pretending to be a gauge.
+  A sparkline in the same space may inform more. Worth testing both.
+- **Lazy-render the charts.** The prototype ships every product's chart data on page
+  load. At 75 products that is ~285 KB, which undoes the 97.6% saving from the
+  `daily_low` downsampling. Render each chart only when its card expands.
+- **Filter chips are non-functional** in the prototype (Buy zone first / All / Near
+  target / Recently dropped). Decide whether they are worth building; "Buy zone first"
+  as a default sort may be enough on its own.
+- **Sample data is invented.** Sony, AirPods and Logitech entries are illustrative
+  only. Only the Gillette figures (₹3,359 current, ₹2,799 all-time low, ₹3,999 MRP)
+  are real.
+
+### Implementation note
+
+`dashboard.py` currently emits one flat card per product with an inline Chart.js
+canvas. The redesign needs per-product expandable markup plus a small amount of
+vanilla JS. Keep the generator dependency-free apart from the existing Chart.js CDN,
+and keep charts fed by `daily_low()` — do not revert to raw samples.
 
 ---
 
