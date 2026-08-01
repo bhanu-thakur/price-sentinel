@@ -8,14 +8,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-01T16:59:23+00:00",
+      "last_checked_ts": "2026-08-01T18:05:53+00:00",
       "last_in_stock": true,
       "last_price": 3119.0,
       "last_retailer": "amazon.in",
       "last_score": 73.3,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/gillette-series-5-all-one-beard-body-5vQqMKIm",
-      "last_success_ts": "2026-08-01T16:59:23+00:00",
+      "last_success_ts": "2026-08-01T18:05:53+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -38,7 +38,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 15,
+        "samples": 16,
         "score": 73.3,
         "seller": null,
         "source": "pricehistory.app",
@@ -186,12 +186,12 @@
       "auto_tier": "hot",
       "last_alert_price": 3119.0,
       "last_alert_ts": "2026-08-01T11:33:28+00:00",
-      "last_checked_ts": "2026-08-01T16:59:23+00:00",
+      "last_checked_ts": "2026-08-01T18:05:53+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-01T16:59:23+00:00",
+        "last_success_ts": "2026-08-01T18:05:53+00:00",
         "life_avg": 3301.0,
         "life_high": 3999.0,
         "life_low": 2799.0,
@@ -212,7 +212,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 15,
+        "samples": 16,
         "score": 73.3,
         "seller": null,
         "source": "pricehistory.app",
