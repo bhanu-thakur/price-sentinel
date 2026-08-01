@@ -131,6 +131,10 @@ class ProviderFixtureTests(unittest.TestCase):
         self.assertEqual(observation.site_low, 2799.0)
         self.assertEqual(observation.site_avg, 3406.88)
         self.assertEqual(observation.site_high, 3999.0)
+        session.get.assert_called_once_with(
+            "https://www.buyhatke.com/amazon-gillette-series-5-price-history-63-110659581",
+            timeout=60,
+        )
 
     def test_buyhatke_missing_price_fixture_rejected(self):
         session = Mock()

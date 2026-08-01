@@ -147,6 +147,17 @@ class IntakeTests(unittest.TestCase):
             )
         self.assertEqual(len(proposed["products"][0]["listings"]), 1)
 
+    def test_same_retailer_identity_is_not_proposed_as_a_counterpart(self):
+        candidate = {
+            "url": "https://amazon.in/gp/product/B0GSVFV3R4/ref=alternate?psc=1",
+            "attributes": {"brand": "Gillette", "model": "Series 5"},
+        }
+        proposed, adapter = self._build([candidate], [])
+        product = proposed["products"][0]
+        self.assertEqual(len(product["listings"]), 1)
+        self.assertEqual(product["rejected_candidate_urls"], [])
+        self.assertEqual(adapter.resolved, ["https://amazon.in/dp/B0GSVFV3R4"])
+
 
 if __name__ == "__main__":
     unittest.main()

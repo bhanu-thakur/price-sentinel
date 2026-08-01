@@ -171,6 +171,12 @@ def run(now=None, session=None):
     due_products = [product for product in products if due(product, state, now=now)]
     print(f"[run] {len(due_products)}/{len(products)} products due at {now:%Y-%m-%d %H:%M} UTC")
 
+    # A no-op schedule tick must not rewrite relative-time dashboard text and
+    # create a meaningless data commit/Pages rebuild.
+    if not due_products:
+        print("[done] checked=0 failed=0 alerts=0")
+        return state
+
     alerts = []
     checked = 0
     failed = 0
@@ -207,14 +213,17 @@ def run(now=None, session=None):
 
         recommended = _update_product_verdict(product, state, current_offers, now)
         if recommended and analyze.should_notify(recommended, state):
-            product_state["last_alert_ts"] = _iso(now)
-            product_state["last_alert_price"] = recommended["price"]
             alerts.append(recommended)
 
     if json.dumps(watchlist, sort_keys=True) != original_watchlist:
         catalog.write_watchlist(WATCHLIST, watchlist)
 
-    notify.dispatch(alerts)
+    delivered = notify.dispatch(alerts)
+    if delivered:
+        for alert in alerts:
+            product_state = state["products"].get(alert.get("product_id"), {})
+            product_state["last_alert_ts"] = _iso(now)
+            product_state["last_alert_price"] = alert["price"]
     os.makedirs(os.path.dirname(STATE_PATH), exist_ok=True)
     with open(STATE_PATH, "w", encoding="utf-8", newline="\n") as handle:
         json.dump(state, handle, indent=2, sort_keys=True)
@@ -227,7 +236,11 @@ def run(now=None, session=None):
     except Exception:
         traceback.print_exc()
         print("[dashboard] BUILD FAILED — price data preserved, page left stale")
-    print(f"[done] checked={checked} failed={failed} alerts={len(alerts)}")
+    delivered_count = len(alerts) if delivered else 0
+    print(
+        f"[done] checked={checked} failed={failed} "
+        f"alert_candidates={len(alerts)} delivered={delivered_count}"
+    )
     return state
 
 

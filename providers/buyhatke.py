@@ -14,6 +14,7 @@ from .base import Observation, SourceError
 
 PROVIDER = "buyhatke.com"
 BASE_URL = "https://www.buyhatke.com"
+FETCH_TIMEOUT = 60
 _RETAILER_NAMES = {
     "amazon": "amazon.in",
     "flipkart": "flipkart.com",
@@ -150,7 +151,7 @@ def fetch(source_url, listing, session, now=None):
     """Fetch and validate one BuyHatke product page."""
     now = now or datetime.now(timezone.utc)
     try:
-        response = session.get(source_url, timeout=25)
+        response = session.get(source_url, timeout=FETCH_TIMEOUT)
     except requests.RequestException as exc:
         raise SourceError(PROVIDER, "network", str(exc)) from exc
     if response.status_code != 200:

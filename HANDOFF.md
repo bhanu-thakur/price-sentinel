@@ -13,9 +13,11 @@ decisions here look arbitrary and are not.
 
 ## What it is
 
-Always-on Amazon.in price tracker. GitHub Actions runs every 30 minutes, fetches
-prices, appends history to the repo, scores each price against two statistical
-windows, and alerts by phone push + email when something enters a buy zone.
+Always-on multi-retailer price tracker. GitHub Actions requests a run every 30
+minutes, but scheduled dispatch is best-effort and can be delayed or dropped. Each
+run fetches prices, appends history to the repo, scores each price against two
+statistical windows, and alerts by phone push + email when something enters a buy
+zone.
 
 **Origin problem:** the owner kept missing short price dips. A Gillette trimmer traded
 at ₹2,799 for ~4 days in July 2026 and he saw it at ₹3,359. Consumer trackers only
@@ -42,8 +44,10 @@ run when your laptop is shut.
 - **Alert secrets are not set.** `notify.py` degrades cleanly to no-ops, so nothing
   breaks — but no alert has ever actually been delivered. This path is UNTESTED end
   to end. Needs `NTFY_TOPIC`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`,
-  `MAIL_TO` in repo Settings → Secrets and variables → Actions.
-- Only one product in `watchlist.json`.
+  `MAIL_TO` in repo Settings → Secrets and variables → Actions. Cooldowns are recorded
+  only after ntfy or email reports a successful delivery.
+- Three products are configured in `watchlist.json`; cross-retailer comparison is
+  shown whenever more than one identity-confirmed listing has current data.
 - Provider-neutral intake and scheduled tracking are implemented for the verified
   pricehistory.app and BuyHatke adapters. pricehistoryapp.com remains disabled
   until its public URL resolver can be verified without reproducing its signed
@@ -63,7 +67,7 @@ analyze.py                  history storage + dual-window buy-zone engine
 notify.py                   ntfy push + SMTP email; no-ops when secrets absent
 dashboard.py                static dashboard generator
 main.py                     orchestrator, adaptive tier scheduling
-.github/workflows/track.yml 30-minute cron
+.github/workflows/track.yml best-effort 30-minute cron
 data/*.csv                  listing price history, auto-committed
 data/state.json             schema-v2 provider, product, and listing state
 docs/index.html             generated dashboard

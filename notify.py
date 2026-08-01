@@ -97,7 +97,8 @@ def send_email(verdicts):
 
 def dispatch(verdicts):
     if not verdicts:
-        return
+        return False
     ok_push = push_ntfy(verdicts)
     ok_mail = send_email(verdicts)
     print(f"[notify] {len(verdicts)} alert(s) | ntfy={ok_push} email={ok_mail}")
+    return ok_push or ok_mail

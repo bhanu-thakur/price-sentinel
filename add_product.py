@@ -87,8 +87,9 @@ def build_product(retailer_url, target, tier, session=None, confirm=input):
         "listings": [provisional],
     }
 
-    confirmed_urls = {provisional["url"]}
+    confirmed_identities = {catalog.listing_identity(provisional["url"])}
     rejected_urls = set()
+    rejected_identities = set()
     for adapter, source_url in resolved:
         try:
             candidates = adapter.discover(source_url, session)
@@ -100,7 +101,8 @@ def build_product(retailer_url, target, tier, session=None, confirm=input):
                 candidate_url = catalog.normalize_url(candidate["url"])
             except (KeyError, ValueError):
                 continue
-            if candidate_url in confirmed_urls or candidate_url in rejected_urls:
+            candidate_identity = catalog.listing_identity(candidate_url)
+            if candidate_identity in confirmed_identities or candidate_identity in rejected_identities:
                 continue
             candidate_listing = {
                 "id": catalog.listing_id_for(candidate_url),
@@ -139,6 +141,8 @@ def build_product(retailer_url, target, tier, session=None, confirm=input):
             decision = catalog.match_candidate(provisional["attributes"], candidate_attrs)
             if decision == "reject":
                 rejected_urls.add(candidate_url)
+                rejected_identities.add(candidate_identity)
+                print(f"  [identity] rejected non-matching candidate: {candidate_url}")
                 continue
             if decision == "confirm":
                 print("\nCandidate counterpart:")
@@ -151,11 +155,12 @@ def build_product(retailer_url, target, tier, session=None, confirm=input):
                 )
                 if confirm("Add this as the same product? [y/N] ").strip().lower() != "y":
                     rejected_urls.add(candidate_url)
+                    rejected_identities.add(candidate_identity)
                     continue
 
             candidate_listing["confirmed_by"] = "auto" if decision == "accept" else "user"
             product["listings"].append(candidate_listing)
-            confirmed_urls.add(candidate_url)
+            confirmed_identities.add(candidate_identity)
 
     product["rejected_candidate_urls"] = sorted(rejected_urls)
     proposed = {"schema_version": 2, "products": [product]}

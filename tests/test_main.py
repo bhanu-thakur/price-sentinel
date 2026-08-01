@@ -46,6 +46,53 @@ def observation(listing_value, price, history=None):
 
 
 class MainTests(unittest.TestCase):
+    def test_no_due_products_leave_state_and_dashboard_unchanged(self):
+        amazon = listing(
+            "amazon-in-b0gsvfv3r4",
+            "amazon.in",
+            "pricehistory.app",
+            "https://amazon.in/dp/B0GSVFV3R4",
+        )
+        watchlist = {
+            "schema_version": 2,
+            "products": [{
+                "id": "gillette-series-5-trimmer",
+                "name": "Gillette Series 5",
+                "target": None,
+                "tier": "warm",
+                "notes": "",
+                "rejected_candidate_urls": [],
+                "listings": [amazon],
+            }],
+        }
+        state = {
+            "schema_version": 2,
+            "providers": {},
+            "products": {"gillette-series-5-trimmer": {
+                "last_checked_ts": NOW.isoformat(),
+                "auto_tier": "warm",
+            }},
+            "listings": {},
+        }
+        original = json.dumps(state, separators=(",", ":"))
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            watchlist_path = root / "watchlist.json"
+            state_path = root / "state.json"
+            watchlist_path.write_text(json.dumps(watchlist), encoding="utf-8")
+            state_path.write_text(original, encoding="utf-8")
+            with patch.object(main, "WATCHLIST", str(watchlist_path)), \
+                    patch.object(main, "STATE_PATH", str(state_path)), \
+                    patch.object(main.fetcher, "fetch_listing") as fetch_listing, \
+                    patch.object(main.dashboard, "build") as build, \
+                    patch.object(main.notify, "dispatch") as dispatch:
+                result = main.run(now=NOW, session=object())
+            self.assertEqual(state_path.read_text(encoding="utf-8"), original)
+        self.assertEqual(result, state)
+        fetch_listing.assert_not_called()
+        build.assert_not_called()
+        dispatch.assert_not_called()
+
     def test_cheapest_fresh_offer_wins_and_only_one_alert_is_dispatched(self):
         amazon = listing(
             "amazon-in-b0gsvfv3r4",
@@ -102,7 +149,7 @@ class MainTests(unittest.TestCase):
                     patch.object(main.analyze, "append_observation"), \
                     patch.object(main.analyze, "evaluate", side_effect=fake_evaluate), \
                     patch.object(main.dashboard, "build"), \
-                    patch.object(main.notify, "dispatch") as dispatch:
+                    patch.object(main.notify, "dispatch", return_value=True) as dispatch:
                 state = main.run(now=NOW, session=object())
 
         product_state = state["products"]["gillette-series-5-trimmer"]
@@ -117,6 +164,59 @@ class MainTests(unittest.TestCase):
             {"date": "2026-04-12", "price": 3999.0},
             {"date": "2026-08-01", "price": 3000.0},
         ])
+
+    def test_failed_notification_does_not_start_alert_cooldown(self):
+        amazon = listing(
+            "amazon-in-b0gsvfv3r4",
+            "amazon.in",
+            "pricehistory.app",
+            "https://amazon.in/dp/B0GSVFV3R4",
+        )
+        watchlist = {
+            "schema_version": 2,
+            "products": [{
+                "id": "gillette-series-5-trimmer",
+                "name": "Gillette Series 5",
+                "target": 3100,
+                "tier": "warm",
+                "notes": "",
+                "rejected_candidate_urls": [],
+                "listings": [amazon],
+            }],
+        }
+        verdict = {
+            "listing_id": amazon["id"],
+            "product_id": "gillette-series-5-trimmer",
+            "name": "Gillette Series 5",
+            "price": 3000.0,
+            "score": 80,
+            "alert": True,
+            "in_stock": True,
+            "url": amazon["url"],
+            "reasons": [],
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            watchlist_path = root / "watchlist.json"
+            state_path = root / "state.json"
+            watchlist_path.write_text(json.dumps(watchlist), encoding="utf-8")
+            state_path.write_text(
+                json.dumps({"schema_version": 2, "providers": {}, "products": {}, "listings": {}}),
+                encoding="utf-8",
+            )
+            with patch.object(main, "WATCHLIST", str(watchlist_path)), \
+                    patch.object(main, "STATE_PATH", str(state_path)), \
+                    patch.object(main.fetcher, "fetch_listing", return_value=(
+                        observation(amazon, 3000.0), {}, [{"status": "success"}],
+                    )), \
+                    patch.object(main.analyze, "append_observation"), \
+                    patch.object(main.analyze, "evaluate", return_value=verdict), \
+                    patch.object(main.dashboard, "build"), \
+                    patch.object(main.notify, "dispatch", return_value=False):
+                state = main.run(now=NOW, session=object())
+        product_state = state["products"]["gillette-series-5-trimmer"]
+        self.assertNotIn("last_alert_ts", product_state)
+        self.assertNotIn("last_alert_price", product_state)
 
     def test_failed_check_does_not_rewrite_last_success_timestamp(self):
         amazon = listing(
@@ -167,6 +267,58 @@ class MainTests(unittest.TestCase):
         record = result["listings"][amazon["id"]]
         self.assertEqual(record["last_success_ts"], old_success)
         self.assertEqual(record["last_attempt_ts"], "2026-08-01T12:00:00+00:00")
+
+    def test_dashboard_failure_does_not_discard_collected_state(self):
+        amazon = listing(
+            "amazon-in-b0gsvfv3r4",
+            "amazon.in",
+            "pricehistory.app",
+            "https://amazon.in/dp/B0GSVFV3R4",
+        )
+        watchlist = {
+            "schema_version": 2,
+            "products": [{
+                "id": "gillette-series-5-trimmer",
+                "name": "Gillette Series 5",
+                "target": None,
+                "tier": "warm",
+                "notes": "",
+                "rejected_candidate_urls": [],
+                "listings": [amazon],
+            }],
+        }
+        verdict = {
+            "listing_id": amazon["id"],
+            "price": 3000.0,
+            "score": 50,
+            "alert": False,
+            "in_stock": True,
+            "reasons": [],
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            watchlist_path = root / "watchlist.json"
+            state_path = root / "state.json"
+            watchlist_path.write_text(json.dumps(watchlist), encoding="utf-8")
+            state_path.write_text(
+                json.dumps({"schema_version": 2, "providers": {}, "products": {}, "listings": {}}),
+                encoding="utf-8",
+            )
+            with patch.object(main, "WATCHLIST", str(watchlist_path)), \
+                    patch.object(main, "STATE_PATH", str(state_path)), \
+                    patch.object(main.fetcher, "fetch_listing", return_value=(
+                        observation(amazon, 3000.0), {}, [{"status": "success"}],
+                    )), \
+                    patch.object(main.analyze, "append_observation"), \
+                    patch.object(main.analyze, "evaluate", return_value=verdict), \
+                    patch.object(main.dashboard, "build", side_effect=RuntimeError("render failed")), \
+                    patch.object(main.notify, "dispatch"):
+                main.run(now=NOW, session=object())
+            persisted = json.loads(state_path.read_text(encoding="utf-8"))
+        self.assertEqual(
+            persisted["listings"][amazon["id"]]["last_price"],
+            3000.0,
+        )
 
 
 if __name__ == "__main__":

@@ -7,6 +7,14 @@ dashboard refreshes are excluded.
 
 ### Changed
 
+- Added an identity-verified Hasbro Classic Jenga listing from Flipkart and a verified
+  BuyHatke fallback for the Nelko Amazon listing.
+- Made scheduled runs true no-ops when no product is due, preventing relative-time-only
+  dashboard commits and unnecessary Pages rebuilds.
+- Canonicalized retailer listing identities and routed heuristic brand mismatches to
+  human confirmation instead of silently rejecting cross-retailer candidates.
+- Increased the BuyHatke fetch timeout for verified server-rendered pages that can
+  exceed the former 25-second limit.
 - Brought the generated GitHub Pages dashboard to prototype fidelity with polished
   responsive cards, verdict-first hierarchy, accessible expansion and range states,
   retailer actions, and mobile layouts.
@@ -15,6 +23,14 @@ dashboard refreshes are excluded.
 
 ### Fixed
 
+- Record alert cooldowns only after at least one delivery channel succeeds; cleared
+  cooldowns previously created while both delivery channels were disabled.
+- Bound fallback price, retailer, stock state, link, freshness, and chart rendering to
+  the same listing; fresh sibling failures can no longer mark a buyable offer out of
+  stock.
+- Recomputed fallback freshness at render time and made the headline report stale or
+  missing products explicitly.
+- Surfaced current cross-retailer savings in each collapsed dashboard row.
 - Parsed and persisted PriceHistory's verified embedded chart series, preferred it
   over sparse local observations, and plotted points on a true chronological axis.
 - Accepted the current separator-free `Store Product Code` label while retaining

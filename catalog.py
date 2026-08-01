@@ -49,8 +49,8 @@ def normalize_url(value):
     if not isinstance(value, str):
         raise ValueError("URL must be a string")
     parsed = urlsplit(value.strip())
-    if parsed.scheme.lower() != "https" or not parsed.hostname:
-        raise ValueError("URL must be an https URL")
+    if parsed.scheme.lower() not in {"http", "https"} or not parsed.hostname:
+        raise ValueError("URL must be an http(s) URL")
     if parsed.username or parsed.password:
         raise ValueError("URL credentials are not supported")
 
@@ -63,6 +63,15 @@ def normalize_url(value):
             continue
         query.append((key, item))
     query.sort()
+
+    # Amazon exposes one ASIN through many title, /dp/, /gp/product/, and /ref=
+    # paths. Canonicalize those forms to the retailer identity so intake cannot
+    # propose or persist the same listing twice under different URLs.
+    if hostname == "amazon.in":
+        amazon = re.search(r"/(?:dp|gp/product)/([A-Za-z0-9]{10})(?:[/?]|$)", path)
+        if amazon:
+            path = f"/dp/{amazon.group(1).upper()}"
+            query = []
     return urlunsplit(("https", hostname, path, urlencode(query), ""))
 
 
@@ -116,6 +125,12 @@ def listing_id_for(url):
     return f"{host}-{path_slug}-{digest}".strip("-")
 
 
+def listing_identity(url):
+    """Return a stable retailer-scoped identity suitable for deduplication."""
+    normalized = normalize_url(url)
+    return retailer_hostname(normalized), retailer_product_id(normalized) or normalized
+
+
 def extract_attributes(title):
     """Extract conservative identity attributes from a provider title."""
     title = str(title or "").strip()
@@ -164,15 +179,18 @@ def match_candidate(seed_attributes, candidate_attributes):
     seed = normalize_attributes(seed_attributes)
     candidate = normalize_attributes(candidate_attributes)
 
-    if not seed.get("brand") or not candidate.get("brand"):
-        return "confirm"
-    if seed["brand"] != candidate["brand"]:
-        return "reject"
-
     shared_identifiers = IDENTIFIER_KEYS & seed.keys() & candidate.keys()
     for key in shared_identifiers:
         if seed[key] != candidate[key]:
             return "reject"
+
+    # The extractor's brand is deliberately heuristic (often the title's first
+    # word). A cross-retailer title may lead with "Original" or a category name,
+    # so a brand mismatch requires human confirmation rather than silent rejection.
+    if not seed.get("brand") or not candidate.get("brand"):
+        return "confirm"
+    if seed["brand"] != candidate["brand"]:
+        return "confirm"
     if not shared_identifiers:
         return "confirm"
 
@@ -193,6 +211,8 @@ def validate_watchlist(data):
         raise ValueError("watchlist must use schema version 2")
     if not isinstance(data.get("products"), list):
         raise ValueError("watchlist products must be a list")
+    listing_ids = set()
+    listing_identities = set()
     for product in data["products"]:
         for key in ("id", "name", "rejected_candidate_urls", "listings"):
             if key not in product:
@@ -203,6 +223,20 @@ def validate_watchlist(data):
                     raise ValueError(f"listing missing {key}")
             if not re.fullmatch(r"[a-z0-9-]+", listing["id"]):
                 raise ValueError(f"invalid listing ID: {listing['id']}")
+            normalized = normalize_url(listing["url"])
+            if listing["retailer"] != retailer_hostname(normalized):
+                raise ValueError(f"listing retailer does not match URL: {listing['id']}")
+            if listing["id"] != listing_id_for(normalized):
+                raise ValueError(f"listing ID does not match URL identity: {listing['id']}")
+            identity = listing_identity(normalized)
+            if listing["id"] in listing_ids or identity in listing_identities:
+                raise ValueError(f"duplicate retailer listing: {listing['id']}")
+            listing_ids.add(listing["id"])
+            listing_identities.add(identity)
+        rejected = {listing_identity(url) for url in product["rejected_candidate_urls"]}
+        confirmed = {listing_identity(listing["url"]) for listing in product["listings"]}
+        if rejected & confirmed:
+            raise ValueError(f"confirmed listing is also rejected: {product['id']}")
     return data
 
 

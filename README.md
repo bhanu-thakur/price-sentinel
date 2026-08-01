@@ -1,8 +1,10 @@
 # Price Sentinel
 
-Always-on multi-retailer price tracker. Runs on GitHub Actions every 30 minutes —
-free, forever, whether or not your laptop is on. Alert delivery remains postponed
-until provider and dashboard work stabilizes.
+Always-on multi-retailer price tracker. GitHub Actions is configured to run every
+30 minutes on a best-effort schedule — free, whether or not your laptop is on.
+GitHub can delay or drop scheduled runs, so this is monitoring rather than a strict
+30-minute service. Alert delivery remains postponed until provider and dashboard
+work stabilizes.
 
 The point isn't "tell me the price." It's **judging whether a price is actually good**,
 by scoring it against that product's own history rather than a threshold you guessed.
@@ -74,7 +76,8 @@ Settings → Secrets and variables → Actions:
 | `MAIL_TO` | where alerts go |
 
 Either channel works alone. Leave secrets unset to disable that channel — the tracker
-still runs, stores history and updates the dashboard, it just doesn't notify.
+still runs, stores history and updates the dashboard, it just doesn't notify. Alert
+cooldowns begin only after at least one configured channel confirms delivery.
 
 ### 6. Dashboard
 
@@ -258,7 +261,7 @@ analyze.py                  history storage + dual-window buy-zone engine
 notify.py                   ntfy push + SMTP email
 dashboard.py                static dashboard generator
 main.py                     orchestrator, adaptive scheduling
-.github/workflows/track.yml the 30-minute heartbeat
+.github/workflows/track.yml best-effort 30-minute schedule
 data/                       listing price history (auto-committed)
 data/state.json             schema-v2 provider, product, and listing state
 docs/index.html             dashboard (auto-generated)
