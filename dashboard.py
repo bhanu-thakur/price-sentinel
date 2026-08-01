@@ -52,10 +52,28 @@ def _escape(value, quote=False):
     return html.escape(str(value or ""), quote=quote)
 
 
+def _group_inr(number):
+    """Group digits en-IN: last three, then pairs. 1249900 -> 12,49,900."""
+    digits = str(int(number))
+    sign = ""
+    if digits.startswith("-"):
+        sign, digits = "-", digits[1:]
+    if len(digits) <= 3:
+        return sign + digits
+    head, tail = digits[:-3], digits[-3:]
+    parts = []
+    while len(head) > 2:
+        parts.insert(0, head[-2:])
+        head = head[:-2]
+    if head:
+        parts.insert(0, head)
+    return sign + ",".join(parts) + "," + tail
+
+
 def _money(value):
     if value is None:
         return "—"
-    return f"₹{value:,.0f}"
+    return f"₹{_group_inr(round(float(value)))}"
 
 
 def _retailer_label(value):
@@ -144,12 +162,23 @@ def _verdict_line(products, state, now):
         headline = "1 product in the buy zone"
     else:
         headline = f"{count} products in the buy zone"
-    timestamps = [
-        _parse_ts(_product_state(state, product).get("last_checked_ts"))
-        for product in products
-    ]
-    latest = max((stamp for stamp in timestamps if stamp), default=None)
-    return headline, f"{len(products)} tracked · checked {_relative(latest, now)}"
+    # Freshness must describe DATA, not effort. last_checked_ts is set before the
+    # fetch is attempted and survives total failure; last_success_ts does not.
+    listings_state = state.get("listings") or {}
+    timestamps = []
+    for product in products:
+        for listing in product.get("listings", []):
+            stamp = _parse_ts(listings_state.get(listing.get("id"), {}).get("last_success_ts"))
+            if stamp:
+                timestamps.append(stamp)
+    latest = max(timestamps, default=None)
+    if latest is None:
+        detail = "no successful check yet"
+    elif now - latest > timedelta(hours=24):
+        detail = f"STALE · last good price {_relative(latest, now)}"
+    else:
+        detail = f"priced {_relative(latest, now)}"
+    return headline, f"{len(products)} tracked · {detail}"
 
 
 STYLE = r"""
@@ -264,6 +293,14 @@ def _card(product, state, chart_paths, now):
     product_state = _product_state(state, product)
     status = _status(state, product)
     verdict = product_state.get("last_verdict") or {}
+    # No BUYABLE offer does not mean no data: an out-of-stock listing is filtered
+    # out of `fresh` upstream and lands in stale_offers with its verdict intact.
+    # Only accept a fallback that is still recent, never a days-old observation.
+    stale_offers = product_state.get("stale_offers") or []
+    fallback = next((offer for offer in stale_offers if offer.get("fresh")), {})
+    out_of_stock = bool(fallback) and not fallback.get("in_stock", True)
+    if not verdict and fallback:
+        verdict = fallback
     recommended_id = product_state.get("recommended_listing_id")
     offer_items = _offer_data(product, state)
     recommended = next((item for item in offer_items if item["listing"]["id"] == recommended_id), None)
@@ -271,15 +308,25 @@ def _card(product, state, chart_paths, now):
     recommended_listing = recommended["listing"] if recommended else None
     chart_listing = chart_offer["listing"] if chart_offer else None
     recommended_state = chart_offer["state"] if chart_offer else {}
+    display_listing = recommended_listing or chart_listing
     price = _number(verdict.get("price"))
     score = _number(verdict.get("score"))
     high = _number(verdict.get("life_high") or recommended_state.get("site_high"))
     low = _number(verdict.get("life_low") or recommended_state.get("site_low"))
-    median = _number(verdict.get("median") or verdict.get("life_avg") or recommended_state.get("site_avg"))
+    if verdict.get("basis"):
+        median = _number(verdict.get("median") or verdict.get("life_avg") or recommended_state.get("site_avg"))
+        median_label = "Lifetime average"
+    elif verdict.get("median") is not None:
+        median = _number(verdict.get("median"))
+        median_label = "180-day median"
+    else:
+        median = _number(verdict.get("life_avg") or recommended_state.get("site_avg"))
+        median_label = "Lifetime average" if median is not None else "180-day median"
     below_peak = ((high - price) / high * 100) if high and price is not None and high >= price else None
-    retailer = _retailer_label(recommended_listing.get("retailer")) if recommended_listing else "No fresh offer"
+    retailer = _retailer_label(display_listing.get("retailer")) if display_listing else "Not tracked"
     chart_retailer = _retailer_label(chart_listing.get("retailer")) if chart_listing else retailer
-    freshness = _freshness(recommended_state, now) if recommended_listing else "No fresh offer"
+    freshness = _freshness(recommended_state, now) if display_listing else "No data"
+    stock_note = " · Out of stock" if out_of_stock else ""
     color = "#3FB950" if status == "buy" else "#D29922" if status == "watch" else "#4B85D6"
     listing_id = chart_listing["id"] if chart_listing else (product.get("listings") or [{"id": ""}])[0]["id"]
     chart_path = chart_paths.get(listing_id, "")
@@ -287,7 +334,18 @@ def _card(product, state, chart_paths, now):
     reasons = verdict.get("reasons") or ["No fresh verdict yet."]
     score_text = f"{score:.0f}" if score is not None else "—"
     fill = max(0, min(100, score or 0))
-    delta = "at all-time low" if price is not None and low is not None and price <= low else f"{below_peak:.0f}% below peak" if below_peak is not None else "No fresh offer"
+    if out_of_stock:
+        delta = "Out of stock"
+    elif price is None:
+        delta = "No fresh offer"
+    elif low is not None and price <= low:
+        delta = "at all-time low"
+    elif high is not None and price > high:
+        delta = "above all-time high"
+    elif below_peak is not None:
+        delta = f"{below_peak:.0f}% below peak"
+    else:
+        delta = "No range data"
 
     offer_rows = []
     for item in _offer_data(product, state):
@@ -317,7 +375,7 @@ def _card(product, state, chart_paths, now):
     )
     stats = (
         f'<div class="st"><div class="stl">All-time low</div><div class="stv num go">{_escape(_money(low))}</div></div>'
-        f'<div class="st"><div class="stl">180-day median</div><div class="stv num">{_escape(_money(median))}</div></div>'
+        f'<div class="st"><div class="stl">{_escape(median_label)}</div><div class="stv num">{_escape(_money(median))}</div></div>'
         f'<div class="st"><div class="stl">All-time high</div><div class="stv num">{_escape(_money(high))}</div></div>'
         f'<div class="st"><div class="stl">Your target</div><div class="stv num">{_escape(_money(target))}</div></div>'
     )
@@ -329,13 +387,13 @@ def _card(product, state, chart_paths, now):
     )
     details_id = f"details-{listing_id or product.get('id', 'product')}"
     actions = ""
-    if recommended_listing:
-        primary_url = recommended_listing.get("url")
+    if display_listing:
+        primary_url = display_listing.get("url")
         source_name = recommended_state.get("last_source")
         history_url = (
             recommended_state.get("last_source_url")
-            or recommended_listing.get("source_urls", {}).get(source_name)
-            or next(iter(recommended_listing.get("source_urls", {}).values()), None)
+            or display_listing.get("source_urls", {}).get(source_name)
+            or next(iter(display_listing.get("source_urls", {}).values()), None)
         )
         action_links = []
         if primary_url:
@@ -353,8 +411,8 @@ def _card(product, state, chart_paths, now):
     return (
         f'<div class="card {_escape(status, quote=True)}" data-listing="{_escape(listing_id, quote=True)}">'
         f'<button type="button" class="head" aria-expanded="false" aria-controls="{_escape(details_id, quote=True)}"><div class="rail"></div>'
-        f'<div><div class="nm">{_escape(product.get("name"))}</div><div class="sub2">{_escape(retailer)} · {_escape(freshness)}</div></div>'
-        f'<div class="meter"><div class="bar"><div class="fill" style="width:{fill:.0f}%"></div></div><div class="mlabel">{_escape(score_text)} / 100</div></div>'
+        f'<div><div class="nm">{_escape(product.get("name"))}</div><div class="sub2">{_escape(retailer)} · {_escape(freshness)}{_escape(stock_note)}</div></div>'
+        f'<div class="meter"><div class="bar"><div class="fill" style="width:{fill:.0f}%"></div></div><div class="mlabel num">{_escape(score_text)} / 100</div></div>'
         f'<div class="pricewrap"><div class="price num">{_escape(_money(price))}</div><div class="delta num">{_escape(delta)}</div></div></button>'
         f'<div class="body" id="{_escape(details_id, quote=True)}" aria-hidden="true"><div class="body-clip"><div class="inner">'
         f'<div class="ranges" aria-label="Chart range">{range_buttons}</div><div class="chart-title"><span>Price history — {_escape(chart_retailer)}</span><span class="chart-range">6M · daily lows</span></div>'

@@ -25,6 +25,58 @@
           }
         }
       ]
+    },
+    {
+      "id": "nelko-p21-label-maker-machine-with-tape-bluetooth-label-printer-green-creative-app-multiple-templates-inkless-printing-built-in-cutter-ideal-for-school-teacher-supplies-office-and-home",
+      "name": "Nelko P21 Label Maker Machine with Tape, Bluetooth Label Printer, Green | Creative App & Multiple Templates, Inkless Printing, Built-in Cutter, Ideal for School, Teacher Supplies, Office, and Home",
+      "target": null,
+      "tier": "warm",
+      "notes": "",
+      "rejected_candidate_urls": [],
+      "listings": [
+        {
+          "id": "amazon-in-b0chjr8nld",
+          "retailer": "amazon.in",
+          "url": "https://amazon.in/gp/product/B0CHJR8NLD?psc=1&smid=A34KMILQHJ7AJD",
+          "confirmed_by": "seed",
+          "attributes": {
+            "brand": "Nelko",
+            "colour": "Green",
+            "model": "P21"
+          },
+          "source_urls": {
+            "pricehistory.app": "https://pricehistory.app/p/nelko-p21-label-maker-machine-tape-bluetooth-Qqujcqmb"
+          }
+        }
+      ]
+    },
+    {
+      "id": "hasbro-gaming-original-jenga-stacking-tower-game-fun-for-kids-families-birthday-gift-toys-for-kids-ages-6-for-1-or-more-players",
+      "name": "Hasbro Gaming Original Jenga Stacking Tower Game, Fun for Kids & Families, Birthday Gift Toys for Kids Ages 6+, for 1 or More Players",
+      "target": null,
+      "tier": "warm",
+      "notes": "",
+      "rejected_candidate_urls": [
+        "https://amazon.in/Hasbro-A2120E180-Gaming-Classic-Jenga/dp/B00ABA0ZOA",
+        "https://amazon.in/Hasbro-Classic-Hardwood-Stacking-Fast-Paced/dp/B0BJ5SXB8W",
+        "https://amazon.in/Hasbro-Classic-Hardwood-Stacking-Players/dp/B08675PSBT",
+        "https://amazon.in/Hasbro-Classic-Hardwood-Stacking-Players/dp/B0BJ5K4KGK"
+      ],
+      "listings": [
+        {
+          "id": "amazon-in-b08675psbt",
+          "retailer": "amazon.in",
+          "url": "https://amazon.in/gp/product/B08675PSBT/ref=ox_sc_saved_title_5?psc=1&smid=A2GTG1HPYW8M2P",
+          "confirmed_by": "seed",
+          "attributes": {
+            "brand": "Hasbro"
+          },
+          "source_urls": {
+            "pricehistory.app": "https://pricehistory.app/p/hasbro-gaming-original-jenga-stacking-tower-game-KAhTr3Q2",
+            "buyhatke.com": "https://buyhatke.com/amazon-hasbro-gaming-original-jenga-stacking-tower-game-fun-for-kids-families-birthday-gift-toys-for-kids-ages-6-for-1-or-more-players-price-in-india-63-39308745"
+          }
+        }
+      ]
     }
   ]
 }

@@ -4,6 +4,7 @@ import copy
 import json
 import os
 import sys
+import traceback
 from datetime import datetime, timedelta, timezone
 
 import requests
@@ -218,8 +219,14 @@ def run(now=None, session=None):
     with open(STATE_PATH, "w", encoding="utf-8", newline="\n") as handle:
         json.dump(state, handle, indent=2, sort_keys=True)
 
-    # The dashboard is static and regenerated from committed watchlist/state.
-    dashboard.build(products, state)
+    # The dashboard is a view over data that is already on disk but NOT yet
+    # committed. A rendering bug must never cost us the price sample or the
+    # alert-cooldown state, so it degrades to a stale page instead of exiting.
+    try:
+        dashboard.build(products, state)
+    except Exception:
+        traceback.print_exc()
+        print("[dashboard] BUILD FAILED — price data preserved, page left stale")
     print(f"[done] checked={checked} failed={failed} alerts={len(alerts)}")
     return state
 
