@@ -1,0 +1,11 @@
+# Force LF in the repository for everything text.
+#
+# The workflow YAML and Python run on Linux runners. A Windows clone that
+# committed CRLF would produce a diff touching every line of every file, and
+# CRLF in .github/workflows/*.yml can break Actions parsing outright.
+* text=auto eol=lf
+
+# Never touch binaries.
+*.png binary
+*.jpg binary
+*.ico binary
