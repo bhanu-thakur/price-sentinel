@@ -8,14 +8,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-01T19:38:35+00:00",
+      "last_checked_ts": "2026-08-01T20:53:02+00:00",
       "last_in_stock": true,
       "last_price": 660.0,
       "last_retailer": "amazon.in",
       "last_score": 74.1,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/hasbro-gaming-original-jenga-stacking-tower-game-KAhTr3Q2",
-      "last_success_ts": "2026-08-01T19:38:35+00:00",
+      "last_success_ts": "2026-08-01T20:53:02+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
@@ -30,10 +30,10 @@
         "product_id": "hasbro-gaming-original-jenga-stacking-tower-game-fun-for-kids-families-birthday-gift-toys-for-kids-ages-6-for-1-or-more-players",
         "reasons": [
           "14.0% below the lifetime average",
-          "Own history still building (1 samples)"
+          "Own history still building (2 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 1,
+        "samples": 2,
         "score": 74.1,
         "seller": null,
         "source": "pricehistory.app",
@@ -2254,14 +2254,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-01T19:38:35+00:00",
+      "last_checked_ts": "2026-08-01T20:53:02+00:00",
       "last_in_stock": true,
       "last_price": 2748.06,
       "last_retailer": "amazon.in",
       "last_score": 83.5,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/nelko-p21-label-maker-machine-tape-bluetooth-Qqujcqmb",
-      "last_success_ts": "2026-08-01T19:38:35+00:00",
+      "last_success_ts": "2026-08-01T20:53:02+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
@@ -2276,10 +2276,10 @@
         "product_id": "nelko-p21-label-maker-machine-with-tape-bluetooth-label-printer-green-creative-app-multiple-templates-inkless-printing-built-in-cutter-ideal-for-school-teacher-supplies-office-and-home",
         "reasons": [
           "8.1% below the lifetime average",
-          "Own history still building (1 samples)"
+          "Own history still building (2 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 1,
+        "samples": 2,
         "score": 83.5,
         "seller": null,
         "source": "pricehistory.app",
@@ -2568,14 +2568,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-01T19:38:35+00:00",
+      "last_checked_ts": "2026-08-01T20:53:02+00:00",
       "last_in_stock": true,
       "last_price": 3119.0,
       "last_retailer": "amazon.in",
       "last_score": 73.3,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/gillette-series-5-all-one-beard-body-5vQqMKIm",
-      "last_success_ts": "2026-08-01T19:38:35+00:00",
+      "last_success_ts": "2026-08-01T20:53:02+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -2598,7 +2598,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 17,
+        "samples": 18,
         "score": 73.3,
         "seller": null,
         "source": "pricehistory.app",
@@ -2746,12 +2746,12 @@
       "auto_tier": "hot",
       "last_alert_price": 3119.0,
       "last_alert_ts": "2026-08-01T11:33:28+00:00",
-      "last_checked_ts": "2026-08-01T19:38:35+00:00",
+      "last_checked_ts": "2026-08-01T20:53:02+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-01T19:38:35+00:00",
+        "last_success_ts": "2026-08-01T20:53:02+00:00",
         "life_avg": 3301.0,
         "life_high": 3999.0,
         "life_low": 2799.0,
@@ -2772,7 +2772,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 17,
+        "samples": 18,
         "score": 73.3,
         "seller": null,
         "source": "pricehistory.app",
@@ -2787,13 +2787,13 @@
       "auto_tier": "hot",
       "last_alert_price": 660.0,
       "last_alert_ts": "2026-08-01T19:38:35+00:00",
-      "last_checked_ts": "2026-08-01T19:38:35+00:00",
+      "last_checked_ts": "2026-08-01T20:53:02+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-01T19:38:35+00:00",
+        "last_success_ts": "2026-08-01T20:53:02+00:00",
         "listing_id": "amazon-in-b08675psbt",
         "listing_url": "https://amazon.in/gp/product/B08675PSBT/ref=ox_sc_saved_title_5?psc=1&smid=A2GTG1HPYW8M2P",
         "max90": 1189.0,
@@ -2805,10 +2805,10 @@
         "product_id": "hasbro-gaming-original-jenga-stacking-tower-game-fun-for-kids-families-birthday-gift-toys-for-kids-ages-6-for-1-or-more-players",
         "reasons": [
           "14.0% below the lifetime average",
-          "Own history still building (1 samples)"
+          "Own history still building (2 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 1,
+        "samples": 2,
         "score": 74.1,
         "seller": null,
         "source": "pricehistory.app",
@@ -2822,13 +2822,13 @@
       "auto_tier": "hot",
       "last_alert_price": 2748.06,
       "last_alert_ts": "2026-08-01T19:38:35+00:00",
-      "last_checked_ts": "2026-08-01T19:38:35+00:00",
+      "last_checked_ts": "2026-08-01T20:53:02+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-01T19:38:35+00:00",
+        "last_success_ts": "2026-08-01T20:53:02+00:00",
         "listing_id": "amazon-in-b0chjr8nld",
         "listing_url": "https://amazon.in/gp/product/B0CHJR8NLD?psc=1&smid=A34KMILQHJ7AJD",
         "max90": 3299.0,
@@ -2840,10 +2840,10 @@
         "product_id": "nelko-p21-label-maker-machine-with-tape-bluetooth-label-printer-green-creative-app-multiple-templates-inkless-printing-built-in-cutter-ideal-for-school-teacher-supplies-office-and-home",
         "reasons": [
           "8.1% below the lifetime average",
-          "Own history still building (1 samples)"
+          "Own history still building (2 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 1,
+        "samples": 2,
         "score": 83.5,
         "seller": null,
         "source": "pricehistory.app",
