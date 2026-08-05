@@ -79,6 +79,25 @@ def retailer_hostname(url):
     return urlsplit(normalize_url(url)).hostname
 
 
+RETAILER_LABELS = {
+    "amazon.in": "Amazon",
+    "flipkart.com": "Flipkart",
+    "myntra.com": "Myntra",
+    "croma.com": "Croma",
+    "tatacliq.com": "Tata CLiQ",
+    "ajio.com": "AJIO",
+    "snapdeal.com": "Snapdeal",
+    "reliancedigital.in": "Reliance Digital",
+    "vijaysales.com": "Vijay Sales",
+}
+
+
+def retailer_label(value):
+    """Human-readable retailer name, shared by the dashboard and alert copy."""
+    value = str(value or "").lower().removeprefix("www.")
+    return RETAILER_LABELS.get(value, value or "Unknown retailer")
+
+
 def normalize_identity_text(value):
     text = unicodedata.normalize("NFKC", str(value or "")).casefold()
     text = re.sub(r"[^\w\s]", " ", text, flags=re.UNICODE)

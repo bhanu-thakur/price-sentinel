@@ -6,22 +6,12 @@ import os
 from datetime import datetime, timedelta, timezone
 
 import analyze
+import catalog
 
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "docs", "index.html")
 CHART_DATA_DIR = os.path.join(ROOT, "docs", "chart-data")
-RETAILER_LABELS = {
-    "amazon.in": "Amazon",
-    "flipkart.com": "Flipkart",
-    "myntra.com": "Myntra",
-    "croma.com": "Croma",
-    "tatacliq.com": "Tata CLiQ",
-    "ajio.com": "AJIO",
-    "snapdeal.com": "Snapdeal",
-    "reliancedigital.in": "Reliance Digital",
-    "vijaysales.com": "Vijay Sales",
-}
 
 
 def daily_low(hist):
@@ -74,11 +64,6 @@ def _money(value):
     if value is None:
         return "—"
     return f"₹{_group_inr(round(float(value)))}"
-
-
-def _retailer_label(value):
-    value = str(value or "").lower().removeprefix("www.")
-    return RETAILER_LABELS.get(value, value or "Unknown retailer")
 
 
 def _number(value):
@@ -362,8 +347,8 @@ def _card(product, state, chart_paths, now):
         median = _number(verdict.get("life_avg") or display_state.get("site_avg"))
         median_label = "Lifetime average" if median is not None else "180-day median"
     below_peak = ((high - price) / high * 100) if high and price is not None and high >= price else None
-    retailer = _retailer_label(display_listing.get("retailer")) if display_listing else "Not tracked"
-    chart_retailer = _retailer_label(chart_listing.get("retailer")) if chart_listing else retailer
+    retailer = catalog.retailer_label(display_listing.get("retailer")) if display_listing else "Not tracked"
+    chart_retailer = catalog.retailer_label(chart_listing.get("retailer")) if chart_listing else retailer
     freshness = _freshness(display_state, now) if display_listing else "No data"
     stock_note = " · Out of stock" if out_of_stock else ""
     current_offers = []
@@ -379,7 +364,7 @@ def _card(product, state, chart_paths, now):
         current_offers.sort(key=lambda pair: (pair[0], pair[1]["listing"].get("retailer", "")))
         best_price, _ = current_offers[0]
         next_price, next_item = current_offers[1]
-        next_retailer = _retailer_label(next_item["listing"].get("retailer"))
+        next_retailer = catalog.retailer_label(next_item["listing"].get("retailer"))
         saving = next_price - best_price
         if saving > 0:
             comparison_note = f" · Cheapest of {len(current_offers)} · {_money(saving)} less than {next_retailer}"
@@ -418,7 +403,7 @@ def _card(product, state, chart_paths, now):
             offer_freshness += " · Out of stock"
         offer_rows.append(
             '<div class="offer">'
-            f'<span>{_escape(_retailer_label(listing.get("retailer")))}{"<span class=best>Best</span>" if item["best"] else ""}</span>'
+            f'<span>{_escape(catalog.retailer_label(listing.get("retailer")))}{"<span class=best>Best</span>" if item["best"] else ""}</span>'
             f'<span class="num">{_escape(_money(_number(offer_verdict.get("price") or record.get("last_price"))))}</span>'
             f'<span>{_escape(offer_freshness)}</span>'
             f'<span class="offer-source">{_escape(_source_label(listing, record))}</span>'

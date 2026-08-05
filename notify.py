@@ -8,6 +8,8 @@ from email.message import EmailMessage
 
 import requests
 
+import catalog
+
 NTFY_TOPIC = os.environ.get("NTFY_TOPIC", "").strip()
 NTFY_SERVER = (os.environ.get("NTFY_SERVER") or "https://ntfy.sh").rstrip("/")
 SMTP_HOST = os.environ.get("SMTP_HOST") or "smtp.gmail.com"
@@ -48,7 +50,7 @@ def push_ntfy(verdicts):
                 "Priority": "urgent" if top["score"] >= 75 else "high",
                 "Tags": "moneybag",
                 "Click": top["url"],
-                "Actions": f"view, Open on Amazon, {top['url']}",
+                "Actions": f"view, Open on {catalog.retailer_label(top.get('retailer'))}, {top['url']}",
             },
             timeout=20,
         ).raise_for_status()

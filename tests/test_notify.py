@@ -19,6 +19,24 @@ class NotifyTests(unittest.TestCase):
     def test_empty_dispatch_is_not_delivery(self):
         self.assertFalse(notify.dispatch([]))
 
+    def test_action_button_names_the_listing_retailer(self):
+        verdicts = [{
+            "name": "Jenga",
+            "price": 660,
+            "score": 98.3,
+            "reasons": [],
+            "url": "https://flipkart.com/item?pid=BUY1",
+            "retailer": "flipkart.com",
+        }]
+        with patch.object(notify, "NTFY_TOPIC", "topic"), patch.object(notify, "requests") as http:
+            self.assertTrue(notify.push_ntfy(verdicts))
+
+        headers = http.post.call_args.kwargs["headers"]
+        self.assertEqual(
+            headers["Actions"], "view, Open on Flipkart, https://flipkart.com/item?pid=BUY1"
+        )
+        self.assertEqual(headers["Priority"], "urgent")
+
 
 if __name__ == "__main__":
     unittest.main()
