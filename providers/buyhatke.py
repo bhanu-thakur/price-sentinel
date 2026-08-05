@@ -29,6 +29,14 @@ _EXCLUDED_HOSTS = {
 }
 
 
+def _canonical_host(url):
+    """Force the www host: the apex buyhatke.com answers 403 for every request."""
+    parsed = urlparse(url)
+    if parsed.netloc.lower() == "buyhatke.com":
+        return urlunparse(parsed._replace(netloc="www.buyhatke.com"))
+    return url
+
+
 def _number(value):
     if value is None:
         return None
@@ -151,7 +159,7 @@ def fetch(source_url, listing, session, now=None):
     """Fetch and validate one BuyHatke product page."""
     now = now or datetime.now(timezone.utc)
     try:
-        response = session.get(source_url, timeout=FETCH_TIMEOUT)
+        response = session.get(_canonical_host(source_url), timeout=FETCH_TIMEOUT)
     except requests.RequestException as exc:
         raise SourceError(PROVIDER, "network", str(exc)) from exc
     if response.status_code != 200:
@@ -189,7 +197,7 @@ def resolve(retailer_url, session):
 def discover(source_url, session):
     """Return direct retailer links present in the public comparison data."""
     try:
-        response = session.get(source_url, timeout=25)
+        response = session.get(_canonical_host(source_url), timeout=25)
     except requests.RequestException as exc:
         raise SourceError(PROVIDER, "network", str(exc)) from exc
     if response.status_code != 200:

@@ -17,12 +17,6 @@ PROVIDER_ADAPTERS = {
     pricehistory_app.PROVIDER: pricehistory_app,
     buyhatke.PROVIDER: buyhatke,
 }
-# Providers that are reachable in principle but refuse traffic from GitHub-hosted
-# runners. buyhatke.com answers 403 for every request from Actions (and rejects
-# Python's TLS handshake outright elsewhere), so the 6-hour circuit breaker just
-# re-armed forever and logged a failure every run. Keep the adapter — it still
-# works from a normal network — but never spend a request on it in CI.
-DISABLED_PROVIDERS = frozenset({"buyhatke.com"})
 _last_request_at = None
 
 
@@ -112,9 +106,6 @@ def fetch_listing(listing, provider_state, session=None, now=None):
         adapter = PROVIDER_ADAPTERS.get(provider)
         if adapter is None:
             attempts.append({"provider": provider, "status": "skipped", "reason": "unsupported"})
-            continue
-        if provider in DISABLED_PROVIDERS:
-            attempts.append({"provider": provider, "status": "skipped", "reason": "provider_disabled"})
             continue
 
         record = _provider_record(provider_state, provider)

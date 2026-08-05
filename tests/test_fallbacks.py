@@ -63,7 +63,7 @@ class FallbackTests(unittest.TestCase):
         with patch.dict(fetch.PROVIDER_ADAPTERS, {
             "pricehistory.app": first,
             "buyhatke.com": second,
-        }, clear=True), patch.object(fetch, "DISABLED_PROVIDERS", frozenset()), patch("fetch.time.sleep"):
+        }, clear=True), patch("fetch.time.sleep"):
             result, _, attempts = fetch.fetch_listing(self.listing, {}, now=NOW)
         self.assertEqual(result.source, "buyhatke.com")
         self.assertEqual(first.calls, ["https://pricehistory.app/p/one"])
@@ -83,7 +83,7 @@ class FallbackTests(unittest.TestCase):
         with patch.dict(fetch.PROVIDER_ADAPTERS, {
             "pricehistory.app": first,
             "buyhatke.com": second,
-        }, clear=True), patch.object(fetch, "DISABLED_PROVIDERS", frozenset()), patch("fetch.time.sleep"):
+        }, clear=True), patch("fetch.time.sleep"):
             result, _, attempts = fetch.fetch_listing(self.listing, state, now=NOW)
         self.assertEqual(result.source, "buyhatke.com")
         self.assertEqual(first.calls, [])

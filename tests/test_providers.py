@@ -136,6 +136,24 @@ class ProviderFixtureTests(unittest.TestCase):
             timeout=60,
         )
 
+    def test_buyhatke_apex_url_is_requested_on_the_www_host(self):
+        # The apex host answers 403 for every request; only www serves pages.
+        session = Mock()
+        session.get.return_value = response_for(ROOT / "buyhatke" / "success.html")
+
+        observation = buyhatke.fetch(
+            "https://buyhatke.com/amazon-gillette-series-5-price-history-63-110659581",
+            self.amazon_listing,
+            session,
+            now=NOW,
+        )
+
+        self.assertEqual(observation.price, 3119.0)
+        session.get.assert_called_once_with(
+            "https://www.buyhatke.com/amazon-gillette-series-5-price-history-63-110659581",
+            timeout=60,
+        )
+
     def test_buyhatke_missing_price_fixture_rejected(self):
         session = Mock()
         session.get.return_value = response_for(ROOT / "buyhatke" / "missing_price.html")

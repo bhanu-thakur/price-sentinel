@@ -2987,8 +2987,8 @@
   "providers": {
     "buyhatke.com": {
       "consecutive_failures": 0,
-      "disabled_until": "2026-08-05T09:43:21+00:00",
-      "last_error": "blocked: HTTP 403"
+      "disabled_until": null,
+      "last_error": null
     },
     "pricehistory.app": {
       "consecutive_failures": 0,
