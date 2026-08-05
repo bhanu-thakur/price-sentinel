@@ -23,41 +23,79 @@ def _rupees(x):
     return f"Rs {x:,.0f}" if x is not None else "-"
 
 
+_DANGLING = {"with", "and", "for", "the", "a", "an", "in", "of", "by", "to", "&", "-", "|"}
+
+
+def _clip(text, limit):
+    """Trim on a word boundary, without leaving a dangling connector word."""
+    text = " ".join(str(text or "").split())
+    if len(text) <= limit:
+        return text
+    words = text[:limit].split(" ")[:-1]
+    while words and words[-1].strip(",").lower() in _DANGLING:
+        words.pop()
+    return " ".join(words)
+
+
+def _lifetime(v):
+    """Price range from the provider's own history.
+
+    The 90-day figures are deliberately left out: they come from samples this
+    tracker has collected itself, which for a young listing are all the same
+    price, so they read as "low = median = high" and say nothing.
+    """
+    low, avg, high = v.get("life_low"), v.get("life_avg"), v.get("life_high")
+    if not low:
+        return None
+    parts = [f"low {_rupees(low)}"]
+    if avg:
+        parts.append(f"avg {_rupees(avg)}")
+    if high:
+        parts.append(f"high {_rupees(high)}")
+    return "All-time " + " · ".join(parts)
+
+
+def alert_title(v):
+    return f"{_rupees(v['price'])} - {_clip(v.get('name'), 38)}"
+
+
 def format_alert(v):
-    lines = [f"{_rupees(v['price'])}  -  {v['name'][:70]}"]
-    if v.get("median"):
-        lines.append(
-            f"90d: low {_rupees(v.get('min90'))} / median {_rupees(v['median'])} / high {_rupees(v.get('max90'))}"
-        )
-        lines.append(f"Deal score {v['score']}/100 (percentile {v.get('percentile', 0):.0f})")
-    for r in v["reasons"]:
-        lines.append(f"- {r}")
+    lines = list(v.get("reasons") or [])
+    lifetime = _lifetime(v)
+    if lifetime:
+        lines += ["", lifetime]
+    lines.append(
+        f"Score {round(v['score'])}/100 · {catalog.retailer_label(v.get('retailer'))}"
+    )
     return "\n".join(lines)
 
 
 def push_ntfy(verdicts):
+    """One push per product, so each carries its own title, link and button."""
     if not NTFY_TOPIC or not verdicts:
         return False
-    top = max(verdicts, key=lambda v: v["score"])
-    title = f"Price drop: {top['name'][:45]}"
-    body = "\n\n".join(format_alert(v) for v in verdicts)
-    try:
-        requests.post(
-            f"{NTFY_SERVER}/{NTFY_TOPIC}",
-            data=body.encode("utf-8"),
-            headers={
-                "Title": title.encode("utf-8"),
-                "Priority": "urgent" if top["score"] >= 75 else "high",
-                "Tags": "moneybag",
-                "Click": top["url"],
-                "Actions": f"view, Open on {catalog.retailer_label(top.get('retailer'))}, {top['url']}",
-            },
-            timeout=20,
-        ).raise_for_status()
-        return True
-    except Exception as e:  # noqa: BLE001 - never let alerting kill the run
-        print(f"[ntfy] failed: {e}")
-        return False
+    delivered = True
+    for v in sorted(verdicts, key=lambda item: item["score"], reverse=True):
+        retailer = catalog.retailer_label(v.get("retailer"))
+        try:
+            requests.post(
+                f"{NTFY_SERVER}/{NTFY_TOPIC}",
+                data=format_alert(v).encode("utf-8"),
+                headers={
+                    "Title": alert_title(v).encode("utf-8"),
+                    "Priority": "urgent" if v["score"] >= 75 else "high",
+                    "Tags": "moneybag",
+                    "Click": v["url"],
+                    "Actions": f"view, Open on {retailer}, {v['url']}",
+                },
+                timeout=20,
+            ).raise_for_status()
+        except Exception as e:  # noqa: BLE001 - never let alerting kill the run
+            # Report a partial failure as undelivered: re-sending one product
+            # next run is better than silently burning its 7-day cooldown.
+            print(f"[ntfy] {_clip(v.get('name'), 40)} failed: {e}")
+            delivered = False
+    return delivered
 
 
 def send_email(verdicts):
@@ -69,7 +107,7 @@ def send_email(verdicts):
           <td style="padding:10px;border-bottom:1px solid #eee">
             <a href="{v['url']}" style="font-weight:600;color:#0b5">{v['name'][:80]}</a><br>
             <span style="font-size:22px;font-weight:700">{_rupees(v['price'])}</span>
-            <span style="color:#888"> &nbsp;90d low {_rupees(v.get('min90'))} &middot; median {_rupees(v.get('median'))}</span><br>
+            <span style="color:#888"> &nbsp;{_lifetime(v) or ''}</span><br>
             <span style="color:#555">Score {v['score']}/100 &middot; {'; '.join(v['reasons'])}</span>
           </td></tr>"""
         for v in verdicts
