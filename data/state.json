@@ -8,14 +8,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-05T05:11:17+00:00",
+      "last_checked_ts": "2026-08-05T06:04:29+00:00",
       "last_in_stock": true,
       "last_price": 655.0,
       "last_retailer": "amazon.in",
       "last_score": 74.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/hasbro-gaming-original-jenga-stacking-tower-game-KAhTr3Q2",
-      "last_success_ts": "2026-08-05T05:11:17+00:00",
+      "last_success_ts": "2026-08-05T06:04:29+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -39,7 +39,7 @@
           "14.5% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 43,
+        "samples": 44,
         "score": 74.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -2277,14 +2277,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-05T05:11:17+00:00",
+      "last_checked_ts": "2026-08-05T06:04:29+00:00",
       "last_in_stock": true,
       "last_price": 2748.06,
       "last_retailer": "amazon.in",
       "last_score": 83.5,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/nelko-p21-label-maker-machine-tape-bluetooth-Qqujcqmb",
-      "last_success_ts": "2026-08-05T05:11:17+00:00",
+      "last_success_ts": "2026-08-05T06:04:29+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -2308,7 +2308,7 @@
           "7.7% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 43,
+        "samples": 44,
         "score": 83.5,
         "seller": null,
         "source": "pricehistory.app",
@@ -2610,14 +2610,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-05T05:11:17+00:00",
+      "last_checked_ts": "2026-08-05T06:04:29+00:00",
       "last_in_stock": true,
       "last_price": 3359.0,
       "last_retailer": "amazon.in",
       "last_score": 53.3,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/gillette-series-5-all-one-beard-body-5vQqMKIm",
-      "last_success_ts": "2026-08-05T05:11:17+00:00",
+      "last_success_ts": "2026-08-05T06:04:29+00:00",
       "last_verdict": {
         "alert": false,
         "in_stock": true,
@@ -2633,12 +2633,12 @@
         "name": "Gillette Series 5 All-in-One Trimmer (Braun)",
         "p10": 3119.0,
         "p25": 3119.0,
-        "percentile": 54.23728813559322,
+        "percentile": 53.333333333333336,
         "price": 3359.0,
         "product_id": "gillette-series-5-trimmer",
         "reasons": [],
         "retailer": "amazon.in",
-        "samples": 59,
+        "samples": 60,
         "score": 53.3,
         "seller": null,
         "source": "pricehistory.app",
@@ -2798,25 +2798,24 @@
       "last_attempts": [
         {
           "provider": "buyhatke.com",
-          "reason": "provider_disabled",
-          "status": "skipped"
+          "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-01T20:57:02+00:00",
+      "last_checked_ts": "2026-08-05T06:04:29+00:00",
       "last_in_stock": true,
       "last_price": 660.0,
       "last_retailer": "flipkart.com",
       "last_score": 98.3,
       "last_source": "buyhatke.com",
-      "last_source_url": "https://buyhatke.com/flipkart-hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-for-kids-ages-6-and-up-strategy-war-board-game-price-in-india-2-110668109",
-      "last_success_ts": "2026-08-01T20:57:02+00:00",
+      "last_source_url": "https://www.buyhatke.com/flipkart-hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-for-kids-ages-6-and-up-strategy-war-board-game-price-in-india-2-110668109",
+      "last_success_ts": "2026-08-05T06:04:29+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
         "in_stock": true,
         "listing_id": "flipkart-com-hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-kids-ages-6-up-1-1ed14897",
         "max90": 1299.0,
-        "median": 1121.53,
+        "median": 1116.53,
         "min90": 649.0,
         "mrp": 1205.0,
         "name": "Hasbro Gaming Original Jenga Stacking Tower Game, Fun for Kids & Families, Birthday Gift Toys for Kids Ages 6+, for 1 or More Players",
@@ -2824,16 +2823,16 @@
         "product_id": "hasbro-gaming-original-jenga-stacking-tower-game-fun-for-kids-families-birthday-gift-toys-for-kids-ages-6-for-1-or-more-players",
         "reasons": [
           "Within 3% of the all-time low (Rs 649)",
-          "Own history still building (1 samples)"
+          "Own history still building (2 samples)"
         ],
         "retailer": "flipkart.com",
-        "samples": 1,
+        "samples": 2,
         "score": 98.3,
         "seller": null,
         "source": "buyhatke.com",
         "url": "https://flipkart.com/hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-kids-ages-6-up-1-more-players-strategy-war-games-board/p/itm0e6965d97bcd0"
       },
-      "site_avg": 1121.53,
+      "site_avg": 1116.53,
       "site_high": 1299.0,
       "site_low": 649.0
     }
@@ -2841,12 +2840,12 @@
   "products": {
     "gillette-series-5-trimmer": {
       "auto_tier": "hot",
-      "last_checked_ts": "2026-08-05T05:11:17+00:00",
+      "last_checked_ts": "2026-08-05T06:04:29+00:00",
       "last_verdict": {
         "alert": false,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-05T05:11:17+00:00",
+        "last_success_ts": "2026-08-05T06:04:29+00:00",
         "life_avg": 3299.0,
         "life_high": 3999.0,
         "life_low": 2799.0,
@@ -2860,12 +2859,12 @@
         "name": "Gillette Series 5 All-in-One Trimmer (Braun)",
         "p10": 3119.0,
         "p25": 3119.0,
-        "percentile": 54.23728813559322,
+        "percentile": 53.333333333333336,
         "price": 3359.0,
         "product_id": "gillette-series-5-trimmer",
         "reasons": [],
         "retailer": "amazon.in",
-        "samples": 59,
+        "samples": 60,
         "score": 53.3,
         "seller": null,
         "source": "pricehistory.app",
@@ -2878,12 +2877,12 @@
     },
     "hasbro-gaming-original-jenga-stacking-tower-game-fun-for-kids-families-birthday-gift-toys-for-kids-ages-6-for-1-or-more-players": {
       "auto_tier": "hot",
-      "last_checked_ts": "2026-08-05T05:11:17+00:00",
+      "last_checked_ts": "2026-08-05T06:04:29+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-05T05:11:17+00:00",
+        "last_success_ts": "2026-08-05T06:04:29+00:00",
         "life_avg": 766.0,
         "life_high": 1189.0,
         "life_low": 475.0,
@@ -2905,7 +2904,7 @@
           "14.5% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 43,
+        "samples": 44,
         "score": 74.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -2913,44 +2912,17 @@
         "vs_median_pct": 0.0
       },
       "recommended_listing_id": "amazon-in-b08675psbt",
-      "stale_offers": [
-        {
-          "alert": true,
-          "basis": "lifetime stats from source site",
-          "fresh": false,
-          "in_stock": true,
-          "last_success_ts": "2026-08-01T20:57:02+00:00",
-          "listing_id": "flipkart-com-hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-kids-ages-6-up-1-1ed14897",
-          "listing_url": "https://flipkart.com/hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-kids-ages-6-up-1-more-players-strategy-war-games-board/p/itm0e6965d97bcd0",
-          "max90": 1299.0,
-          "median": 1121.53,
-          "min90": 649.0,
-          "mrp": 1205.0,
-          "name": "Hasbro Gaming Original Jenga Stacking Tower Game, Fun for Kids & Families, Birthday Gift Toys for Kids Ages 6+, for 1 or More Players",
-          "price": 660.0,
-          "product_id": "hasbro-gaming-original-jenga-stacking-tower-game-fun-for-kids-families-birthday-gift-toys-for-kids-ages-6-for-1-or-more-players",
-          "reasons": [
-            "Within 3% of the all-time low (Rs 649)",
-            "Own history still building (1 samples)"
-          ],
-          "retailer": "flipkart.com",
-          "samples": 1,
-          "score": 98.3,
-          "seller": null,
-          "source": "buyhatke.com",
-          "url": "https://flipkart.com/hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-kids-ages-6-up-1-more-players-strategy-war-games-board/p/itm0e6965d97bcd0"
-        }
-      ],
+      "stale_offers": [],
       "status": "buy"
     },
     "nelko-p21-label-maker-machine-with-tape-bluetooth-label-printer-green-creative-app-multiple-templates-inkless-printing-built-in-cutter-ideal-for-school-teacher-supplies-office-and-home": {
       "auto_tier": "hot",
-      "last_checked_ts": "2026-08-05T05:11:17+00:00",
+      "last_checked_ts": "2026-08-05T06:04:29+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-05T05:11:17+00:00",
+        "last_success_ts": "2026-08-05T06:04:29+00:00",
         "life_avg": 2978.0,
         "life_high": 3299.0,
         "life_low": 2639.0,
@@ -2972,7 +2944,7 @@
           "7.7% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 43,
+        "samples": 44,
         "score": 83.5,
         "seller": null,
         "source": "pricehistory.app",
