@@ -180,6 +180,7 @@ def run(now=None, session=None):
     alerts = []
     checked = 0
     failed = 0
+    skipped = 0
     for product in due_products:
         product_state = state.setdefault("products", {}).setdefault(product["id"], {})
         product_state["last_checked_ts"] = _iso(now)
@@ -191,7 +192,13 @@ def run(now=None, session=None):
             record = _listing_state(state, listing["id"])
             if observation is None:
                 _record_failure(record, now, attempts)
-                failed += 1
+                # A listing whose every provider was skipped never made a request,
+                # so it is unsupported rather than failing. Counting it as a
+                # failure buries real breakage under permanent noise.
+                if attempts and all(item["status"] == "skipped" for item in attempts):
+                    skipped += 1
+                else:
+                    failed += 1
                 continue
 
             checked += 1
@@ -238,7 +245,7 @@ def run(now=None, session=None):
         print("[dashboard] BUILD FAILED — price data preserved, page left stale")
     delivered_count = len(alerts) if delivered else 0
     print(
-        f"[done] checked={checked} failed={failed} "
+        f"[done] checked={checked} failed={failed} skipped={skipped} "
         f"alert_candidates={len(alerts)} delivered={delivered_count}"
     )
     return state

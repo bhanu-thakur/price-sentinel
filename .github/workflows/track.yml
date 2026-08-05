@@ -2,7 +2,14 @@ name: Price Sentinel
 
 on:
   schedule:
-    - cron: "*/30 * * * *"     # best-effort 30-minute schedule, UTC
+    # GitHub queues scheduled workflows behind everyone else's and drops ticks
+    # under load, worst of all on :00/:15/:30/:45 where most crons pile up. The
+    # old */30 landed on the two busiest minutes of the hour and delivered ~14
+    # runs a day instead of 48. Ask roughly every 10 minutes on off-peak minutes
+    # instead: whatever GitHub grants, the tier cadence in main.py is still the
+    # real rate limiter, and a tick with nothing due exits before any network
+    # call or commit.
+    - cron: "3,13,23,33,43,53 * * * *"
   workflow_dispatch:
     inputs:
       force_all:
