@@ -8,14 +8,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-07T15:31:28+00:00",
+      "last_checked_ts": "2026-08-07T16:25:30+00:00",
       "last_in_stock": true,
       "last_price": 620.0,
       "last_retailer": "amazon.in",
       "last_score": 79.7,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/hasbro-gaming-original-jenga-stacking-tower-game-KAhTr3Q2",
-      "last_success_ts": "2026-08-07T15:31:28+00:00",
+      "last_success_ts": "2026-08-07T16:25:30+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -39,7 +39,7 @@
           "19.1% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 77,
+        "samples": 78,
         "score": 79.7,
         "seller": null,
         "source": "pricehistory.app",
@@ -2281,14 +2281,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-07T15:31:28+00:00",
+      "last_checked_ts": "2026-08-07T16:25:30+00:00",
       "last_in_stock": true,
       "last_price": 2748.06,
       "last_retailer": "amazon.in",
       "last_score": 83.5,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/nelko-p21-label-maker-machine-tape-bluetooth-Qqujcqmb",
-      "last_success_ts": "2026-08-07T15:31:28+00:00",
+      "last_success_ts": "2026-08-07T16:25:30+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -2312,7 +2312,7 @@
           "7.5% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 77,
+        "samples": 78,
         "score": 83.5,
         "seller": null,
         "source": "pricehistory.app",
@@ -2622,14 +2622,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-07T15:31:28+00:00",
+      "last_checked_ts": "2026-08-07T16:25:30+00:00",
       "last_in_stock": true,
       "last_price": 2808.0,
       "last_retailer": "amazon.in",
       "last_score": 99.2,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/gillette-series-5-all-one-beard-body-5vQqMKIm",
-      "last_success_ts": "2026-08-07T15:31:28+00:00",
+      "last_success_ts": "2026-08-07T16:25:30+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -2638,7 +2638,7 @@
         "life_low": 2799.0,
         "listing_id": "amazon-in-b0gsvfv3r4",
         "max90": 3399.0,
-        "median": 3359.0,
+        "median": 3239.0,
         "min90": 2808.0,
         "mrp": 3999.0,
         "mrp_discount_pct": 29.782445611402853,
@@ -2654,12 +2654,12 @@
           "Lowest price EVER recorded (Rs 2,799)"
         ],
         "retailer": "amazon.in",
-        "samples": 93,
+        "samples": 94,
         "score": 99.2,
         "seller": null,
         "source": "pricehistory.app",
         "url": "https://amazon.in/dp/B0GSVFV3R4",
-        "vs_median_pct": -16.403691574873474
+        "vs_median_pct": -13.30657610373572
       },
       "provider_history": [
         {
@@ -2829,14 +2829,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-07T15:31:28+00:00",
+      "last_checked_ts": "2026-08-07T16:25:30+00:00",
       "last_in_stock": true,
       "last_price": 594.0,
       "last_retailer": "flipkart.com",
       "last_score": 100,
       "last_source": "buyhatke.com",
       "last_source_url": "https://www.buyhatke.com/flipkart-hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-for-kids-ages-6-and-up-strategy-war-board-game-price-in-india-2-110668109",
-      "last_success_ts": "2026-08-07T15:31:28+00:00",
+      "last_success_ts": "2026-08-07T16:25:30+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -2860,7 +2860,7 @@
           "Lowest price EVER recorded (Rs 594)"
         ],
         "retailer": "flipkart.com",
-        "samples": 35,
+        "samples": 36,
         "score": 100,
         "seller": null,
         "source": "buyhatke.com",
@@ -2877,19 +2877,19 @@
       "auto_tier": "hot",
       "last_alert_price": 2808.0,
       "last_alert_ts": "2026-08-07T15:31:28+00:00",
-      "last_checked_ts": "2026-08-07T15:31:28+00:00",
+      "last_checked_ts": "2026-08-07T16:25:30+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-07T15:31:28+00:00",
+        "last_success_ts": "2026-08-07T16:25:30+00:00",
         "life_avg": 3284.0,
         "life_high": 3999.0,
         "life_low": 2799.0,
         "listing_id": "amazon-in-b0gsvfv3r4",
         "listing_url": "https://amazon.in/dp/B0GSVFV3R4",
         "max90": 3399.0,
-        "median": 3359.0,
+        "median": 3239.0,
         "min90": 2808.0,
         "mrp": 3999.0,
         "mrp_discount_pct": 29.782445611402853,
@@ -2905,12 +2905,12 @@
           "Lowest price EVER recorded (Rs 2,799)"
         ],
         "retailer": "amazon.in",
-        "samples": 93,
+        "samples": 94,
         "score": 99.2,
         "seller": null,
         "source": "pricehistory.app",
         "url": "https://amazon.in/dp/B0GSVFV3R4",
-        "vs_median_pct": -16.403691574873474
+        "vs_median_pct": -13.30657610373572
       },
       "recommended_listing_id": "amazon-in-b0gsvfv3r4",
       "stale_offers": [],
@@ -2920,12 +2920,12 @@
       "auto_tier": "hot",
       "last_alert_price": 594.0,
       "last_alert_ts": "2026-08-07T06:15:00+00:00",
-      "last_checked_ts": "2026-08-07T15:31:28+00:00",
+      "last_checked_ts": "2026-08-07T16:25:30+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-07T15:31:28+00:00",
+        "last_success_ts": "2026-08-07T16:25:30+00:00",
         "life_avg": 1084.59,
         "life_high": 1299.0,
         "life_low": 594.0,
@@ -2947,7 +2947,7 @@
           "Lowest price EVER recorded (Rs 594)"
         ],
         "retailer": "flipkart.com",
-        "samples": 35,
+        "samples": 36,
         "score": 100,
         "seller": null,
         "source": "buyhatke.com",
@@ -2962,12 +2962,12 @@
       "auto_tier": "hot",
       "last_alert_price": 2748.06,
       "last_alert_ts": "2026-08-05T11:23:31+00:00",
-      "last_checked_ts": "2026-08-07T15:31:28+00:00",
+      "last_checked_ts": "2026-08-07T16:25:30+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-07T15:31:28+00:00",
+        "last_success_ts": "2026-08-07T16:25:30+00:00",
         "life_avg": 2972.0,
         "life_high": 3299.0,
         "life_low": 2639.0,
@@ -2989,7 +2989,7 @@
           "7.5% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 77,
+        "samples": 78,
         "score": 83.5,
         "seller": null,
         "source": "pricehistory.app",
