@@ -8,14 +8,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-11T16:54:46+00:00",
+      "last_checked_ts": "2026-08-11T17:55:14+00:00",
       "last_in_stock": true,
-      "last_price": 620.0,
+      "last_price": 594.0,
       "last_retailer": "amazon.in",
-      "last_score": 79.7,
+      "last_score": 83.3,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/hasbro-gaming-original-jenga-stacking-tower-game-KAhTr3Q2",
-      "last_success_ts": "2026-08-11T16:54:46+00:00",
+      "last_success_ts": "2026-08-11T17:55:14+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -25,26 +25,26 @@
         "listing_id": "amazon-in-b08675psbt",
         "max90": 660.0,
         "median": 620.0,
-        "min90": 620.0,
-        "mrp": 1299.0,
-        "mrp_discount_pct": 52.27097767513472,
+        "min90": 594.0,
+        "mrp": 999.0,
+        "mrp_discount_pct": 40.54054054054054,
         "name": "Hasbro Gaming Original Jenga Stacking Tower Game, Fun for Kids & Families, Birthday Gift Toys for Kids Ages 6+, for 1 or More Players",
         "p10": 620.0,
         "p25": 620.0,
         "percentile": 0.0,
-        "price": 620.0,
+        "price": 594.0,
         "product_id": "hasbro-gaming-original-jenga-stacking-tower-game-fun-for-kids-families-birthday-gift-toys-for-kids-ages-6-for-1-or-more-players",
         "reasons": [
           "Lowest price in 180 days",
-          "19.1% below the lifetime average"
+          "22.5% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 191,
-        "score": 79.7,
+        "samples": 192,
+        "score": 83.3,
         "seller": null,
         "source": "pricehistory.app",
         "url": "https://amazon.in/dp/B08675PSBT",
-        "vs_median_pct": 0.0
+        "vs_median_pct": -4.193548387096775
       },
       "provider_history": [
         {
@@ -2265,7 +2265,11 @@
         },
         {
           "date": "2026-08-07",
-          "price": 620.0
+          "price": 549.0
+        },
+        {
+          "date": "2026-08-11",
+          "price": 594.0
         }
       ],
       "provider_history_source": "pricehistory.app",
@@ -2281,14 +2285,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-11T16:54:46+00:00",
+      "last_checked_ts": "2026-08-11T17:55:14+00:00",
       "last_in_stock": true,
       "last_price": 2748.06,
       "last_retailer": "amazon.in",
       "last_score": 83.5,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/nelko-p21-label-maker-machine-tape-bluetooth-Qqujcqmb",
-      "last_success_ts": "2026-08-11T16:54:46+00:00",
+      "last_success_ts": "2026-08-11T17:55:14+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -2312,7 +2316,7 @@
           "7.5% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 191,
+        "samples": 192,
         "score": 83.5,
         "seller": null,
         "source": "pricehistory.app",
@@ -2622,14 +2626,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-11T16:54:46+00:00",
+      "last_checked_ts": "2026-08-11T17:55:14+00:00",
       "last_in_stock": true,
       "last_price": 2808.0,
       "last_retailer": "amazon.in",
       "last_score": 99.2,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/gillette-series-5-all-one-beard-body-5vQqMKIm",
-      "last_success_ts": "2026-08-11T16:54:46+00:00",
+      "last_success_ts": "2026-08-11T17:55:14+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -2654,7 +2658,7 @@
           "Lowest price EVER recorded (Rs 2,799)"
         ],
         "retailer": "amazon.in",
-        "samples": 207,
+        "samples": 208,
         "score": 99.2,
         "seller": null,
         "source": "pricehistory.app",
@@ -2833,14 +2837,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-11T16:54:46+00:00",
+      "last_checked_ts": "2026-08-11T17:55:14+00:00",
       "last_in_stock": true,
       "last_price": 594.0,
       "last_retailer": "flipkart.com",
       "last_score": 100,
       "last_source": "buyhatke.com",
       "last_source_url": "https://www.buyhatke.com/flipkart-hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-for-kids-ages-6-and-up-strategy-war-board-game-price-in-india-2-110668109",
-      "last_success_ts": "2026-08-11T16:54:46+00:00",
+      "last_success_ts": "2026-08-11T17:55:14+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -2864,7 +2868,7 @@
           "Lowest price EVER recorded (Rs 594)"
         ],
         "retailer": "flipkart.com",
-        "samples": 149,
+        "samples": 150,
         "score": 100,
         "seller": null,
         "source": "buyhatke.com",
@@ -2881,12 +2885,12 @@
       "auto_tier": "hot",
       "last_alert_price": 2808.0,
       "last_alert_ts": "2026-08-07T15:31:28+00:00",
-      "last_checked_ts": "2026-08-11T16:54:46+00:00",
+      "last_checked_ts": "2026-08-11T17:55:14+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-11T16:54:46+00:00",
+        "last_success_ts": "2026-08-11T17:55:14+00:00",
         "life_avg": 3272.0,
         "life_high": 3999.0,
         "life_low": 2799.0,
@@ -2909,7 +2913,7 @@
           "Lowest price EVER recorded (Rs 2,799)"
         ],
         "retailer": "amazon.in",
-        "samples": 207,
+        "samples": 208,
         "score": 99.2,
         "seller": null,
         "source": "pricehistory.app",
@@ -2924,41 +2928,41 @@
       "auto_tier": "hot",
       "last_alert_price": 594.0,
       "last_alert_ts": "2026-08-07T06:15:00+00:00",
-      "last_checked_ts": "2026-08-11T16:54:46+00:00",
+      "last_checked_ts": "2026-08-11T17:55:14+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-11T16:54:46+00:00",
-        "life_avg": 1057.19,
-        "life_high": 1299.0,
-        "life_low": 594.0,
-        "listing_id": "flipkart-com-hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-kids-ages-6-up-1-1ed14897",
-        "listing_url": "https://flipkart.com/hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-kids-ages-6-up-1-more-players-strategy-war-games-board/p/itm0e6965d97bcd0",
+        "last_success_ts": "2026-08-11T17:55:14+00:00",
+        "life_avg": 766.0,
+        "life_high": 1189.0,
+        "life_low": 475.0,
+        "listing_id": "amazon-in-b08675psbt",
+        "listing_url": "https://amazon.in/dp/B08675PSBT",
         "max90": 660.0,
-        "median": 594.0,
+        "median": 620.0,
         "min90": 594.0,
-        "mrp": 1205.0,
-        "mrp_discount_pct": 50.70539419087137,
+        "mrp": 999.0,
+        "mrp_discount_pct": 40.54054054054054,
         "name": "Hasbro Gaming Original Jenga Stacking Tower Game, Fun for Kids & Families, Birthday Gift Toys for Kids Ages 6+, for 1 or More Players",
-        "p10": 594.0,
-        "p25": 594.0,
+        "p10": 620.0,
+        "p25": 620.0,
         "percentile": 0.0,
         "price": 594.0,
         "product_id": "hasbro-gaming-original-jenga-stacking-tower-game-fun-for-kids-families-birthday-gift-toys-for-kids-ages-6-for-1-or-more-players",
         "reasons": [
           "Lowest price in 180 days",
-          "Lowest price EVER recorded (Rs 594)"
+          "22.5% below the lifetime average"
         ],
-        "retailer": "flipkart.com",
-        "samples": 149,
-        "score": 100,
+        "retailer": "amazon.in",
+        "samples": 192,
+        "score": 83.3,
         "seller": null,
-        "source": "buyhatke.com",
-        "url": "https://flipkart.com/hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-kids-ages-6-up-1-more-players-strategy-war-games-board/p/itm0e6965d97bcd0",
-        "vs_median_pct": 0.0
+        "source": "pricehistory.app",
+        "url": "https://amazon.in/dp/B08675PSBT",
+        "vs_median_pct": -4.193548387096775
       },
-      "recommended_listing_id": "flipkart-com-hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-kids-ages-6-up-1-1ed14897",
+      "recommended_listing_id": "amazon-in-b08675psbt",
       "stale_offers": [],
       "status": "buy"
     },
@@ -2966,12 +2970,12 @@
       "auto_tier": "hot",
       "last_alert_price": 2748.06,
       "last_alert_ts": "2026-08-05T11:23:31+00:00",
-      "last_checked_ts": "2026-08-11T16:54:46+00:00",
+      "last_checked_ts": "2026-08-11T17:55:14+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-11T16:54:46+00:00",
+        "last_success_ts": "2026-08-11T17:55:14+00:00",
         "life_avg": 2972.0,
         "life_high": 3299.0,
         "life_low": 2639.0,
@@ -2993,7 +2997,7 @@
           "7.5% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 191,
+        "samples": 192,
         "score": 83.5,
         "seller": null,
         "source": "pricehistory.app",
