@@ -8,14 +8,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-14T15:09:21+00:00",
+      "last_checked_ts": "2026-08-14T16:02:51+00:00",
       "last_in_stock": true,
       "last_price": 594.0,
       "last_retailer": "amazon.in",
       "last_score": 83.3,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/hasbro-gaming-original-jenga-stacking-tower-game-KAhTr3Q2",
-      "last_success_ts": "2026-08-14T15:09:21+00:00",
+      "last_success_ts": "2026-08-14T16:02:51+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -30,7 +30,7 @@
         "mrp_discount_pct": 40.54054054054054,
         "name": "Hasbro Gaming Original Jenga Stacking Tower Game, Fun for Kids & Families, Birthday Gift Toys for Kids Ages 6+, for 1 or More Players",
         "p10": 594.0,
-        "p25": 620.0,
+        "p25": 607.0,
         "percentile": 0.0,
         "price": 594.0,
         "product_id": "hasbro-gaming-original-jenga-stacking-tower-game-fun-for-kids-families-birthday-gift-toys-for-kids-ages-6-for-1-or-more-players",
@@ -39,7 +39,7 @@
           "22.5% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 254,
+        "samples": 255,
         "score": 83.3,
         "seller": null,
         "source": "pricehistory.app",
@@ -2285,18 +2285,18 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-14T15:09:21+00:00",
+      "last_checked_ts": "2026-08-14T16:02:51+00:00",
       "last_in_stock": true,
       "last_price": 2748.06,
       "last_retailer": "amazon.in",
       "last_score": 83.5,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/nelko-p21-label-maker-machine-tape-bluetooth-Qqujcqmb",
-      "last_success_ts": "2026-08-14T15:09:21+00:00",
+      "last_success_ts": "2026-08-14T16:02:51+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
-        "life_avg": 2969.0,
+        "life_avg": 2966.0,
         "life_high": 3299.0,
         "life_low": 2639.0,
         "listing_id": "amazon-in-b0chjr8nld",
@@ -2313,10 +2313,10 @@
         "product_id": "nelko-p21-label-maker-machine-with-tape-bluetooth-label-printer-green-creative-app-multiple-templates-inkless-printing-built-in-cutter-ideal-for-school-teacher-supplies-office-and-home",
         "reasons": [
           "Lowest price in 180 days",
-          "7.4% below the lifetime average"
+          "7.3% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 254,
+        "samples": 255,
         "score": 83.5,
         "seller": null,
         "source": "pricehistory.app",
@@ -2615,10 +2615,14 @@
         {
           "date": "2026-08-12",
           "price": 2748.06
+        },
+        {
+          "date": "2026-08-14",
+          "price": 2748.06
         }
       ],
       "provider_history_source": "pricehistory.app",
-      "site_avg": 2969.0,
+      "site_avg": 2966.0,
       "site_high": 3299.0,
       "site_low": 2639.0
     },
@@ -2630,14 +2634,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-14T15:09:21+00:00",
+      "last_checked_ts": "2026-08-14T16:02:51+00:00",
       "last_in_stock": true,
       "last_price": 3006.0,
       "last_retailer": "amazon.in",
       "last_score": 82.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/gillette-series-5-all-one-beard-body-5vQqMKIm",
-      "last_success_ts": "2026-08-14T15:09:21+00:00",
+      "last_success_ts": "2026-08-14T16:02:51+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -2653,14 +2657,14 @@
         "name": "Gillette Series 5 All-in-One Trimmer (Braun)",
         "p10": 2808.0,
         "p25": 2808.0,
-        "percentile": 55.55555555555556,
+        "percentile": 55.35055350553506,
         "price": 3006.0,
         "product_id": "gillette-series-5-trimmer",
         "reasons": [
           "7.9% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 270,
+        "samples": 271,
         "score": 82.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -2843,14 +2847,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-14T15:09:21+00:00",
+      "last_checked_ts": "2026-08-14T16:02:51+00:00",
       "last_in_stock": true,
       "last_price": 594.0,
       "last_retailer": "flipkart.com",
       "last_score": 100,
       "last_source": "buyhatke.com",
       "last_source_url": "https://www.buyhatke.com/flipkart-hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-for-kids-ages-6-and-up-strategy-war-board-game-price-in-india-2-110668109",
-      "last_success_ts": "2026-08-14T15:09:21+00:00",
+      "last_success_ts": "2026-08-14T16:02:51+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -2874,7 +2878,7 @@
           "Lowest price EVER recorded (Rs 594)"
         ],
         "retailer": "flipkart.com",
-        "samples": 212,
+        "samples": 213,
         "score": 100,
         "seller": null,
         "source": "buyhatke.com",
@@ -2889,14 +2893,14 @@
   "products": {
     "gillette-series-5-trimmer": {
       "auto_tier": "hot",
-      "last_alert_price": 2808.0,
-      "last_alert_ts": "2026-08-07T15:31:28+00:00",
-      "last_checked_ts": "2026-08-14T15:09:21+00:00",
+      "last_alert_price": 3006.0,
+      "last_alert_ts": "2026-08-14T16:02:51+00:00",
+      "last_checked_ts": "2026-08-14T16:02:51+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-14T15:09:21+00:00",
+        "last_success_ts": "2026-08-14T16:02:51+00:00",
         "life_avg": 3265.0,
         "life_high": 3999.0,
         "life_low": 2799.0,
@@ -2910,14 +2914,14 @@
         "name": "Gillette Series 5 All-in-One Trimmer (Braun)",
         "p10": 2808.0,
         "p25": 2808.0,
-        "percentile": 55.55555555555556,
+        "percentile": 55.35055350553506,
         "price": 3006.0,
         "product_id": "gillette-series-5-trimmer",
         "reasons": [
           "7.9% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 270,
+        "samples": 271,
         "score": 82.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -2932,12 +2936,12 @@
       "auto_tier": "hot",
       "last_alert_price": 594.0,
       "last_alert_ts": "2026-08-14T06:48:04+00:00",
-      "last_checked_ts": "2026-08-14T15:09:21+00:00",
+      "last_checked_ts": "2026-08-14T16:02:51+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-14T15:09:21+00:00",
+        "last_success_ts": "2026-08-14T16:02:51+00:00",
         "life_avg": 766.0,
         "life_high": 1189.0,
         "life_low": 475.0,
@@ -2950,7 +2954,7 @@
         "mrp_discount_pct": 40.54054054054054,
         "name": "Hasbro Gaming Original Jenga Stacking Tower Game, Fun for Kids & Families, Birthday Gift Toys for Kids Ages 6+, for 1 or More Players",
         "p10": 594.0,
-        "p25": 620.0,
+        "p25": 607.0,
         "percentile": 0.0,
         "price": 594.0,
         "product_id": "hasbro-gaming-original-jenga-stacking-tower-game-fun-for-kids-families-birthday-gift-toys-for-kids-ages-6-for-1-or-more-players",
@@ -2959,7 +2963,7 @@
           "22.5% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 254,
+        "samples": 255,
         "score": 83.3,
         "seller": null,
         "source": "pricehistory.app",
@@ -2974,13 +2978,13 @@
       "auto_tier": "hot",
       "last_alert_price": 2748.06,
       "last_alert_ts": "2026-08-12T11:43:58+00:00",
-      "last_checked_ts": "2026-08-14T15:09:21+00:00",
+      "last_checked_ts": "2026-08-14T16:02:51+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-14T15:09:21+00:00",
-        "life_avg": 2969.0,
+        "last_success_ts": "2026-08-14T16:02:51+00:00",
+        "life_avg": 2966.0,
         "life_high": 3299.0,
         "life_low": 2639.0,
         "listing_id": "amazon-in-b0chjr8nld",
@@ -2998,10 +3002,10 @@
         "product_id": "nelko-p21-label-maker-machine-with-tape-bluetooth-label-printer-green-creative-app-multiple-templates-inkless-printing-built-in-cutter-ideal-for-school-teacher-supplies-office-and-home",
         "reasons": [
           "Lowest price in 180 days",
-          "7.4% below the lifetime average"
+          "7.3% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 254,
+        "samples": 255,
         "score": 83.5,
         "seller": null,
         "source": "pricehistory.app",
