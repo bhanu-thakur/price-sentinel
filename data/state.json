@@ -8,14 +8,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-15T04:56:03+00:00",
+      "last_checked_ts": "2026-08-15T05:45:29+00:00",
       "last_in_stock": true,
       "last_price": 594.0,
       "last_retailer": "amazon.in",
       "last_score": 83.3,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/hasbro-gaming-original-jenga-stacking-tower-game-KAhTr3Q2",
-      "last_success_ts": "2026-08-15T04:56:03+00:00",
+      "last_success_ts": "2026-08-15T05:45:29+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -39,7 +39,7 @@
           "22.5% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 273,
+        "samples": 274,
         "score": 83.3,
         "seller": null,
         "source": "pricehistory.app",
@@ -2285,14 +2285,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-15T04:56:03+00:00",
+      "last_checked_ts": "2026-08-15T05:45:29+00:00",
       "last_in_stock": true,
       "last_price": 2748.06,
       "last_retailer": "amazon.in",
       "last_score": 83.5,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/nelko-p21-label-maker-machine-tape-bluetooth-Qqujcqmb",
-      "last_success_ts": "2026-08-15T04:56:03+00:00",
+      "last_success_ts": "2026-08-15T05:45:29+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -2316,7 +2316,7 @@
           "7.3% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 273,
+        "samples": 274,
         "score": 83.5,
         "seller": null,
         "source": "pricehistory.app",
@@ -2634,14 +2634,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-15T04:56:03+00:00",
+      "last_checked_ts": "2026-08-15T05:45:29+00:00",
       "last_in_stock": true,
       "last_price": 3006.0,
       "last_retailer": "amazon.in",
       "last_score": 82.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/gillette-series-5-all-one-beard-body-5vQqMKIm",
-      "last_success_ts": "2026-08-15T04:56:03+00:00",
+      "last_success_ts": "2026-08-15T05:45:29+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -2657,14 +2657,14 @@
         "name": "Gillette Series 5 All-in-One Trimmer (Braun)",
         "p10": 2808.0,
         "p25": 2808.0,
-        "percentile": 51.903114186851205,
+        "percentile": 51.724137931034484,
         "price": 3006.0,
         "product_id": "gillette-series-5-trimmer",
         "reasons": [
           "7.8% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 289,
+        "samples": 290,
         "score": 82.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -2851,14 +2851,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-15T04:56:03+00:00",
+      "last_checked_ts": "2026-08-15T05:45:29+00:00",
       "last_in_stock": true,
       "last_price": 594.0,
       "last_retailer": "flipkart.com",
       "last_score": 100,
       "last_source": "buyhatke.com",
       "last_source_url": "https://www.buyhatke.com/flipkart-hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-for-kids-ages-6-and-up-strategy-war-board-game-price-in-india-2-110668109",
-      "last_success_ts": "2026-08-15T04:56:03+00:00",
+      "last_success_ts": "2026-08-15T05:45:29+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -2882,7 +2882,7 @@
           "Lowest price EVER recorded (Rs 594)"
         ],
         "retailer": "flipkart.com",
-        "samples": 231,
+        "samples": 232,
         "score": 100,
         "seller": null,
         "source": "buyhatke.com",
@@ -2899,12 +2899,12 @@
       "auto_tier": "hot",
       "last_alert_price": 3006.0,
       "last_alert_ts": "2026-08-14T16:02:51+00:00",
-      "last_checked_ts": "2026-08-15T04:56:03+00:00",
+      "last_checked_ts": "2026-08-15T05:45:29+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-15T04:56:03+00:00",
+        "last_success_ts": "2026-08-15T05:45:29+00:00",
         "life_avg": 3259.0,
         "life_high": 3999.0,
         "life_low": 2799.0,
@@ -2918,14 +2918,14 @@
         "name": "Gillette Series 5 All-in-One Trimmer (Braun)",
         "p10": 2808.0,
         "p25": 2808.0,
-        "percentile": 51.903114186851205,
+        "percentile": 51.724137931034484,
         "price": 3006.0,
         "product_id": "gillette-series-5-trimmer",
         "reasons": [
           "7.8% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 289,
+        "samples": 290,
         "score": 82.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -2940,12 +2940,12 @@
       "auto_tier": "hot",
       "last_alert_price": 594.0,
       "last_alert_ts": "2026-08-14T06:48:04+00:00",
-      "last_checked_ts": "2026-08-15T04:56:03+00:00",
+      "last_checked_ts": "2026-08-15T05:45:29+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-15T04:56:03+00:00",
+        "last_success_ts": "2026-08-15T05:45:29+00:00",
         "life_avg": 766.0,
         "life_high": 1189.0,
         "life_low": 475.0,
@@ -2967,7 +2967,7 @@
           "22.5% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 273,
+        "samples": 274,
         "score": 83.3,
         "seller": null,
         "source": "pricehistory.app",
@@ -2982,12 +2982,12 @@
       "auto_tier": "hot",
       "last_alert_price": 2748.06,
       "last_alert_ts": "2026-08-12T11:43:58+00:00",
-      "last_checked_ts": "2026-08-15T04:56:03+00:00",
+      "last_checked_ts": "2026-08-15T05:45:29+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-15T04:56:03+00:00",
+        "last_success_ts": "2026-08-15T05:45:29+00:00",
         "life_avg": 2966.0,
         "life_high": 3299.0,
         "life_low": 2639.0,
@@ -3009,7 +3009,7 @@
           "7.3% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 273,
+        "samples": 274,
         "score": 83.5,
         "seller": null,
         "source": "pricehistory.app",
