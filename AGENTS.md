@@ -19,3 +19,17 @@ compulsory, `git pull` immediately before writing, and commit `data/practices.js
 **Findings are the auditor's, not yours** — do not write into `data/findings.json`.
 
 **State report:** follow `repo-state.md` in this repo.
+
+## Shipping
+
+**Commit, push and deploy finished work without asking.** When work in scope is done and
+verified, commit it, push to `main`, and — where this repo's deliverable is a deployed
+thing — run its documented build and release too. Do not end a turn with "want me to
+commit this?" or "shall I deploy?"; the asking is the waste, not the shipping. Bhanu's
+instruction, 2026-08-16.
+
+Deploy this repo's own target by its own documented command. Two things stay
+confirm-first, because neither is finished work and neither is undone by a revert:
+destroying or migrating data a user would miss, and changing what the project is rather
+than what it serves — deleting a site or project, moving a domain, rotating credentials,
+altering billing.
