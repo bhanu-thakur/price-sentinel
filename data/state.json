@@ -8,14 +8,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-19T19:11:59+00:00",
+      "last_checked_ts": "2026-08-19T19:55:25+00:00",
       "last_in_stock": true,
       "last_price": 616.0,
       "last_retailer": "amazon.in",
       "last_score": 80.3,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/hasbro-gaming-original-jenga-stacking-tower-game-KAhTr3Q2",
-      "last_success_ts": "2026-08-19T19:11:59+00:00",
+      "last_success_ts": "2026-08-19T19:55:25+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -31,14 +31,14 @@
         "name": "Hasbro Gaming Original Jenga Stacking Tower Game, Fun for Kids & Families, Birthday Gift Toys for Kids Ages 6+, for 1 or More Players",
         "p10": 594.0,
         "p25": 599.0,
-        "percentile": 49.77064220183486,
+        "percentile": 49.65675057208238,
         "price": 616.0,
         "product_id": "hasbro-gaming-original-jenga-stacking-tower-game-fun-for-kids-families-birthday-gift-toys-for-kids-ages-6-for-1-or-more-players",
         "reasons": [
           "19.5% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 436,
+        "samples": 437,
         "score": 80.3,
         "seller": null,
         "source": "pricehistory.app",
@@ -2292,14 +2292,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-19T19:11:59+00:00",
+      "last_checked_ts": "2026-08-19T19:55:25+00:00",
       "last_in_stock": true,
       "last_price": 2748.06,
       "last_retailer": "amazon.in",
       "last_score": 83.5,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/nelko-p21-label-maker-machine-tape-bluetooth-Qqujcqmb",
-      "last_success_ts": "2026-08-19T19:11:59+00:00",
+      "last_success_ts": "2026-08-19T19:55:25+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -2323,7 +2323,7 @@
           "7.1% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 436,
+        "samples": 437,
         "score": 83.5,
         "seller": null,
         "source": "pricehistory.app",
@@ -2653,18 +2653,18 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-19T19:11:59+00:00",
+      "last_checked_ts": "2026-08-19T19:55:25+00:00",
       "last_in_stock": true,
-      "last_price": 3599.0,
+      "last_price": 2999.0,
       "last_retailer": "amazon.in",
-      "last_score": 33.3,
+      "last_score": 83.3,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/gillette-series-5-all-one-beard-body-5vQqMKIm",
-      "last_success_ts": "2026-08-19T19:11:59+00:00",
+      "last_success_ts": "2026-08-19T19:55:25+00:00",
       "last_verdict": {
-        "alert": false,
+        "alert": true,
         "in_stock": true,
-        "life_avg": 3269.0,
+        "life_avg": 3263.0,
         "life_high": 3999.0,
         "life_low": 2799.0,
         "listing_id": "amazon-in-b0gsvfv3r4",
@@ -2672,21 +2672,23 @@
         "median": 3006.0,
         "min90": 2808.0,
         "mrp": 3999.0,
-        "mrp_discount_pct": 10.002500625156289,
+        "mrp_discount_pct": 25.006251562890725,
         "name": "Gillette Series 5 All-in-One Trimmer (Braun)",
         "p10": 2808.0,
         "p25": 2808.0,
-        "percentile": 88.49557522123894,
-        "price": 3599.0,
+        "percentile": 33.11258278145696,
+        "price": 2999.0,
         "product_id": "gillette-series-5-trimmer",
-        "reasons": [],
+        "reasons": [
+          "8.1% below the lifetime average"
+        ],
         "retailer": "amazon.in",
-        "samples": 452,
-        "score": 33.3,
+        "samples": 453,
+        "score": 83.3,
         "seller": null,
         "source": "pricehistory.app",
         "url": "https://amazon.in/dp/B0GSVFV3R4",
-        "vs_median_pct": 19.7272122421823
+        "vs_median_pct": -0.2328675981370592
       },
       "provider_history": [
         {
@@ -2860,10 +2862,14 @@
         {
           "date": "2026-08-18",
           "price": 3599.0
+        },
+        {
+          "date": "2026-08-20",
+          "price": 2999.0
         }
       ],
       "provider_history_source": "pricehistory.app",
-      "site_avg": 3269.0,
+      "site_avg": 3263.0,
       "site_high": 3999.0,
       "site_low": 2799.0
     },
@@ -2876,14 +2882,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-08-19T19:11:59+00:00",
+      "last_checked_ts": "2026-08-19T19:55:25+00:00",
       "last_in_stock": true,
       "last_price": 962.0,
       "last_retailer": "flipkart.com",
       "last_score": 47.8,
       "last_source": "buyhatke.com",
       "last_source_url": "https://www.buyhatke.com/flipkart-hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-for-kids-ages-6-and-up-strategy-war-board-game-price-in-india-2-110668109",
-      "last_success_ts": "2026-08-19T19:11:59+00:00",
+      "last_success_ts": "2026-08-19T19:55:25+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -2899,14 +2905,14 @@
         "name": "Hasbro Gaming Original Jenga Stacking Tower Game, Fun for Kids & Families, Birthday Gift Toys for Kids Ages 6+, for 1 or More Players",
         "p10": 594.0,
         "p25": 594.0,
-        "percentile": 59.64467005076142,
+        "percentile": 59.49367088607595,
         "price": 962.0,
         "product_id": "hasbro-gaming-original-jenga-stacking-tower-game-fun-for-kids-families-birthday-gift-toys-for-kids-ages-6-for-1-or-more-players",
         "reasons": [
           "8.3% below the lifetime average"
         ],
         "retailer": "flipkart.com",
-        "samples": 394,
+        "samples": 395,
         "score": 47.8,
         "seller": null,
         "source": "buyhatke.com",
@@ -2923,13 +2929,13 @@
       "auto_tier": "hot",
       "last_alert_price": 3006.0,
       "last_alert_ts": "2026-08-14T16:02:51+00:00",
-      "last_checked_ts": "2026-08-19T19:11:59+00:00",
+      "last_checked_ts": "2026-08-19T19:55:25+00:00",
       "last_verdict": {
-        "alert": false,
+        "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-19T19:11:59+00:00",
-        "life_avg": 3269.0,
+        "last_success_ts": "2026-08-19T19:55:25+00:00",
+        "life_avg": 3263.0,
         "life_high": 3999.0,
         "life_low": 2799.0,
         "listing_id": "amazon-in-b0gsvfv3r4",
@@ -2938,36 +2944,38 @@
         "median": 3006.0,
         "min90": 2808.0,
         "mrp": 3999.0,
-        "mrp_discount_pct": 10.002500625156289,
+        "mrp_discount_pct": 25.006251562890725,
         "name": "Gillette Series 5 All-in-One Trimmer (Braun)",
         "p10": 2808.0,
         "p25": 2808.0,
-        "percentile": 88.49557522123894,
-        "price": 3599.0,
+        "percentile": 33.11258278145696,
+        "price": 2999.0,
         "product_id": "gillette-series-5-trimmer",
-        "reasons": [],
+        "reasons": [
+          "8.1% below the lifetime average"
+        ],
         "retailer": "amazon.in",
-        "samples": 452,
-        "score": 33.3,
+        "samples": 453,
+        "score": 83.3,
         "seller": null,
         "source": "pricehistory.app",
         "url": "https://amazon.in/dp/B0GSVFV3R4",
-        "vs_median_pct": 19.7272122421823
+        "vs_median_pct": -0.2328675981370592
       },
       "recommended_listing_id": "amazon-in-b0gsvfv3r4",
       "stale_offers": [],
-      "status": "idle"
+      "status": "buy"
     },
     "hasbro-gaming-original-jenga-stacking-tower-game-fun-for-kids-families-birthday-gift-toys-for-kids-ages-6-for-1-or-more-players": {
       "auto_tier": "hot",
       "last_alert_price": 594.0,
       "last_alert_ts": "2026-08-14T06:48:04+00:00",
-      "last_checked_ts": "2026-08-19T19:11:59+00:00",
+      "last_checked_ts": "2026-08-19T19:55:25+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-19T19:11:59+00:00",
+        "last_success_ts": "2026-08-19T19:55:25+00:00",
         "life_avg": 765.0,
         "life_high": 1189.0,
         "life_low": 475.0,
@@ -2981,14 +2989,14 @@
         "name": "Hasbro Gaming Original Jenga Stacking Tower Game, Fun for Kids & Families, Birthday Gift Toys for Kids Ages 6+, for 1 or More Players",
         "p10": 594.0,
         "p25": 599.0,
-        "percentile": 49.77064220183486,
+        "percentile": 49.65675057208238,
         "price": 616.0,
         "product_id": "hasbro-gaming-original-jenga-stacking-tower-game-fun-for-kids-families-birthday-gift-toys-for-kids-ages-6-for-1-or-more-players",
         "reasons": [
           "19.5% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 436,
+        "samples": 437,
         "score": 80.3,
         "seller": null,
         "source": "pricehistory.app",
@@ -3003,12 +3011,12 @@
       "auto_tier": "hot",
       "last_alert_price": 2748.06,
       "last_alert_ts": "2026-08-19T12:03:11+00:00",
-      "last_checked_ts": "2026-08-19T19:11:59+00:00",
+      "last_checked_ts": "2026-08-19T19:55:25+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-08-19T19:11:59+00:00",
+        "last_success_ts": "2026-08-19T19:55:25+00:00",
         "life_avg": 2957.0,
         "life_high": 3299.0,
         "life_low": 2639.0,
@@ -3030,7 +3038,7 @@
           "7.1% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 436,
+        "samples": 437,
         "score": 83.5,
         "seller": null,
         "source": "pricehistory.app",
