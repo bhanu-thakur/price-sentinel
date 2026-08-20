@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from unittest.mock import patch
 
+import catalog
 import main
 from providers.base import Observation
 
@@ -319,6 +320,78 @@ class MainTests(unittest.TestCase):
             persisted["listings"][amazon["id"]]["last_price"],
             3000.0,
         )
+
+
+class ShippedDataFilesTests(unittest.TestCase):
+    """The files actually committed in this repo, not a fixture built in a tmpdir.
+
+    Every other test here writes its own watchlist, so the suite stayed green when
+    the watchlist was emptied on 2026-08-20 — it never read the real one. These
+    tests do, so an empty watchlist has to keep being a state the app accepts
+    rather than a state nothing happens to exercise.
+    """
+
+    REPO = Path(__file__).resolve().parents[1]
+
+    def setUp(self):
+        self.watchlist = json.loads(
+            (self.REPO / "watchlist.json").read_text(encoding="utf-8")
+        )
+        self.state = json.loads(
+            (self.REPO / "data" / "state.json").read_text(encoding="utf-8")
+        )
+
+    def test_the_shipped_watchlist_passes_the_repos_own_validator(self):
+        # Not "does not raise" — validate_watchlist returns the data it accepted.
+        self.assertEqual(catalog.validate_watchlist(self.watchlist), self.watchlist)
+        self.assertEqual(self.watchlist["schema_version"], 2)
+
+    def test_state_carries_no_entry_for_a_product_the_watchlist_dropped(self):
+        """Orphan state is how a removed product comes back to life on the dashboard."""
+        tracked_products = {product["id"] for product in self.watchlist["products"]}
+        tracked_listings = {
+            listing["id"]
+            for product in self.watchlist["products"]
+            for listing in product["listings"]
+        }
+        self.assertEqual(set(self.state["products"]), tracked_products)
+        self.assertEqual(set(self.state["listings"]), tracked_listings)
+        # Providers are configuration, not per-product, and survive an empty list.
+        self.assertEqual(
+            sorted(self.state["providers"]), ["buyhatke.com", "pricehistory.app"]
+        )
+        self.assertEqual(self.state["schema_version"], 2)
+
+    def test_a_run_over_the_shipped_watchlist_with_no_products_does_nothing(self):
+        """Zero products due means zero fetches, zero alerts, and no state rewrite.
+
+        The real files are copied into a tmpdir first: the assertion is about their
+        content, but a regression here must never be able to write the repo's own
+        state.json.
+        """
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            watchlist_path = root / "watchlist.json"
+            state_path = root / "state.json"
+            watchlist_path.write_text(json.dumps(self.watchlist), encoding="utf-8")
+            original = json.dumps(self.state, indent=2, sort_keys=True)
+            state_path.write_text(original, encoding="utf-8")
+
+            with patch.object(main, "WATCHLIST", str(watchlist_path)), \
+                    patch.object(main, "STATE_PATH", str(state_path)), \
+                    patch.object(main.fetcher, "fetch_listing") as fetch_listing, \
+                    patch.object(main.dashboard, "build") as build, \
+                    patch.object(main.notify, "dispatch") as dispatch:
+                result = main.run(now=NOW, session=object())
+
+            self.assertEqual(state_path.read_text(encoding="utf-8"), original)
+
+        self.assertEqual(self.watchlist["products"], [])
+        self.assertEqual(result["listings"], {})
+        self.assertEqual(result["products"], {})
+        fetch_listing.assert_not_called()
+        build.assert_not_called()
+        dispatch.assert_not_called()
 
 
 if __name__ == "__main__":
