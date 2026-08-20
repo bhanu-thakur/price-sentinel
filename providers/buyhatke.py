@@ -148,6 +148,14 @@ def _parse(source_url, listing, body, now):
         source=PROVIDER,
         source_url=source_url,
         fetched_ts=now,
+        # None here means "unknown", not "fresh". The server-rendered productData
+        # blob carries cur_price, min, avg, maxall, mrpFloat, pid, site_name and
+        # inStock, and no date field of any kind, so there is nothing to read. The
+        # 48-hour staleness guard in fetch.py therefore cannot fire for BuyHatke —
+        # a known gap, tested by test_buyhatke_reports_no_date_because_its_page
+        # _prints_none. Closing it needs a real captured page that carries a date;
+        # inventing a field name no saved page contains would be a guess dressed
+        # up as a fix.
         observed_ts=None,
         site_low=low,
         site_avg=average,

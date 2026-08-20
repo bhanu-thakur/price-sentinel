@@ -278,25 +278,19 @@ class MarkupChangeTests(unittest.TestCase):
             "page product ID 'B0AAAAAAAA' does not match listing product ID 'B0GSVFV3R4'",
         )
 
-    @unittest.expectedFailure
     def test_pricehistory_records_the_observation_date_printed_on_its_own_page(self):
-        """BUG: the page prints the date of the price and the adapter throws it away.
+        """The page prints the date of the price, and the adapter now keeps it.
 
-        `providers/pricehistory_app.py` matches the current price with the regex
-        `r"Price in India on [^:|]+:\\s*" + _MONEY`. The `[^:|]+` steps straight
-        over "01/08/2026" — the date that price was observed — and the Observation
-        is built with a hardcoded `observed_ts=None` (line 200).
+        This was xfail from 2026-08-20 until the fix later the same day. The old
+        regex `r"Price in India on [^:|]+:\\s*" + _MONEY` stepped straight over
+        "01/08/2026" and the Observation was built with a hardcoded
+        `observed_ts=None`, which made fetch.py's 48-hour staleness guard dead
+        code — its `if observation.observed_ts and ...` could never get past the
+        first term.
 
-        `fetch._validate_observation` has a guard that rejects any observation more
-        than 48 hours old, but it reads `observation.observed_ts`, so with None it
-        can never fire. Both adapters hardcode None (buyhatke.py line 151 too), so
-        that guard is dead code in production.
-
-        The consequence is the failure this repo most needs to catch: the source
-        serves a cached page from days ago, the price parses cleanly, and Price
-        Sentinel records a stale number as today's and can alert on it.
-
-        Not fixed here on instruction — reported instead.
+        That is the failure this repo most needs to catch: the source serves a
+        cached page from days ago, the price parses cleanly, and Price Sentinel
+        records a stale number as today's and can alert on it.
         """
         body = self.ph_body.replace("on 01/08/2026:", "on 20/07/2026:")
         observation = self._ph_fetch(body)

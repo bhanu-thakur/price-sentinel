@@ -71,6 +71,12 @@ def _validate_observation(observation, listing, provider, source_url, now):
     expected_retailer = (listing.get("retailer") or "").lower().removeprefix("www.")
     if observation.retailer != expected_retailer:
         raise SourceError(provider, "identity", "observation retailer does not match listing")
+    # observed_ts of None means "this provider's page does not print a date", not
+    # "the date was fine". BuyHatke's server-rendered product blob carries no date
+    # field at all, so None is the honest answer there and treating it as stale
+    # would disable the provider outright. pricehistory.app does print one, and
+    # since 2026-08-20 it raises rather than shrugging when that date is missing
+    # or unreadable — so an unknown date can no longer hide a markup change.
     if observation.observed_ts and now - observation.observed_ts > timedelta(hours=48):
         raise SourceError(provider, "stale", "observation is more than 48 hours old")
     return observation

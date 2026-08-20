@@ -6,7 +6,7 @@ import html
 import json
 import math
 import re
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from urllib.parse import urlparse
 
 import requests
@@ -18,6 +18,8 @@ from .base import Observation, SourceError
 PROVIDER = "pricehistory.app"
 BASE_URL = "https://pricehistory.app"
 _MONEY = r"(?:₹|Rs\.?|INR)?\s*([\d,]+(?:\.\d+)?)"
+# pricehistory.app is an Indian-market site; its printed dates are Indian days.
+_IST = timezone(timedelta(hours=5, minutes=30))
 _RETAILER_HOSTS = {
     "amazon.in",
     "flipkart.com",
@@ -140,6 +142,56 @@ def _embedded_history(body):
     return tuple((day, by_date[day]) for day in sorted(by_date)) or None
 
 
+def _observed_date(text, now):
+    """The date printed beside the current price, or None if the page prints none.
+
+    DATE FORMAT: DAY-FIRST. The page prints `01/08/2026`, which is 1 August
+    day-first and 8 January month-first, and nothing on the page says which. Two
+    things settle it well enough to act on, and neither is a guess about what
+    looks likely:
+
+      1. The same page carries an embedded chart series in unambiguous ISO form,
+         and its entry for the current price 3119 is dated "2026-08-01" — the
+         same day the slash-date names if you read it day-first.
+      2. pricehistory.app prices in rupees for the Indian market, where day-first
+         is the norm.
+
+    If a real capture ever shows a day above 12 in the second position, that
+    disproves this and the parser is wrong. See ObservationDateTests in
+    tests/test_providers.py, which asserts the choice so it stays visible.
+
+    An unreadable or impossible date raises rather than returning None. We read
+    the price off this very line, so a date we cannot read means the line changed
+    shape, and the listing is better served by falling through to the next
+    provider than by recording a price with no idea how old it is.
+    """
+    match = re.search(r"Price in India on\s+([^:|]+?)\s*:", text, re.I)
+    if not match:
+        # No date printed at all — the price came from the "Current Price" form.
+        # Genuinely unknown, and left as None rather than invented.
+        return None
+
+    digits = re.fullmatch(r"(\d{1,2})/(\d{1,2})/(\d{4})", match.group(1).strip())
+    if not digits:
+        raise SourceError(PROVIDER, "parse", "observation date is unreadable")
+    day, month, year = (int(part) for part in digits.groups())
+    try:
+        observed = datetime(year, month, day, tzinfo=timezone.utc)
+    except ValueError as exc:
+        raise SourceError(PROVIDER, "parse", "observation date is unreadable") from exc
+
+    # "In the future" is judged on the Indian calendar day, not on UTC. Between
+    # 18:30 and 24:00 UTC it is already tomorrow in India, so a page correctly
+    # dated tomorrow-in-UTC-terms is not evidence of anything wrong.
+    if observed.date() > now.astimezone(_IST).date():
+        raise SourceError(PROVIDER, "parse", "observation date is in the future")
+
+    # Midnight UTC, because the page names a day and no clock time. This can make
+    # an observation look up to a day older than it truly is, which is the safe
+    # direction: it can only make the staleness guard fire early, never late.
+    return observed
+
+
 def _parse(source_url, listing, body, now):
     soup = BeautifulSoup(body, "lxml")
     description = html.unescape(_meta(soup, name="description"))
@@ -153,6 +205,8 @@ def _parse(source_url, listing, body, now):
     )
     if price is None:
         raise SourceError(PROVIDER, "parse", "current price is missing")
+
+    observed_ts = _observed_date(combined, now)
 
     retailer = _retailer_from_page(combined)
     expected_retailer = _listing_retailer(listing)
@@ -197,7 +251,7 @@ def _parse(source_url, listing, body, now):
         source=PROVIDER,
         source_url=source_url,
         fetched_ts=now,
-        observed_ts=None,
+        observed_ts=observed_ts,
         site_low=low,
         site_avg=average,
         site_high=high,
