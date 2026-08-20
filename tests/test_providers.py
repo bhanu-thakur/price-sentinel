@@ -184,5 +184,126 @@ class ProviderFixtureTests(unittest.TestCase):
         )
 
 
+class MarkupChangeTests(unittest.TestCase):
+    """What happens when a source site quietly changes its page.
+
+    The dangerous case is not a page that stops parsing — that raises and the
+    orchestrator falls through to the next provider. The dangerous case is a page
+    that still yields *a* number, but not the number we asked for.
+    """
+
+    def setUp(self):
+        self.amazon_listing = {
+            "id": "amazon-in-b0gsvfv3r4",
+            "retailer": "amazon.in",
+            "url": "https://www.amazon.in/dp/B0GSVFV3R4",
+        }
+        self.ph_body = (ROOT / "pricehistory_app" / "success.html").read_text(encoding="utf-8")
+        self.bh_body = (ROOT / "buyhatke" / "success.html").read_text(encoding="utf-8")
+
+    def _ph_fetch(self, body):
+        session = Mock()
+        session.get.return_value = SimpleNamespace(status_code=200, text=body)
+        return pricehistory_app.fetch(
+            "https://pricehistory.app/p/gillette-series-5",
+            self.amazon_listing,
+            session,
+            now=NOW,
+        )
+
+    def _bh_fetch(self, body):
+        session = Mock()
+        session.get.return_value = SimpleNamespace(status_code=200, text=body)
+        return buyhatke.fetch(
+            "https://www.buyhatke.com/amazon-gillette-series-5-price-history-63-110659581",
+            self.amazon_listing,
+            session,
+            now=NOW,
+        )
+
+    def test_pricehistory_rejects_a_page_that_now_describes_another_store(self):
+        body = self.ph_body.replace("Store Name | Amazon", "Store Name | Flipkart")
+        with self.assertRaises(SourceError) as raised:
+            self._ph_fetch(body)
+        self.assertEqual(raised.exception.kind, "identity")
+        self.assertEqual(
+            raised.exception.message,
+            "page retailer 'flipkart.com' does not match listing retailer 'amazon.in'",
+        )
+
+    def test_pricehistory_rejects_a_page_that_now_describes_another_product(self):
+        body = self.ph_body.replace("Store Product Code | B0GSVFV3R4", "Store Product Code | B0AAAAAAAA")
+        with self.assertRaises(SourceError) as raised:
+            self._ph_fetch(body)
+        self.assertEqual(raised.exception.kind, "identity")
+        self.assertEqual(
+            raised.exception.message,
+            "page product code 'B0AAAAAAAA' does not match listing product code 'B0GSVFV3R4'",
+        )
+
+    def test_pricehistory_rejects_a_page_that_dropped_the_product_code(self):
+        body = self.ph_body.replace("<p>Store Product Code | B0GSVFV3R4</p>", "")
+        with self.assertRaises(SourceError) as raised:
+            self._ph_fetch(body)
+        self.assertEqual(raised.exception.kind, "identity")
+        self.assertEqual(raised.exception.message, "page product code is missing")
+
+    def test_pricehistory_does_not_substitute_the_lowest_price_for_a_missing_current_price(self):
+        """If the current-price line goes, the all-time low must not stand in for it."""
+        body = self.ph_body.replace("Amazon Price in India on 01/08/2026: ₹3119.", "")
+        body = body.replace("<p>Price in India | ₹3,119</p>", "")
+        with self.assertRaises(SourceError) as raised:
+            self._ph_fetch(body)
+        self.assertEqual(raised.exception.kind, "parse")
+        self.assertEqual(raised.exception.message, "current price is missing")
+
+    def test_buyhatke_rejects_a_page_that_now_describes_another_store(self):
+        body = self.bh_body.replace('cur_price:3119,site_name:"Amazon"', 'cur_price:3119,site_name:"Flipkart"')
+        with self.assertRaises(SourceError) as raised:
+            self._bh_fetch(body)
+        self.assertEqual(raised.exception.kind, "identity")
+        self.assertEqual(
+            raised.exception.message,
+            "page retailer 'flipkart.com' does not match listing retailer 'amazon.in'",
+        )
+
+    def test_buyhatke_rejects_a_page_that_now_describes_another_product(self):
+        body = self.bh_body.replace('pid:"B0GSVFV3R4"', 'pid:"B0AAAAAAAA"')
+        with self.assertRaises(SourceError) as raised:
+            self._bh_fetch(body)
+        self.assertEqual(raised.exception.kind, "identity")
+        self.assertEqual(
+            raised.exception.message,
+            "page product ID 'B0AAAAAAAA' does not match listing product ID 'B0GSVFV3R4'",
+        )
+
+    @unittest.expectedFailure
+    def test_pricehistory_records_the_observation_date_printed_on_its_own_page(self):
+        """BUG: the page prints the date of the price and the adapter throws it away.
+
+        `providers/pricehistory_app.py` matches the current price with the regex
+        `r"Price in India on [^:|]+:\\s*" + _MONEY`. The `[^:|]+` steps straight
+        over "01/08/2026" — the date that price was observed — and the Observation
+        is built with a hardcoded `observed_ts=None` (line 200).
+
+        `fetch._validate_observation` has a guard that rejects any observation more
+        than 48 hours old, but it reads `observation.observed_ts`, so with None it
+        can never fire. Both adapters hardcode None (buyhatke.py line 151 too), so
+        that guard is dead code in production.
+
+        The consequence is the failure this repo most needs to catch: the source
+        serves a cached page from days ago, the price parses cleanly, and Price
+        Sentinel records a stale number as today's and can alert on it.
+
+        Not fixed here on instruction — reported instead.
+        """
+        body = self.ph_body.replace("on 01/08/2026:", "on 20/07/2026:")
+        observation = self._ph_fetch(body)
+        self.assertEqual(
+            observation.observed_ts,
+            datetime(2026, 7, 20, tzinfo=timezone.utc),
+        )
+
+
 if __name__ == "__main__":
     unittest.main()

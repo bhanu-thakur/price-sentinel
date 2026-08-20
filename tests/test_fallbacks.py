@@ -1,4 +1,5 @@
 import unittest
+from dataclasses import replace
 from datetime import datetime, timedelta, timezone
 from unittest.mock import patch
 
@@ -122,6 +123,55 @@ class FallbackTests(unittest.TestCase):
         disabled = datetime.fromisoformat(state["pricehistory.app"]["disabled_until"])
         self.assertEqual(state["pricehistory.app"]["consecutive_failures"], 3)
         self.assertEqual(disabled, NOW + timedelta(hours=3))
+
+    def _observation_aged(self, hours):
+        """An observation the provider says it saw `hours` before NOW."""
+        base = observation("pricehistory.app", self.listing)
+        return replace(base, observed_ts=NOW - timedelta(hours=hours))
+
+    def test_observation_older_than_48_hours_is_rejected_as_stale(self):
+        """Yesterday's number must not be recorded as today's."""
+        adapter = FakeAdapter("pricehistory.app", result=self._observation_aged(49))
+        listing = {**self.listing, "source_urls": {"pricehistory.app": "https://pricehistory.app/p/one"}}
+        with patch.dict(
+            fetch.PROVIDER_ADAPTERS, {"pricehistory.app": adapter}, clear=True
+        ), patch("fetch.time.sleep"):
+            result, state, attempts = fetch.fetch_listing(listing, {}, now=NOW)
+
+        self.assertIsNone(result)
+        self.assertEqual(attempts[0]["kind"], "stale")
+        self.assertEqual(attempts[0]["message"], "observation is more than 48 hours old")
+        self.assertEqual(state["pricehistory.app"]["consecutive_failures"], 1)
+        self.assertEqual(state["pricehistory.app"]["last_error"], "stale: observation is more than 48 hours old")
+
+    def test_observation_at_exactly_48_hours_is_still_accepted(self):
+        """The boundary is inclusive: 48h passes, 49h does not."""
+        adapter = FakeAdapter("pricehistory.app", result=self._observation_aged(48))
+        listing = {**self.listing, "source_urls": {"pricehistory.app": "https://pricehistory.app/p/one"}}
+        with patch.dict(
+            fetch.PROVIDER_ADAPTERS, {"pricehistory.app": adapter}, clear=True
+        ), patch("fetch.time.sleep"):
+            result, _, attempts = fetch.fetch_listing(listing, {}, now=NOW)
+
+        self.assertEqual(result.price, 3119.0)
+        self.assertEqual(result.observed_ts, NOW - timedelta(hours=48))
+        self.assertEqual([item["status"] for item in attempts], ["success"])
+
+    def test_a_price_of_zero_or_a_nan_is_refused_not_recorded(self):
+        for bad_price, label in ((0.0, "zero"), (float("nan"), "nan"), (-1.0, "negative")):
+            with self.subTest(price=label):
+                base = observation("pricehistory.app", self.listing)
+                adapter = FakeAdapter("pricehistory.app", result=replace(base, price=bad_price))
+                listing = {**self.listing, "source_urls": {"pricehistory.app": "https://pricehistory.app/p/one"}}
+                with patch.dict(
+                    fetch.PROVIDER_ADAPTERS, {"pricehistory.app": adapter}, clear=True
+                ), patch("fetch.time.sleep"):
+                    result, _, attempts = fetch.fetch_listing(listing, {}, now=NOW)
+                self.assertIsNone(result)
+                self.assertEqual(attempts[0]["kind"], "parse")
+                self.assertEqual(
+                    attempts[0]["message"], "price must be finite and greater than zero"
+                )
 
     def test_only_source_url_is_requested(self):
         adapter = FakeAdapter("pricehistory.app", result=observation("pricehistory.app", self.listing))
