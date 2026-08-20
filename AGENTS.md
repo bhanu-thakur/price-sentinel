@@ -2,8 +2,13 @@
 
 ## Environment
 
-Run `doctor.ps1` and read its JSON instead of probing the environment. From this
-repository, invoke it as `& ..\doctor.ps1`.
+Run the environment doctor and read its JSON instead of probing the environment.
+From this repository, invoke it as `python ../ai-command-center/scripts/doctor.py`.
+Running it is fine; writing into `ai-command-center` from here is not.
+
+The earlier instruction named `..\doctor.ps1`, a PowerShell script that sat
+outside any repo. It is not on Nebula (checked 2026-08-20), so it was a dead
+instruction — a rule nobody could follow is worse than no rule.
 
 ## The practice exchange, and this repo's state report
 
@@ -19,6 +24,28 @@ compulsory, `git pull` immediately before writing, and commit `data/practices.js
 **Findings are the auditor's, not yours** — do not write into `data/findings.json`.
 
 **State report:** follow `repo-state.md` in this repo.
+
+## Tests come first, and they are not negotiable afterwards
+
+This repo watches prices. A test that passes while the number is wrong is worse
+than no test, because it buys confidence in a stale figure. So when you implement
+anything with a checkable result:
+
+1. **Write the tests first, and say plainly that they are expected to fail.**
+2. **Run them and paste the real failure output.** Never proceed on an assumed
+   failure — a test that "obviously" fails and actually passes is telling you the
+   behaviour already exists, or that the test asserts nothing.
+3. **Commit the failing tests on their own**, as `test: failing tests for <thing>`.
+   Then any later weakening of a test shows up in a diff instead of hiding inside
+   the commit that made it pass.
+4. **Implement until green, and do not edit a test to make it pass.** If a test is
+   genuinely wrong, stop and say so rather than quietly adjusting it.
+
+**Assert the value, not its shape.** A test asserting a price "is a float", or that
+a key exists, or that a list has three entries, is not a test — the scrape can
+return yesterday's number and every one of those still passes. Assert that the
+value equals the thing it should equal, recomputed from the real source: the
+fixture page, the CSV row, the threshold arithmetic.
 
 ## Shipping
 

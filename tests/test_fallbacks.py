@@ -96,7 +96,9 @@ class FallbackTests(unittest.TestCase):
                     "pricehistory.app",
                     error=SourceError("pricehistory.app", "blocked", f"HTTP {status}"),
                 )
-                with patch.dict(fetch.PROVIDER_ADAPTERS, {"pricehistory.app": adapter}, clear=True):
+                with patch.dict(
+                    fetch.PROVIDER_ADAPTERS, {"pricehistory.app": adapter}, clear=True
+                ), patch("fetch.time.sleep"):
                     _, state, _ = fetch.fetch_listing(
                         {**self.listing, "source_urls": {"pricehistory.app": "https://pricehistory.app/p/one"}},
                         {},
@@ -112,7 +114,9 @@ class FallbackTests(unittest.TestCase):
         )
         state = {}
         listing = {**self.listing, "source_urls": {"pricehistory.app": "https://pricehistory.app/p/one"}}
-        with patch.dict(fetch.PROVIDER_ADAPTERS, {"pricehistory.app": adapter}, clear=True):
+        with patch.dict(
+            fetch.PROVIDER_ADAPTERS, {"pricehistory.app": adapter}, clear=True
+        ), patch("fetch.time.sleep"):
             for _ in range(3):
                 _, state, _ = fetch.fetch_listing(listing, state, now=NOW)
         disabled = datetime.fromisoformat(state["pricehistory.app"]["disabled_until"])
