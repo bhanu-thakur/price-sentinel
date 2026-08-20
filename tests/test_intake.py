@@ -78,7 +78,11 @@ class IntakeTests(unittest.TestCase):
 
         product = proposed["products"][0]
         normalized_candidate = "https://flipkart.com/gillette-series-5/p/itm123?pid=TRIMMER123"
-        self.assertEqual(len(product["listings"]), 1)
+        # Not "one listing" — the seed listing, and only it.
+        self.assertEqual(
+            [(item["id"], item["retailer"], item["url"]) for item in product["listings"]],
+            [("amazon-in-b0gsvfv3r4", "amazon.in", "https://amazon.in/dp/B0GSVFV3R4")],
+        )
         self.assertEqual(product["rejected_candidate_urls"], [normalized_candidate])
         self.assertEqual(
             adapter.resolved,
@@ -93,14 +97,28 @@ class IntakeTests(unittest.TestCase):
         proposed, adapter = self._build([candidate], ["y"])
 
         product = proposed["products"][0]
-        self.assertEqual(len(product["listings"]), 2)
-        self.assertEqual(product["listings"][0]["confirmed_by"], "seed")
-        self.assertEqual(product["listings"][1]["confirmed_by"], "user")
-        self.assertEqual(product["listings"][1]["retailer"], "flipkart.com")
+        self.assertEqual(
+            [(item["id"], item["retailer"], item["url"], item["confirmed_by"]) for item in product["listings"]],
+            [
+                ("amazon-in-b0gsvfv3r4", "amazon.in", "https://amazon.in/dp/B0GSVFV3R4", "seed"),
+                (
+                    "flipkart-com-trimmer123",
+                    "flipkart.com",
+                    "https://flipkart.com/gillette-series-5/p/itm123?pid=TRIMMER123",
+                    "user",
+                ),
+            ],
+        )
         self.assertEqual(product["rejected_candidate_urls"], [])
         self.assertEqual(product["target"], 2850)
         self.assertEqual(product["tier"], "hot")
-        self.assertEqual(len(adapter.resolved), 2)
+        self.assertEqual(
+            adapter.resolved,
+            [
+                "https://amazon.in/dp/B0GSVFV3R4",
+                "https://flipkart.com/gillette-series-5/p/itm123?pid=TRIMMER123",
+            ],
+        )
 
     def test_only_successfully_fetched_seed_sources_are_stored(self):
         failing = FakeAdapter([], provider="bad-provider.example", fail_retailers={"amazon.in"})
@@ -145,7 +163,10 @@ class IntakeTests(unittest.TestCase):
                 session=object(),
                 confirm=lambda prompt: self.fail("confirmation must not run"),
             )
-        self.assertEqual(len(proposed["products"][0]["listings"]), 1)
+        self.assertEqual(
+            [item["id"] for item in proposed["products"][0]["listings"]],
+            ["amazon-in-b0gsvfv3r4"],
+        )
 
     def test_same_retailer_identity_is_not_proposed_as_a_counterpart(self):
         candidate = {
@@ -154,7 +175,12 @@ class IntakeTests(unittest.TestCase):
         }
         proposed, adapter = self._build([candidate], [])
         product = proposed["products"][0]
-        self.assertEqual(len(product["listings"]), 1)
+        # Not "one listing" — the seed listing itself, undisturbed by a candidate
+        # that pointed at the same amazon.in product through a different URL.
+        self.assertEqual(
+            [(item["id"], item["retailer"], item["url"]) for item in product["listings"]],
+            [("amazon-in-b0gsvfv3r4", "amazon.in", "https://amazon.in/dp/B0GSVFV3R4")],
+        )
         self.assertEqual(product["rejected_candidate_urls"], [])
         self.assertEqual(adapter.resolved, ["https://amazon.in/dp/B0GSVFV3R4"])
 
