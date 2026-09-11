@@ -362,36 +362,31 @@ class ShippedDataFilesTests(unittest.TestCase):
         )
         self.assertEqual(self.state["schema_version"], 2)
 
-    def test_a_run_over_the_shipped_watchlist_with_no_products_does_nothing(self):
-        """Zero products due means zero fetches, zero alerts, and no state rewrite.
+    def test_shipped_watchlist_contains_the_researched_seltos_catalog(self):
+        """Pin the exact retailer identities and useful-price alert thresholds."""
+        expected = {
+            "karcher-k2-horizontal-pressure-washer": ("flipkart-com-cwrfjrhymdtemr3g", 4000),
+            "shakti-s3-pressure-washer": ("amazon-in-b0bbwjfk5c", 4200),
+            "black-decker-bw13-pressure-washer": ("amazon-in-b07g9mpy1x", 5999),
+            "70mai-a510-dual-channel-dashcam": ("amazon-in-b0cvh2k929", 10999),
+            "michelin-12266-tyre-inflator": ("amazon-in-b00ierqc80", 3600),
+            "amazon-basics-4-gauge-jumper-cable": ("amazon-in-b074dmn1xm", 1750),
+            "stanley-tubeless-tyre-repair-kit": ("amazon-in-b085s7nj2v", 450),
+            "amazon-basics-emergency-escape-tool": ("amazon-in-b073j92g1j", 250),
+            "jopasu-car-duster": ("amazon-in-b07v1x58xv", 799),
+            "3m-microfiber-cloths-pack-of-3": ("amazon-in-b072mq8v5f", 399),
+            "3m-car-wash-shampoo-250-ml": ("amazon-in-b00s5sbs9g", 270),
+        }
+        actual = {
+            product["id"]: (product["listings"][0]["id"], product["target"])
+            for product in self.watchlist["products"]
+        }
 
-        The real files are copied into a tmpdir first: the assertion is about their
-        content, but a regression here must never be able to write the repo's own
-        state.json.
-        """
-        with tempfile.TemporaryDirectory() as directory:
-            root = Path(directory)
-            watchlist_path = root / "watchlist.json"
-            state_path = root / "state.json"
-            watchlist_path.write_text(json.dumps(self.watchlist), encoding="utf-8")
-            original = json.dumps(self.state, indent=2, sort_keys=True)
-            state_path.write_text(original, encoding="utf-8")
-
-            with patch.object(main, "WATCHLIST", str(watchlist_path)), \
-                    patch.object(main, "STATE_PATH", str(state_path)), \
-                    patch.object(main.fetcher, "fetch_listing") as fetch_listing, \
-                    patch.object(main.dashboard, "build") as build, \
-                    patch.object(main.notify, "dispatch") as dispatch:
-                result = main.run(now=NOW, session=object())
-
-            self.assertEqual(state_path.read_text(encoding="utf-8"), original)
-
-        self.assertEqual(self.watchlist["products"], [])
-        self.assertEqual(result["listings"], {})
-        self.assertEqual(result["products"], {})
-        fetch_listing.assert_not_called()
-        build.assert_not_called()
-        dispatch.assert_not_called()
+        self.assertEqual(actual, expected)
+        self.assertEqual(len(self.watchlist["products"]), 11)
+        for product in self.watchlist["products"]:
+            self.assertIn("reddit.com", product["notes"])
+            self.assertIn("team-bhp.com", product["notes"])
 
 
 if __name__ == "__main__":
