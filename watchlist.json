@@ -1,4 +1,203 @@
 {
   "schema_version": 2,
-  "products": []
+  "products": [
+    {
+      "id": "karcher-k2-horizontal-pressure-washer",
+      "name": "Karcher K2 Horizontal pressure washer",
+      "target": 4000,
+      "tier": "warm",
+      "notes": "Pressure-washer shortlist for the Seltos; 110 bar/1400 W. Team-BHP long-term K2 owner reports 3 years of trouble-free use: https://www.team-bhp.com/forum/modifications-accessories/14492-buying-using-pressure-washer-89.html ; Reddit owners recommend Karcher/Bosch/B&D and a fan spray for paint: https://www.reddit.com/r/CarsIndia/comments/1u3lj7j/pressure_washer_recommendation/",
+      "rejected_candidate_urls": [],
+      "listings": [
+        {
+          "id": "flipkart-com-cwrfjrhymdtemr3g",
+          "retailer": "flipkart.com",
+          "url": "https://flipkart.com/karcher-k2-horizontalkap-high-pressure-washer-110-bar-1400w-360l-hr-flowrate-6mhosepipe/p/itm95c038b9afbfb?pid=CWRFJRHYMDTEMR3G",
+          "confirmed_by": "community research 2026-09-11",
+          "attributes": {"brand": "Karcher", "model": "K2 HorizontalKAP", "power": "1400 W", "pressure": "110 bar"},
+          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/karcher-k-2-horizontal-kap-110-bar-oIrwssIm"}
+        }
+      ]
+    },
+    {
+      "id": "shakti-s3-pressure-washer",
+      "name": "Shakti S3 pressure washer",
+      "target": 4200,
+      "tier": "warm",
+      "notes": "Pressure-washer shortlist for the Seltos; 1800 W. Detailed Team-BHP owner review: https://www.team-bhp.com/forum/modifications-accessories/265945-shakti-s3-car-pressure-washer-review.html ; Reddit owners report two years of regular multi-vehicle use: https://www.reddit.com/r/CarsIndia/comments/1vzxks7/is_shakti_a_reliable_company_for_pressure_washer/",
+      "rejected_candidate_urls": [],
+      "listings": [
+        {
+          "id": "amazon-in-b0bbwjfk5c",
+          "retailer": "amazon.in",
+          "url": "https://amazon.in/dp/B0BBWJFK5C",
+          "confirmed_by": "community research 2026-09-11",
+          "attributes": {"brand": "Shakti Technology", "model": "S3", "power": "1800 W"},
+          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/shakti-technology-s3-high-pressure-car-washer-pIsjmm2h"}
+        }
+      ]
+    },
+    {
+      "id": "black-decker-bw13-pressure-washer",
+      "name": "Black+Decker BW13 pressure washer",
+      "target": 5999,
+      "tier": "warm",
+      "notes": "Pressure-washer shortlist for the Seltos; 100 bar/1300 W. Team-BHP BW13 owner recommends it for the price: https://www.team-bhp.com/forum/modifications-accessories/14492-buying-using-pressure-washer-82.html ; Reddit owners repeatedly shortlist Black+Decker with Karcher and Bosch: https://www.reddit.com/r/CarsIndia/comments/1u3lj7j/pressure_washer_recommendation/",
+      "rejected_candidate_urls": [],
+      "listings": [
+        {
+          "id": "amazon-in-b07g9mpy1x",
+          "retailer": "amazon.in",
+          "url": "https://amazon.in/dp/B07G9MPY1X",
+          "confirmed_by": "community research 2026-09-11",
+          "attributes": {"brand": "Black+Decker", "model": "BW13", "power": "1300 W", "pressure": "100 bar"},
+          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/black-decker-bxpw1300e-b5-1300w-100-bar-dzR52emb"}
+        }
+      ]
+    },
+    {
+      "id": "70mai-a510-dual-channel-dashcam",
+      "name": "70mai A510 dual-channel dashcam",
+      "target": 10999,
+      "tier": "warm",
+      "notes": "High-priority Seltos accessory because HTK(O) does not include Kia's factory dashcam. Team-BHP members use/recommend the A510 dual channel: https://www.team-bhp.com/forum/electric-cars/299966-your-must-have-accessories-electric-cars.html ; Seltos owners consistently rank a dashcam first: https://www.reddit.com/r/Seltos_india/comments/1v50ttl/which_accessory_was_worth_every_rupee/ . Prefer dealer-approved installation or a plug-in setup to avoid warranty issues.",
+      "rejected_candidate_urls": [],
+      "listings": [
+        {
+          "id": "amazon-in-b0cvh2k929",
+          "retailer": "amazon.in",
+          "url": "https://amazon.in/dp/B0CVH2K929",
+          "confirmed_by": "community research 2026-09-11",
+          "attributes": {"brand": "70mai", "model": "A510-1", "channels": "front and rear"},
+          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/70mai-a510-hdr-3k-dual-channel-dash-8SSpit2h"}
+        }
+      ]
+    },
+    {
+      "id": "michelin-12266-tyre-inflator",
+      "name": "Michelin 12266 tyre inflator",
+      "target": 3600,
+      "tier": "warm",
+      "notes": "Emergency kit for highway use. Team-BHP's hands-on review covers this exact model: https://www.team-bhp.com/forum/modifications-accessories/258978-michelin-tyre-inflator-review-model-12266-a.html ; Seltos owners repeatedly recommend carrying an inflator: https://www.reddit.com/r/Seltos_india/comments/1v50ttl/which_accessory_was_worth_every_rupee/ . The Seltos already has factory TPMS, so no separate TPMS is tracked.",
+      "rejected_candidate_urls": [],
+      "listings": [
+        {
+          "id": "amazon-in-b00ierqc80",
+          "retailer": "amazon.in",
+          "url": "https://amazon.in/dp/B00IERQC80",
+          "confirmed_by": "community research 2026-09-11",
+          "attributes": {"brand": "Michelin", "model": "12266"},
+          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/michelin-high-power-tyre-inflator-ml-12266-MF3A87G5"}
+        }
+      ]
+    },
+    {
+      "id": "amazon-basics-4-gauge-jumper-cable",
+      "name": "Amazon Basics 4-gauge 20 ft jumper cable",
+      "target": 1750,
+      "tier": "cold",
+      "notes": "Emergency kit for the diesel automatic; the 4-gauge, 20 ft cable is suitable for larger batteries. Exact product is discussed on Team-BHP: https://www.team-bhp.com/forum/gadgets-computers-software/246962-recently-purchased-products-gadgets-helped-you-improve-your-life-6.html ; Reddit recommends jumper cables for every car, especially automatics: https://www.reddit.com/r/CarsIndia/comments/1dimdzp/what_car_accessories_would_you_suggest_for_every_car_owner_in_india/",
+      "rejected_candidate_urls": [],
+      "listings": [
+        {
+          "id": "amazon-in-b074dmn1xm",
+          "retailer": "amazon.in",
+          "url": "https://amazon.in/dp/B074DMN1XM",
+          "confirmed_by": "community research 2026-09-11",
+          "attributes": {"brand": "Amazon Basics", "model": "BC120725A", "gauge": "4 gauge", "length": "20 ft"},
+          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/amazon-basics-bc120725a-jumper-cable-4-gauge-W2Hv8wyp"}
+        }
+      ]
+    },
+    {
+      "id": "stanley-tubeless-tyre-repair-kit",
+      "name": "Stanley tubeless tyre repair kit",
+      "target": 450,
+      "tier": "cold",
+      "notes": "Emergency puncture kit to pair with the inflator. Team-BHP members recommend carrying a puncture repair kit: https://www.team-bhp.com/forum/gadgets-computers-software/246962-recently-purchased-products-gadgets-helped-you-improve-your-life-6.html ; Seltos owners include a puncture kit in the core safety kit: https://www.reddit.com/r/Seltos_india/comments/1v50ttl/which_accessory_was_worth_every_rupee/ . Use as a temporary repair and have the tyre inspected professionally.",
+      "rejected_candidate_urls": [],
+      "listings": [
+        {
+          "id": "amazon-in-b085s7nj2v",
+          "retailer": "amazon.in",
+          "url": "https://amazon.in/dp/B085S7NJ2V",
+          "confirmed_by": "community research 2026-09-11",
+          "attributes": {"brand": "Stanley", "model": "STHT80891-0"},
+          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/stanley-stht80891-0-flat-tubeless-tyre-repair-F7akOrIm"}
+        }
+      ]
+    },
+    {
+      "id": "amazon-basics-emergency-escape-tool",
+      "name": "Amazon Basics emergency escape tool",
+      "target": 250,
+      "tier": "cold",
+      "notes": "Two-pack seat-belt cutter/window hammer for the front cabin. Team-BHP safety discussion recommends this type of escape tool: https://www.team-bhp.com/forum/modifications-accessories/275037-2023-edition-your-must-have-accessories-today-2.html ; Reddit's must-have list names this exact Amazon Basics tool: https://www.reddit.com/r/CarsIndia/comments/102whxv/useful_car_accessories/ . Mount within reach; do not leave loose in a storage bin.",
+      "rejected_candidate_urls": [],
+      "listings": [
+        {
+          "id": "amazon-in-b073j92g1j",
+          "retailer": "amazon.in",
+          "url": "https://amazon.in/dp/B073J92G1J",
+          "confirmed_by": "community research 2026-09-11",
+          "attributes": {"brand": "Amazon Basics", "model": "emergency seat-belt cutter and window hammer", "pack_count": "pack of 2"},
+          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/amazon-basics-emergency-seat-belt-cutter-window-EQMYZhce"}
+        }
+      ]
+    },
+    {
+      "id": "jopasu-car-duster",
+      "name": "Jopasu car duster",
+      "target": 799,
+      "tier": "cold",
+      "notes": "For light, dry surface dust only. Team-BHP accessory lists include a car duster: https://www.team-bhp.com/forum/electric-cars/299966-your-must-have-accessories-electric-cars.html ; Reddit owners repeatedly recommend Jopasu: https://www.reddit.com/r/CarsIndia/comments/1mklzfb/new_car_owners_what_are_the_accessories_you/ . Do not drag it over grit, mud, or heavily soiled paint; rinse those first to reduce swirl risk.",
+      "rejected_candidate_urls": [],
+      "listings": [
+        {
+          "id": "amazon-in-b07v1x58xv",
+          "retailer": "amazon.in",
+          "url": "https://amazon.in/dp/B07V1X58XV",
+          "confirmed_by": "community research 2026-09-11",
+          "attributes": {"brand": "Jopasu", "model": "AOCC001", "size": "medium"},
+          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/jopasu-car-duster-4FSBT3Q2"}
+        }
+      ]
+    },
+    {
+      "id": "3m-microfiber-cloths-pack-of-3",
+      "name": "3M microfiber cloths pack of 3",
+      "target": 399,
+      "tier": "cold",
+      "notes": "Exterior/interior cleaning staple; keep separate cloths for paint, glass and cabin. Team-BHP washing guidance relies on clean microfiber: https://www.team-bhp.com/forum/modifications-accessories/305967-basic-guide-pressure-washers.html ; Reddit owners include microfiber cloths in the basic cleaning kit: https://www.reddit.com/r/CarsIndia/comments/102whxv/useful_car_accessories/",
+      "rejected_candidate_urls": [],
+      "listings": [
+        {
+          "id": "amazon-in-b072mq8v5f",
+          "retailer": "amazon.in",
+          "url": "https://amazon.in/dp/B072MQ8V5F",
+          "confirmed_by": "community research 2026-09-11",
+          "attributes": {"brand": "3M", "model": "microfiber cloth", "pack_count": "pack of 3"},
+          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/3m-car-care-microfiber-cloth-3-pieces-ZD9OuoSj"}
+        }
+      ]
+    },
+    {
+      "id": "3m-car-wash-shampoo-250-ml",
+      "name": "3M pH-neutral car wash shampoo 250 ml",
+      "target": 270,
+      "tier": "cold",
+      "notes": "pH-neutral shampoo for safe exterior washing. Team-BHP's pressure-washer guide stresses proper automotive shampoo and technique: https://www.team-bhp.com/forum/modifications-accessories/305967-basic-guide-pressure-washers.html ; Reddit owners recommend 3M cleaning products for the basic kit: https://www.reddit.com/r/CarsIndia/comments/1mklzfb/new_car_owners_what_are_the_accessories_you/ . Use the washer's wide fan pattern and avoid point-blank pressure on paint, seals and sensors.",
+      "rejected_candidate_urls": [],
+      "listings": [
+        {
+          "id": "amazon-in-b00s5sbs9g",
+          "retailer": "amazon.in",
+          "url": "https://amazon.in/dp/B00S5SBS9G",
+          "confirmed_by": "community research 2026-09-11",
+          "attributes": {"brand": "3M", "model": "3M_Wash_Shampoo_250ml", "capacity": "250 ml"},
+          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/m-car-wash-shampoo-250ml-high-foam-sZaPT6G5"}
+        }
+      ]
+    }
+  ]
 }
