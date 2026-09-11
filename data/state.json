@@ -9,14 +9,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T07:12:52+00:00",
+      "last_checked_ts": "2026-09-11T09:48:27+00:00",
       "last_in_stock": true,
       "last_price": 3912.0,
       "last_retailer": "amazon.in",
       "last_score": 83.4,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/michelin-high-power-tyre-inflator-ml-12266-MF3A87G5",
-      "last_success_ts": "2026-09-11T07:12:52+00:00",
+      "last_success_ts": "2026-09-11T09:48:27+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
@@ -31,10 +31,10 @@
         "product_id": "michelin-12266-tyre-inflator",
         "reasons": [
           "9.9% below the lifetime average",
-          "Own history still building (4 samples)"
+          "Own history still building (5 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 4,
+        "samples": 5,
         "score": 83.4,
         "seller": null,
         "source": "pricehistory.app",
@@ -7170,14 +7170,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T07:12:52+00:00",
+      "last_checked_ts": "2026-09-11T09:48:27+00:00",
       "last_in_stock": true,
       "last_price": 1949.0,
       "last_retailer": "amazon.in",
       "last_score": 70.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/amazon-basics-bc120725a-jumper-cable-4-gauge-W2Hv8wyp",
-      "last_success_ts": "2026-09-11T07:12:52+00:00",
+      "last_success_ts": "2026-09-11T09:48:27+00:00",
       "last_verdict": {
         "alert": false,
         "basis": "lifetime stats from source site",
@@ -7191,10 +7191,10 @@
         "price": 1949.0,
         "product_id": "amazon-basics-4-gauge-jumper-cable",
         "reasons": [
-          "Own history still building (4 samples)"
+          "Own history still building (5 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 4,
+        "samples": 5,
         "score": 70.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -8688,14 +8688,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T07:12:52+00:00",
+      "last_checked_ts": "2026-09-11T09:48:27+00:00",
       "last_in_stock": true,
       "last_price": 328.0,
       "last_retailer": "amazon.in",
       "last_score": 83.6,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/stanley-stht80891-0-flat-tubeless-tyre-repair-F7akOrIm",
-      "last_success_ts": "2026-09-11T07:12:52+00:00",
+      "last_success_ts": "2026-09-11T09:48:27+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
@@ -8711,10 +8711,10 @@
         "reasons": [
           "At or below your target of Rs 450",
           "22.6% below the lifetime average",
-          "Own history still building (4 samples)"
+          "Own history still building (5 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 4,
+        "samples": 5,
         "score": 83.6,
         "seller": null,
         "source": "pricehistory.app",
@@ -10223,14 +10223,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T07:12:52+00:00",
+      "last_checked_ts": "2026-09-11T09:48:27+00:00",
       "last_in_stock": true,
       "last_price": 5599.0,
       "last_retailer": "amazon.in",
       "last_score": 66.2,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/agaro-supreme-high-pressure-washer-car-washer-sE8kqoSj",
-      "last_success_ts": "2026-09-11T07:12:52+00:00",
+      "last_success_ts": "2026-09-11T09:48:27+00:00",
       "last_verdict": {
         "alert": false,
         "basis": "lifetime stats from source site",
@@ -10244,10 +10244,10 @@
         "price": 5599.0,
         "product_id": "agaro-supreme-pressure-washer",
         "reasons": [
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 66.2,
         "seller": null,
         "source": "pricehistory.app",
@@ -13512,14 +13512,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T07:12:52+00:00",
+      "last_checked_ts": "2026-09-11T09:48:27+00:00",
       "last_in_stock": true,
       "last_price": 5999.0,
       "last_retailer": "amazon.in",
       "last_score": 73.5,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/black-decker-bepw1600-1300w-1600-psi-110-BWbdgoSj",
-      "last_success_ts": "2026-09-11T07:12:52+00:00",
+      "last_success_ts": "2026-09-11T09:48:27+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
@@ -13534,10 +13534,10 @@
         "product_id": "black-decker-bepw1600-pressure-washer",
         "reasons": [
           "At or below your target of Rs 5,999",
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 73.5,
         "seller": null,
         "source": "pricehistory.app",
@@ -17337,14 +17337,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T07:12:52+00:00",
+      "last_checked_ts": "2026-09-11T09:48:27+00:00",
       "last_in_stock": true,
       "last_price": 13499.0,
       "last_retailer": "amazon.in",
       "last_score": 75.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/70mai-a510-hdr-3k-dual-channel-dash-8SSpit2h",
-      "last_success_ts": "2026-09-11T07:12:52+00:00",
+      "last_success_ts": "2026-09-11T09:48:27+00:00",
       "last_verdict": {
         "alert": false,
         "basis": "lifetime stats from source site",
@@ -17358,10 +17358,10 @@
         "price": 13499.0,
         "product_id": "70mai-a510-dual-channel-dashcam",
         "reasons": [
-          "Own history still building (4 samples)"
+          "Own history still building (5 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 4,
+        "samples": 5,
         "score": 75.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -19710,14 +19710,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T07:12:52+00:00",
+      "last_checked_ts": "2026-09-11T09:48:27+00:00",
       "last_in_stock": true,
       "last_price": 399.0,
       "last_retailer": "amazon.in",
       "last_score": 80.9,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/siago-car-safety-hammer-emergency-escape-tool-TY2echQ2",
-      "last_success_ts": "2026-09-11T07:12:52+00:00",
+      "last_success_ts": "2026-09-11T09:48:27+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
@@ -19732,10 +19732,10 @@
         "product_id": "siago-car-safety-hammer",
         "reasons": [
           "At or below your target of Rs 399",
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 80.9,
         "seller": null,
         "source": "pricehistory.app",
@@ -20486,13 +20486,13 @@
   "products": {
     "70mai-a510-dual-channel-dashcam": {
       "auto_tier": "hot",
-      "last_checked_ts": "2026-09-11T07:12:52+00:00",
+      "last_checked_ts": "2026-09-11T09:48:27+00:00",
       "last_verdict": {
         "alert": false,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T07:12:52+00:00",
+        "last_success_ts": "2026-09-11T09:48:27+00:00",
         "listing_id": "amazon-in-b0cvh2k929",
         "listing_url": "https://amazon.in/dp/B0CVH2K929",
         "max90": 20059.0,
@@ -20503,10 +20503,10 @@
         "price": 13499.0,
         "product_id": "70mai-a510-dual-channel-dashcam",
         "reasons": [
-          "Own history still building (4 samples)"
+          "Own history still building (5 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 4,
+        "samples": 5,
         "score": 75.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -20518,13 +20518,13 @@
     },
     "agaro-supreme-pressure-washer": {
       "auto_tier": "hot",
-      "last_checked_ts": "2026-09-11T07:12:52+00:00",
+      "last_checked_ts": "2026-09-11T09:48:27+00:00",
       "last_verdict": {
         "alert": false,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T07:12:52+00:00",
+        "last_success_ts": "2026-09-11T09:48:27+00:00",
         "listing_id": "amazon-in-b09vkwgzd7",
         "listing_url": "https://amazon.in/dp/B09VKWGZD7",
         "max90": 8990.0,
@@ -20535,10 +20535,10 @@
         "price": 5599.0,
         "product_id": "agaro-supreme-pressure-washer",
         "reasons": [
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 66.2,
         "seller": null,
         "source": "pricehistory.app",
@@ -20550,13 +20550,13 @@
     },
     "amazon-basics-4-gauge-jumper-cable": {
       "auto_tier": "hot",
-      "last_checked_ts": "2026-09-11T07:12:52+00:00",
+      "last_checked_ts": "2026-09-11T09:48:27+00:00",
       "last_verdict": {
         "alert": false,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T07:12:52+00:00",
+        "last_success_ts": "2026-09-11T09:48:27+00:00",
         "listing_id": "amazon-in-b074dmn1xm",
         "listing_url": "https://amazon.in/dp/B074DMN1XM",
         "max90": 4538.0,
@@ -20567,10 +20567,10 @@
         "price": 1949.0,
         "product_id": "amazon-basics-4-gauge-jumper-cable",
         "reasons": [
-          "Own history still building (4 samples)"
+          "Own history still building (5 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 4,
+        "samples": 5,
         "score": 70.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -20582,13 +20582,15 @@
     },
     "black-decker-bepw1600-pressure-washer": {
       "auto_tier": "hot",
-      "last_checked_ts": "2026-09-11T07:12:52+00:00",
+      "last_alert_price": 5999.0,
+      "last_alert_ts": "2026-09-11T09:48:27+00:00",
+      "last_checked_ts": "2026-09-11T09:48:27+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T07:12:52+00:00",
+        "last_success_ts": "2026-09-11T09:48:27+00:00",
         "listing_id": "amazon-in-b0b1d2g6cc",
         "listing_url": "https://amazon.in/dp/B0B1D2G6CC",
         "max90": 10432.0,
@@ -20600,10 +20602,10 @@
         "product_id": "black-decker-bepw1600-pressure-washer",
         "reasons": [
           "At or below your target of Rs 5,999",
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 73.5,
         "seller": null,
         "source": "pricehistory.app",
@@ -20650,13 +20652,13 @@
       "auto_tier": "hot",
       "last_alert_price": 3912.0,
       "last_alert_ts": "2026-09-11T05:19:31+00:00",
-      "last_checked_ts": "2026-09-11T07:12:52+00:00",
+      "last_checked_ts": "2026-09-11T09:48:27+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T07:12:52+00:00",
+        "last_success_ts": "2026-09-11T09:48:27+00:00",
         "listing_id": "amazon-in-b00ierqc80",
         "listing_url": "https://amazon.in/dp/B00IERQC80",
         "max90": 6495.0,
@@ -20668,10 +20670,10 @@
         "product_id": "michelin-12266-tyre-inflator",
         "reasons": [
           "9.9% below the lifetime average",
-          "Own history still building (4 samples)"
+          "Own history still building (5 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 4,
+        "samples": 5,
         "score": 83.4,
         "seller": null,
         "source": "pricehistory.app",
@@ -20715,13 +20717,15 @@
     },
     "siago-car-safety-hammer": {
       "auto_tier": "hot",
-      "last_checked_ts": "2026-09-11T07:12:52+00:00",
+      "last_alert_price": 399.0,
+      "last_alert_ts": "2026-09-11T09:48:27+00:00",
+      "last_checked_ts": "2026-09-11T09:48:27+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T07:12:52+00:00",
+        "last_success_ts": "2026-09-11T09:48:27+00:00",
         "listing_id": "amazon-in-b0dlgxl3nj",
         "listing_url": "https://amazon.in/dp/B0DLGXL3NJ",
         "max90": 669.0,
@@ -20733,10 +20737,10 @@
         "product_id": "siago-car-safety-hammer",
         "reasons": [
           "At or below your target of Rs 399",
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 80.9,
         "seller": null,
         "source": "pricehistory.app",
@@ -20750,13 +20754,13 @@
       "auto_tier": "hot",
       "last_alert_price": 328.0,
       "last_alert_ts": "2026-09-11T05:19:31+00:00",
-      "last_checked_ts": "2026-09-11T07:12:52+00:00",
+      "last_checked_ts": "2026-09-11T09:48:27+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T07:12:52+00:00",
+        "last_success_ts": "2026-09-11T09:48:27+00:00",
         "listing_id": "amazon-in-b085s7nj2v",
         "listing_url": "https://amazon.in/dp/B085S7NJ2V",
         "max90": 623.0,
@@ -20769,10 +20773,10 @@
         "reasons": [
           "At or below your target of Rs 450",
           "22.6% below the lifetime average",
-          "Own history still building (4 samples)"
+          "Own history still building (5 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 4,
+        "samples": 5,
         "score": 83.6,
         "seller": null,
         "source": "pricehistory.app",
