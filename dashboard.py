@@ -4,6 +4,7 @@ import html
 import json
 import os
 from datetime import datetime, timedelta, timezone
+from urllib.parse import urlsplit
 
 import analyze
 import catalog
@@ -64,6 +65,15 @@ def _money(value):
     if value is None:
         return "—"
     return f"₹{_group_inr(round(float(value)))}"
+
+
+def _rating_source_label(url):
+    host = (urlsplit(str(url or "")).hostname or "").lower().removeprefix("www.")
+    if host == "amazon.in":
+        return "Amazon"
+    if host == "flipkart.com":
+        return "Flipkart"
+    return "aggregator"
 
 
 def _number(value):
@@ -430,8 +440,9 @@ def _card(product, state, chart_paths, now):
     rating = research.get("marketplace_rating") or {}
     research_rows = []
     if rating:
+        rating_source = _rating_source_label(rating.get("source_url"))
         research_rows.append(
-            "<div>Marketplace rating via aggregator: "
+            f"<div>Marketplace rating via {_escape(rating_source)}: "
             f'{_escape(rating.get("score_out_of_10"))}/10 · '
             f'{_escape(_group_inr(rating.get("review_count")))} reviews</div>'
         )

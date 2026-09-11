@@ -2,33 +2,33 @@
   "schema_version": 2,
   "products": [
     {
-      "id": "karcher-k2-horizontal-pressure-washer",
-      "name": "Karcher K2 Horizontal pressure washer",
-      "target": 4000,
+      "id": "agaro-supreme-pressure-washer",
+      "name": "AGARO Supreme 1800 W pressure washer",
+      "target": 5500,
       "tier": "warm",
-      "notes": "Value pressure-washer candidate for the Seltos; 110 bar/1400 W. Community evidence is mixed: one Team-BHP K2 owner reports three trouble-free years, while another reports repeated K-series failures, oil leaks, overheating limits and poor support.",
+      "notes": "In-budget replacement for the out-of-stock Karcher listing; 1800 W, 120 bar and an 8 m outlet hose. Owner evidence is mixed, so the ₹5,500 alert stays below the currently verified ₹5,599 retailer price.",
       "research": {
         "as_of": "2026-09-11",
         "community_consensus": "mixed",
-        "budget_position": "below-requested-range",
-        "marketplace_rating": {"score_out_of_10": 8.4, "review_count": 2961, "source_url": "https://pricehistory.app/p/karcher-k-2-horizontal-kap-110-bar-oIrwssIm"},
+        "budget_position": "within-requested-range",
+        "marketplace_rating": {"score_out_of_10": 7.8, "review_count": 10196, "source_url": "https://amazon.in/dp/B09VKWGZD7"},
         "evidence": [
-          {"source": "Team-BHP", "sentiment": "positive", "summary": "A K2 Horizontal owner reports three years of heavy, trouble-free use and says it is adequate for cars.", "url": "https://www.team-bhp.com/forum/modifications-accessories/14492-buying-using-pressure-washer-89.html"},
-          {"source": "Team-BHP", "sentiment": "negative", "summary": "Another owner reports repeated K2/K3/K4/K7 failures, oil leaks, overheating limits and poor domestic-line support.", "url": "https://www.team-bhp.com/forum/modifications-accessories/14492-buying-using-pressure-washer-89.html"},
-          {"source": "Reddit", "sentiment": "category", "summary": "Owners shortlist Karcher, Bosch and Black+Decker and advise a fan spray around paint.", "url": "https://www.reddit.com/r/CarsIndia/comments/1u3lj7j/pressure_washer_recommendation/"}
+          {"source": "Team-BHP", "sentiment": "positive", "summary": "An AGARO owner describes the same hardware as the Shakti S3 and reports ten trouble-free months.", "url": "https://www.team-bhp.com/forum/modifications-accessories/265945-shakti-s3-car-pressure-washer-review-2.html"},
+          {"source": "Reddit", "sentiment": "positive", "summary": "A Supreme owner recommends it after seven months of car and household use; other owners report one to three years of use.", "url": "https://www.reddit.com/r/CarsIndia/comments/10877ib/i_always_have_a_blast_pressure_washing_my_car_you/"},
+          {"source": "Reddit", "sentiment": "negative", "summary": "Another owner reports failure after 13 months and an uneconomical repair quote just outside warranty.", "url": "https://www.reddit.com/r/CarsIndia/comments/1uw3h78/suggest_me_some_pressure_washers/"}
         ],
-        "caveats": ["A Team-BHP owner reports oil leaks, short continuous-runtime limits and poor support across domestic K-series machines.", "Current aggregator price can sit below the requested ₹5,000–₹6,000 shopping range; the ₹4,000 target treats it as a value option."],
+        "caveats": ["Owner reports on longevity and after-sales support are mixed, including a failure just after the one-year warranty.", "Budget pressure washers in this class are often white-labelled; avoid running the pump dry, maintain steady inlet flow and use a fan spray on paint."],
         "fitment": "universal"
       },
       "rejected_candidate_urls": [],
       "listings": [
         {
-          "id": "flipkart-com-cwrfjrhymdtemr3g",
-          "retailer": "flipkart.com",
-          "url": "https://flipkart.com/karcher-k2-horizontalkap-high-pressure-washer-110-bar-1400w-360l-hr-flowrate-6mhosepipe/p/itm95c038b9afbfb?pid=CWRFJRHYMDTEMR3G",
-          "confirmed_by": "community research 2026-09-11",
-          "attributes": {"brand": "Karcher", "model": "K2 HorizontalKAP", "power": "1400 W", "pressure": "110 bar"},
-          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/karcher-k-2-horizontal-kap-110-bar-oIrwssIm"}
+          "id": "amazon-in-b09vkwgzd7",
+          "retailer": "amazon.in",
+          "url": "https://amazon.in/dp/B09VKWGZD7",
+          "confirmed_by": "retailer stock, identity and rating verified for Mohali 160062 on 2026-09-11",
+          "attributes": {"brand": "AGARO", "model": "Supreme 33715", "power": "1800 W", "pressure": "120 bar"},
+          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/agaro-supreme-high-pressure-washer-car-washer-sE8kqoSj"}
         }
       ]
     },
@@ -64,32 +64,32 @@
       ]
     },
     {
-      "id": "black-decker-bw13-pressure-washer",
-      "name": "Black+Decker BW13 pressure washer",
+      "id": "black-decker-bepw1600-pressure-washer",
+      "name": "Black+Decker BEPW1600 pressure washer",
       "target": 5999,
       "tier": "warm",
-      "notes": "Established-brand pressure-washer candidate for the Seltos; 100 bar/1300 W with a one-year manufacturer warranty. Target ₹5,999 rather than claiming every observed price is inside the requested range.",
+      "notes": "In-stock replacement for the unavailable BW13 listing; 110 bar/1300 W with a one-year manufacturer warranty and a verified ₹5,999 Amazon offer.",
       "research": {
         "as_of": "2026-09-11",
         "community_consensus": "positive",
         "budget_position": "near-upper-bound",
-        "marketplace_rating": {"score_out_of_10": 8.2, "review_count": 2073, "source_url": "https://pricehistory.app/p/black-decker-bxpw1300e-b5-1300w-100-bar-dzR52emb"},
+        "marketplace_rating": {"score_out_of_10": 8.4, "review_count": 323, "source_url": "https://amazon.in/dp/B0B1D2G6CC"},
         "evidence": [
-          {"source": "Team-BHP", "sentiment": "positive", "summary": "A BW13 owner recommends the machine for its price.", "url": "https://www.team-bhp.com/forum/modifications-accessories/14492-buying-using-pressure-washer-82.html"},
-          {"source": "Reddit", "sentiment": "category", "summary": "Owners repeatedly shortlist Black+Decker with Karcher and Bosch.", "url": "https://www.reddit.com/r/CarsIndia/comments/1u3lj7j/pressure_washer_recommendation/"}
+          {"source": "Team-BHP", "sentiment": "positive", "summary": "A BEPW1600 owner is extremely happy with its powerful adjustable jet for tiles and walls.", "url": "https://www.team-bhp.com/forum/modifications-accessories/14492-buying-using-pressure-washer-104.html"},
+          {"source": "Reddit", "sentiment": "positive", "summary": "A buyer specifically shortlists BEPW1600 for its product quality and Black+Decker after-sales support.", "url": "https://www.reddit.com/r/CarsIndia/comments/1apqktu/looking_for_advice_on_buying_a_pressure_washer/"}
         ],
-        "caveats": ["The marketplace listing is for model BXPW1300E-B5 sold as BW13; confirm model and warranty at checkout.", "Observed aggregator prices may exceed ₹6,000; the alert target is ₹5,999."],
+        "caveats": ["The 5 m outlet hose is shorter than the 8 m AGARO and Shakti options.", "The verified ₹5,999 price is the top of the requested range and can vary by location or seller."],
         "fitment": "universal"
       },
       "rejected_candidate_urls": [],
       "listings": [
         {
-          "id": "amazon-in-b07g9mpy1x",
+          "id": "amazon-in-b0b1d2g6cc",
           "retailer": "amazon.in",
-          "url": "https://amazon.in/dp/B07G9MPY1X",
-          "confirmed_by": "community research 2026-09-11",
-          "attributes": {"brand": "Black+Decker", "model": "BW13", "power": "1300 W", "pressure": "100 bar"},
-          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/black-decker-bxpw1300e-b5-1300w-100-bar-dzR52emb"}
+          "url": "https://amazon.in/dp/B0B1D2G6CC",
+          "confirmed_by": "retailer stock, identity and rating verified for Mohali 160062 on 2026-09-11",
+          "attributes": {"brand": "Black+Decker", "model": "BEPW1600-IN", "power": "1300 W", "pressure": "110 bar"},
+          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/black-decker-bepw1600-1300w-1600-psi-110-BWbdgoSj"}
         }
       ]
     },
@@ -214,19 +214,19 @@
       ]
     },
     {
-      "id": "amazon-basics-emergency-escape-tool",
-      "name": "Amazon Basics emergency escape tool",
-      "target": 250,
+      "id": "siago-car-safety-hammer",
+      "name": "SIAGO SIA118 car safety hammer",
+      "target": 399,
       "tier": "cold",
-      "notes": "Two-pack seat-belt cutter/window hammer for the front cabin. Mount one securely within reach of each front occupant.",
+      "notes": "In-stock replacement for the ASIN that now redirects to an unrelated air mattress. Mount the belt cutter/window hammer securely within reach of a front occupant.",
       "research": {
         "as_of": "2026-09-11",
-        "community_consensus": "positive",
+        "community_consensus": "category-supported",
         "budget_position": "not-applicable",
-        "marketplace_rating": {"score_out_of_10": 8.8, "review_count": 11404, "source_url": "https://pricehistory.app/p/amazon-basics-emergency-seat-belt-cutter-window-EQMYZhce"},
+        "marketplace_rating": {"score_out_of_10": 8.8, "review_count": 304, "source_url": "https://amazon.in/dp/B0DLGXL3NJ"},
         "evidence": [
           {"source": "Team-BHP", "sentiment": "category", "summary": "A safety-accessory discussion recommends a reachable belt cutter and window hammer.", "url": "https://www.team-bhp.com/forum/modifications-accessories/275037-2023-edition-your-must-have-accessories-today-2.html"},
-          {"source": "Reddit", "sentiment": "positive", "summary": "A must-have accessory list names this exact Amazon Basics escape tool.", "url": "https://www.reddit.com/r/CarsIndia/comments/102whxv/useful_car_accessories/"}
+          {"source": "Reddit", "sentiment": "category", "summary": "Owners include a reachable seat-belt cutter and window breaker in practical emergency-accessory lists.", "url": "https://www.reddit.com/r/CarsIndia/comments/102whxv/useful_car_accessories/"}
         ],
         "caveats": ["A tool buried in the glovebox or boot is ineffective; secure it within reach so it does not become a projectile.", "Window hammers may not break laminated side glass; check the vehicle glazing markings and manual."],
         "fitment": "universal"
@@ -234,12 +234,12 @@
       "rejected_candidate_urls": [],
       "listings": [
         {
-          "id": "amazon-in-b073j92g1j",
+          "id": "amazon-in-b0dlgxl3nj",
           "retailer": "amazon.in",
-          "url": "https://amazon.in/dp/B073J92G1J",
-          "confirmed_by": "community research 2026-09-11",
-          "attributes": {"brand": "Amazon Basics", "model": "emergency seat-belt cutter and window hammer", "pack_count": "pack of 2"},
-          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/amazon-basics-emergency-seat-belt-cutter-window-EQMYZhce"}
+          "url": "https://amazon.in/dp/B0DLGXL3NJ",
+          "confirmed_by": "retailer stock, identity and rating verified for Mohali 160062 on 2026-09-11",
+          "attributes": {"brand": "SIAGO", "model": "SIA118", "pack_count": "pack of 1"},
+          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/siago-car-safety-hammer-emergency-escape-tool-TY2echQ2"}
         }
       ]
     },
@@ -253,23 +253,23 @@
         "as_of": "2026-09-11",
         "community_consensus": "positive",
         "budget_position": "not-applicable",
-        "marketplace_rating": {"score_out_of_10": 8.8, "review_count": 46230, "source_url": "https://pricehistory.app/p/jopasu-car-duster-4FSBT3Q2"},
+        "marketplace_rating": {"score_out_of_10": 8.8, "review_count": 46728, "source_url": "https://amazon.in/dp/B00RJQ8XHU"},
         "evidence": [
           {"source": "Team-BHP", "sentiment": "category", "summary": "Accessory lists include a duster for frequent light surface dust.", "url": "https://www.team-bhp.com/forum/electric-cars/299966-your-must-have-accessories-electric-cars.html"},
           {"source": "Reddit", "sentiment": "positive", "summary": "Owners repeatedly recommend Jopasu by name for dry dusting.", "url": "https://www.reddit.com/r/CarsIndia/comments/1mklzfb/new_car_owners_what_are_the_accessories_you/"}
         ],
-        "caveats": ["Use only on loose, light dust; wiping grit or mud can mar clear coat.", "The aggregator page exposes several variants and offer prices, so confirm ASIN B07V1X58XV at checkout."],
+        "caveats": ["Use only on loose, light dust; wiping grit or mud can mar clear coat.", "The verified replacement is exact model AOCC001, ASIN B00RJQ8XHU; avoid similarly named bundles when comparing prices."],
         "fitment": "universal"
       },
       "rejected_candidate_urls": [],
       "listings": [
         {
-          "id": "amazon-in-b07v1x58xv",
+          "id": "amazon-in-b00rjq8xhu",
           "retailer": "amazon.in",
-          "url": "https://amazon.in/dp/B07V1X58XV",
-          "confirmed_by": "community research 2026-09-11",
-          "attributes": {"brand": "Jopasu", "model": "AOCC001", "size": "medium"},
-          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/jopasu-car-duster-4FSBT3Q2"}
+          "url": "https://amazon.in/dp/B00RJQ8XHU",
+          "confirmed_by": "retailer stock, identity and rating verified for Mohali 160062 on 2026-09-11",
+          "attributes": {"brand": "Jopasu", "model": "AOCC001", "size": "65 cm"},
+          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/jopasu-car-duster-paraffin-wax-treated-cotton-5PYzlaw8"}
         }
       ]
     },
