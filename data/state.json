@@ -9,14 +9,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T19:48:35+00:00",
+      "last_checked_ts": "2026-09-11T21:59:34+00:00",
       "last_in_stock": true,
       "last_price": 3912.0,
       "last_retailer": "amazon.in",
       "last_score": 83.4,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/michelin-high-power-tyre-inflator-ml-12266-MF3A87G5",
-      "last_success_ts": "2026-09-11T19:48:35+00:00",
+      "last_success_ts": "2026-09-11T21:59:34+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -40,7 +40,7 @@
           "9.9% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 8,
+        "samples": 9,
         "score": 83.4,
         "seller": null,
         "source": "pricehistory.app",
@@ -7181,14 +7181,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T19:48:35+00:00",
+      "last_checked_ts": "2026-09-11T21:59:34+00:00",
       "last_in_stock": true,
       "last_price": 1949.0,
       "last_retailer": "amazon.in",
       "last_score": 70.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/amazon-basics-bc120725a-jumper-cable-4-gauge-W2Hv8wyp",
-      "last_success_ts": "2026-09-11T19:48:35+00:00",
+      "last_success_ts": "2026-09-11T21:59:34+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -7211,7 +7211,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 8,
+        "samples": 9,
         "score": 70.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -8706,14 +8706,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T19:48:35+00:00",
+      "last_checked_ts": "2026-09-11T21:59:34+00:00",
       "last_in_stock": true,
       "last_price": 328.0,
       "last_retailer": "amazon.in",
       "last_score": 83.6,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/stanley-stht80891-0-flat-tubeless-tyre-repair-F7akOrIm",
-      "last_success_ts": "2026-09-11T19:48:35+00:00",
+      "last_success_ts": "2026-09-11T21:59:34+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -8738,7 +8738,7 @@
           "22.6% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 8,
+        "samples": 9,
         "score": 83.6,
         "seller": null,
         "source": "pricehistory.app",
@@ -10248,14 +10248,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T19:48:35+00:00",
+      "last_checked_ts": "2026-09-11T21:59:34+00:00",
       "last_in_stock": true,
       "last_price": 5599.0,
       "last_retailer": "amazon.in",
       "last_score": 66.2,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/agaro-supreme-high-pressure-washer-car-washer-sE8kqoSj",
-      "last_success_ts": "2026-09-11T19:48:35+00:00",
+      "last_success_ts": "2026-09-11T21:59:34+00:00",
       "last_verdict": {
         "alert": false,
         "basis": "lifetime stats from source site",
@@ -10269,10 +10269,10 @@
         "price": 5599.0,
         "product_id": "agaro-supreme-pressure-washer",
         "reasons": [
-          "Own history still building (6 samples)"
+          "Own history still building (7 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 6,
+        "samples": 7,
         "score": 66.2,
         "seller": null,
         "source": "pricehistory.app",
@@ -13537,14 +13537,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T19:48:35+00:00",
+      "last_checked_ts": "2026-09-11T21:59:34+00:00",
       "last_in_stock": true,
       "last_price": 5999.0,
       "last_retailer": "amazon.in",
       "last_score": 73.5,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/black-decker-bepw1600-1300w-1600-psi-110-BWbdgoSj",
-      "last_success_ts": "2026-09-11T19:48:35+00:00",
+      "last_success_ts": "2026-09-11T21:59:34+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
@@ -13559,10 +13559,10 @@
         "product_id": "black-decker-bepw1600-pressure-washer",
         "reasons": [
           "At or below your target of Rs 5,999",
-          "Own history still building (6 samples)"
+          "Own history still building (7 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 6,
+        "samples": 7,
         "score": 73.5,
         "seller": null,
         "source": "pricehistory.app",
@@ -14708,14 +14708,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T17:19:59+00:00",
+      "last_checked_ts": "2026-09-11T21:59:34+00:00",
       "last_in_stock": true,
       "last_price": 4680.0,
       "last_retailer": "amazon.in",
       "last_score": 39.9,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/shakti-technology-s3-high-pressure-car-washer-pIsjmm2h",
-      "last_success_ts": "2026-09-11T17:19:59+00:00",
+      "last_success_ts": "2026-09-11T21:59:34+00:00",
       "last_verdict": {
         "alert": false,
         "basis": "lifetime stats from source site",
@@ -14729,10 +14729,10 @@
         "price": 4680.0,
         "product_id": "shakti-s3-pressure-washer",
         "reasons": [
-          "Own history still building (6 samples)"
+          "Own history still building (7 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 6,
+        "samples": 7,
         "score": 39.9,
         "seller": null,
         "source": "pricehistory.app",
@@ -17362,14 +17362,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T19:48:35+00:00",
+      "last_checked_ts": "2026-09-11T21:59:34+00:00",
       "last_in_stock": true,
       "last_price": 13499.0,
       "last_retailer": "amazon.in",
       "last_score": 75.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/70mai-a510-hdr-3k-dual-channel-dash-8SSpit2h",
-      "last_success_ts": "2026-09-11T19:48:35+00:00",
+      "last_success_ts": "2026-09-11T21:59:34+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -17392,7 +17392,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 8,
+        "samples": 9,
         "score": 75.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -19742,14 +19742,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T19:48:35+00:00",
+      "last_checked_ts": "2026-09-11T21:59:34+00:00",
       "last_in_stock": true,
       "last_price": 399.0,
       "last_retailer": "amazon.in",
       "last_score": 80.9,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/siago-car-safety-hammer-emergency-escape-tool-TY2echQ2",
-      "last_success_ts": "2026-09-11T19:48:35+00:00",
+      "last_success_ts": "2026-09-11T21:59:34+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
@@ -19764,10 +19764,10 @@
         "product_id": "siago-car-safety-hammer",
         "reasons": [
           "At or below your target of Rs 399",
-          "Own history still building (6 samples)"
+          "Own history still building (7 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 6,
+        "samples": 7,
         "score": 80.9,
         "seller": null,
         "source": "pricehistory.app",
@@ -20349,6 +20349,10 @@
         {
           "date": "2026-09-11",
           "price": 399.0
+        },
+        {
+          "date": "2026-09-12",
+          "price": 399.0
         }
       ],
       "provider_history_source": "pricehistory.app",
@@ -20520,12 +20524,12 @@
       "auto_tier": "hot",
       "last_alert_price": 13499.0,
       "last_alert_ts": "2026-09-11T19:48:35+00:00",
-      "last_checked_ts": "2026-09-11T19:48:35+00:00",
+      "last_checked_ts": "2026-09-11T21:59:34+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T19:48:35+00:00",
+        "last_success_ts": "2026-09-11T21:59:34+00:00",
         "life_avg": 13406.0,
         "life_high": 20059.0,
         "life_low": 11399.0,
@@ -20546,7 +20550,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 8,
+        "samples": 9,
         "score": 75.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -20559,13 +20563,13 @@
     },
     "agaro-supreme-pressure-washer": {
       "auto_tier": "hot",
-      "last_checked_ts": "2026-09-11T19:48:35+00:00",
+      "last_checked_ts": "2026-09-11T21:59:34+00:00",
       "last_verdict": {
         "alert": false,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T19:48:35+00:00",
+        "last_success_ts": "2026-09-11T21:59:34+00:00",
         "listing_id": "amazon-in-b09vkwgzd7",
         "listing_url": "https://amazon.in/dp/B09VKWGZD7",
         "max90": 8990.0,
@@ -20576,10 +20580,10 @@
         "price": 5599.0,
         "product_id": "agaro-supreme-pressure-washer",
         "reasons": [
-          "Own history still building (6 samples)"
+          "Own history still building (7 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 6,
+        "samples": 7,
         "score": 66.2,
         "seller": null,
         "source": "pricehistory.app",
@@ -20593,12 +20597,12 @@
       "auto_tier": "hot",
       "last_alert_price": 1949.0,
       "last_alert_ts": "2026-09-11T19:48:35+00:00",
-      "last_checked_ts": "2026-09-11T19:48:35+00:00",
+      "last_checked_ts": "2026-09-11T21:59:34+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T19:48:35+00:00",
+        "last_success_ts": "2026-09-11T21:59:34+00:00",
         "life_avg": 1924.0,
         "life_high": 4538.0,
         "life_low": 879.0,
@@ -20619,7 +20623,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 8,
+        "samples": 9,
         "score": 70.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -20634,13 +20638,13 @@
       "auto_tier": "hot",
       "last_alert_price": 5999.0,
       "last_alert_ts": "2026-09-11T09:48:27+00:00",
-      "last_checked_ts": "2026-09-11T19:48:35+00:00",
+      "last_checked_ts": "2026-09-11T21:59:34+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T19:48:35+00:00",
+        "last_success_ts": "2026-09-11T21:59:34+00:00",
         "listing_id": "amazon-in-b0b1d2g6cc",
         "listing_url": "https://amazon.in/dp/B0B1D2G6CC",
         "max90": 10432.0,
@@ -20652,10 +20656,10 @@
         "product_id": "black-decker-bepw1600-pressure-washer",
         "reasons": [
           "At or below your target of Rs 5,999",
-          "Own history still building (6 samples)"
+          "Own history still building (7 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 6,
+        "samples": 7,
         "score": 73.5,
         "seller": null,
         "source": "pricehistory.app",
@@ -20704,12 +20708,12 @@
       "auto_tier": "hot",
       "last_alert_price": 3912.0,
       "last_alert_ts": "2026-09-11T05:19:31+00:00",
-      "last_checked_ts": "2026-09-11T19:48:35+00:00",
+      "last_checked_ts": "2026-09-11T21:59:34+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T19:48:35+00:00",
+        "last_success_ts": "2026-09-11T21:59:34+00:00",
         "life_avg": 4343.0,
         "life_high": 6495.0,
         "life_low": 3399.0,
@@ -20731,7 +20735,7 @@
           "9.9% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 8,
+        "samples": 9,
         "score": 83.4,
         "seller": null,
         "source": "pricehistory.app",
@@ -20744,13 +20748,13 @@
     },
     "shakti-s3-pressure-washer": {
       "auto_tier": "warm",
-      "last_checked_ts": "2026-09-11T17:19:59+00:00",
+      "last_checked_ts": "2026-09-11T21:59:34+00:00",
       "last_verdict": {
         "alert": false,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T17:19:59+00:00",
+        "last_success_ts": "2026-09-11T21:59:34+00:00",
         "listing_id": "amazon-in-b0bbwjfk5c",
         "listing_url": "https://amazon.in/dp/B0BBWJFK5C",
         "max90": 5265.0,
@@ -20761,10 +20765,10 @@
         "price": 4680.0,
         "product_id": "shakti-s3-pressure-washer",
         "reasons": [
-          "Own history still building (6 samples)"
+          "Own history still building (7 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 6,
+        "samples": 7,
         "score": 39.9,
         "seller": null,
         "source": "pricehistory.app",
@@ -20778,13 +20782,13 @@
       "auto_tier": "hot",
       "last_alert_price": 399.0,
       "last_alert_ts": "2026-09-11T09:48:27+00:00",
-      "last_checked_ts": "2026-09-11T19:48:35+00:00",
+      "last_checked_ts": "2026-09-11T21:59:34+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T19:48:35+00:00",
+        "last_success_ts": "2026-09-11T21:59:34+00:00",
         "listing_id": "amazon-in-b0dlgxl3nj",
         "listing_url": "https://amazon.in/dp/B0DLGXL3NJ",
         "max90": 669.0,
@@ -20796,10 +20800,10 @@
         "product_id": "siago-car-safety-hammer",
         "reasons": [
           "At or below your target of Rs 399",
-          "Own history still building (6 samples)"
+          "Own history still building (7 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 6,
+        "samples": 7,
         "score": 80.9,
         "seller": null,
         "source": "pricehistory.app",
@@ -20813,12 +20817,12 @@
       "auto_tier": "hot",
       "last_alert_price": 328.0,
       "last_alert_ts": "2026-09-11T05:19:31+00:00",
-      "last_checked_ts": "2026-09-11T19:48:35+00:00",
+      "last_checked_ts": "2026-09-11T21:59:34+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T19:48:35+00:00",
+        "last_success_ts": "2026-09-11T21:59:34+00:00",
         "life_avg": 424.0,
         "life_high": 623.0,
         "life_low": 270.0,
@@ -20841,7 +20845,7 @@
           "22.6% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 8,
+        "samples": 9,
         "score": 83.6,
         "seller": null,
         "source": "pricehistory.app",
