@@ -321,6 +321,37 @@ class MainTests(unittest.TestCase):
             3000.0,
         )
 
+    def test_removed_products_are_pruned_even_when_no_products_are_due(self):
+        watchlist = {"schema_version": 2, "products": []}
+        state = {
+            "schema_version": 2,
+            "providers": {"pricehistory.app": {}},
+            "products": {"already-bought": {"status": "buy"}},
+            "listings": {"amazon-in-b000000000": {"last_price": 999.0}},
+        }
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            watchlist_path = root / "watchlist.json"
+            state_path = root / "state.json"
+            watchlist_path.write_text(json.dumps(watchlist), encoding="utf-8")
+            state_path.write_text(json.dumps(state), encoding="utf-8")
+
+            with patch.object(main, "WATCHLIST", str(watchlist_path)), \
+                    patch.object(main, "STATE_PATH", str(state_path)), \
+                    patch.object(main.fetcher, "fetch_listing") as fetch_listing, \
+                    patch.object(main.dashboard, "build") as build, \
+                    patch.object(main.notify, "dispatch") as dispatch:
+                result = main.run(now=NOW, session=object())
+
+            persisted = json.loads(state_path.read_text(encoding="utf-8"))
+
+        self.assertEqual(result["products"], {})
+        self.assertEqual(result["listings"], {})
+        self.assertEqual(persisted, result)
+        fetch_listing.assert_not_called()
+        dispatch.assert_not_called()
+        build.assert_called_once_with([], result)
+
 
 class ShippedDataFilesTests(unittest.TestCase):
     """The files actually committed in this repo, not a fixture built in a tmpdir.
@@ -374,8 +405,6 @@ class ShippedDataFilesTests(unittest.TestCase):
             "stanley-tubeless-tyre-repair-kit": ("amazon-in-b085s7nj2v", 450),
             "amazon-basics-emergency-escape-tool": ("amazon-in-b073j92g1j", 250),
             "jopasu-car-duster": ("amazon-in-b07v1x58xv", 799),
-            "3m-microfiber-cloths-pack-of-3": ("amazon-in-b072mq8v5f", 399),
-            "3m-car-wash-shampoo-250-ml": ("amazon-in-b00s5sbs9g", 270),
         }
         actual = {
             product["id"]: (product["listings"][0]["id"], product["target"])
@@ -383,7 +412,7 @@ class ShippedDataFilesTests(unittest.TestCase):
         }
 
         self.assertEqual(actual, expected)
-        self.assertEqual(len(self.watchlist["products"]), 11)
+        self.assertEqual(len(self.watchlist["products"]), 9)
         for product in self.watchlist["products"]:
             self.assertIn("reddit.com", product["notes"])
             self.assertIn("team-bhp.com", product["notes"])
