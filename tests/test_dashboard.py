@@ -39,7 +39,7 @@ class DashboardTests(unittest.TestCase):
         }
         headline, detail = dashboard._verdict_line(products, state, self.NOW)
         self.assertEqual(headline, "No products in the buy zone")
-        self.assertEqual(detail, "2 tracked · 1 stale · newest price Just now")
+        self.assertEqual(detail, "2 tracked · 1 provider check stale · newest provider check Just now")
 
     def test_out_of_stock_sibling_does_not_override_buyable_recommendation(self):
         amazon = self._listing("amazon-listing", "amazon.in")
@@ -82,7 +82,7 @@ class DashboardTests(unittest.TestCase):
         product = {"id": "product", "name": "Product", "listings": [amazon, flipkart]}
         text = dashboard._card(product, state, {amazon["id"]: "amazon.json"}, self.NOW)
         self.assertIn(
-            '<div class="sub2">Amazon · Fresh · 1 hr ago · 1 of 2 offers current</div>',
+            '<div class="sub2">Amazon · Provider checked · 1 hr ago · 1 of 2 offers current</div>',
             text,
         )
         self.assertIn('<div class="delta num">50% below peak</div>', text)
@@ -129,7 +129,7 @@ class DashboardTests(unittest.TestCase):
         )
         self.assertIn('data-listing="flipkart-listing"', text)
         self.assertIn(
-            '<div class="sub2">Flipkart · Fresh · 1 hr ago · Out of stock · 0 of 2 offers current</div>',
+            '<div class="sub2">Flipkart · Provider checked · 1 hr ago · Out of stock · 0 of 2 offers current</div>',
             text,
         )
         self.assertIn("Price history — Flipkart", text)
@@ -180,9 +180,50 @@ class DashboardTests(unittest.TestCase):
         product = {"id": "product", "name": "Product", "listings": [amazon, flipkart]}
         text = dashboard._card(product, state, {}, self.NOW)
         self.assertIn(
-            "Flipkart · Fresh · 1 min ago · Cheapest of 2 · ₹20 less than Amazon",
+            "Flipkart · Provider checked · 1 min ago · Cheapest of 2 · ₹20 less than Amazon",
             text,
         )
+
+    def test_dashboard_labels_aggregator_prices_and_surfaces_research_caveats(self):
+        listing = self._listing("amazon-listing", "amazon.in")
+        product = {
+            "id": "product",
+            "name": "Audited product",
+            "listings": [listing],
+            "research": {
+                "community_consensus": "mixed",
+                "marketplace_rating": {
+                    "score_out_of_10": 8.4,
+                    "review_count": 2961,
+                    "source_url": "https://pricehistory.app/p/example",
+                },
+                "caveats": ["Reports include oil leaks and overheating."],
+            },
+        }
+        state = {
+            "products": {"product": {"status": "idle"}},
+            "listings": {"amazon-listing": {
+                "last_success_ts": self.NOW.isoformat(),
+                "last_source": "pricehistory.app",
+                "last_verdict": {"price": 4999},
+            }},
+        }
+
+        text = dashboard._card(product, state, {}, self.NOW)
+
+        self.assertIn("Marketplace rating via aggregator: 8.4/10 · 2,961 reviews", text)
+        self.assertIn("Community evidence: Mixed", text)
+        self.assertIn("Reports include oil leaks and overheating.", text)
+
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "index.html"
+            dashboard.build([product], state, output_path=output, chart_dir=Path(directory) / "charts", now=self.NOW)
+            page = output.read_text(encoding="utf-8")
+        self.assertIn(
+            "Prices are aggregator-reported, not retailer-verified. Confirm price, stock and seller at checkout.",
+            page,
+        )
+        self.assertNotIn("Fresh ·", page)
 
     def test_ordering_escaping_offer_table_and_lazy_chart_files(self):
         products = [

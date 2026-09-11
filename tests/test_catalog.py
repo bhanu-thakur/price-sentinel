@@ -109,3 +109,51 @@ class CatalogTests(unittest.TestCase):
         }
         with self.assertRaisesRegex(ValueError, "duplicate retailer listing"):
             catalog.validate_watchlist(data)
+
+    def test_research_metadata_rejects_unverifiable_or_one_sided_claims(self):
+        listing = {
+            "id": "amazon-in-demo123456",
+            "retailer": "amazon.in",
+            "url": "https://amazon.in/dp/DEMO123456",
+            "confirmed_by": "seed",
+            "attributes": {},
+            "source_urls": {},
+        }
+        base = {
+            "schema_version": 2,
+            "products": [{
+                "id": "demo",
+                "name": "Demo",
+                "rejected_candidate_urls": [],
+                "listings": [listing],
+                "research": {
+                    "as_of": "2026-09-11",
+                    "community_consensus": "mixed",
+                    "marketplace_rating": {
+                        "score_out_of_10": 8.4,
+                        "review_count": 100,
+                        "source_url": "https://pricehistory.app/p/demo",
+                    },
+                    "evidence": [{
+                        "source": "Team-BHP",
+                        "sentiment": "positive",
+                        "summary": "One owner recommends it.",
+                        "url": "https://www.team-bhp.com/forum/example",
+                    }],
+                    "caveats": ["One owner reported failures."],
+                    "fitment": "universal",
+                },
+            }],
+        }
+
+        with self.assertRaisesRegex(ValueError, "mixed research requires positive and negative evidence"):
+            catalog.validate_watchlist(base)
+
+        base["products"][0]["research"]["evidence"].append({
+            "source": "Team-BHP",
+            "sentiment": "negative",
+            "summary": "Another owner reported failures.",
+            "url": "not a URL",
+        })
+        with self.assertRaisesRegex(ValueError, "research evidence URL"):
+            catalog.validate_watchlist(base)

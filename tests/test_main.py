@@ -405,6 +405,7 @@ class ShippedDataFilesTests(unittest.TestCase):
             "stanley-tubeless-tyre-repair-kit": ("amazon-in-b085s7nj2v", 450),
             "amazon-basics-emergency-escape-tool": ("amazon-in-b073j92g1j", 250),
             "jopasu-car-duster": ("amazon-in-b07v1x58xv", 799),
+            "vahan-expo-7d-floor-mats-seltos-2026": ("amazon-in-b0gmr9pn1w", 3200),
         }
         actual = {
             product["id"]: (product["listings"][0]["id"], product["target"])
@@ -412,10 +413,66 @@ class ShippedDataFilesTests(unittest.TestCase):
         }
 
         self.assertEqual(actual, expected)
-        self.assertEqual(len(self.watchlist["products"]), 9)
+        self.assertEqual(len(self.watchlist["products"]), 10)
         for product in self.watchlist["products"]:
-            self.assertIn("reddit.com", product["notes"])
-            self.assertIn("team-bhp.com", product["notes"])
+            research = product["research"]
+            self.assertEqual(research["as_of"], "2026-09-11")
+            self.assertIn(research["community_consensus"], {"positive", "mixed", "category-supported"})
+            self.assertGreaterEqual(research["marketplace_rating"]["review_count"], 1)
+            self.assertIn("pricehistory.app", research["marketplace_rating"]["source_url"])
+            evidence_hosts = {item["source"] for item in research["evidence"]}
+            self.assertIn("Team-BHP", evidence_hosts)
+            self.assertIn("Reddit", evidence_hosts)
+            self.assertTrue(research["caveats"])
+
+    def test_washer_research_preserves_budget_and_negative_evidence(self):
+        products = {product["id"]: product for product in self.watchlist["products"]}
+        expected_ratings = {
+            "karcher-k2-horizontal-pressure-washer": (8.4, 2961),
+            "shakti-s3-pressure-washer": (8.4, 6542),
+            "black-decker-bw13-pressure-washer": (8.2, 2073),
+        }
+        for product_id, expected in expected_ratings.items():
+            research = products[product_id]["research"]
+            rating = research["marketplace_rating"]
+            self.assertEqual((rating["score_out_of_10"], rating["review_count"]), expected)
+
+        karcher = products["karcher-k2-horizontal-pressure-washer"]["research"]
+        self.assertEqual(karcher["community_consensus"], "mixed")
+        self.assertIn("negative", {item["sentiment"] for item in karcher["evidence"]})
+        self.assertIn("oil leak", " ".join(karcher["caveats"]).lower())
+
+        shakti = products["shakti-s3-pressure-washer"]["research"]
+        self.assertIn("6-month", " ".join(shakti["caveats"]).lower())
+        self.assertIn("china", " ".join(shakti["caveats"]).lower())
+
+        self.assertEqual(
+            {product_id: products[product_id]["research"]["budget_position"] for product_id in expected_ratings},
+            {
+                "karcher-k2-horizontal-pressure-washer": "below-requested-range",
+                "shakti-s3-pressure-washer": "below-requested-range",
+                "black-decker-bw13-pressure-washer": "near-upper-bound",
+            },
+        )
+
+    def test_removed_and_legacy_product_artifacts_are_not_shipped(self):
+        forbidden = {
+            "amazon-in-b08675psbt",
+            "amazon-in-b0chjr8nld",
+            "amazon-in-b0gsvfv3r4",
+            "flipkart-com-hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-kids-ages-6-up-1-1ed14897",
+        }
+        self.assertEqual(
+            forbidden & {path.stem for path in (self.REPO / "data").glob("*.csv")},
+            set(),
+        )
+        self.assertEqual(
+            forbidden & {path.stem for path in (self.REPO / "docs" / "chart-data").glob("*.json")},
+            set(),
+        )
+        shipped_text = json.dumps(self.watchlist).lower()
+        self.assertNotIn("shampoo", shipped_text)
+        self.assertNotIn("microfiber", shipped_text)
 
 
 if __name__ == "__main__":
