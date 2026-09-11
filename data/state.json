@@ -9,14 +9,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T02:30:32+00:00",
+      "last_checked_ts": "2026-09-11T05:19:31+00:00",
       "last_in_stock": true,
       "last_price": 3912.0,
       "last_retailer": "amazon.in",
       "last_score": 83.4,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/michelin-high-power-tyre-inflator-ml-12266-MF3A87G5",
-      "last_success_ts": "2026-09-11T02:30:32+00:00",
+      "last_success_ts": "2026-09-11T05:19:31+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
@@ -31,10 +31,10 @@
         "product_id": "michelin-12266-tyre-inflator",
         "reasons": [
           "9.9% below the lifetime average",
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 83.4,
         "seller": null,
         "source": "pricehistory.app",
@@ -1700,14 +1700,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T02:30:32+00:00",
+      "last_checked_ts": "2026-09-11T05:19:31+00:00",
       "last_in_stock": true,
       "last_price": 364.0,
       "last_retailer": "amazon.in",
       "last_score": 74.9,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/amazon-basics-emergency-seat-belt-cutter-window-EQMYZhce",
-      "last_success_ts": "2026-09-11T02:30:32+00:00",
+      "last_success_ts": "2026-09-11T05:19:31+00:00",
       "last_verdict": {
         "alert": false,
         "basis": "lifetime stats from source site",
@@ -1721,10 +1721,10 @@
         "price": 364.0,
         "product_id": "amazon-basics-emergency-escape-tool",
         "reasons": [
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 74.9,
         "seller": null,
         "source": "pricehistory.app",
@@ -3134,14 +3134,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T02:30:32+00:00",
+      "last_checked_ts": "2026-09-11T05:19:31+00:00",
       "last_in_stock": true,
       "last_price": 1949.0,
       "last_retailer": "amazon.in",
       "last_score": 70.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/amazon-basics-bc120725a-jumper-cable-4-gauge-W2Hv8wyp",
-      "last_success_ts": "2026-09-11T02:30:32+00:00",
+      "last_success_ts": "2026-09-11T05:19:31+00:00",
       "last_verdict": {
         "alert": false,
         "basis": "lifetime stats from source site",
@@ -3155,10 +3155,10 @@
         "price": 1949.0,
         "product_id": "amazon-basics-4-gauge-jumper-cable",
         "reasons": [
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 70.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -4632,6 +4632,10 @@
         {
           "date": "2026-09-09",
           "price": 1949.0
+        },
+        {
+          "date": "2026-09-11",
+          "price": 1949.0
         }
       ],
       "provider_history_source": "pricehistory.app",
@@ -4648,14 +4652,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T02:30:32+00:00",
+      "last_checked_ts": "2026-09-11T05:19:31+00:00",
       "last_in_stock": true,
       "last_price": 6499.0,
       "last_retailer": "amazon.in",
       "last_score": 74.6,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/black-decker-bxpw1300e-b5-1300w-100-bar-dzR52emb",
-      "last_success_ts": "2026-09-11T02:30:32+00:00",
+      "last_success_ts": "2026-09-11T05:19:31+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
@@ -4670,10 +4674,10 @@
         "product_id": "black-decker-bw13-pressure-washer",
         "reasons": [
           "9.6% below the lifetime average",
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 74.6,
         "seller": null,
         "source": "pricehistory.app",
@@ -8761,14 +8765,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T02:30:32+00:00",
+      "last_checked_ts": "2026-09-11T05:19:31+00:00",
       "last_in_stock": true,
       "last_price": 328.0,
       "last_retailer": "amazon.in",
       "last_score": 83.6,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/stanley-stht80891-0-flat-tubeless-tyre-repair-F7akOrIm",
-      "last_success_ts": "2026-09-11T02:30:32+00:00",
+      "last_success_ts": "2026-09-11T05:19:31+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
@@ -8784,10 +8788,10 @@
         "reasons": [
           "At or below your target of Rs 450",
           "22.6% below the lifetime average",
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 83.6,
         "seller": null,
         "source": "pricehistory.app",
@@ -12951,14 +12955,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T02:30:32+00:00",
+      "last_checked_ts": "2026-09-11T05:19:31+00:00",
       "last_in_stock": true,
       "last_price": 13499.0,
       "last_retailer": "amazon.in",
       "last_score": 75.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/70mai-a510-hdr-3k-dual-channel-dash-8SSpit2h",
-      "last_success_ts": "2026-09-11T02:30:32+00:00",
+      "last_success_ts": "2026-09-11T05:19:31+00:00",
       "last_verdict": {
         "alert": false,
         "basis": "lifetime stats from source site",
@@ -12972,10 +12976,10 @@
         "price": 13499.0,
         "product_id": "70mai-a510-dual-channel-dashcam",
         "reasons": [
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 75.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -15483,14 +15487,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-11T02:30:32+00:00",
+      "last_checked_ts": "2026-09-11T05:19:31+00:00",
       "last_in_stock": true,
       "last_price": 3572.0,
       "last_retailer": "flipkart.com",
       "last_score": 89.0,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/karcher-k-2-horizontal-kap-110-bar-oIrwssIm",
-      "last_success_ts": "2026-09-11T02:30:32+00:00",
+      "last_success_ts": "2026-09-11T05:19:31+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
@@ -15506,10 +15510,10 @@
         "reasons": [
           "At or below your target of Rs 4,000",
           "41.3% below the lifetime average",
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "flipkart.com",
-        "samples": 2,
+        "samples": 3,
         "score": 89.0,
         "seller": null,
         "source": "pricehistory.app",
@@ -17538,13 +17542,13 @@
   "products": {
     "70mai-a510-dual-channel-dashcam": {
       "auto_tier": "hot",
-      "last_checked_ts": "2026-09-11T02:30:32+00:00",
+      "last_checked_ts": "2026-09-11T05:19:31+00:00",
       "last_verdict": {
         "alert": false,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T02:30:32+00:00",
+        "last_success_ts": "2026-09-11T05:19:31+00:00",
         "listing_id": "amazon-in-b0cvh2k929",
         "listing_url": "https://amazon.in/dp/B0CVH2K929",
         "max90": 20059.0,
@@ -17555,10 +17559,10 @@
         "price": 13499.0,
         "product_id": "70mai-a510-dual-channel-dashcam",
         "reasons": [
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 75.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -17570,13 +17574,13 @@
     },
     "amazon-basics-4-gauge-jumper-cable": {
       "auto_tier": "hot",
-      "last_checked_ts": "2026-09-11T02:30:32+00:00",
+      "last_checked_ts": "2026-09-11T05:19:31+00:00",
       "last_verdict": {
         "alert": false,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T02:30:32+00:00",
+        "last_success_ts": "2026-09-11T05:19:31+00:00",
         "listing_id": "amazon-in-b074dmn1xm",
         "listing_url": "https://amazon.in/dp/B074DMN1XM",
         "max90": 4538.0,
@@ -17587,10 +17591,10 @@
         "price": 1949.0,
         "product_id": "amazon-basics-4-gauge-jumper-cable",
         "reasons": [
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 70.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -17602,13 +17606,13 @@
     },
     "amazon-basics-emergency-escape-tool": {
       "auto_tier": "hot",
-      "last_checked_ts": "2026-09-11T02:30:32+00:00",
+      "last_checked_ts": "2026-09-11T05:19:31+00:00",
       "last_verdict": {
         "alert": false,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T02:30:32+00:00",
+        "last_success_ts": "2026-09-11T05:19:31+00:00",
         "listing_id": "amazon-in-b073j92g1j",
         "listing_url": "https://amazon.in/dp/B073J92G1J",
         "max90": 915.0,
@@ -17619,10 +17623,10 @@
         "price": 364.0,
         "product_id": "amazon-basics-emergency-escape-tool",
         "reasons": [
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 74.9,
         "seller": null,
         "source": "pricehistory.app",
@@ -17634,13 +17638,15 @@
     },
     "black-decker-bw13-pressure-washer": {
       "auto_tier": "hot",
-      "last_checked_ts": "2026-09-11T02:30:32+00:00",
+      "last_alert_price": 6499.0,
+      "last_alert_ts": "2026-09-11T05:19:31+00:00",
+      "last_checked_ts": "2026-09-11T05:19:31+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T02:30:32+00:00",
+        "last_success_ts": "2026-09-11T05:19:31+00:00",
         "listing_id": "amazon-in-b07g9mpy1x",
         "listing_url": "https://amazon.in/dp/B07G9MPY1X",
         "max90": 13245.0,
@@ -17652,10 +17658,10 @@
         "product_id": "black-decker-bw13-pressure-washer",
         "reasons": [
           "9.6% below the lifetime average",
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 74.6,
         "seller": null,
         "source": "pricehistory.app",
@@ -17699,13 +17705,15 @@
     },
     "karcher-k2-horizontal-pressure-washer": {
       "auto_tier": "hot",
-      "last_checked_ts": "2026-09-11T02:30:32+00:00",
+      "last_alert_price": 3572.0,
+      "last_alert_ts": "2026-09-11T05:19:31+00:00",
+      "last_checked_ts": "2026-09-11T05:19:31+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T02:30:32+00:00",
+        "last_success_ts": "2026-09-11T05:19:31+00:00",
         "listing_id": "flipkart-com-cwrfjrhymdtemr3g",
         "listing_url": "https://flipkart.com/karcher-k2-horizontalkap-high-pressure-washer-110-bar-1400w-360l-hr-flowrate-6mhosepipe/p/itm95c038b9afbfb?pid=CWRFJRHYMDTEMR3G",
         "max90": 8099.0,
@@ -17718,10 +17726,10 @@
         "reasons": [
           "At or below your target of Rs 4,000",
           "41.3% below the lifetime average",
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "flipkart.com",
-        "samples": 2,
+        "samples": 3,
         "score": 89.0,
         "seller": null,
         "source": "pricehistory.app",
@@ -17733,13 +17741,15 @@
     },
     "michelin-12266-tyre-inflator": {
       "auto_tier": "hot",
-      "last_checked_ts": "2026-09-11T02:30:32+00:00",
+      "last_alert_price": 3912.0,
+      "last_alert_ts": "2026-09-11T05:19:31+00:00",
+      "last_checked_ts": "2026-09-11T05:19:31+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T02:30:32+00:00",
+        "last_success_ts": "2026-09-11T05:19:31+00:00",
         "listing_id": "amazon-in-b00ierqc80",
         "listing_url": "https://amazon.in/dp/B00IERQC80",
         "max90": 6495.0,
@@ -17751,10 +17761,10 @@
         "product_id": "michelin-12266-tyre-inflator",
         "reasons": [
           "9.9% below the lifetime average",
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 83.4,
         "seller": null,
         "source": "pricehistory.app",
@@ -17798,13 +17808,15 @@
     },
     "stanley-tubeless-tyre-repair-kit": {
       "auto_tier": "hot",
-      "last_checked_ts": "2026-09-11T02:30:32+00:00",
+      "last_alert_price": 328.0,
+      "last_alert_ts": "2026-09-11T05:19:31+00:00",
+      "last_checked_ts": "2026-09-11T05:19:31+00:00",
       "last_verdict": {
         "alert": true,
         "basis": "lifetime stats from source site",
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-11T02:30:32+00:00",
+        "last_success_ts": "2026-09-11T05:19:31+00:00",
         "listing_id": "amazon-in-b085s7nj2v",
         "listing_url": "https://amazon.in/dp/B085S7NJ2V",
         "max90": 623.0,
@@ -17817,10 +17829,10 @@
         "reasons": [
           "At or below your target of Rs 450",
           "22.6% below the lifetime average",
-          "Own history still building (2 samples)"
+          "Own history still building (3 samples)"
         ],
         "retailer": "amazon.in",
-        "samples": 2,
+        "samples": 3,
         "score": 83.6,
         "seller": null,
         "source": "pricehistory.app",
