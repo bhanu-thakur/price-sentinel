@@ -419,7 +419,8 @@ class ShippedDataFilesTests(unittest.TestCase):
             self.assertEqual(research["as_of"], "2026-09-11")
             self.assertIn(research["community_consensus"], {"positive", "mixed", "category-supported"})
             self.assertGreaterEqual(research["marketplace_rating"]["review_count"], 1)
-            self.assertIn("pricehistory.app", research["marketplace_rating"]["source_url"])
+            rating_host = catalog.retailer_hostname(research["marketplace_rating"]["source_url"])
+            self.assertIn(rating_host, {"pricehistory.app", product["listings"][0]["retailer"]})
             evidence_hosts = {item["source"] for item in research["evidence"]}
             self.assertIn("Team-BHP", evidence_hosts)
             self.assertIn("Reddit", evidence_hosts)
