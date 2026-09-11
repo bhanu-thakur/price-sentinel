@@ -225,6 +225,36 @@ class DashboardTests(unittest.TestCase):
         )
         self.assertNotIn("Fresh ·", page)
 
+    def test_dashboard_attributes_direct_marketplace_ratings_to_the_retailer(self):
+        listing = self._listing("amazon-listing", "amazon.in")
+        product = {
+            "id": "product",
+            "name": "Retailer-rated product",
+            "listings": [listing],
+            "research": {
+                "community_consensus": "positive",
+                "marketplace_rating": {
+                    "score_out_of_10": 8.4,
+                    "review_count": 323,
+                    "source_url": "https://amazon.in/dp/B0B1D2G6CC",
+                },
+                "caveats": ["Availability varies by delivery location."],
+            },
+        }
+        state = {
+            "products": {"product": {"status": "idle"}},
+            "listings": {"amazon-listing": {
+                "last_success_ts": self.NOW.isoformat(),
+                "last_source": "pricehistory.app",
+                "last_verdict": {"price": 5999},
+            }},
+        }
+
+        text = dashboard._card(product, state, {}, self.NOW)
+
+        self.assertIn("Marketplace rating via Amazon: 8.4/10 · 323 reviews", text)
+        self.assertNotIn("Marketplace rating via aggregator", text)
+
     def test_ordering_escaping_offer_table_and_lazy_chart_files(self):
         products = [
             {

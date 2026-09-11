@@ -396,15 +396,15 @@ class ShippedDataFilesTests(unittest.TestCase):
     def test_shipped_watchlist_contains_the_researched_seltos_catalog(self):
         """Pin the exact retailer identities and useful-price alert thresholds."""
         expected = {
-            "karcher-k2-horizontal-pressure-washer": ("flipkart-com-cwrfjrhymdtemr3g", 4000),
+            "agaro-supreme-pressure-washer": ("amazon-in-b09vkwgzd7", 5500),
             "shakti-s3-pressure-washer": ("amazon-in-b0bbwjfk5c", 4200),
-            "black-decker-bw13-pressure-washer": ("amazon-in-b07g9mpy1x", 5999),
+            "black-decker-bepw1600-pressure-washer": ("amazon-in-b0b1d2g6cc", 5999),
             "70mai-a510-dual-channel-dashcam": ("amazon-in-b0cvh2k929", 10999),
             "michelin-12266-tyre-inflator": ("amazon-in-b00ierqc80", 3600),
             "amazon-basics-4-gauge-jumper-cable": ("amazon-in-b074dmn1xm", 1750),
             "stanley-tubeless-tyre-repair-kit": ("amazon-in-b085s7nj2v", 450),
-            "amazon-basics-emergency-escape-tool": ("amazon-in-b073j92g1j", 250),
-            "jopasu-car-duster": ("amazon-in-b07v1x58xv", 799),
+            "siago-car-safety-hammer": ("amazon-in-b0dlgxl3nj", 399),
+            "jopasu-car-duster": ("amazon-in-b00rjq8xhu", 799),
             "vahan-expo-7d-floor-mats-seltos-2026": ("amazon-in-b0gmr9pn1w", 3200),
         }
         actual = {
@@ -428,19 +428,19 @@ class ShippedDataFilesTests(unittest.TestCase):
     def test_washer_research_preserves_budget_and_negative_evidence(self):
         products = {product["id"]: product for product in self.watchlist["products"]}
         expected_ratings = {
-            "karcher-k2-horizontal-pressure-washer": (8.4, 2961),
+            "agaro-supreme-pressure-washer": (7.8, 10196),
             "shakti-s3-pressure-washer": (8.4, 6542),
-            "black-decker-bw13-pressure-washer": (8.2, 2073),
+            "black-decker-bepw1600-pressure-washer": (8.4, 323),
         }
         for product_id, expected in expected_ratings.items():
             research = products[product_id]["research"]
             rating = research["marketplace_rating"]
             self.assertEqual((rating["score_out_of_10"], rating["review_count"]), expected)
 
-        karcher = products["karcher-k2-horizontal-pressure-washer"]["research"]
-        self.assertEqual(karcher["community_consensus"], "mixed")
-        self.assertIn("negative", {item["sentiment"] for item in karcher["evidence"]})
-        self.assertIn("oil leak", " ".join(karcher["caveats"]).lower())
+        agaro = products["agaro-supreme-pressure-washer"]["research"]
+        self.assertEqual(agaro["community_consensus"], "mixed")
+        self.assertIn("negative", {item["sentiment"] for item in agaro["evidence"]})
+        self.assertIn("warranty", " ".join(agaro["caveats"]).lower())
 
         shakti = products["shakti-s3-pressure-washer"]["research"]
         self.assertIn("6-month", " ".join(shakti["caveats"]).lower())
@@ -449,17 +449,21 @@ class ShippedDataFilesTests(unittest.TestCase):
         self.assertEqual(
             {product_id: products[product_id]["research"]["budget_position"] for product_id in expected_ratings},
             {
-                "karcher-k2-horizontal-pressure-washer": "below-requested-range",
+                "agaro-supreme-pressure-washer": "within-requested-range",
                 "shakti-s3-pressure-washer": "below-requested-range",
-                "black-decker-bw13-pressure-washer": "near-upper-bound",
+                "black-decker-bepw1600-pressure-washer": "near-upper-bound",
             },
         )
 
     def test_removed_and_legacy_product_artifacts_are_not_shipped(self):
         forbidden = {
+            "amazon-in-b073j92g1j",
+            "amazon-in-b07g9mpy1x",
+            "amazon-in-b07v1x58xv",
             "amazon-in-b08675psbt",
             "amazon-in-b0chjr8nld",
             "amazon-in-b0gsvfv3r4",
+            "flipkart-com-cwrfjrhymdtemr3g",
             "flipkart-com-hasbro-gaming-classic-jenga-hardwood-blocks-stacking-tower-game-kids-ages-6-up-1-1ed14897",
         }
         self.assertEqual(
@@ -471,6 +475,8 @@ class ShippedDataFilesTests(unittest.TestCase):
             set(),
         )
         shipped_text = json.dumps(self.watchlist).lower()
+        for listing_id in forbidden:
+            self.assertNotIn(listing_id, shipped_text)
         self.assertNotIn("shampoo", shipped_text)
         self.assertNotIn("microfiber", shipped_text)
 
