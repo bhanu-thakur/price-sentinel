@@ -31,6 +31,25 @@ cycle.
 Each product stores stable provider URLs resolved once during intake. At runtime
 there is no retailer search step.
 
+Accordingly, a recent successful check means **the provider page was checked**. It
+does not prove that Amazon or Flipkart was fetched at that moment. Provider-reported
+price, stock, seller, coupons and delivery can differ by account or location; confirm
+all of them on the retailer checkout page before buying.
+
+## Current Seltos catalog boundaries
+
+The shipped catalog is researched for the all-new 2026 Kia Seltos HTK(O) diesel
+automatic. Community anecdotes and marketplace ratings are stored separately in
+structured `research` metadata and shown as such on the dashboard. A marketplace
+rating shown by PriceHistory is not described as a Team-BHP or Reddit rating.
+
+Fit-sensitive accessories are added only when the exact listing names the 2026
+Seltos. Generic “Seltos” and “2023-present” mats were excluded because the all-new
+2026 model changed shape. The currently available 12.3-inch “all trims” screen
+protector was also excluded: Kia specifies a 10.25-inch touchscreen for HTK(O).
+Boot mats and mud flaps remain untracked until an exact listing has consistent model
+metadata. Shampoo and microfiber cloth remain excluded because they are already owned.
+
 ---
 
 ## Setup
@@ -90,7 +109,7 @@ Settings → Pages → Source: **Deploy from branch** → `main` / `/docs`.
 Run the interactive intake with one real product URL:
 
 ```powershell
-python add_product.py "https://www.amazon.in/dp/B0GSVFV3R4" --target 2850 --tier hot
+python add_product.py "https://www.amazon.in/dp/B0GMR9PN1W" --target 3200 --tier cold
 ```
 
 The intake resolves the URL through the verified public providers, shows the
@@ -107,24 +126,24 @@ For non-interactive setup, write the same schema-v2 shape directly:
   "schema_version": 2,
   "products": [
     {
-      "id": "gillette-series-5-trimmer",
-      "name": "Gillette Series 5 Trimmer",
-      "target": 2850,
-      "tier": "hot",
+      "id": "vahan-expo-7d-floor-mats-seltos-2026",
+      "name": "Vahan Expo 7D floor mats for Seltos 2026",
+      "target": 3200,
+      "tier": "cold",
       "notes": "",
       "rejected_candidate_urls": [],
       "listings": [
         {
-          "id": "amazon-in-b0gsvfv3r4",
+          "id": "amazon-in-b0gmr9pn1w",
           "retailer": "amazon.in",
-          "url": "https://www.amazon.in/dp/B0GSVFV3R4",
+          "url": "https://www.amazon.in/dp/B0GMR9PN1W",
           "confirmed_by": "seed",
           "attributes": {
-            "brand": "Gillette",
-            "model": "Series 5"
+            "brand": "Vahan Expo",
+            "model": "Kia Seltos 2026"
           },
           "source_urls": {
-            "pricehistory.app": "https://pricehistory.app/p/gillette-series-5-all-one-beard-body-5vQqMKIm"
+            "pricehistory.app": "https://pricehistory.app/p/vahan-expo-premium-7d-car-mat-full-Yr0l7zce"
           }
         }
       ]

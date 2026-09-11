@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 class MigrationTests(unittest.TestCase):
     def test_migrated_gillette_history_keeps_seven_rows_and_values(self):
-        path = ROOT / "data" / "amazon-in-b0gsvfv3r4.csv"
+        path = ROOT / "tests" / "fixtures" / "legacy-gillette-history.csv"
         with path.open(newline="", encoding="utf-8") as handle:
             rows = list(csv.DictReader(handle))
         self.assertGreaterEqual(len(rows), 7)

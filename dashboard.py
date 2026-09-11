@@ -104,7 +104,7 @@ def _freshness(record, now):
     timestamp = _parse_ts(value)
     if not timestamp:
         return "No data"
-    prefix = "Fresh" if now - timestamp <= timedelta(hours=24) else "Stale"
+    prefix = "Provider checked" if now - timestamp <= timedelta(hours=24) else "Provider stale"
     return f"{prefix} · {_relative(timestamp, now)}"
 
 
@@ -178,9 +178,10 @@ def _verdict_line(products, state, now):
             problems.append(f"{stale} stale")
         if missing:
             problems.append(f"{missing} without data")
-        detail = f"{' · '.join(problems)} · newest price {_relative(max(priced), now)}"
+        problems = [problem.replace("stale", "provider check stale") for problem in problems]
+        detail = f"{' · '.join(problems)} · newest provider check {_relative(max(priced), now)}"
     else:
-        detail = f"all current · oldest price {_relative(min(priced), now)}"
+        detail = f"all provider checks current · oldest provider check {_relative(min(priced), now)}"
     return headline, f"{len(products)} tracked · {detail}"
 
 
@@ -228,6 +229,8 @@ border:2px solid #303744;border-top-color:#8B93A1;border-radius:50%;animation:sp
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-top:15px}
 .st{background:var(--surface2);padding:11px 13px}.stl{font-size:10px;color:var(--dimmer);text-transform:uppercase;letter-spacing:.055em}
 .stv{font-size:15px;font-weight:600;margin-top:4px}.stv.go{color:var(--go)}.why{margin-top:14px;display:flex;flex-direction:column;gap:7px}
+.research{margin-top:14px;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:var(--surface2);font-size:12px;color:#C3CAD6}
+.research-title{font-size:10px;color:var(--dimmer);text-transform:uppercase;letter-spacing:.055em;margin-bottom:6px}.research div+div{margin-top:4px}.caveat{color:#D6B36A}
 .rsn{display:flex;gap:9px;align-items:flex-start;font-size:12.5px;color:#C3CAD6}.dot{width:5px;height:5px;border-radius:50%;background:var(--go);margin-top:6px;flex:none}.dot.w{background:var(--warn)}
 .offers{margin-top:16px;border:1px solid var(--line);border-radius:10px;overflow:hidden}.offer{display:grid;grid-template-columns:1.2fr .8fr .9fr .9fr auto;gap:8px;align-items:center;padding:9px 11px;background:var(--surface2);border-bottom:1px solid var(--line);font-size:11.5px}
 .offer:last-child{border-bottom:0}.offer-h{color:var(--dimmer);font-size:10px;text-transform:uppercase;letter-spacing:.05em}.best{color:var(--go);font-size:10px;text-transform:uppercase;margin-left:5px}
@@ -236,6 +239,7 @@ border:2px solid #303744;border-top-color:#8B93A1;border-radius:50%;animation:sp
 cursor:pointer;border:1px solid var(--line);background:var(--surface2);color:var(--txt);font-family:inherit;text-decoration:none}
 .btn:hover{border-color:#3A424F;background:#20252E}.btn.p{background:var(--go);border-color:var(--go);color:#08210E}.btn.p:hover{background:#55C768}
 .foot{margin-top:16px;color:var(--dimmer);font-size:11px;text-align:center}
+.notice{margin:-8px 0 18px;padding:10px 12px;border:1px solid #3A3526;border-radius:9px;background:#19170F;color:#C9B77E;font-size:11.5px}
 @media(max-width:600px){body{padding:18px 12px}.head{grid-template-columns:4px 1fr auto;gap:11px}.meter{display:none}.stats{grid-template-columns:repeat(2,1fr)}
 .offer{grid-template-columns:1.1fr .8fr .8fr auto}.offer .offer-source{display:none}.acts{flex-direction:column}}
 /* Below ~420px the card chrome was eating more width than the chart itself. */
@@ -422,6 +426,25 @@ def _card(product, state, chart_paths, now):
         f'<div class="rsn"><span class="dot{" w" if not verdict.get("alert") else ""}"></span><span>{_escape(reason)}</span></div>'
         for reason in reasons
     )
+    research = product.get("research") or {}
+    rating = research.get("marketplace_rating") or {}
+    research_rows = []
+    if rating:
+        research_rows.append(
+            "<div>Marketplace rating via aggregator: "
+            f'{_escape(rating.get("score_out_of_10"))}/10 · '
+            f'{_escape(_group_inr(rating.get("review_count")))} reviews</div>'
+        )
+    if research.get("community_consensus"):
+        consensus = str(research["community_consensus"]).replace("-", " ").title()
+        research_rows.append(f"<div>Community evidence: {_escape(consensus)}</div>")
+    for caveat in research.get("caveats") or []:
+        research_rows.append(f'<div class="caveat">Caveat: {_escape(caveat)}</div>')
+    research_html = (
+        '<div class="research"><div class="research-title">Research audit</div>'
+        f'{"".join(research_rows)}</div>'
+        if research_rows else ""
+    )
     stats = (
         f'<div class="st"><div class="stl">All-time low</div><div class="stv num go">{_escape(_money(low))}</div></div>'
         f'<div class="st"><div class="stl">{_escape(median_label)}</div><div class="stv num">{_escape(_money(median))}</div></div>'
@@ -466,8 +489,8 @@ def _card(product, state, chart_paths, now):
         f'<div class="body" id="{_escape(details_id, quote=True)}" aria-hidden="true"><div class="body-clip"><div class="inner">'
         f'<div class="ranges" aria-label="Chart range">{range_buttons}</div><div class="chart-title"><span>Price history — {_escape(chart_retailer)}</span><span class="chart-range">6M · daily lows</span></div>'
         f'<div class="chart" aria-live="polite"{chart_attrs}><div class="chart-message">Expand to load price history</div></div>'
-        f'<div class="stats">{stats}</div><div class="why">{reasons_html}</div>'
-        f'<div class="offers"><div class="offer offer-h"><span>Retailer</span><span>Price</span><span>Freshness</span><span class="offer-source">Source</span><span></span></div>{"".join(offer_rows)}</div>'
+        f'<div class="stats">{stats}</div><div class="why">{reasons_html}</div>{research_html}'
+        f'<div class="offers"><div class="offer offer-h"><span>Retailer</span><span>Price</span><span>Provider check</span><span class="offer-source">Source</span><span></span></div>{"".join(offer_rows)}</div>'
         f'{actions}</div></div></div></div>'
     )
 
@@ -506,6 +529,7 @@ def build(products, state, output_path=None, chart_dir=None, now=None):
         "<meta name=\"theme-color\" content=\"#0F1116\">"
         "<title>Price Sentinel</title><style>" + STYLE + "</style></head><body>"
         f'<div class="verdict"><h1>{_escape(headline)}</h1><span class="sub">{_escape(sub)}</span></div>'
+        '<div class="notice">Prices are aggregator-reported, not retailer-verified. Confirm price, stock and seller at checkout. Alerts require separately configured notification secrets.</div>'
         f'<div class="cards">{cards or "<p>No products tracked.</p>"}</div>'
         '<div class="foot">Tap any card to expand · charts load on demand</div>'
         f"<script>{SCRIPT}</script></body></html>"

@@ -256,7 +256,88 @@ def validate_watchlist(data):
         confirmed = {listing_identity(listing["url"]) for listing in product["listings"]}
         if rejected & confirmed:
             raise ValueError(f"confirmed listing is also rejected: {product['id']}")
+        research = product.get("research")
+        if research is not None:
+            _validate_research(product["id"], research)
     return data
+
+
+def _validate_research(product_id, research):
+    """Validate optional, source-backed recommendation metadata.
+
+    Intake fixtures and user-created catalogs may omit research. Once supplied,
+    however, it must be structured enough that the dashboard cannot turn a vague
+    forum mention into an unqualified recommendation.
+    """
+    required = {
+        "as_of",
+        "community_consensus",
+        "marketplace_rating",
+        "evidence",
+        "caveats",
+        "fitment",
+    }
+    missing = required - set(research) if isinstance(research, dict) else required
+    if missing:
+        raise ValueError(f"research missing {sorted(missing)[0]}: {product_id}")
+    if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(research["as_of"])):
+        raise ValueError(f"invalid research as_of date: {product_id}")
+    consensus = research["community_consensus"]
+    if consensus not in {"positive", "mixed", "category-supported"}:
+        raise ValueError(f"invalid community consensus: {product_id}")
+
+    rating = research["marketplace_rating"]
+    if not isinstance(rating, dict):
+        raise ValueError(f"invalid marketplace rating: {product_id}")
+    try:
+        score = float(rating["score_out_of_10"])
+        reviews = rating["review_count"]
+        rating_url = rating["source_url"]
+    except (KeyError, TypeError, ValueError):
+        raise ValueError(f"invalid marketplace rating: {product_id}") from None
+    if not 0 <= score <= 10 or not isinstance(reviews, int) or reviews < 1:
+        raise ValueError(f"invalid marketplace rating: {product_id}")
+    try:
+        normalize_url(rating_url)
+    except ValueError:
+        raise ValueError(f"invalid marketplace rating URL: {product_id}") from None
+
+    evidence = research["evidence"]
+    if not isinstance(evidence, list) or not evidence:
+        raise ValueError(f"research evidence must be a non-empty list: {product_id}")
+    sentiments = set()
+    for item in evidence:
+        if not isinstance(item, dict) or not all(
+            isinstance(item.get(key), str) and item[key].strip()
+            for key in ("source", "sentiment", "summary", "url")
+        ):
+            raise ValueError(f"invalid research evidence: {product_id}")
+        if item["sentiment"] not in {"positive", "negative", "mixed", "category"}:
+            raise ValueError(f"invalid research evidence sentiment: {product_id}")
+        sentiments.add(item["sentiment"])
+    if consensus == "mixed" and not {"positive", "negative"} <= sentiments:
+        raise ValueError(f"mixed research requires positive and negative evidence: {product_id}")
+    for item in evidence:
+        try:
+            normalize_url(item["url"])
+        except ValueError:
+            raise ValueError(f"invalid research evidence URL: {product_id}") from None
+
+    caveats = research["caveats"]
+    if not isinstance(caveats, list) or not caveats or not all(
+        isinstance(item, str) and item.strip() for item in caveats
+    ):
+        raise ValueError(f"research caveats must be a non-empty list: {product_id}")
+    if research["fitment"] not in {"universal", "listing-claimed-exact", "not-applicable"}:
+        raise ValueError(f"invalid research fitment: {product_id}")
+    if research.get("budget_position") not in {
+        None,
+        "below-requested-range",
+        "within-requested-range",
+        "near-upper-bound",
+        "not-applicable",
+    }:
+        raise ValueError(f"invalid research budget position: {product_id}")
 
 
 def write_watchlist(path, data):

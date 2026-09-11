@@ -6,7 +6,20 @@
       "name": "Karcher K2 Horizontal pressure washer",
       "target": 4000,
       "tier": "warm",
-      "notes": "Pressure-washer shortlist for the Seltos; 110 bar/1400 W. Team-BHP long-term K2 owner reports 3 years of trouble-free use: https://www.team-bhp.com/forum/modifications-accessories/14492-buying-using-pressure-washer-89.html ; Reddit owners recommend Karcher/Bosch/B&D and a fan spray for paint: https://www.reddit.com/r/CarsIndia/comments/1u3lj7j/pressure_washer_recommendation/",
+      "notes": "Value pressure-washer candidate for the Seltos; 110 bar/1400 W. Community evidence is mixed: one Team-BHP K2 owner reports three trouble-free years, while another reports repeated K-series failures, oil leaks, overheating limits and poor support.",
+      "research": {
+        "as_of": "2026-09-11",
+        "community_consensus": "mixed",
+        "budget_position": "below-requested-range",
+        "marketplace_rating": {"score_out_of_10": 8.4, "review_count": 2961, "source_url": "https://pricehistory.app/p/karcher-k-2-horizontal-kap-110-bar-oIrwssIm"},
+        "evidence": [
+          {"source": "Team-BHP", "sentiment": "positive", "summary": "A K2 Horizontal owner reports three years of heavy, trouble-free use and says it is adequate for cars.", "url": "https://www.team-bhp.com/forum/modifications-accessories/14492-buying-using-pressure-washer-89.html"},
+          {"source": "Team-BHP", "sentiment": "negative", "summary": "Another owner reports repeated K2/K3/K4/K7 failures, oil leaks, overheating limits and poor domestic-line support.", "url": "https://www.team-bhp.com/forum/modifications-accessories/14492-buying-using-pressure-washer-89.html"},
+          {"source": "Reddit", "sentiment": "category", "summary": "Owners shortlist Karcher, Bosch and Black+Decker and advise a fan spray around paint.", "url": "https://www.reddit.com/r/CarsIndia/comments/1u3lj7j/pressure_washer_recommendation/"}
+        ],
+        "caveats": ["A Team-BHP owner reports oil leaks, short continuous-runtime limits and poor support across domestic K-series machines.", "Current aggregator price can sit below the requested ₹5,000–₹6,000 shopping range; the ₹4,000 target treats it as a value option."],
+        "fitment": "universal"
+      },
       "rejected_candidate_urls": [],
       "listings": [
         {
@@ -24,7 +37,20 @@
       "name": "Shakti S3 pressure washer",
       "target": 4200,
       "tier": "warm",
-      "notes": "Pressure-washer shortlist for the Seltos; 1800 W. Detailed Team-BHP owner review: https://www.team-bhp.com/forum/modifications-accessories/265945-shakti-s3-car-pressure-washer-review.html ; Reddit owners report two years of regular multi-vehicle use: https://www.reddit.com/r/CarsIndia/comments/1vzxks7/is_shakti_a_reliable_company_for_pressure_washer/",
+      "notes": "Value pressure-washer candidate for the Seltos; 1800 W. Owner feedback is positive on cleaning value, but the exact listing is made in China, warns against continuous operation and covers only the main machine for six months.",
+      "research": {
+        "as_of": "2026-09-11",
+        "community_consensus": "mixed",
+        "budget_position": "below-requested-range",
+        "marketplace_rating": {"score_out_of_10": 8.4, "review_count": 6542, "source_url": "https://pricehistory.app/p/shakti-technology-s3-high-pressure-car-washer-pIsjmm2h"},
+        "evidence": [
+          {"source": "Team-BHP", "sentiment": "positive", "summary": "The detailed S3 owner review finds it effective and good value for home car washing.", "url": "https://www.team-bhp.com/forum/modifications-accessories/265945-shakti-s3-car-pressure-washer-review.html"},
+          {"source": "Team-BHP", "sentiment": "negative", "summary": "The same review notes lower real-world pressure than marketing claims and limited service confidence.", "url": "https://www.team-bhp.com/forum/modifications-accessories/265945-shakti-s3-car-pressure-washer-review.html"},
+          {"source": "Reddit", "sentiment": "mixed", "summary": "One owner reports two years of multi-vehicle use, while commenters describe the brand as white-labelled hardware.", "url": "https://www.reddit.com/r/CarsIndia/comments/1vzxks7/is_shakti_a_reliable_company_for_pressure_washer/"}
+        ],
+        "caveats": ["The listing identifies a China manufacturer and a 6-month warranty on the main machine only.", "The listing calls for a rest after 15–20 minutes to avoid overheating.", "The ₹4,200 target is below the requested ₹5,000–₹6,000 range and positions this as the budget pick."],
+        "fitment": "universal"
+      },
       "rejected_candidate_urls": [],
       "listings": [
         {
@@ -42,7 +68,19 @@
       "name": "Black+Decker BW13 pressure washer",
       "target": 5999,
       "tier": "warm",
-      "notes": "Pressure-washer shortlist for the Seltos; 100 bar/1300 W. Team-BHP BW13 owner recommends it for the price: https://www.team-bhp.com/forum/modifications-accessories/14492-buying-using-pressure-washer-82.html ; Reddit owners repeatedly shortlist Black+Decker with Karcher and Bosch: https://www.reddit.com/r/CarsIndia/comments/1u3lj7j/pressure_washer_recommendation/",
+      "notes": "Established-brand pressure-washer candidate for the Seltos; 100 bar/1300 W with a one-year manufacturer warranty. Target ₹5,999 rather than claiming every observed price is inside the requested range.",
+      "research": {
+        "as_of": "2026-09-11",
+        "community_consensus": "positive",
+        "budget_position": "near-upper-bound",
+        "marketplace_rating": {"score_out_of_10": 8.2, "review_count": 2073, "source_url": "https://pricehistory.app/p/black-decker-bxpw1300e-b5-1300w-100-bar-dzR52emb"},
+        "evidence": [
+          {"source": "Team-BHP", "sentiment": "positive", "summary": "A BW13 owner recommends the machine for its price.", "url": "https://www.team-bhp.com/forum/modifications-accessories/14492-buying-using-pressure-washer-82.html"},
+          {"source": "Reddit", "sentiment": "category", "summary": "Owners repeatedly shortlist Black+Decker with Karcher and Bosch.", "url": "https://www.reddit.com/r/CarsIndia/comments/1u3lj7j/pressure_washer_recommendation/"}
+        ],
+        "caveats": ["The marketplace listing is for model BXPW1300E-B5 sold as BW13; confirm model and warranty at checkout.", "Observed aggregator prices may exceed ₹6,000; the alert target is ₹5,999."],
+        "fitment": "universal"
+      },
       "rejected_candidate_urls": [],
       "listings": [
         {
@@ -60,7 +98,19 @@
       "name": "70mai A510 dual-channel dashcam",
       "target": 10999,
       "tier": "warm",
-      "notes": "High-priority Seltos accessory because HTK(O) does not include Kia's factory dashcam. Team-BHP members use/recommend the A510 dual channel: https://www.team-bhp.com/forum/electric-cars/299966-your-must-have-accessories-electric-cars.html ; Seltos owners consistently rank a dashcam first: https://www.reddit.com/r/Seltos_india/comments/1v50ttl/which_accessory_was_worth_every_rupee/ . Prefer dealer-approved installation or a plug-in setup to avoid warranty issues.",
+      "notes": "High-priority Seltos accessory because HTK(O) does not include Kia's factory dashcam. Prefer dealer-approved installation or a plug-in setup to avoid wiring-warranty disputes.",
+      "research": {
+        "as_of": "2026-09-11",
+        "community_consensus": "positive",
+        "budget_position": "not-applicable",
+        "marketplace_rating": {"score_out_of_10": 8.8, "review_count": 1897, "source_url": "https://pricehistory.app/p/70mai-a510-hdr-3k-dual-channel-dash-8SSpit2h"},
+        "evidence": [
+          {"source": "Team-BHP", "sentiment": "positive", "summary": "Members use and recommend the A510 dual-channel camera.", "url": "https://www.team-bhp.com/forum/electric-cars/299966-your-must-have-accessories-electric-cars.html"},
+          {"source": "Reddit", "sentiment": "positive", "summary": "Seltos owners consistently place a dashcam among the highest-value accessories.", "url": "https://www.reddit.com/r/Seltos_india/comments/1v50ttl/which_accessory_was_worth_every_rupee/"}
+        ],
+        "caveats": ["Hardwiring can trigger warranty disputes; use dealer-approved installation or the cabin power outlet unless parking monitoring is essential.", "A high-endurance microSD card is a separate required purchase."],
+        "fitment": "universal"
+      },
       "rejected_candidate_urls": [],
       "listings": [
         {
@@ -78,7 +128,19 @@
       "name": "Michelin 12266 tyre inflator",
       "target": 3600,
       "tier": "warm",
-      "notes": "Emergency kit for highway use. Team-BHP's hands-on review covers this exact model: https://www.team-bhp.com/forum/modifications-accessories/258978-michelin-tyre-inflator-review-model-12266-a.html ; Seltos owners repeatedly recommend carrying an inflator: https://www.reddit.com/r/Seltos_india/comments/1v50ttl/which_accessory_was_worth_every_rupee/ . The Seltos already has factory TPMS, so no separate TPMS is tracked.",
+      "notes": "Emergency kit for highway use. The Seltos already has factory TPMS, so no separate TPMS is tracked.",
+      "research": {
+        "as_of": "2026-09-11",
+        "community_consensus": "positive",
+        "budget_position": "not-applicable",
+        "marketplace_rating": {"score_out_of_10": 8.8, "review_count": 3057, "source_url": "https://pricehistory.app/p/michelin-high-power-tyre-inflator-ml-12266-MF3A87G5"},
+        "evidence": [
+          {"source": "Team-BHP", "sentiment": "positive", "summary": "The exact ML-12266 has a detailed hands-on review and multiple long-term owner reports.", "url": "https://www.team-bhp.com/forum/modifications-accessories/258978-michelin-tyre-inflator-review-model-12266-a.html"},
+          {"source": "Reddit", "sentiment": "category", "summary": "Seltos owners repeatedly include an inflator in the core highway kit.", "url": "https://www.reddit.com/r/Seltos_india/comments/1v50ttl/which_accessory_was_worth_every_rupee/"}
+        ],
+        "caveats": ["Owner reports include occasional gauge-accuracy and button-durability complaints; compare with the car's TPMS and a trusted gauge.", "Inflators are for restoring pressure after a temporary repair, not making a damaged tyre roadworthy."],
+        "fitment": "universal"
+      },
       "rejected_candidate_urls": [],
       "listings": [
         {
@@ -96,7 +158,19 @@
       "name": "Amazon Basics 4-gauge 20 ft jumper cable",
       "target": 1750,
       "tier": "cold",
-      "notes": "Emergency kit for the diesel automatic; the 4-gauge, 20 ft cable is suitable for larger batteries. Exact product is discussed on Team-BHP: https://www.team-bhp.com/forum/gadgets-computers-software/246962-recently-purchased-products-gadgets-helped-you-improve-your-life-6.html ; Reddit recommends jumper cables for every car, especially automatics: https://www.reddit.com/r/CarsIndia/comments/1dimdzp/what_car_accessories_would_you_suggest_for_every_car_owner_in_india/",
+      "notes": "Emergency kit for the diesel automatic; the 4-gauge, 20 ft cable is listed for SUVs and batteries up to 85 Ah.",
+      "research": {
+        "as_of": "2026-09-11",
+        "community_consensus": "category-supported",
+        "budget_position": "not-applicable",
+        "marketplace_rating": {"score_out_of_10": 8.8, "review_count": 2285, "source_url": "https://pricehistory.app/p/amazon-basics-bc120725a-jumper-cable-4-gauge-W2Hv8wyp"},
+        "evidence": [
+          {"source": "Team-BHP", "sentiment": "category", "summary": "Members discuss carrying this exact 4-gauge Amazon Basics cable as practical emergency equipment.", "url": "https://www.team-bhp.com/forum/gadgets-computers-software/246962-recently-purchased-products-gadgets-helped-you-improve-your-life-6.html"},
+          {"source": "Reddit", "sentiment": "category", "summary": "Owners recommend jumper cables as standard equipment, particularly for automatic cars that cannot be push-started.", "url": "https://www.reddit.com/r/CarsIndia/comments/1dimdzp/what_car_accessories_would_you_suggest_for_every_car_owner_in_india/"}
+        ],
+        "caveats": ["Check the Seltos owner's manual and cable polarity before use; incorrect connection can damage electronics.", "The recommendation is for the product category; community evidence is not a controlled comparison of this cable."],
+        "fitment": "universal"
+      },
       "rejected_candidate_urls": [],
       "listings": [
         {
@@ -114,7 +188,19 @@
       "name": "Stanley tubeless tyre repair kit",
       "target": 450,
       "tier": "cold",
-      "notes": "Emergency puncture kit to pair with the inflator. Team-BHP members recommend carrying a puncture repair kit: https://www.team-bhp.com/forum/gadgets-computers-software/246962-recently-purchased-products-gadgets-helped-you-improve-your-life-6.html ; Seltos owners include a puncture kit in the core safety kit: https://www.reddit.com/r/Seltos_india/comments/1v50ttl/which_accessory_was_worth_every_rupee/ . Use as a temporary repair and have the tyre inspected professionally.",
+      "notes": "Emergency tubeless-puncture kit to pair with the inflator. Use only as a temporary tread-area repair and have the tyre inspected professionally.",
+      "research": {
+        "as_of": "2026-09-11",
+        "community_consensus": "category-supported",
+        "budget_position": "not-applicable",
+        "marketplace_rating": {"score_out_of_10": 8.4, "review_count": 1201, "source_url": "https://pricehistory.app/p/stanley-stht80891-0-flat-tubeless-tyre-repair-F7akOrIm"},
+        "evidence": [
+          {"source": "Team-BHP", "sentiment": "category", "summary": "Members recommend carrying a tubeless puncture-repair kit with an inflator.", "url": "https://www.team-bhp.com/forum/gadgets-computers-software/246962-recently-purchased-products-gadgets-helped-you-improve-your-life-6.html"},
+          {"source": "Reddit", "sentiment": "category", "summary": "Seltos owners include a puncture kit in the core safety kit.", "url": "https://www.reddit.com/r/Seltos_india/comments/1v50ttl/which_accessory_was_worth_every_rupee/"}
+        ],
+        "caveats": ["Never plug a sidewall injury; use the kit only for a small tread puncture and seek professional inspection.", "Five supplied plugs are consumables and need replenishment after use."],
+        "fitment": "universal"
+      },
       "rejected_candidate_urls": [],
       "listings": [
         {
@@ -132,7 +218,19 @@
       "name": "Amazon Basics emergency escape tool",
       "target": 250,
       "tier": "cold",
-      "notes": "Two-pack seat-belt cutter/window hammer for the front cabin. Team-BHP safety discussion recommends this type of escape tool: https://www.team-bhp.com/forum/modifications-accessories/275037-2023-edition-your-must-have-accessories-today-2.html ; Reddit's must-have list names this exact Amazon Basics tool: https://www.reddit.com/r/CarsIndia/comments/102whxv/useful_car_accessories/ . Mount within reach; do not leave loose in a storage bin.",
+      "notes": "Two-pack seat-belt cutter/window hammer for the front cabin. Mount one securely within reach of each front occupant.",
+      "research": {
+        "as_of": "2026-09-11",
+        "community_consensus": "positive",
+        "budget_position": "not-applicable",
+        "marketplace_rating": {"score_out_of_10": 8.8, "review_count": 11404, "source_url": "https://pricehistory.app/p/amazon-basics-emergency-seat-belt-cutter-window-EQMYZhce"},
+        "evidence": [
+          {"source": "Team-BHP", "sentiment": "category", "summary": "A safety-accessory discussion recommends a reachable belt cutter and window hammer.", "url": "https://www.team-bhp.com/forum/modifications-accessories/275037-2023-edition-your-must-have-accessories-today-2.html"},
+          {"source": "Reddit", "sentiment": "positive", "summary": "A must-have accessory list names this exact Amazon Basics escape tool.", "url": "https://www.reddit.com/r/CarsIndia/comments/102whxv/useful_car_accessories/"}
+        ],
+        "caveats": ["A tool buried in the glovebox or boot is ineffective; secure it within reach so it does not become a projectile.", "Window hammers may not break laminated side glass; check the vehicle glazing markings and manual."],
+        "fitment": "universal"
+      },
       "rejected_candidate_urls": [],
       "listings": [
         {
@@ -150,7 +248,19 @@
       "name": "Jopasu car duster",
       "target": 799,
       "tier": "cold",
-      "notes": "For light, dry surface dust only. Team-BHP accessory lists include a car duster: https://www.team-bhp.com/forum/electric-cars/299966-your-must-have-accessories-electric-cars.html ; Reddit owners repeatedly recommend Jopasu: https://www.reddit.com/r/CarsIndia/comments/1mklzfb/new_car_owners_what_are_the_accessories_you/ . Do not drag it over grit, mud, or heavily soiled paint; rinse those first to reduce swirl risk.",
+      "notes": "For light, dry surface dust only. Do not drag it over grit, mud or heavily soiled paint; rinse those first to reduce swirl risk.",
+      "research": {
+        "as_of": "2026-09-11",
+        "community_consensus": "positive",
+        "budget_position": "not-applicable",
+        "marketplace_rating": {"score_out_of_10": 8.8, "review_count": 46230, "source_url": "https://pricehistory.app/p/jopasu-car-duster-4FSBT3Q2"},
+        "evidence": [
+          {"source": "Team-BHP", "sentiment": "category", "summary": "Accessory lists include a duster for frequent light surface dust.", "url": "https://www.team-bhp.com/forum/electric-cars/299966-your-must-have-accessories-electric-cars.html"},
+          {"source": "Reddit", "sentiment": "positive", "summary": "Owners repeatedly recommend Jopasu by name for dry dusting.", "url": "https://www.reddit.com/r/CarsIndia/comments/1mklzfb/new_car_owners_what_are_the_accessories_you/"}
+        ],
+        "caveats": ["Use only on loose, light dust; wiping grit or mud can mar clear coat.", "The aggregator page exposes several variants and offer prices, so confirm ASIN B07V1X58XV at checkout."],
+        "fitment": "universal"
+      },
       "rejected_candidate_urls": [],
       "listings": [
         {
@@ -160,6 +270,39 @@
           "confirmed_by": "community research 2026-09-11",
           "attributes": {"brand": "Jopasu", "model": "AOCC001", "size": "medium"},
           "source_urls": {"pricehistory.app": "https://pricehistory.app/p/jopasu-car-duster-4FSBT3Q2"}
+        }
+      ]
+    },
+    {
+      "id": "vahan-expo-7d-floor-mats-seltos-2026",
+      "name": "Vahan Expo 7D floor mats for Seltos 2026",
+      "target": 3200,
+      "tier": "cold",
+      "notes": "Fit-sensitive cabin protection. This listing explicitly names the all-new Kia Seltos 2026; generic Seltos and 2023-present mats were excluded.",
+      "research": {
+        "as_of": "2026-09-11",
+        "community_consensus": "category-supported",
+        "budget_position": "not-applicable",
+        "marketplace_rating": {"score_out_of_10": 8.0, "review_count": 313, "source_url": "https://pricehistory.app/p/vahan-expo-premium-7d-car-mat-full-Yr0l7zce"},
+        "evidence": [
+          {"source": "Team-BHP", "sentiment": "category", "summary": "New-Seltos owners consider floor mats essential but emphasize snug fit and secure retention.", "url": "https://www.team-bhp.com/forum/official-new-car-reviews/303460-2025-kia-seltos-review-46.html"},
+          {"source": "Reddit", "sentiment": "category", "summary": "2026 Seltos owners consistently prioritize fitted cabin mats; community brand preference leans toward GFX or OEM rather than this exact seller.", "url": "https://www.reddit.com/r/Seltos_india/comments/1v6lcws/kia_seltos_mats_and_accessories/"}
+        ],
+        "caveats": ["Fit is claimed by the marketplace listing, not independently measured; verify the 2026 floor shape and driver-side retaining clips before the return window closes.", "The community supports fitted mats as a category but does not specifically endorse Vahan Expo over GFX or Kia OEM."],
+        "fitment": "listing-claimed-exact"
+      },
+      "rejected_candidate_urls": [
+        "https://amazon.in/dp/B0F6NQ1TWJ",
+        "https://amazon.in/dp/B0GHFM8F6B"
+      ],
+      "listings": [
+        {
+          "id": "amazon-in-b0gmr9pn1w",
+          "retailer": "amazon.in",
+          "url": "https://amazon.in/dp/B0GMR9PN1W",
+          "confirmed_by": "exact 2026 model in marketplace title and provider metadata 2026-09-11",
+          "attributes": {"brand": "Vahan Expo", "model": "Kia Seltos 2026", "style": "7D", "colour": "full black"},
+          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/vahan-expo-premium-7d-car-mat-full-Yr0l7zce"}
         }
       ]
     }
