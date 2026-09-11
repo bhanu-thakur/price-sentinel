@@ -59,6 +59,43 @@ def _new_state(state):
     return state
 
 
+def _prune_removed_products(state, products):
+    """Drop state that no longer belongs to the configured watchlist."""
+    product_ids = {product["id"] for product in products}
+    listing_ids = {
+        listing["id"]
+        for product in products
+        for listing in product.get("listings", [])
+    }
+    products_before = set(state["products"])
+    listings_before = set(state["listings"])
+    state["products"] = {
+        product_id: value
+        for product_id, value in state["products"].items()
+        if product_id in product_ids
+    }
+    state["listings"] = {
+        listing_id: value
+        for listing_id, value in state["listings"].items()
+        if listing_id in listing_ids
+    }
+    return (
+        set(state["products"]) != products_before
+        or set(state["listings"]) != listings_before
+    )
+
+
+def _persist_state_and_dashboard(state, products):
+    os.makedirs(os.path.dirname(STATE_PATH), exist_ok=True)
+    with open(STATE_PATH, "w", encoding="utf-8", newline="\n") as handle:
+        json.dump(state, handle, indent=2, sort_keys=True)
+    try:
+        dashboard.build(products, state)
+    except Exception:
+        traceback.print_exc()
+        print("[dashboard] BUILD FAILED — price data preserved, page left stale")
+
+
 def due(product, state, now=None):
     """Return whether this product's configured/automatic cadence has elapsed."""
     if os.environ.get("FORCE_ALL") == "1":
@@ -166,6 +203,7 @@ def run(now=None, session=None):
     catalog.validate_watchlist(watchlist)
     state = _new_state(load_json(STATE_PATH, {}))
     products = watchlist.get("products", [])
+    state_pruned = _prune_removed_products(state, products)
     original_watchlist = json.dumps(watchlist, sort_keys=True)
 
     due_products = [product for product in products if due(product, state, now=now)]
@@ -174,6 +212,9 @@ def run(now=None, session=None):
     # A no-op schedule tick must not rewrite relative-time dashboard text and
     # create a meaningless data commit/Pages rebuild.
     if not due_products:
+        if state_pruned:
+            _persist_state_and_dashboard(state, products)
+            print("[prune] removed state for products no longer in the watchlist")
         print("[done] checked=0 failed=0 alerts=0")
         return state
 
@@ -231,18 +272,10 @@ def run(now=None, session=None):
             product_state = state["products"].get(alert.get("product_id"), {})
             product_state["last_alert_ts"] = _iso(now)
             product_state["last_alert_price"] = alert["price"]
-    os.makedirs(os.path.dirname(STATE_PATH), exist_ok=True)
-    with open(STATE_PATH, "w", encoding="utf-8", newline="\n") as handle:
-        json.dump(state, handle, indent=2, sort_keys=True)
-
     # The dashboard is a view over data that is already on disk but NOT yet
     # committed. A rendering bug must never cost us the price sample or the
     # alert-cooldown state, so it degrades to a stale page instead of exiting.
-    try:
-        dashboard.build(products, state)
-    except Exception:
-        traceback.print_exc()
-        print("[dashboard] BUILD FAILED — price data preserved, page left stale")
+    _persist_state_and_dashboard(state, products)
     delivered_count = len(alerts) if delivered else 0
     print(
         f"[done] checked={checked} failed={failed} skipped={skipped} "

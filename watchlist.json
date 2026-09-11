@@ -162,42 +162,6 @@
           "source_urls": {"pricehistory.app": "https://pricehistory.app/p/jopasu-car-duster-4FSBT3Q2"}
         }
       ]
-    },
-    {
-      "id": "3m-microfiber-cloths-pack-of-3",
-      "name": "3M microfiber cloths pack of 3",
-      "target": 399,
-      "tier": "cold",
-      "notes": "Exterior/interior cleaning staple; keep separate cloths for paint, glass and cabin. Team-BHP washing guidance relies on clean microfiber: https://www.team-bhp.com/forum/modifications-accessories/305967-basic-guide-pressure-washers.html ; Reddit owners include microfiber cloths in the basic cleaning kit: https://www.reddit.com/r/CarsIndia/comments/102whxv/useful_car_accessories/",
-      "rejected_candidate_urls": [],
-      "listings": [
-        {
-          "id": "amazon-in-b072mq8v5f",
-          "retailer": "amazon.in",
-          "url": "https://amazon.in/dp/B072MQ8V5F",
-          "confirmed_by": "community research 2026-09-11",
-          "attributes": {"brand": "3M", "model": "microfiber cloth", "pack_count": "pack of 3"},
-          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/3m-car-care-microfiber-cloth-3-pieces-ZD9OuoSj"}
-        }
-      ]
-    },
-    {
-      "id": "3m-car-wash-shampoo-250-ml",
-      "name": "3M pH-neutral car wash shampoo 250 ml",
-      "target": 270,
-      "tier": "cold",
-      "notes": "pH-neutral shampoo for safe exterior washing. Team-BHP's pressure-washer guide stresses proper automotive shampoo and technique: https://www.team-bhp.com/forum/modifications-accessories/305967-basic-guide-pressure-washers.html ; Reddit owners recommend 3M cleaning products for the basic kit: https://www.reddit.com/r/CarsIndia/comments/1mklzfb/new_car_owners_what_are_the_accessories_you/ . Use the washer's wide fan pattern and avoid point-blank pressure on paint, seals and sensors.",
-      "rejected_candidate_urls": [],
-      "listings": [
-        {
-          "id": "amazon-in-b00s5sbs9g",
-          "retailer": "amazon.in",
-          "url": "https://amazon.in/dp/B00S5SBS9G",
-          "confirmed_by": "community research 2026-09-11",
-          "attributes": {"brand": "3M", "model": "3M_Wash_Shampoo_250ml", "capacity": "250 ml"},
-          "source_urls": {"pricehistory.app": "https://pricehistory.app/p/m-car-wash-shampoo-250ml-high-foam-sZaPT6G5"}
-        }
-      ]
     }
   ]
 }
