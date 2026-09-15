@@ -9,18 +9,18 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-14T22:14:47+00:00",
+      "last_checked_ts": "2026-09-15T00:41:03+00:00",
       "last_in_stock": true,
       "last_price": 3912.0,
       "last_retailer": "amazon.in",
       "last_score": 83.4,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/michelin-high-power-tyre-inflator-ml-12266-MF3A87G5",
-      "last_success_ts": "2026-09-14T22:14:47+00:00",
+      "last_success_ts": "2026-09-15T00:41:03+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
-        "life_avg": 4340.0,
+        "life_avg": 4339.0,
         "life_high": 6495.0,
         "life_low": 3399.0,
         "listing_id": "amazon-in-b00ierqc80",
@@ -37,10 +37,10 @@
         "product_id": "michelin-12266-tyre-inflator",
         "reasons": [
           "Lowest price in 180 days",
-          "9.9% below the lifetime average"
+          "9.8% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 31,
+        "samples": 32,
         "score": 83.4,
         "seller": null,
         "source": "pricehistory.app",
@@ -1703,10 +1703,14 @@
         {
           "date": "2026-09-14",
           "price": 3912.0
+        },
+        {
+          "date": "2026-09-15",
+          "price": 3912.0
         }
       ],
       "provider_history_source": "pricehistory.app",
-      "site_avg": 4340.0,
+      "site_avg": 4339.0,
       "site_high": 6495.0,
       "site_low": 3399.0
     },
@@ -7208,14 +7212,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-14T22:14:47+00:00",
+      "last_checked_ts": "2026-09-15T00:41:03+00:00",
       "last_in_stock": true,
       "last_price": 1949.0,
       "last_retailer": "amazon.in",
       "last_score": 70.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/amazon-basics-bc120725a-jumper-cable-4-gauge-W2Hv8wyp",
-      "last_success_ts": "2026-09-14T22:14:47+00:00",
+      "last_success_ts": "2026-09-15T00:41:03+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -7238,7 +7242,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 31,
+        "samples": 32,
         "score": 70.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -8728,6 +8732,10 @@
         },
         {
           "date": "2026-09-14",
+          "price": 1949.0
+        },
+        {
+          "date": "2026-09-15",
           "price": 1949.0
         }
       ],
@@ -10299,14 +10307,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-14T22:14:47+00:00",
+      "last_checked_ts": "2026-09-15T00:41:03+00:00",
       "last_in_stock": true,
       "last_price": 5599.0,
       "last_retailer": "amazon.in",
       "last_score": 66.2,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/agaro-supreme-high-pressure-washer-car-washer-sE8kqoSj",
-      "last_success_ts": "2026-09-14T22:14:47+00:00",
+      "last_success_ts": "2026-09-15T00:41:03+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -10329,7 +10337,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 29,
+        "samples": 30,
         "score": 66.2,
         "seller": null,
         "source": "pricehistory.app",
@@ -13611,18 +13619,18 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-14T22:14:47+00:00",
+      "last_checked_ts": "2026-09-15T00:41:03+00:00",
       "last_in_stock": true,
       "last_price": 5999.0,
       "last_retailer": "amazon.in",
       "last_score": 73.5,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/black-decker-bepw1600-1300w-1600-psi-110-BWbdgoSj",
-      "last_success_ts": "2026-09-14T22:14:47+00:00",
+      "last_success_ts": "2026-09-15T00:41:03+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
-        "life_avg": 5736.0,
+        "life_avg": 5737.0,
         "life_high": 10432.0,
         "life_low": 4397.0,
         "listing_id": "amazon-in-b0b1d2g6cc",
@@ -13642,7 +13650,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 29,
+        "samples": 30,
         "score": 73.5,
         "seller": null,
         "source": "pricehistory.app",
@@ -14785,10 +14793,14 @@
         {
           "date": "2026-09-14",
           "price": 5999.0
+        },
+        {
+          "date": "2026-09-15",
+          "price": 5999.0
         }
       ],
       "provider_history_source": "pricehistory.app",
-      "site_avg": 5736.0,
+      "site_avg": 5737.0,
       "site_high": 10432.0,
       "site_low": 4397.0
     },
@@ -17474,14 +17486,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-14T22:14:47+00:00",
+      "last_checked_ts": "2026-09-15T00:41:03+00:00",
       "last_in_stock": true,
       "last_price": 13499.0,
       "last_retailer": "amazon.in",
       "last_score": 75.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/70mai-a510-hdr-3k-dual-channel-dash-8SSpit2h",
-      "last_success_ts": "2026-09-14T22:14:47+00:00",
+      "last_success_ts": "2026-09-15T00:41:03+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -17504,7 +17516,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 31,
+        "samples": 32,
         "score": 75.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -19866,14 +19878,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-14T22:14:47+00:00",
+      "last_checked_ts": "2026-09-15T00:41:03+00:00",
       "last_in_stock": true,
       "last_price": 399.0,
       "last_retailer": "amazon.in",
       "last_score": 80.9,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/siago-car-safety-hammer-emergency-escape-tool-TY2echQ2",
-      "last_success_ts": "2026-09-14T22:14:47+00:00",
+      "last_success_ts": "2026-09-15T00:41:03+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -19897,7 +19909,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 29,
+        "samples": 30,
         "score": 80.9,
         "seller": null,
         "source": "pricehistory.app",
@@ -20492,6 +20504,10 @@
         {
           "date": "2026-09-14",
           "price": 399.0
+        },
+        {
+          "date": "2026-09-15",
+          "price": 399.0
         }
       ],
       "provider_history_source": "pricehistory.app",
@@ -20678,12 +20694,12 @@
       "auto_tier": "hot",
       "last_alert_price": 13499.0,
       "last_alert_ts": "2026-09-11T19:48:35+00:00",
-      "last_checked_ts": "2026-09-14T22:14:47+00:00",
+      "last_checked_ts": "2026-09-15T00:41:03+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-14T22:14:47+00:00",
+        "last_success_ts": "2026-09-15T00:41:03+00:00",
         "life_avg": 13407.0,
         "life_high": 20059.0,
         "life_low": 11399.0,
@@ -20704,7 +20720,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 31,
+        "samples": 32,
         "score": 75.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -20719,12 +20735,12 @@
       "auto_tier": "hot",
       "last_alert_price": 5599.0,
       "last_alert_ts": "2026-09-11T23:54:02+00:00",
-      "last_checked_ts": "2026-09-14T22:14:47+00:00",
+      "last_checked_ts": "2026-09-15T00:41:03+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-14T22:14:47+00:00",
+        "last_success_ts": "2026-09-15T00:41:03+00:00",
         "life_avg": 4527.0,
         "life_high": 8990.0,
         "life_low": 3869.1,
@@ -20745,7 +20761,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 29,
+        "samples": 30,
         "score": 66.2,
         "seller": null,
         "source": "pricehistory.app",
@@ -20760,12 +20776,12 @@
       "auto_tier": "hot",
       "last_alert_price": 1949.0,
       "last_alert_ts": "2026-09-11T19:48:35+00:00",
-      "last_checked_ts": "2026-09-14T22:14:47+00:00",
+      "last_checked_ts": "2026-09-15T00:41:03+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-14T22:14:47+00:00",
+        "last_success_ts": "2026-09-15T00:41:03+00:00",
         "life_avg": 1924.0,
         "life_high": 4538.0,
         "life_low": 879.0,
@@ -20786,7 +20802,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 31,
+        "samples": 32,
         "score": 70.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -20801,13 +20817,13 @@
       "auto_tier": "hot",
       "last_alert_price": 5999.0,
       "last_alert_ts": "2026-09-11T09:48:27+00:00",
-      "last_checked_ts": "2026-09-14T22:14:47+00:00",
+      "last_checked_ts": "2026-09-15T00:41:03+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-14T22:14:47+00:00",
-        "life_avg": 5736.0,
+        "last_success_ts": "2026-09-15T00:41:03+00:00",
+        "life_avg": 5737.0,
         "life_high": 10432.0,
         "life_low": 4397.0,
         "listing_id": "amazon-in-b0b1d2g6cc",
@@ -20828,7 +20844,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 29,
+        "samples": 30,
         "score": 73.5,
         "seller": null,
         "source": "pricehistory.app",
@@ -20885,13 +20901,13 @@
       "auto_tier": "hot",
       "last_alert_price": 3912.0,
       "last_alert_ts": "2026-09-11T05:19:31+00:00",
-      "last_checked_ts": "2026-09-14T22:14:47+00:00",
+      "last_checked_ts": "2026-09-15T00:41:03+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-14T22:14:47+00:00",
-        "life_avg": 4340.0,
+        "last_success_ts": "2026-09-15T00:41:03+00:00",
+        "life_avg": 4339.0,
         "life_high": 6495.0,
         "life_low": 3399.0,
         "listing_id": "amazon-in-b00ierqc80",
@@ -20909,10 +20925,10 @@
         "product_id": "michelin-12266-tyre-inflator",
         "reasons": [
           "Lowest price in 180 days",
-          "9.9% below the lifetime average"
+          "9.8% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 31,
+        "samples": 32,
         "score": 83.4,
         "seller": null,
         "source": "pricehistory.app",
@@ -20968,12 +20984,12 @@
       "auto_tier": "hot",
       "last_alert_price": 399.0,
       "last_alert_ts": "2026-09-11T09:48:27+00:00",
-      "last_checked_ts": "2026-09-14T22:14:47+00:00",
+      "last_checked_ts": "2026-09-15T00:41:03+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-14T22:14:47+00:00",
+        "last_success_ts": "2026-09-15T00:41:03+00:00",
         "life_avg": 388.0,
         "life_high": 669.0,
         "life_low": 335.16,
@@ -20995,7 +21011,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 29,
+        "samples": 30,
         "score": 80.9,
         "seller": null,
         "source": "pricehistory.app",
