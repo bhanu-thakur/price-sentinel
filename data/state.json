@@ -2,11 +2,13 @@
   "listings": {
     "amazon-in-b00ierqc80": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-09-11T02:28:40+00:00",
+      "last_attempt_ts": "2026-09-23T23:59:50+00:00",
       "last_attempts": [
         {
+          "kind": "network",
+          "message": "HTTPSConnectionPool(host='pricehistory.app', port=443): Read timed out. (read timeout=25)",
           "provider": "pricehistory.app",
-          "status": "success"
+          "status": "failed"
         }
       ],
       "last_checked_ts": "2026-09-23T21:45:00+00:00",
@@ -1746,14 +1748,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-23T09:54:39+00:00",
+      "last_checked_ts": "2026-09-23T23:59:50+00:00",
       "last_in_stock": true,
       "last_price": 798.0,
       "last_retailer": "amazon.in",
       "last_score": 10.4,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/jopasu-car-duster-paraffin-wax-treated-cotton-5PYzlaw8",
-      "last_success_ts": "2026-09-23T09:54:39+00:00",
+      "last_success_ts": "2026-09-23T23:59:50+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -1769,14 +1771,14 @@
         "name": "Jopasu car duster",
         "p10": 797.0,
         "p25": 798.0,
-        "percentile": 18.181818181818183,
+        "percentile": 17.391304347826086,
         "price": 798.0,
         "product_id": "jopasu-car-duster",
         "reasons": [
           "At or below your target of Rs 799"
         ],
         "retailer": "amazon.in",
-        "samples": 22,
+        "samples": 23,
         "score": 10.4,
         "seller": null,
         "source": "pricehistory.app",
@@ -7259,14 +7261,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-23T21:45:00+00:00",
+      "last_checked_ts": "2026-09-23T23:59:50+00:00",
       "last_in_stock": true,
       "last_price": 1949.0,
       "last_retailer": "amazon.in",
       "last_score": 70.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/amazon-basics-bc120725a-jumper-cable-4-gauge-W2Hv8wyp",
-      "last_success_ts": "2026-09-23T21:45:00+00:00",
+      "last_success_ts": "2026-09-23T23:59:50+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -7289,7 +7291,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 91,
+        "samples": 92,
         "score": 70.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -8817,11 +8819,14 @@
     },
     "amazon-in-b085s7nj2v": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-09-11T02:28:40+00:00",
+      "last_attempt_ts": "2026-09-23T23:59:50+00:00",
       "last_attempts": [
         {
+          "kind": "http",
+          "message": "HTTP 404",
           "provider": "pricehistory.app",
-          "status": "success"
+          "source_invalid": true,
+          "status": "failed"
         }
       ],
       "last_checked_ts": "2026-09-23T21:45:00+00:00",
@@ -10406,14 +10411,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-23T21:45:00+00:00",
+      "last_checked_ts": "2026-09-23T23:59:50+00:00",
       "last_in_stock": true,
       "last_price": 5598.0,
       "last_retailer": "amazon.in",
       "last_score": 66.2,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/agaro-supreme-high-pressure-washer-car-washer-sE8kqoSj",
-      "last_success_ts": "2026-09-23T21:45:00+00:00",
+      "last_success_ts": "2026-09-23T23:59:50+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -10436,7 +10441,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 89,
+        "samples": 90,
         "score": 66.2,
         "seller": null,
         "source": "pricehistory.app",
@@ -13738,14 +13743,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-23T21:45:00+00:00",
+      "last_checked_ts": "2026-09-23T23:59:50+00:00",
       "last_in_stock": true,
       "last_price": 5999.0,
       "last_retailer": "amazon.in",
       "last_score": 73.5,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/black-decker-bepw1600-1300w-1600-psi-110-BWbdgoSj",
-      "last_success_ts": "2026-09-23T21:45:00+00:00",
+      "last_success_ts": "2026-09-23T23:59:50+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -13769,7 +13774,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 89,
+        "samples": 90,
         "score": 73.5,
         "seller": null,
         "source": "pricehistory.app",
@@ -17665,14 +17670,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-23T21:45:00+00:00",
+      "last_checked_ts": "2026-09-23T23:59:50+00:00",
       "last_in_stock": true,
       "last_price": 13499.0,
       "last_retailer": "amazon.in",
       "last_score": 75.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/70mai-a510-hdr-3k-dual-channel-dash-8SSpit2h",
-      "last_success_ts": "2026-09-23T21:45:00+00:00",
+      "last_success_ts": "2026-09-23T23:59:50+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -17695,7 +17700,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 91,
+        "samples": 92,
         "score": 75.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -20085,14 +20090,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-23T21:45:00+00:00",
+      "last_checked_ts": "2026-09-23T23:59:50+00:00",
       "last_in_stock": true,
       "last_price": 399.0,
       "last_retailer": "amazon.in",
       "last_score": 80.9,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/siago-car-safety-hammer-emergency-escape-tool-TY2echQ2",
-      "last_success_ts": "2026-09-23T21:45:00+00:00",
+      "last_success_ts": "2026-09-23T23:59:50+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -20116,7 +20121,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 89,
+        "samples": 90,
         "score": 80.9,
         "seller": null,
         "source": "pricehistory.app",
@@ -20755,18 +20760,18 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-09-23T09:54:39+00:00",
+      "last_checked_ts": "2026-09-23T23:59:50+00:00",
       "last_in_stock": true,
       "last_price": 3349.0,
       "last_retailer": "amazon.in",
       "last_score": 59.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/vahan-expo-premium-7d-car-mat-full-Yr0l7zce",
-      "last_success_ts": "2026-09-23T09:54:39+00:00",
+      "last_success_ts": "2026-09-23T23:59:50+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
-        "life_avg": 3419.0,
+        "life_avg": 3417.0,
         "life_high": 3599.0,
         "life_low": 3181.0,
         "listing_id": "amazon-in-b0gmr9pn1w",
@@ -20785,7 +20790,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 24,
+        "samples": 25,
         "score": 59.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -20932,10 +20937,14 @@
         {
           "date": "2026-09-23",
           "price": 3349.0
+        },
+        {
+          "date": "2026-09-24",
+          "price": 3349.0
         }
       ],
       "provider_history_source": "pricehistory.app",
-      "site_avg": 3419.0,
+      "site_avg": 3417.0,
       "site_high": 3599.0,
       "site_low": 3181.0
     }
@@ -20945,12 +20954,12 @@
       "auto_tier": "hot",
       "last_alert_price": 13499.0,
       "last_alert_ts": "2026-09-18T21:05:37+00:00",
-      "last_checked_ts": "2026-09-23T21:45:00+00:00",
+      "last_checked_ts": "2026-09-23T23:59:50+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-23T21:45:00+00:00",
+        "last_success_ts": "2026-09-23T23:59:50+00:00",
         "life_avg": 13408.0,
         "life_high": 20059.0,
         "life_low": 11399.0,
@@ -20971,7 +20980,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 91,
+        "samples": 92,
         "score": 75.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -20986,12 +20995,12 @@
       "auto_tier": "hot",
       "last_alert_price": 5599.0,
       "last_alert_ts": "2026-09-19T01:14:17+00:00",
-      "last_checked_ts": "2026-09-23T21:45:00+00:00",
+      "last_checked_ts": "2026-09-23T23:59:50+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-23T21:45:00+00:00",
+        "last_success_ts": "2026-09-23T23:59:50+00:00",
         "life_avg": 4534.0,
         "life_high": 8990.0,
         "life_low": 3869.1,
@@ -21012,7 +21021,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 89,
+        "samples": 90,
         "score": 66.2,
         "seller": null,
         "source": "pricehistory.app",
@@ -21027,12 +21036,12 @@
       "auto_tier": "hot",
       "last_alert_price": 1949.0,
       "last_alert_ts": "2026-09-18T21:05:37+00:00",
-      "last_checked_ts": "2026-09-23T21:45:00+00:00",
+      "last_checked_ts": "2026-09-23T23:59:50+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-23T21:45:00+00:00",
+        "last_success_ts": "2026-09-23T23:59:50+00:00",
         "life_avg": 1924.0,
         "life_high": 4538.0,
         "life_low": 879.0,
@@ -21053,7 +21062,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 91,
+        "samples": 92,
         "score": 70.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -21068,12 +21077,12 @@
       "auto_tier": "hot",
       "last_alert_price": 5999.0,
       "last_alert_ts": "2026-09-18T11:46:06+00:00",
-      "last_checked_ts": "2026-09-23T21:45:00+00:00",
+      "last_checked_ts": "2026-09-23T23:59:50+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-23T21:45:00+00:00",
+        "last_success_ts": "2026-09-23T23:59:50+00:00",
         "life_avg": 5742.0,
         "life_high": 10432.0,
         "life_low": 4397.0,
@@ -21095,7 +21104,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 89,
+        "samples": 90,
         "score": 73.5,
         "seller": null,
         "source": "pricehistory.app",
@@ -21110,12 +21119,12 @@
       "auto_tier": "cold",
       "last_alert_price": 798.0,
       "last_alert_ts": "2026-09-19T05:57:49+00:00",
-      "last_checked_ts": "2026-09-23T09:54:39+00:00",
+      "last_checked_ts": "2026-09-23T23:59:50+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-23T09:54:39+00:00",
+        "last_success_ts": "2026-09-23T23:59:50+00:00",
         "life_avg": 702.0,
         "life_high": 850.0,
         "life_low": 350.0,
@@ -21129,14 +21138,14 @@
         "name": "Jopasu car duster",
         "p10": 797.0,
         "p25": 798.0,
-        "percentile": 18.181818181818183,
+        "percentile": 17.391304347826086,
         "price": 798.0,
         "product_id": "jopasu-car-duster",
         "reasons": [
           "At or below your target of Rs 799"
         ],
         "retailer": "amazon.in",
-        "samples": 22,
+        "samples": 23,
         "score": 10.4,
         "seller": null,
         "source": "pricehistory.app",
@@ -21151,7 +21160,7 @@
       "auto_tier": "hot",
       "last_alert_price": 3912.0,
       "last_alert_ts": "2026-09-18T06:36:17+00:00",
-      "last_checked_ts": "2026-09-23T21:45:00+00:00",
+      "last_checked_ts": "2026-09-23T23:59:50+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
@@ -21234,12 +21243,12 @@
       "auto_tier": "hot",
       "last_alert_price": 399.0,
       "last_alert_ts": "2026-09-18T11:46:06+00:00",
-      "last_checked_ts": "2026-09-23T21:45:00+00:00",
+      "last_checked_ts": "2026-09-23T23:59:50+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-23T21:45:00+00:00",
+        "last_success_ts": "2026-09-23T23:59:50+00:00",
         "life_avg": 389.0,
         "life_high": 669.0,
         "life_low": 335.16,
@@ -21261,7 +21270,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 89,
+        "samples": 90,
         "score": 80.9,
         "seller": null,
         "source": "pricehistory.app",
@@ -21276,7 +21285,7 @@
       "auto_tier": "hot",
       "last_alert_price": 328.0,
       "last_alert_ts": "2026-09-18T06:36:17+00:00",
-      "last_checked_ts": "2026-09-23T21:45:00+00:00",
+      "last_checked_ts": "2026-09-23T23:59:50+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
@@ -21319,13 +21328,13 @@
       "auto_tier": "cold",
       "last_alert_price": 3349.0,
       "last_alert_ts": "2026-09-20T23:49:13+00:00",
-      "last_checked_ts": "2026-09-23T09:54:39+00:00",
+      "last_checked_ts": "2026-09-23T23:59:50+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-09-23T09:54:39+00:00",
-        "life_avg": 3419.0,
+        "last_success_ts": "2026-09-23T23:59:50+00:00",
+        "life_avg": 3417.0,
         "life_high": 3599.0,
         "life_low": 3181.0,
         "listing_id": "amazon-in-b0gmr9pn1w",
@@ -21345,7 +21354,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 24,
+        "samples": 25,
         "score": 59.8,
         "seller": null,
         "source": "pricehistory.app",
