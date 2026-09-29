@@ -169,9 +169,7 @@
             "power": "1300 W",
             "pressure": "110 bar"
           },
-          "source_urls": {
-            "pricehistory.app": "https://pricehistory.app/p/black-decker-bepw1600-1300w-1600-psi-110-BWbdgoSj"
-          }
+          "source_urls": {}
         }
       ]
     },
