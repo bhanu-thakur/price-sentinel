@@ -9,14 +9,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-10-11T00:44:32+00:00",
+      "last_checked_ts": "2026-10-11T06:30:39+00:00",
       "last_in_stock": true,
       "last_price": 3229.0,
       "last_retailer": "amazon.in",
       "last_score": 100,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/michelin-high-power-tyre-inflator-ml-12266-MF3A87G5",
-      "last_success_ts": "2026-10-11T00:44:32+00:00",
+      "last_success_ts": "2026-10-11T06:30:39+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -41,7 +41,7 @@
           "Lowest price EVER recorded (Rs 3,229)"
         ],
         "retailer": "amazon.in",
-        "samples": 179,
+        "samples": 180,
         "score": 100,
         "seller": null,
         "source": "pricehistory.app",
@@ -7357,14 +7357,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-10-11T00:44:32+00:00",
+      "last_checked_ts": "2026-10-11T06:30:39+00:00",
       "last_in_stock": true,
       "last_price": 879.0,
       "last_retailer": "amazon.in",
       "last_score": 100,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/amazon-basics-bc120725a-jumper-cable-4-gauge-W2Hv8wyp",
-      "last_success_ts": "2026-10-11T00:44:32+00:00",
+      "last_success_ts": "2026-10-11T06:30:39+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -7389,7 +7389,7 @@
           "Lowest price EVER recorded (Rs 879)"
         ],
         "retailer": "amazon.in",
-        "samples": 180,
+        "samples": 181,
         "score": 100,
         "seller": null,
         "source": "pricehistory.app",
@@ -10513,14 +10513,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-10-11T00:44:32+00:00",
+      "last_checked_ts": "2026-10-11T06:30:39+00:00",
       "last_in_stock": true,
       "last_price": 5199.0,
       "last_retailer": "amazon.in",
       "last_score": 74.0,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/agaro-supreme-high-pressure-washer-car-washer-sE8kqoSj",
-      "last_success_ts": "2026-10-11T00:44:32+00:00",
+      "last_success_ts": "2026-10-11T06:30:39+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -10544,7 +10544,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 178,
+        "samples": 179,
         "score": 74.0,
         "seller": null,
         "source": "pricehistory.app",
@@ -13892,7 +13892,7 @@
     },
     "amazon-in-b0b1d2g6cc": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-10-10T22:01:05+00:00",
+      "last_attempt_ts": "2026-10-11T06:30:39+00:00",
       "last_attempts": [],
       "last_checked_ts": "2026-09-29T02:39:02+00:00",
       "last_in_stock": true,
@@ -15128,14 +15128,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-10-10T22:01:05+00:00",
+      "last_checked_ts": "2026-10-11T06:30:39+00:00",
       "last_in_stock": true,
       "last_price": 4399.0,
       "last_retailer": "amazon.in",
       "last_score": 59.1,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/shakti-technology-s3-high-pressure-car-washer-pIsjmm2h",
-      "last_success_ts": "2026-10-10T22:01:05+00:00",
+      "last_success_ts": "2026-10-11T06:30:39+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -15158,7 +15158,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 142,
+        "samples": 143,
         "score": 59.1,
         "seller": null,
         "source": "pricehistory.app",
@@ -17881,6 +17881,10 @@
         {
           "date": "2026-10-10",
           "price": 4399.0
+        },
+        {
+          "date": "2026-10-11",
+          "price": 4399.0
         }
       ],
       "provider_history_source": "pricehistory.app",
@@ -17897,14 +17901,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-10-11T00:44:32+00:00",
+      "last_checked_ts": "2026-10-11T06:30:39+00:00",
       "last_in_stock": true,
       "last_price": 11724.0,
       "last_retailer": "amazon.in",
       "last_score": 96.2,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/70mai-a510-hdr-3k-dual-channel-dash-8SSpit2h",
-      "last_success_ts": "2026-10-11T00:44:32+00:00",
+      "last_success_ts": "2026-10-11T06:30:39+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -17928,7 +17932,7 @@
           "Within 3% of the all-time low (Rs 11,399)"
         ],
         "retailer": "amazon.in",
-        "samples": 180,
+        "samples": 181,
         "score": 96.2,
         "seller": null,
         "source": "pricehistory.app",
@@ -20374,14 +20378,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-10-11T00:44:32+00:00",
+      "last_checked_ts": "2026-10-11T06:30:39+00:00",
       "last_in_stock": true,
       "last_price": 339.0,
       "last_retailer": "amazon.in",
       "last_score": 98.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/siago-car-safety-hammer-emergency-escape-tool-TY2echQ2",
-      "last_success_ts": "2026-10-11T00:44:32+00:00",
+      "last_success_ts": "2026-10-11T06:30:39+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -20406,7 +20410,7 @@
           "Within 3% of the all-time low (Rs 335)"
         ],
         "retailer": "amazon.in",
-        "samples": 178,
+        "samples": 179,
         "score": 98.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -21311,12 +21315,12 @@
       "auto_tier": "hot",
       "last_alert_price": 11799.0,
       "last_alert_ts": "2026-10-08T07:28:47+00:00",
-      "last_checked_ts": "2026-10-11T00:44:32+00:00",
+      "last_checked_ts": "2026-10-11T06:30:39+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-10-11T00:44:32+00:00",
+        "last_success_ts": "2026-10-11T06:30:39+00:00",
         "life_avg": 13418.0,
         "life_high": 20059.0,
         "life_low": 11399.0,
@@ -21338,7 +21342,7 @@
           "Within 3% of the all-time low (Rs 11,399)"
         ],
         "retailer": "amazon.in",
-        "samples": 180,
+        "samples": 181,
         "score": 96.2,
         "seller": null,
         "source": "pricehistory.app",
@@ -21353,12 +21357,12 @@
       "auto_tier": "hot",
       "last_alert_price": 5199.0,
       "last_alert_ts": "2026-10-08T01:13:28+00:00",
-      "last_checked_ts": "2026-10-11T00:44:32+00:00",
+      "last_checked_ts": "2026-10-11T06:30:39+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-10-11T00:44:32+00:00",
+        "last_success_ts": "2026-10-11T06:30:39+00:00",
         "life_avg": 4551.0,
         "life_high": 8990.0,
         "life_low": 3869.1,
@@ -21380,7 +21384,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 178,
+        "samples": 179,
         "score": 74.0,
         "seller": null,
         "source": "pricehistory.app",
@@ -21395,12 +21399,12 @@
       "auto_tier": "hot",
       "last_alert_price": 879.0,
       "last_alert_ts": "2026-10-06T20:12:40+00:00",
-      "last_checked_ts": "2026-10-11T00:44:32+00:00",
+      "last_checked_ts": "2026-10-11T06:30:39+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-10-11T00:44:32+00:00",
+        "last_success_ts": "2026-10-11T06:30:39+00:00",
         "life_avg": 1922.0,
         "life_high": 4538.0,
         "life_low": 879.0,
@@ -21423,7 +21427,7 @@
           "Lowest price EVER recorded (Rs 879)"
         ],
         "retailer": "amazon.in",
-        "samples": 180,
+        "samples": 181,
         "score": 100,
         "seller": null,
         "source": "pricehistory.app",
@@ -21438,7 +21442,7 @@
       "auto_tier": "warm",
       "last_alert_price": 5999.0,
       "last_alert_ts": "2026-09-25T12:43:25+00:00",
-      "last_checked_ts": "2026-10-10T22:01:05+00:00",
+      "last_checked_ts": "2026-10-11T06:30:39+00:00",
       "last_verdict": null,
       "recommended_listing_id": null,
       "stale_offers": [
@@ -21524,12 +21528,12 @@
       "auto_tier": "hot",
       "last_alert_price": 3229.0,
       "last_alert_ts": "2026-10-09T18:54:30+00:00",
-      "last_checked_ts": "2026-10-11T00:44:32+00:00",
+      "last_checked_ts": "2026-10-11T06:30:39+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-10-11T00:44:32+00:00",
+        "last_success_ts": "2026-10-11T06:30:39+00:00",
         "life_avg": 4321.0,
         "life_high": 6495.0,
         "life_low": 3229.0,
@@ -21552,7 +21556,7 @@
           "Lowest price EVER recorded (Rs 3,229)"
         ],
         "retailer": "amazon.in",
-        "samples": 179,
+        "samples": 180,
         "score": 100,
         "seller": null,
         "source": "pricehistory.app",
@@ -21567,12 +21571,12 @@
       "auto_tier": "warm",
       "last_alert_price": 4399.0,
       "last_alert_ts": "2026-10-08T14:46:55+00:00",
-      "last_checked_ts": "2026-10-10T22:01:05+00:00",
+      "last_checked_ts": "2026-10-11T06:30:39+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-10-10T22:01:05+00:00",
+        "last_success_ts": "2026-10-11T06:30:39+00:00",
         "life_avg": 4471.0,
         "life_high": 5265.0,
         "life_low": 3799.0,
@@ -21593,7 +21597,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 142,
+        "samples": 143,
         "score": 59.1,
         "seller": null,
         "source": "pricehistory.app",
@@ -21608,12 +21612,12 @@
       "auto_tier": "hot",
       "last_alert_price": 339.0,
       "last_alert_ts": "2026-10-08T20:12:51+00:00",
-      "last_checked_ts": "2026-10-11T00:44:32+00:00",
+      "last_checked_ts": "2026-10-11T06:30:39+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-10-11T00:44:32+00:00",
+        "last_success_ts": "2026-10-11T06:30:39+00:00",
         "life_avg": 387.0,
         "life_high": 669.0,
         "life_low": 335.16,
@@ -21636,7 +21640,7 @@
           "Within 3% of the all-time low (Rs 335)"
         ],
         "retailer": "amazon.in",
-        "samples": 178,
+        "samples": 179,
         "score": 98.8,
         "seller": null,
         "source": "pricehistory.app",
