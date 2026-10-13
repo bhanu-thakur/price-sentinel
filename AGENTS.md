@@ -60,3 +60,22 @@ confirm-first, because neither is finished work and neither is undone by a rever
 destroying or migrating data a user would miss, and changing what the project is rather
 than what it serves — deleting a site or project, moving a domain, rotating credentials,
 altering billing.
+
+## Cheap model workers (Bhanu, standing instruction)
+
+**Cheap model workers for mundane work.** From time to time, hand a mundane,
+well-bounded job — a status check, a file search, reading and summarising logs, a diff
+or a folder — to a subagent on a cheaper model, and keep the main session as the
+authority. In Claude Code that is the Agent tool's `model` parameter: `haiku` by
+default, `sonnet` when the job needs judgement. Pass it explicitly, because on a
+subscription the built-in Explore agent otherwise runs on Opus. On Anthropic's price
+list read 2026-10-13, Haiku 5.5 is $0.10 in / $0.50 out per million tokens against
+Opus 5.5's $4 / $20 — forty times cheaper — so a worker that reads 40,000 tokens
+costs what Opus spends reading 1,000. Haiku's price rises fivefold above 100,000
+tokens in one prompt, so keep each job narrow. Whether the plan's usage limit weighs
+the models in the same ratio is not checked yet; workers do spend from the same limit.
+Give the worker a self-contained brief that names the repo and tells it to read that
+repo's `AGENTS.md` first, because it starts with none of your context. Verify its
+load-bearing claims yourself before repeating them — the latest commit, a count, a
+pass or a fail: a worker's report is evidence to check, not a finding. Do the job
+yourself when the answer is one command away. Bhanu's instruction, 2026-10-13.
