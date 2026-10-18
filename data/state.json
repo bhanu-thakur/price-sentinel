@@ -9,14 +9,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-10-17T22:10:43+00:00",
+      "last_checked_ts": "2026-10-18T00:00:12+00:00",
       "last_in_stock": true,
       "last_price": 3399.0,
       "last_retailer": "amazon.in",
       "last_score": 94.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/michelin-high-power-tyre-inflator-ml-12266-MF3A87G5",
-      "last_success_ts": "2026-10-17T22:10:43+00:00",
+      "last_success_ts": "2026-10-18T00:00:12+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -31,8 +31,8 @@
         "mrp_discount_pct": 51.408148677626876,
         "name": "Michelin 12266 tyre inflator",
         "p10": 3399.0,
-        "p25": 3810.75,
-        "percentile": 7.79816513761468,
+        "p25": 3777.0,
+        "percentile": 7.76255707762557,
         "price": 3399.0,
         "product_id": "michelin-12266-tyre-inflator",
         "reasons": [
@@ -41,7 +41,7 @@
           "21.2% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 218,
+        "samples": 219,
         "score": 94.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -7397,14 +7397,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-10-17T22:10:43+00:00",
+      "last_checked_ts": "2026-10-18T00:00:12+00:00",
       "last_in_stock": true,
       "last_price": 879.0,
       "last_retailer": "amazon.in",
       "last_score": 100,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/amazon-basics-bc120725a-jumper-cable-4-gauge-W2Hv8wyp",
-      "last_success_ts": "2026-10-17T22:10:43+00:00",
+      "last_success_ts": "2026-10-18T00:00:12+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -7429,7 +7429,7 @@
           "Lowest price EVER recorded (Rs 879)"
         ],
         "retailer": "amazon.in",
-        "samples": 219,
+        "samples": 220,
         "score": 100,
         "seller": null,
         "source": "pricehistory.app",
@@ -10547,10 +10547,13 @@
     },
     "amazon-in-b09vkwgzd7": {
       "consecutive_failures": 0,
+      "last_attempt_ts": "2026-10-18T00:00:12+00:00",
       "last_attempts": [
         {
+          "kind": "network",
+          "message": "HTTPSConnectionPool(host='pricehistory.app', port=443): Read timed out. (read timeout=25)",
           "provider": "pricehistory.app",
-          "status": "success"
+          "status": "failed"
         }
       ],
       "last_checked_ts": "2026-10-17T22:10:43+00:00",
@@ -13956,7 +13959,7 @@
     },
     "amazon-in-b0b1d2g6cc": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-10-17T20:02:32+00:00",
+      "last_attempt_ts": "2026-10-18T00:00:12+00:00",
       "last_attempts": [],
       "last_checked_ts": "2026-09-29T02:39:02+00:00",
       "last_in_stock": true,
@@ -15185,11 +15188,14 @@
     },
     "amazon-in-b0bbwjfk5c": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-09-11T02:28:40+00:00",
+      "last_attempt_ts": "2026-10-18T00:00:12+00:00",
       "last_attempts": [
         {
+          "kind": "http",
+          "message": "HTTP 404",
           "provider": "pricehistory.app",
-          "status": "success"
+          "source_invalid": true,
+          "status": "failed"
         }
       ],
       "last_checked_ts": "2026-10-17T20:02:32+00:00",
@@ -17989,14 +17995,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-10-17T22:10:43+00:00",
+      "last_checked_ts": "2026-10-18T00:00:12+00:00",
       "last_in_stock": true,
       "last_price": 11724.0,
       "last_retailer": "amazon.in",
       "last_score": 96.2,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/70mai-a510-hdr-3k-dual-channel-dash-8SSpit2h",
-      "last_success_ts": "2026-10-17T22:10:43+00:00",
+      "last_success_ts": "2026-10-18T00:00:12+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -18020,7 +18026,7 @@
           "Within 3% of the all-time low (Rs 11,399)"
         ],
         "retailer": "amazon.in",
-        "samples": 219,
+        "samples": 220,
         "score": 96.2,
         "seller": null,
         "source": "pricehistory.app",
@@ -20494,14 +20500,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-10-17T22:10:43+00:00",
+      "last_checked_ts": "2026-10-18T00:00:12+00:00",
       "last_in_stock": true,
       "last_price": 339.0,
       "last_retailer": "amazon.in",
       "last_score": 98.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/siago-car-safety-hammer-emergency-escape-tool-TY2echQ2",
-      "last_success_ts": "2026-10-17T22:10:43+00:00",
+      "last_success_ts": "2026-10-18T00:00:12+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -20526,7 +20532,7 @@
           "Within 3% of the all-time low (Rs 335)"
         ],
         "retailer": "amazon.in",
-        "samples": 217,
+        "samples": 218,
         "score": 98.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -21229,14 +21235,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-10-17T22:10:43+00:00",
+      "last_checked_ts": "2026-10-18T00:00:12+00:00",
       "last_in_stock": true,
       "last_price": 3181.0,
       "last_retailer": "amazon.in",
       "last_score": 100,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/vahan-expo-premium-7d-car-mat-full-Yr0l7zce",
-      "last_success_ts": "2026-10-17T22:10:43+00:00",
+      "last_success_ts": "2026-10-18T00:00:12+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -21261,7 +21267,7 @@
           "Lowest price EVER recorded (Rs 3,181)"
         ],
         "retailer": "amazon.in",
-        "samples": 90,
+        "samples": 91,
         "score": 100,
         "seller": null,
         "source": "pricehistory.app",
@@ -21465,12 +21471,12 @@
       "auto_tier": "hot",
       "last_alert_price": 11799.0,
       "last_alert_ts": "2026-10-15T09:51:52+00:00",
-      "last_checked_ts": "2026-10-17T22:10:43+00:00",
+      "last_checked_ts": "2026-10-18T00:00:12+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-10-17T22:10:43+00:00",
+        "last_success_ts": "2026-10-18T00:00:12+00:00",
         "life_avg": 13399.0,
         "life_high": 20059.0,
         "life_low": 11399.0,
@@ -21492,7 +21498,7 @@
           "Within 3% of the all-time low (Rs 11,399)"
         ],
         "retailer": "amazon.in",
-        "samples": 219,
+        "samples": 220,
         "score": 96.2,
         "seller": null,
         "source": "pricehistory.app",
@@ -21507,7 +21513,7 @@
       "auto_tier": "hot",
       "last_alert_price": 5199.0,
       "last_alert_ts": "2026-10-15T05:11:53+00:00",
-      "last_checked_ts": "2026-10-17T22:10:43+00:00",
+      "last_checked_ts": "2026-10-18T00:00:12+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
@@ -21549,12 +21555,12 @@
       "auto_tier": "hot",
       "last_alert_price": 879.0,
       "last_alert_ts": "2026-10-13T21:58:39+00:00",
-      "last_checked_ts": "2026-10-17T22:10:43+00:00",
+      "last_checked_ts": "2026-10-18T00:00:12+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-10-17T22:10:43+00:00",
+        "last_success_ts": "2026-10-18T00:00:12+00:00",
         "life_avg": 1922.0,
         "life_high": 4538.0,
         "life_low": 879.0,
@@ -21577,7 +21583,7 @@
           "Lowest price EVER recorded (Rs 879)"
         ],
         "retailer": "amazon.in",
-        "samples": 219,
+        "samples": 220,
         "score": 100,
         "seller": null,
         "source": "pricehistory.app",
@@ -21592,7 +21598,7 @@
       "auto_tier": "warm",
       "last_alert_price": 5999.0,
       "last_alert_ts": "2026-09-25T12:43:25+00:00",
-      "last_checked_ts": "2026-10-17T20:02:32+00:00",
+      "last_checked_ts": "2026-10-18T00:00:12+00:00",
       "last_verdict": null,
       "recommended_listing_id": null,
       "stale_offers": [
@@ -21678,12 +21684,12 @@
       "auto_tier": "hot",
       "last_alert_price": 3399.0,
       "last_alert_ts": "2026-10-16T18:55:25+00:00",
-      "last_checked_ts": "2026-10-17T22:10:43+00:00",
+      "last_checked_ts": "2026-10-18T00:00:12+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-10-17T22:10:43+00:00",
+        "last_success_ts": "2026-10-18T00:00:12+00:00",
         "life_avg": 4314.0,
         "life_high": 6495.0,
         "life_low": 3229.0,
@@ -21696,8 +21702,8 @@
         "mrp_discount_pct": 51.408148677626876,
         "name": "Michelin 12266 tyre inflator",
         "p10": 3399.0,
-        "p25": 3810.75,
-        "percentile": 7.79816513761468,
+        "p25": 3777.0,
+        "percentile": 7.76255707762557,
         "price": 3399.0,
         "product_id": "michelin-12266-tyre-inflator",
         "reasons": [
@@ -21706,7 +21712,7 @@
           "21.2% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 218,
+        "samples": 219,
         "score": 94.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -21721,7 +21727,7 @@
       "auto_tier": "warm",
       "last_alert_price": 4399.0,
       "last_alert_ts": "2026-10-15T18:28:49+00:00",
-      "last_checked_ts": "2026-10-17T20:02:32+00:00",
+      "last_checked_ts": "2026-10-18T00:00:12+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
@@ -21762,12 +21768,12 @@
       "auto_tier": "hot",
       "last_alert_price": 339.0,
       "last_alert_ts": "2026-10-15T21:36:45+00:00",
-      "last_checked_ts": "2026-10-17T22:10:43+00:00",
+      "last_checked_ts": "2026-10-18T00:00:12+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-10-17T22:10:43+00:00",
+        "last_success_ts": "2026-10-18T00:00:12+00:00",
         "life_avg": 386.0,
         "life_high": 669.0,
         "life_low": 335.16,
@@ -21790,7 +21796,7 @@
           "Within 3% of the all-time low (Rs 335)"
         ],
         "retailer": "amazon.in",
-        "samples": 217,
+        "samples": 218,
         "score": 98.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -21850,12 +21856,12 @@
       "auto_tier": "hot",
       "last_alert_price": 3181.0,
       "last_alert_ts": "2026-10-11T13:18:24+00:00",
-      "last_checked_ts": "2026-10-17T22:10:43+00:00",
+      "last_checked_ts": "2026-10-18T00:00:12+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-10-17T22:10:43+00:00",
+        "last_success_ts": "2026-10-18T00:00:12+00:00",
         "life_avg": 3388.0,
         "life_high": 3599.0,
         "life_low": 3181.0,
@@ -21878,7 +21884,7 @@
           "Lowest price EVER recorded (Rs 3,181)"
         ],
         "retailer": "amazon.in",
-        "samples": 90,
+        "samples": 91,
         "score": 100,
         "seller": null,
         "source": "pricehistory.app",

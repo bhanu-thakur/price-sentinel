@@ -115,9 +115,7 @@
             "model": "S3",
             "power": "1800 W"
           },
-          "source_urls": {
-            "pricehistory.app": "https://pricehistory.app/p/shakti-technology-s3-high-pressure-car-washer-pIsjmm2h"
-          }
+          "source_urls": {}
         }
       ]
     },
