@@ -218,9 +218,7 @@
             "model": "A510-1",
             "channels": "front and rear"
           },
-          "source_urls": {
-            "pricehistory.app": "https://pricehistory.app/p/70mai-a510-hdr-3k-dual-channel-dash-8SSpit2h"
-          }
+          "source_urls": {}
         }
       ]
     },
