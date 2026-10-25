@@ -2,7 +2,7 @@
   "listings": {
     "amazon-in-b00ierqc80": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-10-25T18:30:54+00:00",
+      "last_attempt_ts": "2026-10-25T21:07:04+00:00",
       "last_attempts": [
         {
           "disabled_until": "2026-10-25T21:29:20+00:00",
@@ -7434,7 +7434,7 @@
     },
     "amazon-in-b074dmn1xm": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-10-25T18:30:54+00:00",
+      "last_attempt_ts": "2026-10-25T21:07:04+00:00",
       "last_attempts": [
         {
           "disabled_until": "2026-10-25T21:29:20+00:00",
@@ -10593,7 +10593,7 @@
     },
     "amazon-in-b09vkwgzd7": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-10-25T18:30:54+00:00",
+      "last_attempt_ts": "2026-10-25T21:07:04+00:00",
       "last_attempts": [
         {
           "disabled_until": "2026-10-25T21:29:20+00:00",
@@ -20555,7 +20555,7 @@
     },
     "amazon-in-b0dlgxl3nj": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-10-25T18:30:54+00:00",
+      "last_attempt_ts": "2026-10-25T21:07:04+00:00",
       "last_attempts": [
         {
           "disabled_until": "2026-10-25T21:29:20+00:00",
@@ -21314,7 +21314,7 @@
     },
     "amazon-in-b0gmr9pn1w": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-10-25T18:30:54+00:00",
+      "last_attempt_ts": "2026-10-25T21:07:04+00:00",
       "last_attempts": [
         {
           "disabled_until": "2026-10-25T21:29:20+00:00",
@@ -21611,7 +21611,7 @@
       "auto_tier": "hot",
       "last_alert_price": 5199.0,
       "last_alert_ts": "2026-10-22T05:19:05+00:00",
-      "last_checked_ts": "2026-10-25T18:30:54+00:00",
+      "last_checked_ts": "2026-10-25T21:07:04+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
@@ -21653,7 +21653,7 @@
       "auto_tier": "hot",
       "last_alert_price": 879.0,
       "last_alert_ts": "2026-10-21T00:21:40+00:00",
-      "last_checked_ts": "2026-10-25T18:30:54+00:00",
+      "last_checked_ts": "2026-10-25T21:07:04+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
@@ -21781,7 +21781,7 @@
       "auto_tier": "hot",
       "last_alert_price": 3399.0,
       "last_alert_ts": "2026-10-23T19:10:22+00:00",
-      "last_checked_ts": "2026-10-25T18:30:54+00:00",
+      "last_checked_ts": "2026-10-25T21:07:04+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
@@ -21867,7 +21867,7 @@
       "auto_tier": "hot",
       "last_alert_price": 339.0,
       "last_alert_ts": "2026-10-22T22:24:06+00:00",
-      "last_checked_ts": "2026-10-25T18:30:54+00:00",
+      "last_checked_ts": "2026-10-25T21:07:04+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
@@ -21953,7 +21953,7 @@
       "auto_tier": "hot",
       "last_alert_price": 3181.0,
       "last_alert_ts": "2026-10-25T18:30:54+00:00",
-      "last_checked_ts": "2026-10-25T18:30:54+00:00",
+      "last_checked_ts": "2026-10-25T21:07:04+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
