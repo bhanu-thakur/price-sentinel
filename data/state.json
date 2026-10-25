@@ -2,7 +2,7 @@
   "listings": {
     "amazon-in-b00ierqc80": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-10-25T15:29:20+00:00",
+      "last_attempt_ts": "2026-10-25T18:30:54+00:00",
       "last_attempts": [
         {
           "disabled_until": "2026-10-25T21:29:20+00:00",
@@ -7434,7 +7434,7 @@
     },
     "amazon-in-b074dmn1xm": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-10-25T15:29:20+00:00",
+      "last_attempt_ts": "2026-10-25T18:30:54+00:00",
       "last_attempts": [
         {
           "disabled_until": "2026-10-25T21:29:20+00:00",
@@ -10593,13 +10593,13 @@
     },
     "amazon-in-b09vkwgzd7": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-10-25T15:29:20+00:00",
+      "last_attempt_ts": "2026-10-25T18:30:54+00:00",
       "last_attempts": [
         {
-          "kind": "blocked",
-          "message": "HTTP 429",
+          "disabled_until": "2026-10-25T21:29:20+00:00",
           "provider": "pricehistory.app",
-          "status": "failed"
+          "reason": "disabled",
+          "status": "skipped"
         }
       ],
       "last_checked_ts": "2026-10-25T11:54:55+00:00",
@@ -14029,7 +14029,7 @@
     },
     "amazon-in-b0b1d2g6cc": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-10-25T15:29:20+00:00",
+      "last_attempt_ts": "2026-10-25T18:30:54+00:00",
       "last_attempts": [],
       "last_checked_ts": "2026-09-29T02:39:02+00:00",
       "last_in_stock": true,
@@ -15258,7 +15258,7 @@
     },
     "amazon-in-b0bbwjfk5c": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-10-25T15:29:20+00:00",
+      "last_attempt_ts": "2026-10-25T18:30:54+00:00",
       "last_attempts": [],
       "last_checked_ts": "2026-10-17T20:02:32+00:00",
       "last_in_stock": true,
@@ -18050,7 +18050,7 @@
     },
     "amazon-in-b0cvh2k929": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-10-25T15:29:20+00:00",
+      "last_attempt_ts": "2026-10-25T18:30:54+00:00",
       "last_attempts": [],
       "last_checked_ts": "2026-10-18T18:35:26+00:00",
       "last_in_stock": true,
@@ -20555,7 +20555,7 @@
     },
     "amazon-in-b0dlgxl3nj": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-10-25T15:29:20+00:00",
+      "last_attempt_ts": "2026-10-25T18:30:54+00:00",
       "last_attempts": [
         {
           "disabled_until": "2026-10-25T21:29:20+00:00",
@@ -21314,7 +21314,7 @@
     },
     "amazon-in-b0gmr9pn1w": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-10-25T15:29:20+00:00",
+      "last_attempt_ts": "2026-10-25T18:30:54+00:00",
       "last_attempts": [
         {
           "disabled_until": "2026-10-25T21:29:20+00:00",
@@ -21567,7 +21567,7 @@
       "auto_tier": "warm",
       "last_alert_price": 11209.0,
       "last_alert_ts": "2026-10-18T18:35:26+00:00",
-      "last_checked_ts": "2026-10-25T15:29:20+00:00",
+      "last_checked_ts": "2026-10-25T18:30:54+00:00",
       "last_verdict": null,
       "recommended_listing_id": null,
       "stale_offers": [
@@ -21611,7 +21611,7 @@
       "auto_tier": "hot",
       "last_alert_price": 5199.0,
       "last_alert_ts": "2026-10-22T05:19:05+00:00",
-      "last_checked_ts": "2026-10-25T15:29:20+00:00",
+      "last_checked_ts": "2026-10-25T18:30:54+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
@@ -21653,7 +21653,7 @@
       "auto_tier": "hot",
       "last_alert_price": 879.0,
       "last_alert_ts": "2026-10-21T00:21:40+00:00",
-      "last_checked_ts": "2026-10-25T15:29:20+00:00",
+      "last_checked_ts": "2026-10-25T18:30:54+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
@@ -21696,7 +21696,7 @@
       "auto_tier": "warm",
       "last_alert_price": 5999.0,
       "last_alert_ts": "2026-09-25T12:43:25+00:00",
-      "last_checked_ts": "2026-10-25T15:29:20+00:00",
+      "last_checked_ts": "2026-10-25T18:30:54+00:00",
       "last_verdict": null,
       "recommended_listing_id": null,
       "stale_offers": [
@@ -21781,7 +21781,7 @@
       "auto_tier": "hot",
       "last_alert_price": 3399.0,
       "last_alert_ts": "2026-10-23T19:10:22+00:00",
-      "last_checked_ts": "2026-10-25T15:29:20+00:00",
+      "last_checked_ts": "2026-10-25T18:30:54+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
@@ -21824,7 +21824,7 @@
       "auto_tier": "warm",
       "last_alert_price": 4399.0,
       "last_alert_ts": "2026-10-15T18:28:49+00:00",
-      "last_checked_ts": "2026-10-25T15:29:20+00:00",
+      "last_checked_ts": "2026-10-25T18:30:54+00:00",
       "last_verdict": null,
       "recommended_listing_id": null,
       "stale_offers": [
@@ -21867,7 +21867,7 @@
       "auto_tier": "hot",
       "last_alert_price": 339.0,
       "last_alert_ts": "2026-10-22T22:24:06+00:00",
-      "last_checked_ts": "2026-10-25T15:29:20+00:00",
+      "last_checked_ts": "2026-10-25T18:30:54+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
@@ -21952,8 +21952,8 @@
     "vahan-expo-7d-floor-mats-seltos-2026": {
       "auto_tier": "hot",
       "last_alert_price": 3181.0,
-      "last_alert_ts": "2026-10-18T16:06:41+00:00",
-      "last_checked_ts": "2026-10-25T15:29:20+00:00",
+      "last_alert_ts": "2026-10-25T18:30:54+00:00",
+      "last_checked_ts": "2026-10-25T18:30:54+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
