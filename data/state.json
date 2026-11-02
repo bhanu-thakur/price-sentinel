@@ -9,14 +9,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-11-02T02:48:20+00:00",
+      "last_checked_ts": "2026-11-02T10:01:51+00:00",
       "last_in_stock": true,
       "last_price": 3399.0,
       "last_retailer": "amazon.in",
       "last_score": 94.8,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/michelin-high-power-tyre-inflator-ml-12266-MF3A87G5",
-      "last_success_ts": "2026-11-02T02:48:20+00:00",
+      "last_success_ts": "2026-11-02T10:01:51+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -32,7 +32,7 @@
         "name": "Michelin 12266 tyre inflator",
         "p10": 3399.0,
         "p25": 3399.0,
-        "percentile": 5.647840531561462,
+        "percentile": 5.629139072847682,
         "price": 3399.0,
         "product_id": "michelin-12266-tyre-inflator",
         "reasons": [
@@ -41,7 +41,7 @@
           "20.9% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 301,
+        "samples": 302,
         "score": 94.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -1832,14 +1832,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-11-01T16:21:33+00:00",
+      "last_checked_ts": "2026-11-02T10:01:51+00:00",
       "last_in_stock": true,
       "last_price": 745.0,
       "last_retailer": "amazon.in",
       "last_score": 18.9,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/jopasu-car-duster-paraffin-wax-treated-cotton-5PYzlaw8",
-      "last_success_ts": "2026-11-01T16:21:33+00:00",
+      "last_success_ts": "2026-11-02T10:01:51+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -1850,8 +1850,8 @@
         "max90": 799.0,
         "median": 797.0,
         "min90": 745.0,
-        "mrp": 869.0,
-        "mrp_discount_pct": 14.2692750287687,
+        "mrp": 939.0,
+        "mrp_discount_pct": 20.66027689030884,
         "name": "Jopasu car duster",
         "p10": 745.0,
         "p25": 745.0,
@@ -1863,7 +1863,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 86,
+        "samples": 87,
         "score": 18.9,
         "seller": null,
         "source": "pricehistory.app",
@@ -7454,6 +7454,10 @@
         {
           "date": "2026-10-31",
           "price": 745.0
+        },
+        {
+          "date": "2026-11-02",
+          "price": 745.0
         }
       ],
       "provider_history_source": "pricehistory.app",
@@ -7470,14 +7474,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-11-02T02:48:20+00:00",
+      "last_checked_ts": "2026-11-02T10:01:51+00:00",
       "last_in_stock": true,
       "last_price": 879.0,
       "last_retailer": "amazon.in",
       "last_score": 100,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/amazon-basics-bc120725a-jumper-cable-4-gauge-W2Hv8wyp",
-      "last_success_ts": "2026-11-02T02:48:20+00:00",
+      "last_success_ts": "2026-11-02T10:01:51+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -7502,7 +7506,7 @@
           "Lowest price EVER recorded (Rs 879)"
         ],
         "retailer": "amazon.in",
-        "samples": 303,
+        "samples": 304,
         "score": 100,
         "seller": null,
         "source": "pricehistory.app",
@@ -9042,7 +9046,7 @@
     },
     "amazon-in-b085s7nj2v": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-11-01T16:21:33+00:00",
+      "last_attempt_ts": "2026-11-02T10:01:51+00:00",
       "last_attempts": [],
       "last_checked_ts": "2026-09-23T21:45:00+00:00",
       "last_in_stock": true,
@@ -10627,14 +10631,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-11-02T02:48:20+00:00",
+      "last_checked_ts": "2026-11-02T10:01:51+00:00",
       "last_in_stock": true,
       "last_price": 5199.0,
       "last_retailer": "amazon.in",
       "last_score": 74.0,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/agaro-supreme-high-pressure-washer-car-washer-sE8kqoSj",
-      "last_success_ts": "2026-11-02T02:48:20+00:00",
+      "last_success_ts": "2026-11-02T10:01:51+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -10658,7 +10662,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 300,
+        "samples": 301,
         "score": 74.0,
         "seller": null,
         "source": "pricehistory.app",
@@ -14086,7 +14090,7 @@
     },
     "amazon-in-b0b1d2g6cc": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-11-01T23:52:13+00:00",
+      "last_attempt_ts": "2026-11-02T10:01:51+00:00",
       "last_attempts": [],
       "last_checked_ts": "2026-09-29T02:39:02+00:00",
       "last_in_stock": true,
@@ -15315,7 +15319,7 @@
     },
     "amazon-in-b0bbwjfk5c": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-11-01T23:52:13+00:00",
+      "last_attempt_ts": "2026-11-02T10:01:51+00:00",
       "last_attempts": [],
       "last_checked_ts": "2026-10-17T20:02:32+00:00",
       "last_in_stock": true,
@@ -18107,7 +18111,7 @@
     },
     "amazon-in-b0cvh2k929": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-11-01T23:52:13+00:00",
+      "last_attempt_ts": "2026-11-02T10:01:51+00:00",
       "last_attempts": [],
       "last_checked_ts": "2026-10-18T18:35:26+00:00",
       "last_in_stock": true,
@@ -20619,14 +20623,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-11-02T02:48:20+00:00",
+      "last_checked_ts": "2026-11-02T10:01:51+00:00",
       "last_in_stock": true,
       "last_price": 375.0,
       "last_retailer": "amazon.in",
       "last_score": 88.1,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/siago-car-safety-hammer-emergency-escape-tool-TY2echQ2",
-      "last_success_ts": "2026-11-02T02:48:20+00:00",
+      "last_success_ts": "2026-11-02T10:01:51+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -20642,14 +20646,14 @@
         "name": "SIAGO SIA118 car safety hammer",
         "p10": 339.0,
         "p25": 339.0,
-        "percentile": 29.900332225913623,
+        "percentile": 29.80132450331126,
         "price": 375.0,
         "product_id": "siago-car-safety-hammer",
         "reasons": [
           "At or below your target of Rs 399"
         ],
         "retailer": "amazon.in",
-        "samples": 301,
+        "samples": 302,
         "score": 88.1,
         "seller": null,
         "source": "pricehistory.app",
@@ -21392,14 +21396,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-11-02T02:48:20+00:00",
+      "last_checked_ts": "2026-11-02T10:01:51+00:00",
       "last_in_stock": true,
       "last_price": 3181.0,
       "last_retailer": "amazon.in",
       "last_score": 100,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/vahan-expo-premium-7d-car-mat-full-Yr0l7zce",
-      "last_success_ts": "2026-11-02T02:48:20+00:00",
+      "last_success_ts": "2026-11-02T10:01:51+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -21424,7 +21428,7 @@
           "Lowest price EVER recorded (Rs 3,181)"
         ],
         "retailer": "amazon.in",
-        "samples": 174,
+        "samples": 175,
         "score": 100,
         "seller": null,
         "source": "pricehistory.app",
@@ -21636,7 +21640,7 @@
       "auto_tier": "warm",
       "last_alert_price": 11209.0,
       "last_alert_ts": "2026-10-18T18:35:26+00:00",
-      "last_checked_ts": "2026-11-01T23:52:13+00:00",
+      "last_checked_ts": "2026-11-02T10:01:51+00:00",
       "last_verdict": null,
       "recommended_listing_id": null,
       "stale_offers": [
@@ -21680,12 +21684,12 @@
       "auto_tier": "hot",
       "last_alert_price": 5199.0,
       "last_alert_ts": "2026-10-29T08:52:49+00:00",
-      "last_checked_ts": "2026-11-02T02:48:20+00:00",
+      "last_checked_ts": "2026-11-02T10:01:51+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-11-02T02:48:20+00:00",
+        "last_success_ts": "2026-11-02T10:01:51+00:00",
         "life_avg": 4566.0,
         "life_high": 8990.0,
         "life_low": 3869.1,
@@ -21707,7 +21711,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 300,
+        "samples": 301,
         "score": 74.0,
         "seller": null,
         "source": "pricehistory.app",
@@ -21722,12 +21726,12 @@
       "auto_tier": "hot",
       "last_alert_price": 879.0,
       "last_alert_ts": "2026-10-28T01:31:23+00:00",
-      "last_checked_ts": "2026-11-02T02:48:20+00:00",
+      "last_checked_ts": "2026-11-02T10:01:51+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-11-02T02:48:20+00:00",
+        "last_success_ts": "2026-11-02T10:01:51+00:00",
         "life_avg": 1922.0,
         "life_high": 4538.0,
         "life_low": 879.0,
@@ -21750,7 +21754,7 @@
           "Lowest price EVER recorded (Rs 879)"
         ],
         "retailer": "amazon.in",
-        "samples": 303,
+        "samples": 304,
         "score": 100,
         "seller": null,
         "source": "pricehistory.app",
@@ -21765,7 +21769,7 @@
       "auto_tier": "warm",
       "last_alert_price": 5999.0,
       "last_alert_ts": "2026-09-25T12:43:25+00:00",
-      "last_checked_ts": "2026-11-01T23:52:13+00:00",
+      "last_checked_ts": "2026-11-02T10:01:51+00:00",
       "last_verdict": null,
       "recommended_listing_id": null,
       "stale_offers": [
@@ -21809,12 +21813,12 @@
       "auto_tier": "cold",
       "last_alert_price": 745.0,
       "last_alert_ts": "2026-10-29T15:38:48+00:00",
-      "last_checked_ts": "2026-11-01T16:21:33+00:00",
+      "last_checked_ts": "2026-11-02T10:01:51+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-11-01T16:21:33+00:00",
+        "last_success_ts": "2026-11-02T10:01:51+00:00",
         "life_avg": 705.0,
         "life_high": 837.0,
         "life_low": 350.0,
@@ -21823,8 +21827,8 @@
         "max90": 799.0,
         "median": 797.0,
         "min90": 745.0,
-        "mrp": 869.0,
-        "mrp_discount_pct": 14.2692750287687,
+        "mrp": 939.0,
+        "mrp_discount_pct": 20.66027689030884,
         "name": "Jopasu car duster",
         "p10": 745.0,
         "p25": 745.0,
@@ -21836,7 +21840,7 @@
           "Lowest price in 180 days"
         ],
         "retailer": "amazon.in",
-        "samples": 86,
+        "samples": 87,
         "score": 18.9,
         "seller": null,
         "source": "pricehistory.app",
@@ -21851,12 +21855,12 @@
       "auto_tier": "hot",
       "last_alert_price": 3399.0,
       "last_alert_ts": "2026-10-30T21:26:58+00:00",
-      "last_checked_ts": "2026-11-02T02:48:20+00:00",
+      "last_checked_ts": "2026-11-02T10:01:51+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-11-02T02:48:20+00:00",
+        "last_success_ts": "2026-11-02T10:01:51+00:00",
         "life_avg": 4298.0,
         "life_high": 6495.0,
         "life_low": 3229.0,
@@ -21870,7 +21874,7 @@
         "name": "Michelin 12266 tyre inflator",
         "p10": 3399.0,
         "p25": 3399.0,
-        "percentile": 5.647840531561462,
+        "percentile": 5.629139072847682,
         "price": 3399.0,
         "product_id": "michelin-12266-tyre-inflator",
         "reasons": [
@@ -21879,7 +21883,7 @@
           "20.9% below the lifetime average"
         ],
         "retailer": "amazon.in",
-        "samples": 301,
+        "samples": 302,
         "score": 94.8,
         "seller": null,
         "source": "pricehistory.app",
@@ -21894,7 +21898,7 @@
       "auto_tier": "warm",
       "last_alert_price": 4399.0,
       "last_alert_ts": "2026-10-15T18:28:49+00:00",
-      "last_checked_ts": "2026-11-01T23:52:13+00:00",
+      "last_checked_ts": "2026-11-02T10:01:51+00:00",
       "last_verdict": null,
       "recommended_listing_id": null,
       "stale_offers": [
@@ -21937,12 +21941,12 @@
       "auto_tier": "hot",
       "last_alert_price": 375.0,
       "last_alert_ts": "2026-10-30T00:11:27+00:00",
-      "last_checked_ts": "2026-11-02T02:48:20+00:00",
+      "last_checked_ts": "2026-11-02T10:01:51+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-11-02T02:48:20+00:00",
+        "last_success_ts": "2026-11-02T10:01:51+00:00",
         "life_avg": 385.0,
         "life_high": 669.0,
         "life_low": 335.16,
@@ -21956,14 +21960,14 @@
         "name": "SIAGO SIA118 car safety hammer",
         "p10": 339.0,
         "p25": 339.0,
-        "percentile": 29.900332225913623,
+        "percentile": 29.80132450331126,
         "price": 375.0,
         "product_id": "siago-car-safety-hammer",
         "reasons": [
           "At or below your target of Rs 399"
         ],
         "retailer": "amazon.in",
-        "samples": 301,
+        "samples": 302,
         "score": 88.1,
         "seller": null,
         "source": "pricehistory.app",
@@ -21978,7 +21982,7 @@
       "auto_tier": "cold",
       "last_alert_price": 328.0,
       "last_alert_ts": "2026-09-18T06:36:17+00:00",
-      "last_checked_ts": "2026-11-01T16:21:33+00:00",
+      "last_checked_ts": "2026-11-02T10:01:51+00:00",
       "last_verdict": null,
       "recommended_listing_id": null,
       "stale_offers": [
@@ -22023,12 +22027,12 @@
       "auto_tier": "hot",
       "last_alert_price": 3181.0,
       "last_alert_ts": "2026-11-01T20:36:37+00:00",
-      "last_checked_ts": "2026-11-02T02:48:20+00:00",
+      "last_checked_ts": "2026-11-02T10:01:51+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-11-02T02:48:20+00:00",
+        "last_success_ts": "2026-11-02T10:01:51+00:00",
         "life_avg": 3379.0,
         "life_high": 3599.0,
         "life_low": 3181.0,
@@ -22051,7 +22055,7 @@
           "Lowest price EVER recorded (Rs 3,181)"
         ],
         "retailer": "amazon.in",
-        "samples": 174,
+        "samples": 175,
         "score": 100,
         "seller": null,
         "source": "pricehistory.app",
