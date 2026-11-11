@@ -9,18 +9,18 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-11-11T10:15:34+00:00",
+      "last_checked_ts": "2026-11-11T17:55:19+00:00",
       "last_in_stock": true,
-      "last_price": 3999.0,
+      "last_price": 3912.0,
       "last_retailer": "amazon.in",
-      "last_score": 76.4,
+      "last_score": 79.1,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/michelin-high-power-tyre-inflator-ml-12266-MF3A87G5",
-      "last_success_ts": "2026-11-11T10:15:34+00:00",
+      "last_success_ts": "2026-11-11T17:55:19+00:00",
       "last_verdict": {
-        "alert": false,
+        "alert": true,
         "in_stock": true,
-        "life_avg": 4295.0,
+        "life_avg": 4294.0,
         "life_high": 6495.0,
         "life_low": 3229.0,
         "listing_id": "amazon-in-b00ierqc80",
@@ -28,21 +28,23 @@
         "median": 3912.0,
         "min90": 3229.0,
         "mrp": 6995.0,
-        "mrp_discount_pct": 42.83059328091494,
+        "mrp_discount_pct": 44.07433881343817,
         "name": "Michelin 12266 tyre inflator",
         "p10": 3399.0,
         "p25": 3399.0,
-        "percentile": 97.63313609467455,
-        "price": 3999.0,
+        "percentile": 49.26253687315634,
+        "price": 3912.0,
         "product_id": "michelin-12266-tyre-inflator",
-        "reasons": [],
+        "reasons": [
+          "8.9% below the lifetime average"
+        ],
         "retailer": "amazon.in",
-        "samples": 338,
-        "score": 76.4,
+        "samples": 339,
+        "score": 79.1,
         "seller": null,
         "source": "pricehistory.app",
         "url": "https://amazon.in/dp/B00IERQC80",
-        "vs_median_pct": 2.223926380368098
+        "vs_median_pct": 0.0
       },
       "provider_history": [
         {
@@ -1820,10 +1822,14 @@
         {
           "date": "2026-11-09",
           "price": 3999.0
+        },
+        {
+          "date": "2026-11-11",
+          "price": 3912.0
         }
       ],
       "provider_history_source": "pricehistory.app",
-      "site_avg": 4295.0,
+      "site_avg": 4294.0,
       "site_high": 6495.0,
       "site_low": 3229.0
     },
@@ -1836,14 +1842,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-11-10T23:27:34+00:00",
+      "last_checked_ts": "2026-11-11T17:55:19+00:00",
       "last_in_stock": true,
-      "last_price": 745.0,
+      "last_price": 769.0,
       "last_retailer": "amazon.in",
-      "last_score": 18.9,
+      "last_score": 14.0,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/jopasu-car-duster-paraffin-wax-treated-cotton-5PYzlaw8",
-      "last_success_ts": "2026-11-10T23:27:34+00:00",
+      "last_success_ts": "2026-11-11T17:55:19+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -1855,24 +1861,23 @@
         "median": 758.0,
         "min90": 745.0,
         "mrp": 939.0,
-        "mrp_discount_pct": 20.66027689030884,
+        "mrp_discount_pct": 18.10436634717785,
         "name": "Jopasu car duster",
         "p10": 745.0,
         "p25": 745.0,
-        "percentile": 0.0,
-        "price": 745.0,
+        "percentile": 50.495049504950494,
+        "price": 769.0,
         "product_id": "jopasu-car-duster",
         "reasons": [
-          "At or below your target of Rs 799",
-          "Lowest price in 180 days"
+          "At or below your target of Rs 799"
         ],
         "retailer": "amazon.in",
-        "samples": 100,
-        "score": 18.9,
+        "samples": 101,
+        "score": 14.0,
         "seller": null,
         "source": "pricehistory.app",
         "url": "https://amazon.in/dp/B00RJQ8XHU",
-        "vs_median_pct": -1.7150395778364116
+        "vs_median_pct": 1.4511873350923483
       },
       "provider_history": [
         {
@@ -7482,6 +7487,10 @@
         {
           "date": "2026-11-10",
           "price": 745.0
+        },
+        {
+          "date": "2026-11-11",
+          "price": 769.0
         }
       ],
       "provider_history_source": "pricehistory.app",
@@ -7498,14 +7507,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-11-11T10:15:34+00:00",
+      "last_checked_ts": "2026-11-11T17:55:19+00:00",
       "last_in_stock": true,
       "last_price": 879.0,
       "last_retailer": "amazon.in",
       "last_score": 100,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/amazon-basics-bc120725a-jumper-cable-4-gauge-W2Hv8wyp",
-      "last_success_ts": "2026-11-11T10:15:34+00:00",
+      "last_success_ts": "2026-11-11T17:55:19+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -7530,7 +7539,7 @@
           "Lowest price EVER recorded (Rs 879)"
         ],
         "retailer": "amazon.in",
-        "samples": 340,
+        "samples": 341,
         "score": 100,
         "seller": null,
         "source": "pricehistory.app",
@@ -9070,7 +9079,7 @@
     },
     "amazon-in-b085s7nj2v": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-11-10T23:27:34+00:00",
+      "last_attempt_ts": "2026-11-11T17:55:19+00:00",
       "last_attempts": [],
       "last_checked_ts": "2026-09-23T21:45:00+00:00",
       "last_in_stock": true,
@@ -10655,14 +10664,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-11-11T10:15:34+00:00",
+      "last_checked_ts": "2026-11-11T17:55:19+00:00",
       "last_in_stock": true,
       "last_price": 5599.0,
       "last_retailer": "amazon.in",
       "last_score": 66.2,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/agaro-supreme-high-pressure-washer-car-washer-sE8kqoSj",
-      "last_success_ts": "2026-11-11T10:15:34+00:00",
+      "last_success_ts": "2026-11-11T17:55:19+00:00",
       "last_verdict": {
         "alert": false,
         "in_stock": true,
@@ -10678,12 +10687,12 @@
         "name": "AGARO Supreme 1800 W pressure washer",
         "p10": 5199.0,
         "p25": 5199.0,
-        "percentile": 53.11572700296736,
+        "percentile": 52.95857988165681,
         "price": 5599.0,
         "product_id": "agaro-supreme-pressure-washer",
         "reasons": [],
         "retailer": "amazon.in",
-        "samples": 337,
+        "samples": 338,
         "score": 66.2,
         "seller": null,
         "source": "pricehistory.app",
@@ -14139,7 +14148,7 @@
     },
     "amazon-in-b0b1d2g6cc": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-11-11T10:15:34+00:00",
+      "last_attempt_ts": "2026-11-11T17:55:19+00:00",
       "last_attempts": [],
       "last_checked_ts": "2026-09-29T02:39:02+00:00",
       "last_in_stock": true,
@@ -15368,7 +15377,7 @@
     },
     "amazon-in-b0bbwjfk5c": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-11-11T10:15:34+00:00",
+      "last_attempt_ts": "2026-11-11T17:55:19+00:00",
       "last_attempts": [],
       "last_checked_ts": "2026-10-17T20:02:32+00:00",
       "last_in_stock": true,
@@ -18160,7 +18169,7 @@
     },
     "amazon-in-b0cvh2k929": {
       "consecutive_failures": 0,
-      "last_attempt_ts": "2026-11-11T10:15:34+00:00",
+      "last_attempt_ts": "2026-11-11T17:55:19+00:00",
       "last_attempts": [],
       "last_checked_ts": "2026-10-18T18:35:26+00:00",
       "last_in_stock": true,
@@ -20672,14 +20681,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-11-11T10:15:34+00:00",
+      "last_checked_ts": "2026-11-11T17:55:19+00:00",
       "last_in_stock": true,
       "last_price": 430.0,
       "last_retailer": "amazon.in",
       "last_score": 71.6,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/siago-car-safety-hammer-emergency-escape-tool-TY2echQ2",
-      "last_success_ts": "2026-11-11T10:15:34+00:00",
+      "last_success_ts": "2026-11-11T17:55:19+00:00",
       "last_verdict": {
         "alert": false,
         "in_stock": true,
@@ -20695,12 +20704,12 @@
         "name": "SIAGO SIA118 car safety hammer",
         "p10": 339.0,
         "p25": 339.0,
-        "percentile": 99.70414201183432,
+        "percentile": 99.41002949852508,
         "price": 430.0,
         "product_id": "siago-car-safety-hammer",
         "reasons": [],
         "retailer": "amazon.in",
-        "samples": 338,
+        "samples": 339,
         "score": 71.6,
         "seller": null,
         "source": "pricehistory.app",
@@ -21455,14 +21464,14 @@
           "status": "success"
         }
       ],
-      "last_checked_ts": "2026-11-11T10:15:34+00:00",
+      "last_checked_ts": "2026-11-11T17:55:19+00:00",
       "last_in_stock": true,
       "last_price": 3181.0,
       "last_retailer": "amazon.in",
       "last_score": 100,
       "last_source": "pricehistory.app",
       "last_source_url": "https://pricehistory.app/p/vahan-expo-premium-7d-car-mat-full-Yr0l7zce",
-      "last_success_ts": "2026-11-11T10:15:34+00:00",
+      "last_success_ts": "2026-11-11T17:55:19+00:00",
       "last_verdict": {
         "alert": true,
         "in_stock": true,
@@ -21487,7 +21496,7 @@
           "Lowest price EVER recorded (Rs 3,181)"
         ],
         "retailer": "amazon.in",
-        "samples": 211,
+        "samples": 212,
         "score": 100,
         "seller": null,
         "source": "pricehistory.app",
@@ -21699,7 +21708,7 @@
       "auto_tier": "warm",
       "last_alert_price": 11209.0,
       "last_alert_ts": "2026-10-18T18:35:26+00:00",
-      "last_checked_ts": "2026-11-11T10:15:34+00:00",
+      "last_checked_ts": "2026-11-11T17:55:19+00:00",
       "last_verdict": null,
       "recommended_listing_id": null,
       "stale_offers": [
@@ -21743,12 +21752,12 @@
       "auto_tier": "hot",
       "last_alert_price": 5199.0,
       "last_alert_ts": "2026-11-05T09:55:16+00:00",
-      "last_checked_ts": "2026-11-11T10:15:34+00:00",
+      "last_checked_ts": "2026-11-11T17:55:19+00:00",
       "last_verdict": {
         "alert": false,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-11-11T10:15:34+00:00",
+        "last_success_ts": "2026-11-11T17:55:19+00:00",
         "life_avg": 4572.0,
         "life_high": 8990.0,
         "life_low": 3869.1,
@@ -21762,12 +21771,12 @@
         "name": "AGARO Supreme 1800 W pressure washer",
         "p10": 5199.0,
         "p25": 5199.0,
-        "percentile": 53.11572700296736,
+        "percentile": 52.95857988165681,
         "price": 5599.0,
         "product_id": "agaro-supreme-pressure-washer",
         "reasons": [],
         "retailer": "amazon.in",
-        "samples": 337,
+        "samples": 338,
         "score": 66.2,
         "seller": null,
         "source": "pricehistory.app",
@@ -21782,12 +21791,12 @@
       "auto_tier": "hot",
       "last_alert_price": 879.0,
       "last_alert_ts": "2026-11-11T02:54:08+00:00",
-      "last_checked_ts": "2026-11-11T10:15:34+00:00",
+      "last_checked_ts": "2026-11-11T17:55:19+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-11-11T10:15:34+00:00",
+        "last_success_ts": "2026-11-11T17:55:19+00:00",
         "life_avg": 1922.0,
         "life_high": 4538.0,
         "life_low": 879.0,
@@ -21810,7 +21819,7 @@
           "Lowest price EVER recorded (Rs 879)"
         ],
         "retailer": "amazon.in",
-        "samples": 340,
+        "samples": 341,
         "score": 100,
         "seller": null,
         "source": "pricehistory.app",
@@ -21825,7 +21834,7 @@
       "auto_tier": "warm",
       "last_alert_price": 5999.0,
       "last_alert_ts": "2026-09-25T12:43:25+00:00",
-      "last_checked_ts": "2026-11-11T10:15:34+00:00",
+      "last_checked_ts": "2026-11-11T17:55:19+00:00",
       "last_verdict": null,
       "recommended_listing_id": null,
       "stale_offers": [
@@ -21869,12 +21878,12 @@
       "auto_tier": "cold",
       "last_alert_price": 745.0,
       "last_alert_ts": "2026-11-05T17:49:26+00:00",
-      "last_checked_ts": "2026-11-10T23:27:34+00:00",
+      "last_checked_ts": "2026-11-11T17:55:19+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-11-10T23:27:34+00:00",
+        "last_success_ts": "2026-11-11T17:55:19+00:00",
         "life_avg": 705.0,
         "life_high": 837.0,
         "life_low": 350.0,
@@ -21884,24 +21893,23 @@
         "median": 758.0,
         "min90": 745.0,
         "mrp": 939.0,
-        "mrp_discount_pct": 20.66027689030884,
+        "mrp_discount_pct": 18.10436634717785,
         "name": "Jopasu car duster",
         "p10": 745.0,
         "p25": 745.0,
-        "percentile": 0.0,
-        "price": 745.0,
+        "percentile": 50.495049504950494,
+        "price": 769.0,
         "product_id": "jopasu-car-duster",
         "reasons": [
-          "At or below your target of Rs 799",
-          "Lowest price in 180 days"
+          "At or below your target of Rs 799"
         ],
         "retailer": "amazon.in",
-        "samples": 100,
-        "score": 18.9,
+        "samples": 101,
+        "score": 14.0,
         "seller": null,
         "source": "pricehistory.app",
         "url": "https://amazon.in/dp/B00RJQ8XHU",
-        "vs_median_pct": -1.7150395778364116
+        "vs_median_pct": 1.4511873350923483
       },
       "recommended_listing_id": "amazon-in-b00rjq8xhu",
       "stale_offers": [],
@@ -21911,13 +21919,13 @@
       "auto_tier": "hot",
       "last_alert_price": 3399.0,
       "last_alert_ts": "2026-11-06T22:23:08+00:00",
-      "last_checked_ts": "2026-11-11T10:15:34+00:00",
+      "last_checked_ts": "2026-11-11T17:55:19+00:00",
       "last_verdict": {
-        "alert": false,
+        "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-11-11T10:15:34+00:00",
-        "life_avg": 4295.0,
+        "last_success_ts": "2026-11-11T17:55:19+00:00",
+        "life_avg": 4294.0,
         "life_high": 6495.0,
         "life_low": 3229.0,
         "listing_id": "amazon-in-b00ierqc80",
@@ -21926,31 +21934,33 @@
         "median": 3912.0,
         "min90": 3229.0,
         "mrp": 6995.0,
-        "mrp_discount_pct": 42.83059328091494,
+        "mrp_discount_pct": 44.07433881343817,
         "name": "Michelin 12266 tyre inflator",
         "p10": 3399.0,
         "p25": 3399.0,
-        "percentile": 97.63313609467455,
-        "price": 3999.0,
+        "percentile": 49.26253687315634,
+        "price": 3912.0,
         "product_id": "michelin-12266-tyre-inflator",
-        "reasons": [],
+        "reasons": [
+          "8.9% below the lifetime average"
+        ],
         "retailer": "amazon.in",
-        "samples": 338,
-        "score": 76.4,
+        "samples": 339,
+        "score": 79.1,
         "seller": null,
         "source": "pricehistory.app",
         "url": "https://amazon.in/dp/B00IERQC80",
-        "vs_median_pct": 2.223926380368098
+        "vs_median_pct": 0.0
       },
       "recommended_listing_id": "amazon-in-b00ierqc80",
       "stale_offers": [],
-      "status": "watch"
+      "status": "buy"
     },
     "shakti-s3-pressure-washer": {
       "auto_tier": "warm",
       "last_alert_price": 4399.0,
       "last_alert_ts": "2026-10-15T18:28:49+00:00",
-      "last_checked_ts": "2026-11-11T10:15:34+00:00",
+      "last_checked_ts": "2026-11-11T17:55:19+00:00",
       "last_verdict": null,
       "recommended_listing_id": null,
       "stale_offers": [
@@ -21993,12 +22003,12 @@
       "auto_tier": "hot",
       "last_alert_price": 375.0,
       "last_alert_ts": "2026-11-06T03:05:35+00:00",
-      "last_checked_ts": "2026-11-11T10:15:34+00:00",
+      "last_checked_ts": "2026-11-11T17:55:19+00:00",
       "last_verdict": {
         "alert": false,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-11-11T10:15:34+00:00",
+        "last_success_ts": "2026-11-11T17:55:19+00:00",
         "life_avg": 385.0,
         "life_high": 669.0,
         "life_low": 335.16,
@@ -22012,12 +22022,12 @@
         "name": "SIAGO SIA118 car safety hammer",
         "p10": 339.0,
         "p25": 339.0,
-        "percentile": 99.70414201183432,
+        "percentile": 99.41002949852508,
         "price": 430.0,
         "product_id": "siago-car-safety-hammer",
         "reasons": [],
         "retailer": "amazon.in",
-        "samples": 338,
+        "samples": 339,
         "score": 71.6,
         "seller": null,
         "source": "pricehistory.app",
@@ -22032,7 +22042,7 @@
       "auto_tier": "cold",
       "last_alert_price": 328.0,
       "last_alert_ts": "2026-09-18T06:36:17+00:00",
-      "last_checked_ts": "2026-11-10T23:27:34+00:00",
+      "last_checked_ts": "2026-11-11T17:55:19+00:00",
       "last_verdict": null,
       "recommended_listing_id": null,
       "stale_offers": [
@@ -22077,12 +22087,12 @@
       "auto_tier": "hot",
       "last_alert_price": 3181.0,
       "last_alert_ts": "2026-11-08T23:06:41+00:00",
-      "last_checked_ts": "2026-11-11T10:15:34+00:00",
+      "last_checked_ts": "2026-11-11T17:55:19+00:00",
       "last_verdict": {
         "alert": true,
         "fresh": true,
         "in_stock": true,
-        "last_success_ts": "2026-11-11T10:15:34+00:00",
+        "last_success_ts": "2026-11-11T17:55:19+00:00",
         "life_avg": 3379.0,
         "life_high": 3599.0,
         "life_low": 3181.0,
@@ -22105,7 +22115,7 @@
           "Lowest price EVER recorded (Rs 3,181)"
         ],
         "retailer": "amazon.in",
-        "samples": 211,
+        "samples": 212,
         "score": 100,
         "seller": null,
         "source": "pricehistory.app",
