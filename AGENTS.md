@@ -104,3 +104,17 @@ a second time. Pull again just before you push. If a pull fails or conflicts, do
 discard or overwrite anything to get past it — resolve it, or tell Bhanu. Bhanu's
 instruction, 2026-10-27, after a session in `inviteX` finished a change and only found
 out when it went to push that another session had already pushed the same change.
+
+## Never branch — always use main (Bhanu, standing instruction)
+
+**Never branch. Always use `main`.** Do all work on `main` and push straight to it: do
+not create a branch — local, remote, or in a worktree — and do not open a pull request.
+If you find a branch other than `main`, here or on GitHub, merge it into `main` safely
+and then delete it: pull first, merge only when it fast-forwards or merges cleanly and
+the repo's own tests still pass, push, and only then delete the branch locally and on
+GitHub (`git push origin --delete <branch>`) along with any worktree that held it. A
+branch whose commits are already in `main` is deleted without merging. If a branch will
+not merge cleanly, or you cannot tell whether its work is wanted, leave it and tell
+Bhanu — never discard unmerged work to get to a clean list. In a repo whose default
+branch is still called `master`, read `main` as that default branch. Bhanu's
+instruction, 2026-11-14.
