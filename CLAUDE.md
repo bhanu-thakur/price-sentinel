@@ -13,10 +13,10 @@ section "AGENTS.md".
 Run the environment doctor and read its JSON instead of probing the environment:
 
 ```
-python ../ai-command-center/scripts/doctor.py
+python ../commandX/scripts/doctor.py
 ```
 
-Read-only from here — run it, never write into `ai-command-center`.
+Read-only from here — run it, never write into `commandX`.
 
 The old instruction said `& ..\doctor.ps1`. That file does not exist on Nebula
 (checked 2026-08-20); the Python script is the live one.
