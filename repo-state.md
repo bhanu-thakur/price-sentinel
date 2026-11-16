@@ -3,7 +3,7 @@
 **The procedure is not here.** It lives in one place:
 
 ```
-~/GitHub/ai-command-center/prompts/repo-state.md
+~/GitHub/commandX/prompts/repo-state.md
 ```
 
 To get a state report for this repo, open a session here and say:
@@ -20,7 +20,7 @@ rather than a second rulebook, and the same one behind
 
 **Do not paste the procedure back into this file.** If it is wrong, fix the
 original; every repo picks the change up for free. If the original is
-unreachable — a machine with no `ai-command-center` checkout — that is the thing
+unreachable — a machine with no `commandX` checkout — that is the thing
 to fix, not this file.
 
 The standing rules this repo follows during that report — pull practices before
