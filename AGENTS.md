@@ -118,3 +118,12 @@ not merge cleanly, or you cannot tell whether its work is wanted, leave it and t
 Bhanu — never discard unmerged work to get to a clean list. In a repo whose default
 branch is still called `master`, read `main` as that default branch. Bhanu's
 instruction, 2026-11-14.
+
+**Keep standing instructions in the repo, not in memory.** Claude's memory lives on one
+machine only and is lost when that machine is cleaned up or reset, and Bhanu works on
+more than one machine. So when he gives an instruction or preference meant to last
+beyond this session, write it into this repo's `AGENTS.md` (or `CLAUDE.md` where there
+is no `AGENTS.md`), or into a skill committed to this repo, and commit and push it.
+Memory may hold a copy, never the only copy. When you find a preference that lives only
+in memory, move it into the repo. If it should hold in every repo, say so, so the
+commandX session can copy it into all of them. Bhanu's instruction, 2026-11-18.
