@@ -1,5 +1,11 @@
 # Price Sentinel
 
+> **Retired on 2026-11-19.** Price checks have moved to
+> [priceX](https://github.com/bhanu-thakur/priceX), live at **https://pricex.web.app**
+> (Firebase, checks every 10 minutes). This repo's GitHub timer is switched off, so the
+> dashboard below stops updating at its last run (2026-11-19 00:45 UTC). To bring it
+> back: `gh workflow enable track.yml -R bhanu-thakur/price-sentinel`.
+
 Always-on multi-retailer price tracker. GitHub Actions is configured to run every
 30 minutes on a best-effort schedule — free, whether or not your laptop is on.
 GitHub can delay or drop scheduled runs, so this is monitoring rather than a strict
